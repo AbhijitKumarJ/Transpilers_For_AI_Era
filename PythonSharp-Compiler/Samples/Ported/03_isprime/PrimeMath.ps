@@ -1,0 +1,108 @@
+namespace MathUtil;
+
+using PythonSharp.Core;
+
+public class PrimeMath
+{
+    public static bool IsPrime(long n)
+    {
+        if (n <= 1)
+        {
+            return false;
+        }
+        if (n <= 3)
+        {
+            return true;
+        }
+        if (n % 2 == 0 || n % 3 == 0)
+        {
+            return false;
+        }
+
+        long i = 5;
+        while (i * i <= n)
+        {
+            if (n % i == 0 || n % (i + 2) == 0)
+            {
+                return false;
+            }
+            i += 6;
+        }
+
+        return true;
+    }
+
+    public static long NextPrime(long n)
+    {
+        if (n < 2)
+        {
+            return 2;
+        }
+
+        long candidate = n + 1;
+        while (!IsPrime(candidate))
+        {
+            candidate += 1;
+        }
+
+        return candidate;
+    }
+
+    public static List<int> PrimesUpTo(int limit)
+    {
+        List<int> result = new List<int>();
+        if (limit < 2)
+        {
+            return result;
+        }
+
+        int cur = 2;
+        while (cur <= limit)
+        {
+            if (IsPrime(cur))
+            {
+                result.Add(cur);
+            }
+            cur += 1;
+        }
+
+        return result;
+    }
+
+    public static List<long> PrimeFactors(long n)
+    {
+        List<long> factors = new List<long>();
+        if (n <= 1)
+        {
+            return factors;
+        }
+
+        long d = 2;
+        long num = n;
+
+        while (num % d == 0)
+        {
+            factors.Add(d);
+            num = num / d;
+        }
+
+        d = 3;
+        while (d * d <= num)
+        {
+            while (num % d == 0)
+            {
+                factors.Add(d);
+                num = num / d;
+            }
+            d += 2;
+        }
+
+        if (num > 1)
+        {
+            factors.Add(num);
+        }
+
+        return factors;
+    }
+}
+

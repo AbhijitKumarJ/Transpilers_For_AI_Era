@@ -1,0 +1,49 @@
+namespace Golden;
+
+using PythonSharp.Core;
+
+public enum Status
+{
+    Draft = 1,
+    Published,
+}
+
+public interface IDescribable
+{
+    string Describe();
+}
+
+public record Item(int Id, string Name) : IDescribable
+{
+    public static int Created { get; set; } = 0;
+
+    public string Describe() => $"{Id}:{Name}";
+}
+
+public class Catalog
+{
+    private readonly Dict<int, Item> _items = new Dict<int, Item>();
+
+    public void Add(Item item) => _items[item.Id] = item;
+
+    public Item? Find(int id)
+    {
+        if (_items.ContainsKey(id))
+        {
+            return _items[id];
+        }
+        return null;
+    }
+
+    public List<string> Names(int start, int count)
+    {
+        var ordered = _items.Values().OrderBy(item => item.Name).Select(item => item.Name).ToList();
+        return ordered[start..(start + count)];
+    }
+
+    public string Describe(Item? item) => item?.Describe() ?? "none";
+
+    public int Sum(int a, int b) => a + b;
+
+    public int Sum(int a, int b, int c) => a + b + c;
+}

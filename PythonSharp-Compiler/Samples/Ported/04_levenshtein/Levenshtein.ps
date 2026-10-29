@@ -1,0 +1,86 @@
+namespace DistanceUtil;
+
+using PythonSharp.Core;
+
+public class Levenshtein
+{
+    public static int Distance(string s1, string s2)
+    {
+        if (s1 == s2)
+        {
+            return 0;
+        }
+        if (s1.Length == 0)
+        {
+            return s2.Length;
+        }
+        if (s2.Length == 0)
+        {
+            return s1.Length;
+        }
+
+        List<int> v0 = new List<int>();
+        int i = 0;
+        while (i <= s2.Length)
+        {
+            v0.Add(i);
+            i += 1;
+        }
+
+        i = 0;
+        while (i < s1.Length)
+        {
+            List<int> v1 = new List<int>();
+            v1.Add(i + 1);
+
+            int j = 0;
+            while (j < s2.Length)
+            {
+                int deletionCost = v0[j + 1] + 1;
+                int insertionCost = v1[j] + 1;
+                int substitutionCost = v0[j];
+                if (s1[i] != s2[j])
+                {
+                    substitutionCost += 1;
+                }
+
+                int minCost = deletionCost;
+                if (insertionCost < minCost)
+                {
+                    minCost = insertionCost;
+                }
+                if (substitutionCost < minCost)
+                {
+                    minCost = substitutionCost;
+                }
+
+                v1.Add(minCost);
+                j += 1;
+            }
+
+            v0 = v1;
+            i += 1;
+        }
+
+        return v0[s2.Length];
+    }
+
+    public static double Ratio(string s1, string s2)
+    {
+        int dist = Distance(s1, s2);
+        int totalLen = s1.Length + s2.Length;
+        if (totalLen == 0)
+        {
+            return 1.0;
+        }
+
+        double dDist = dist * 2.0;
+        double similarity = 1.0 - (dDist / totalLen);
+        if (similarity < 0.0)
+        {
+            return 0.0;
+        }
+        return similarity;
+    }
+}
+

@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "emit_pyc": true,
+  "target_python": "3.11",
+  "inputs": {
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/PythonSharp.Core.d.ps": {
+      "sha256": "3faaee15c39031fa20e835d3a9772cda4ff172269b7bdfe3af3498350c22cade",
+      "mtime": 1793299131.5676792,
+      "size": 16359
+    },
+    "HttpClient.ps": {
+      "sha256": "43ed50d9b09dbd82260ee406a04f3be3febdec287c9b9b590b0be2cf55338638",
+      "mtime": 1793299705.4492986,
+      "size": 3038
+    }
+  },
+  "outputs": [
+    "micro_requests.py",
+    "micro_requests.pyc"
+  ]
+}

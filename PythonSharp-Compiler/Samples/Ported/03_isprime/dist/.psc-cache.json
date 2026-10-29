@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "emit_pyc": true,
+  "target_python": "3.11",
+  "inputs": {
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/PythonSharp.Core.d.ps": {
+      "sha256": "3faaee15c39031fa20e835d3a9772cda4ff172269b7bdfe3af3498350c22cade",
+      "mtime": 1793299131.5676792,
+      "size": 16359
+    },
+    "PrimeMath.ps": {
+      "sha256": "b8ad5289af26435e36ba57423c504a430d940bb70c802775832979ee3c25ef77",
+      "mtime": 1793298265.024523,
+      "size": 1831
+    }
+  },
+  "outputs": [
+    "math_util.py",
+    "math_util.pyc"
+  ]
+}

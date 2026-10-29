@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "entries": {
+    "native_text": {
+      "package_name": "native_text",
+      "pyi_path": "/home/abhijit/Videos/transpilers/PythonSharp/Samples/04_bindgen_interop/native_text.pyi",
+      "pyi_hash": "5ec6ffd861fce3d069de0f638251a7574493917113634b97689c4a0344587f7a",
+      "d_ps_path": "/home/abhijit/Videos/transpilers/PythonSharp/Samples/04_bindgen_interop/stubs/native_text.d.ps",
+      "d_ps_hash": "67013d06cdb15cf7022d56684c87b6dddae139367b8b31cb6ef939cab225a70e"
+    }
+  }
+}

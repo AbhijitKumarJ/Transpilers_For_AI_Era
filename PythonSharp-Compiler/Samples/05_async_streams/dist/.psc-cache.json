@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "emit_pyc": false,
+  "target_python": "3.11",
+  "inputs": {
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/PythonSharp.Core.d.ps": {
+      "sha256": "48e0c33f4925c62758acb16dd614c0181e45e0518031af28dc90feba6306ba56",
+      "mtime": 1793290658.1552455,
+      "size": 14944
+    },
+    "StreamService.ps": {
+      "sha256": "b8dc4ec18c201e710c93b611d261135f878882f9f91b5d624ffe262e4eb5522f",
+      "mtime": 1793293756.9468908,
+      "size": 488
+    }
+  },
+  "outputs": [
+    "streaming.py"
+  ]
+}
