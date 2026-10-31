@@ -1,0 +1,25 @@
+namespace Game.Physics;
+
+public class PhysicsSimulator {
+    List<RigidBody> bodies;
+
+    public PhysicsSimulator() {
+        this.bodies = new List<RigidBody>();
+    }
+
+    public void AddBody(RigidBody body) {
+        this.bodies.Add(body);
+    }
+
+    public void Step(double dt) {
+        foreach (var b in this.bodies) {
+            b.Integrate(dt);
+        }
+    }
+
+    public bool CheckCollision(RigidBody b1, RigidBody b2, double radius) {
+        var dist = NativeCollider.Distance(b1.Position.X, b1.Position.Y, b2.Position.X, b2.Position.Y);
+        return dist <= (radius * 2.0);
+    }
+}
+

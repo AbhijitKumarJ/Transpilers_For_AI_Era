@@ -1,0 +1,36 @@
+namespace Commerce.Checkout;
+
+extern using rust_decimal::Decimal as Decimal;
+
+public record Order(int Id, decimal Total);
+public record ValidationError(string Reason);
+
+public service class TaxCalculator
+{
+    public void RecordAudit(Order order)
+    {
+    }
+}
+
+public service class OrderHandler
+{
+    private readonly TaxCalculator _tax;
+
+    public OrderHandler(TaxCalculator tax) => _tax = tax;
+
+    public void Checkout(Order order, string coupon) throws ValidationError
+    {
+        if (order.Total <= 0.0m)
+            throw new ValidationError("Order total must be positive");
+
+        ApplyCoupon(order, coupon);
+        _tax.RecordAudit(order);
+    }
+
+    private void ApplyCoupon(Order order, string code)
+    {
+        if (code == "SAVE10")
+            order.Total -= 10.0m;
+    }
+}
+

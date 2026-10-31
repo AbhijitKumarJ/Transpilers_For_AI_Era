@@ -1,0 +1,7 @@
+namespace Database.Storage;
+
+public extern partial class BTreeIndex {
+    public extern static void InsertEntry(string key, ulong offset);
+    public extern static bool ContainsKey(string key);
+}
+

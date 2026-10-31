@@ -1,0 +1,12 @@
+<Project Sdk="RustSharp.Sdk">
+  <PropertyGroup>
+    <AssemblyName>commerce_workspace</AssemblyName>
+    <Version>0.1.0</Version>
+    <RustEdition>2021</RustEdition>
+    <OutputPath>target/rsharp_synth</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <CargoCrate Include="rust_decimal" Version="1.36" />
+  </ItemGroup>
+</Project>
+

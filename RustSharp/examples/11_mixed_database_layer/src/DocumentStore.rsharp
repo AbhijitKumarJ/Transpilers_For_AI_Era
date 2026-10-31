@@ -1,0 +1,27 @@
+namespace Database.Storage;
+
+public class DocumentStore {
+    List<Document> documents;
+
+    public DocumentStore() {
+        this.documents = new List<Document>();
+    }
+
+    public void Store(Document doc) {
+        BTreeIndex.InsertEntry(doc.Key, 1);
+        this.documents.Add(doc);
+    }
+
+    public bool Exists(string key) {
+        return BTreeIndex.ContainsKey(key);
+    }
+
+    public Document Find(string key) throws StorageError {
+        foreach (var doc in this.documents) {
+            if (doc.Key == key) {
+                return doc.Clone();
+            }
+        }
+        throw new StorageError("Key not found");
+    }
+}

@@ -1,0 +1,17 @@
+namespace Serialization;
+
+[Serialize]
+[Deserialize]
+public record class UserDto(
+    [JsonPropertyName("user_id")] string Id,
+    [JsonPropertyName("email_address")] string Email,
+    [JsonIgnore] string InternalToken,
+    [JsonRequired] int AccessLevel
+);
+
+public static class UserSerializer {
+    public static string MaskEmail(UserDto user) {
+        return "masked";
+    }
+}
+

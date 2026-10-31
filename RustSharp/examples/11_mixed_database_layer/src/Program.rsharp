@@ -1,0 +1,16 @@
+namespace Database.Storage;
+
+public class Program {
+    public static void Main() {
+        var store = new DocumentStore();
+        var doc = new Document("user_42", "{\"name\":\"Alice\"}", 1700000000);
+        store.Store(doc);
+
+        Console.WriteLine("[DatabaseLayer] Stored document 'user_42' with native BTree indexing.");
+        var exists = store.Exists("user_42");
+        Console.WriteLine($"[DatabaseLayer] BTree index contains 'user_42': {exists}");
+        var missing = store.Exists("user_99");
+        Console.WriteLine($"[DatabaseLayer] BTree index contains 'user_99': {missing}");
+    }
+}
+

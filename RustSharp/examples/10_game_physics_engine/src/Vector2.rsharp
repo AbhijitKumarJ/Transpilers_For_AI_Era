@@ -1,0 +1,12 @@
+namespace Game.Physics;
+
+public record struct Vector2(double X, double Y) {
+    public double MagnitudeSquared() {
+        return this.X * this.X + this.Y * this.Y;
+    }
+
+    public Vector2 Add(Vector2 other) {
+        return new Vector2(this.X + other.X, this.Y + other.Y);
+    }
+}
+

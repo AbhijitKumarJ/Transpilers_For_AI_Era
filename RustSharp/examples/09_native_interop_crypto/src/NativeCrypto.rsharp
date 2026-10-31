@@ -1,0 +1,7 @@
+namespace Security.Crypto;
+
+public extern partial class NativeCrypto {
+    public extern static uint MurmurHash3(uint key, uint seed);
+    public extern static bool ConstantTimeEqual(uint a, uint b);
+}
+

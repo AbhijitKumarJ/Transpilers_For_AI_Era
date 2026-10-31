@@ -1,0 +1,23 @@
+[package]
+name = "rsharpc"
+version = "0.1.0"
+edition = "2021"
+description = "RustSharp (.rsharp) Multi-Pass Compiler Prototype — C# Ergonomics to Zero-Cost Rust"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/rustsharp/rustsharp"
+readme = "README.md"
+keywords = ["transpiler", "compiler", "csharp", "rust", "codegen"]
+categories = ["compilers", "development-tools"]
+
+[lib]
+name = "rsharpc"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rsharpc"
+path = "src/main.rs"
+
+[[bin]]
+name = "rsharp-bindgen"
+path = "src/bin/rsharp_bindgen.rs"
+

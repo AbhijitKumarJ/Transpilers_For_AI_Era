@@ -1,0 +1,18 @@
+namespace Game.Physics;
+
+public class Program {
+    public static void Main() {
+        var sim = new PhysicsSimulator();
+        var b1 = new RigidBody(1, new Vector2(0.0, 0.0), new Vector2(1.0, 0.0), 10.0);
+        var b2 = new RigidBody(2, new Vector2(10.0, 0.0), new Vector2(-1.0, 0.0), 10.0);
+
+        Console.WriteLine("[PhysicsEngine] Testing collision before adding bodies...");
+        var colliding = sim.CheckCollision(b1, b2, 2.0);
+        Console.WriteLine($"[PhysicsEngine] Initial collision: {colliding}");
+
+        sim.AddBody(b1);
+        sim.AddBody(b2);
+        sim.Step(1.0);
+        Console.WriteLine("[PhysicsEngine] Simulation step complete!");
+    }
+}

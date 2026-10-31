@@ -1,0 +1,17 @@
+namespace ApiService;
+
+public record class CreateUserRequest([JsonPropertyName("username")] string Username);
+public record class UserResponse([JsonPropertyName("id")] int Id, [JsonPropertyName("username")] string Username);
+
+public service class UserController {
+    [HttpGet("/users/{id}")]
+    public async Task<UserResponse> GetUser([FromRoute] int id) {
+        return new UserResponse(id, "alice");
+    }
+
+    [HttpPost("/users")]
+    public async Task<UserResponse> CreateUser([FromBody] CreateUserRequest body) {
+        return new UserResponse(42, body.Username);
+    }
+}
+

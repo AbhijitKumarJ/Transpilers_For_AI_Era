@@ -1,0 +1,11 @@
+namespace Security.Crypto;
+
+public class Program {
+    public static void Main() {
+        var svc = new CryptoService(1337);
+        var result = svc.HashKey(42);
+        Console.WriteLine($"[CryptoProject] MurmurHash3 digest: {result.Digest}");
+        var isValid = svc.VerifyKey(42, result.Digest);
+        Console.WriteLine($"[CryptoProject] Verification passed: {isValid}");
+    }
+}

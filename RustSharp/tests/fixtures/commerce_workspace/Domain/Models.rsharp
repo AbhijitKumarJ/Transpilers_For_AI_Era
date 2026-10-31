@@ -1,0 +1,6 @@
+namespace Commerce.Domain;
+
+using Commerce.Checkout;
+
+public record CustomerProfile(int CustomerId, string Email, List<Order> Orders);
+

@@ -1,0 +1,45 @@
+namespace Cryptography;
+
+public static class Sha256Digest {
+    public static uint RotateRight(uint value, int bits) {
+        return (value >> bits) | (value << (32 - bits));
+    }
+
+    public static uint Ch(uint x, uint y, uint z) {
+        return (x & y) ^ ((~x) & z);
+    }
+
+    public static uint Maj(uint x, uint y, uint z) {
+        return (x & y) ^ (x & z) ^ (y & z);
+    }
+
+    public static uint Sigma0(uint x) {
+        return Sha256Digest.RotateRight(x, 2) ^ Sha256Digest.RotateRight(x, 13) ^ Sha256Digest.RotateRight(x, 22);
+    }
+
+    public static uint Sigma1(uint x) {
+        return Sha256Digest.RotateRight(x, 6) ^ Sha256Digest.RotateRight(x, 11) ^ Sha256Digest.RotateRight(x, 25);
+    }
+
+    public static uint Gamma0(uint x) {
+        return Sha256Digest.RotateRight(x, 7) ^ Sha256Digest.RotateRight(x, 18) ^ (x >> 3);
+    }
+
+    public static uint Gamma1(uint x) {
+        return Sha256Digest.RotateRight(x, 17) ^ Sha256Digest.RotateRight(x, 19) ^ (x >> 10);
+    }
+
+    public static List<uint> InitializeState() {
+        var state = new List<uint>();
+        state.Add(0x6a09e667);
+        state.Add(0xbb67ae85);
+        state.Add(0x3c6ef372);
+        state.Add(0xa54ff53a);
+        state.Add(0x510e527f);
+        state.Add(0x9b05688c);
+        state.Add(0x1f83d9ab);
+        state.Add(0x5be0cd19);
+        return state;
+    }
+}
+

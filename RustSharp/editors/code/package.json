@@ -1,0 +1,61 @@
+{
+  "name": "rustsharp",
+  "displayName": "RustSharp Language Support",
+  "description": "Language support for RustSharp (.rsharp) with LSP, cross-file go to definition, whole-program borrow inference tooltips, outline symbols, and syntax highlighting",
+  "version": "0.1.0",
+  "publisher": "rustsharp",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Snippets"
+  ],
+  "activationEvents": [
+    "onLanguage:rustsharp",
+    "workspaceContains:**/*.rsharp",
+    "workspaceContains:**/*.rsproj"
+  ],
+  "main": "./client/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "rustsharp",
+        "aliases": ["RustSharp", "rsharp"],
+        "extensions": [".rsharp", ".rsproj"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "rustsharp",
+        "scopeName": "source.rsharp",
+        "path": "./syntaxes/rustsharp.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "rustsharp.restartServer",
+        "title": "RustSharp: Restart Language Server",
+        "category": "RustSharp"
+      }
+    ],
+    "configuration": {
+      "title": "RustSharp",
+      "properties": {
+        "rustsharp.serverPath": {
+          "type": "string",
+          "default": "rsharpc",
+          "description": "Path to the rsharpc executable providing language server capabilities"
+        },
+        "rustsharp.trace.server": {
+          "type": "string",
+          "enum": ["off", "messages", "verbose"],
+          "default": "off",
+          "description": "Traces communication between VS Code and the RustSharp Language Server."
+        }
+      }
+    }
+  }
+}

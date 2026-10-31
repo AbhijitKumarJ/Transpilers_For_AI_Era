@@ -1,0 +1,20 @@
+namespace Commerce.Payments;
+
+public abstract class Payment
+{
+    public decimal Amount { get; set; }
+    public abstract string Summarize();
+}
+
+public class CardPayment : Payment
+{
+    public string LastFour { get; set; }
+    public override string Summarize() => $"Card *{LastFour}: {Amount}";
+}
+
+public class CryptoPayment : Payment
+{
+    public string WalletHash { get; set; }
+    public override string Summarize() => $"Wallet {WalletHash}: {Amount}";
+}
+

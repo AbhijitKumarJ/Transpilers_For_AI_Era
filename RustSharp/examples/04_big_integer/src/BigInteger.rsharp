@@ -1,0 +1,41 @@
+namespace Numerics;
+
+public record struct BigInt(List<ulong> Limbs) {
+    public static BigInt Zero() {
+        var limbs = new List<ulong>();
+        limbs.Add(0);
+        return new BigInt(limbs);
+    }
+
+    public static BigInt FromUlong(ulong value) {
+        var limbs = new List<ulong>();
+        limbs.Add(value);
+        return new BigInt(limbs);
+    }
+
+    public static BigInt Add(BigInt a, BigInt b) {
+        var result = new List<ulong>();
+        var carry = 0;
+        var maxLen = Math.Max(a.Limbs.Count, b.Limbs.Count);
+
+        var i = 0;
+        while (i < maxLen || carry > 0) {
+            var sum = carry;
+            if (i < a.Limbs.Count) {
+                sum = sum + a.Limbs[i];
+            }
+            if (i < b.Limbs.Count) {
+                sum = sum + b.Limbs[i];
+            }
+
+            var mask = 0xFFFFFFFF;
+            var limb = sum & mask;
+            result.Add(limb);
+            carry = sum >> 32;
+            i = i + 1;
+        }
+
+        return new BigInt(result);
+    }
+}
+

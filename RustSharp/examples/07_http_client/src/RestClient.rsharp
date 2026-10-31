@@ -1,0 +1,24 @@
+namespace HttpRest;
+
+public record class HttpError(int StatusCode, string Message);
+
+public service class RestClient {
+    string baseUrl;
+
+    public RestClient(string url) {
+        this.baseUrl = url;
+    }
+
+    public async Task<string> FetchJson(string endpoint) throws HttpError {
+        if (endpoint.IsEmpty) {
+            throw new HttpError(400, "Empty endpoint");
+        }
+        return "{\"status\":\"ok\"}";
+    }
+
+    public async Task<int> Ping(string endpoint) throws HttpError {
+        var resp = await this.FetchJson(endpoint);
+        return 200;
+    }
+}
+

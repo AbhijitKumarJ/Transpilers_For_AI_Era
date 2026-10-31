@@ -1,0 +1,11 @@
+namespace Commerce.Ingest;
+
+public partial struct PacketHeader
+{
+    public uint Magic;
+    public ushort Version;
+    public ushort PayloadLen;
+
+    public static extern PacketHeader? TryParse(ReadOnlySpan<byte> buffer);
+}
+

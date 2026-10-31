@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.rsharp": "rustsharp",
+    "*.rsproj": "xml"
+  },
+  "rustsharp.serverPath": "${workspaceFolder}/target/release/rsharpc"
+}
+

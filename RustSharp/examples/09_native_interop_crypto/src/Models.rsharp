@@ -1,0 +1,4 @@
+namespace Security.Crypto;
+
+public record struct HashResult(string Algorithm, uint Digest);
+

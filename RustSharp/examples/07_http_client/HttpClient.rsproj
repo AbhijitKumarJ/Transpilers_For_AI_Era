@@ -1,0 +1,8 @@
+<Project Sdk="RustSharp.Sdk/0.1.0">
+  <PropertyGroup>
+    <PackageName>http_client_lib</PackageName>
+    <Version>0.1.0</Version>
+    <Edition>2021</Edition>
+  </PropertyGroup>
+</Project>
+

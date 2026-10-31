@@ -1,0 +1,6 @@
+namespace Database.Storage;
+
+public record class StorageError(string Reason);
+
+public record class Document(string Key, string Payload, long Timestamp);
+

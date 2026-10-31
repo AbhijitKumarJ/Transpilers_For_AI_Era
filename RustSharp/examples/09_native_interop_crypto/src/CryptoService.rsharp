@@ -1,0 +1,20 @@
+namespace Security.Crypto;
+
+public class CryptoService {
+    uint seed;
+
+    public CryptoService(uint initialSeed) {
+        this.seed = initialSeed;
+    }
+
+    public HashResult HashKey(uint key) {
+        var digest = NativeCrypto.MurmurHash3(key, this.seed);
+        return new HashResult("MurmurHash3", digest);
+    }
+
+    public bool VerifyKey(uint key, uint expected) {
+        var result = this.HashKey(key);
+        return NativeCrypto.ConstantTimeEqual(result.Digest, expected);
+    }
+}
+

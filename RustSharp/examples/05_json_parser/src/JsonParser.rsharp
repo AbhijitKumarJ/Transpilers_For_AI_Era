@@ -1,0 +1,49 @@
+namespace Json;
+
+public enum JsonKind {
+    Null,
+    Bool,
+    Number,
+    String,
+    Array,
+    Object
+}
+
+public record struct JsonElement(JsonKind Kind, string StringValue, double NumberValue, bool BoolValue) {
+    public static JsonElement MakeNull() {
+        return new JsonElement(JsonKind.Null, "", 0.0, false);
+    }
+
+    public static JsonElement MakeBool(bool val) {
+        return new JsonElement(JsonKind.Bool, "", 0.0, val);
+    }
+
+    public static JsonElement MakeNumber(double val) {
+        return new JsonElement(JsonKind.Number, "", val, false);
+    }
+
+    public static JsonElement MakeString(string val) {
+        return new JsonElement(JsonKind.String, val, 0.0, false);
+    }
+
+    public bool IsNull() {
+        return this.Kind == JsonKind.Null;
+    }
+
+    public string Format() {
+        if (this.Kind == JsonKind.Null) {
+            return "null";
+        }
+        if (this.Kind == JsonKind.Bool) {
+            if (this.BoolValue) {
+                return "true";
+            }
+            return "false";
+        }
+        if (this.Kind == JsonKind.String) {
+            return this.StringValue;
+        }
+        return "number";
+    }
+}
+

@@ -1,0 +1,62 @@
+namespace TextAlgorithms;
+
+public static class LevenshteinDistance {
+    public static int ComputeDistance(string source, string target) {
+        if (source == target) {
+            return 0;
+        }
+
+        var sourceLen = source.Length;
+        var targetLen = target.Length;
+
+        if (sourceLen == 0) {
+            return targetLen;
+        }
+        if (targetLen == 0) {
+            return sourceLen;
+        }
+
+        var v0 = new List<int>();
+        var v1 = new List<int>();
+
+        var idx = 0;
+        while (idx <= targetLen) {
+            v0.Add(idx);
+            v1.Add(0);
+            idx = idx + 1;
+        }
+
+        var sBytes = source.AsBytes();
+        var tBytes = target.AsBytes();
+
+        var i = 0;
+        while (i < sourceLen) {
+            v1[0] = i + 1;
+
+            var j = 0;
+            while (j < targetLen) {
+                var cost = 1;
+                if (sBytes[i] == tBytes[j]) {
+                    cost = 0;
+                }
+                var deletionCost = v0[j + 1] + 1;
+                var insertionCost = v1[j] + 1;
+                var substitutionCost = v0[j] + cost;
+
+                var minCost = Math.Min(deletionCost, insertionCost);
+                v1[j + 1] = Math.Min(minCost, substitutionCost);
+                j = j + 1;
+            }
+
+            var k = 0;
+            while (k <= targetLen) {
+                v0[k] = v1[k];
+                k = k + 1;
+            }
+
+            i = i + 1;
+        }
+
+        return v0[targetLen];
+    }
+}

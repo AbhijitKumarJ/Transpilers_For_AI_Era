@@ -1,0 +1,7 @@
+namespace Game.Physics;
+
+public extern partial class NativeCollider {
+    public extern static bool CheckAabbOverlap(double minX1, double maxX1, double minY1, double maxY1, double minX2, double maxX2, double minY2, double maxY2);
+    public extern static double Distance(double x1, double y1, double x2, double y2);
+}
+

@@ -1,0 +1,633 @@
+// ============================================================================
+// FILE: stdlib/RustSharp.Core.d.rsharp
+// Ambient Standard Library — Zero Runtime Overhead, 100% Compile-Time Erasure
+// ============================================================================
+
+namespace RustSharp.Core;
+
+extern using std::vec::Vec;
+extern using std::collections::HashMap;
+extern using std::collections::HashSet as RustHashSet;
+extern using std::time::Duration as RustDuration;
+extern using rust_decimal::Decimal as RustDecimal;
+
+// ----------------------------------------------------------------------------
+// 1. COMPILER INTRINSIC ATTRIBUTES
+// ----------------------------------------------------------------------------
+
+public abstract class Attribute { }
+
+public sealed class MapsToAttribute : Attribute
+{
+    public MapsToAttribute(string rustTarget) { }
+}
+
+public sealed class ParamTypeAttribute : Attribute
+{
+    public ParamTypeAttribute(string borrowedRustType) { }
+}
+
+public sealed class InlineTemplateAttribute : Attribute
+{
+    public InlineTemplateAttribute(string rustTemplate) { }
+}
+
+public sealed class BorrowsAttribute : Attribute { }
+public sealed class MutatesAttribute : Attribute { }
+public sealed class MovesAttribute : Attribute { }
+
+public sealed class LinqStageAttribute : Attribute
+{
+    public LinqStageAttribute(string stageKind) { }
+}
+
+// ----------------------------------------------------------------------------
+// 2. CORE TRAIT CONTRACTS & DETERMINISTIC RAII (IDisposable -> Drop)
+// ----------------------------------------------------------------------------
+
+[MapsTo("std::ops::Drop")]
+public extensible interface IDisposable
+{
+    [Mutates]
+    [MapsTo("drop")]
+    void Dispose();
+}
+
+[MapsTo("std::cmp::PartialEq")]
+public extensible interface IEquatable<T>
+{
+    [Borrows]
+    [MapsTo("eq")]
+    bool Equals([Borrows] T other);
+}
+
+[MapsTo("std::cmp::Ord")]
+public extensible interface IComparable<T>
+{
+    [Borrows]
+    [InlineTemplate("{self}.cmp(&{0})")]
+    int CompareTo([Borrows] T other);
+}
+
+// ----------------------------------------------------------------------------
+// 3. STRINGS & SLICES (string -> String / &str, ReadOnlySpan<T> -> &[T])
+// ----------------------------------------------------------------------------
+
+[MapsTo("std::string::String")]
+[ParamType("&str")]
+public primitive class String
+{
+    [Borrows]
+    [InlineTemplate("{self}.len() as i32")]
+    public extern int Length { get; }
+
+    [Borrows]
+    [MapsTo("is_empty")]
+    public extern bool IsEmpty { get; }
+
+    [Borrows]
+    [InlineTemplate("{self}.contains({0})")]
+    public extern bool Contains([Borrows] string value);
+
+    [Borrows]
+    [InlineTemplate("{self}.starts_with({0})")]
+    public extern bool StartsWith([Borrows] string prefix);
+
+    [Borrows]
+    [InlineTemplate("{self}.ends_with({0})")]
+    public extern bool EndsWith([Borrows] string suffix);
+
+    [Borrows]
+    [MapsTo("to_lowercase")]
+    public extern string ToLower();
+
+    [Borrows]
+    [MapsTo("to_uppercase")]
+    public extern string ToUpper();
+
+    [Borrows]
+    [InlineTemplate("{self}.trim().to_string()")]
+    public extern string Trim();
+
+    [Borrows]
+    [InlineTemplate("{self}.as_bytes()")]
+    public extern ReadOnlySpan<byte> AsBytes();
+
+    [Borrows]
+    [InlineTemplate("{self}.split({0}).map(|s| s.to_string()).collect::<Vec<String>>()")]
+    public extern List<string> Split([Borrows] string delimiter);
+}
+
+[MapsTo("&[{T}]")]
+public primitive struct ReadOnlySpan<T>
+{
+    [Borrows]
+    [InlineTemplate("{self}.len() as i32")]
+    public extern int Length { get; }
+
+    [Borrows]
+    [MapsTo("is_empty")]
+    public extern bool IsEmpty { get; }
+
+    [Borrows]
+    [InlineTemplate("{self}[{0} as usize]")]
+    public extern T this[int index] { get; }
+
+    [Borrows]
+    [InlineTemplate("&{self}[({0} as usize)..({1} as usize)]")]
+    public extern ReadOnlySpan<T> Slice(int start, int length);
+}
+
+[MapsTo("&mut [{T}]")]
+public primitive struct Span<T>
+{
+    [Borrows]
+    [InlineTemplate("{self}.len() as i32")]
+    public extern int Length { get; }
+
+    [Mutates]
+    [InlineTemplate("{self}[{0} as usize]")]
+    public extern T this[int index] { get; set; }
+
+    [Mutates]
+    [MapsTo("fill")]
+    public extern void Fill(T value);
+}
+
+// ----------------------------------------------------------------------------
+// 4. COLLECTIONS: List<T> (-> Vec<T>), Dictionary<K,V>, HashSet<T>
+// ----------------------------------------------------------------------------
+
+[MapsTo("std::vec::Vec")]
+[ParamType("&[{T}]")]
+public primitive class List<T> : IEnumerable<T>
+{
+    [InlineTemplate("Vec::new()")]
+    public extern List();
+
+    [InlineTemplate("Vec::with_capacity({0} as usize)")]
+    public extern List(int capacity);
+
+    [Borrows]
+    [InlineTemplate("{self}.len() as i32")]
+    public extern int Count { get; }
+
+    [Borrows]
+    [MapsTo("is_empty")]
+    public extern bool IsEmpty { get; }
+
+    [Mutates]
+    [MapsTo("push")]
+    public extern void Add([Moves] T item);
+
+    [Mutates]
+    [InlineTemplate("{self}.extend({0})")]
+    public extern void AddRange([Moves] IEnumerable<T> items);
+
+    [Mutates]
+    [InlineTemplate("{self}.insert({0} as usize, {1})")]
+    public extern void Insert(int index, [Moves] T item);
+
+    [Mutates]
+    [InlineTemplate("{self}.remove({0} as usize)")]
+    public extern T RemoveAt(int index);
+
+    [Mutates]
+    [MapsTo("pop")]
+    public extern T? Pop();
+
+    [Mutates]
+    [MapsTo("clear")]
+    public extern void Clear();
+
+    [Borrows]
+    [InlineTemplate("{self}.contains(&{0})")]
+    public extern bool Contains([Borrows] T item);
+
+    [Borrows]
+    [InlineTemplate("{self}.as_slice()")]
+    public extern ReadOnlySpan<T> AsSpan();
+
+    [Mutates]
+    [InlineTemplate("{self}.as_mut_slice()")]
+    public extern Span<T> AsMutSpan();
+
+    [Mutates]
+    [MapsTo("sort")]
+    public extern void Sort();
+
+    [Borrows]
+    [InlineTemplate("{self}[{0} as usize]")]
+    public extern T this[int index] { [Borrows] get; [Mutates] set; }
+}
+
+[MapsTo("std::collections::HashMap")]
+public primitive class Dictionary<TKey, TValue> : IEnumerable<KeyValuePair<TKey, TValue>>
+{
+    [InlineTemplate("std::collections::HashMap::new()")]
+    public extern Dictionary();
+
+    [InlineTemplate("std::collections::HashMap::with_capacity({0} as usize)")]
+    public extern Dictionary(int capacity);
+
+    [Borrows]
+    [InlineTemplate("{self}.len() as i32")]
+    public extern int Count { get; }
+
+    [Borrows]
+    [MapsTo("is_empty")]
+    public extern bool IsEmpty { get; }
+
+    [Mutates]
+    [InlineTemplate("{self}.insert({0}, {1})")]
+    public extern void Add([Moves] TKey key, [Moves] TValue value);
+
+    [Borrows]
+    [InlineTemplate("{self}.get(&{0}).cloned()")]
+    public extern TValue? GetOrDefault([Borrows] TKey key);
+
+    [Borrows]
+    [InlineTemplate("{self}.contains_key(&{0})")]
+    public extern bool ContainsKey([Borrows] TKey key);
+
+    [Mutates]
+    [InlineTemplate("{self}.remove(&{0}).is_some()")]
+    public extern bool Remove([Borrows] TKey key);
+
+    [Mutates]
+    [MapsTo("clear")]
+    public extern void Clear();
+
+    [InlineTemplate("{self}[&{0}]")]
+    public extern TValue this[[Borrows] TKey key]
+    {
+        [Borrows] get;
+        [Mutates] [InlineTemplate("{self}.insert({0}, {value})")] set;
+    }
+}
+
+[MapsTo("std::collections::HashSet")]
+public primitive class HashSet<T> : IEnumerable<T>
+{
+    [InlineTemplate("std::collections::HashSet::new()")]
+    public extern HashSet();
+
+    [Borrows]
+    [InlineTemplate("{self}.len() as i32")]
+    public extern int Count { get; }
+
+    [Mutates]
+    [MapsTo("insert")]
+    public extern bool Add([Moves] T item);
+
+    [Borrows]
+    [InlineTemplate("{self}.contains(&{0})")]
+    public extern bool Contains([Borrows] T item);
+
+    [Mutates]
+    [InlineTemplate("{self}.remove(&{0})")]
+    public extern bool Remove([Borrows] T item);
+}
+
+[MapsTo("({TKey}, {TValue})")]
+public primitive struct KeyValuePair<TKey, TValue>
+{
+    [InlineTemplate("{self}.0")]
+    public extern TKey Key { get; }
+
+    [InlineTemplate("{self}.1")]
+    public extern TValue Value { get; }
+}
+
+// ----------------------------------------------------------------------------
+// 5. OPTION, RESULT, AND CONCURRENCY PRIMITIVES
+// ----------------------------------------------------------------------------
+
+[MapsTo("std::option::Option")]
+public primitive struct Option<T>
+{
+    [Borrows]
+    [MapsTo("is_some")]
+    public extern bool HasValue { get; }
+
+    [Borrows]
+    [MapsTo("is_none")]
+    public extern bool IsNull { get; }
+
+    [Moves]
+    [MapsTo("unwrap")]
+    public extern T Value();
+
+    [Moves]
+    [MapsTo("unwrap_or")]
+    public extern T GetValueOrDefault([Moves] T defaultValue);
+}
+
+[MapsTo("std::sync::Arc<std::sync::RwLock<{T}>>")]
+public primitive class SharedState<T>
+{
+    [InlineTemplate("std::sync::Arc::new(std::sync::RwLock::new({0}))")]
+    public extern SharedState([Moves] T initialValue);
+
+    [Borrows]
+    [InlineTemplate("{self}.read().unwrap()")]
+    public extern T Read();
+
+    [Borrows]
+    [InlineTemplate("{self}.write().unwrap()")]
+    public extern T Write();
+}
+
+// ----------------------------------------------------------------------------
+// 6. ZERO-COST LINQ PIPELINE DECLARATIONS (IEnumerable<T> -> Iterator)
+// ----------------------------------------------------------------------------
+
+[MapsTo("impl std::iter::Iterator<Item = {T}>")]
+public primitive interface IEnumerable<T>
+{
+    [LinqStage("Filter")]
+    [InlineTemplate("{self}.filter({0})")]
+    IEnumerable<T> Where(Func<T, bool> predicate);
+
+    [LinqStage("Map")]
+    [InlineTemplate("{self}.map({0})")]
+    IEnumerable<TResult> Select<TResult>(Func<T, TResult> selector);
+
+    [LinqStage("FlatMap")]
+    [InlineTemplate("{self}.flat_map({0})")]
+    IEnumerable<TResult> SelectMany<TResult>(Func<T, IEnumerable<TResult>> selector);
+
+    [LinqStage("Take")]
+    [InlineTemplate("{self}.take({0} as usize)")]
+    IEnumerable<T> Take(int count);
+
+    [LinqStage("Skip")]
+    [InlineTemplate("{self}.skip({0} as usize)")]
+    IEnumerable<T> Skip(int count);
+
+    [LinqStage("Enumerate")]
+    [InlineTemplate("{self}.enumerate()")]
+    IEnumerable<KeyValuePair<int, T>> WithIndex();
+
+    [LinqStage("OrderBy")]
+    IEnumerable<T> OrderBy<TKey>(Func<T, TKey> keySelector);
+
+    [LinqStage("OrderByDescending")]
+    IEnumerable<T> OrderByDescending<TKey>(Func<T, TKey> keySelector);
+
+    [LinqStage("Distinct")]
+    [InlineTemplate("{self}.dedup()")]
+    IEnumerable<T> Distinct();
+
+    [LinqStage("Reverse")]
+    [InlineTemplate("{self}.rev()")]
+    IEnumerable<T> Reverse();
+
+    [LinqStage("TerminalCollectVec")]
+    [InlineTemplate("{self}.collect::<Vec<_>>()")]
+    List<T> ToList();
+
+    [LinqStage("TerminalCollectSet")]
+    [InlineTemplate("{self}.collect::<std::collections::HashSet<_>>()")]
+    HashSet<T> ToHashSet();
+
+    [LinqStage("TerminalAny")]
+    [InlineTemplate("{self}.any({0})")]
+    bool Any(Func<T, bool> predicate);
+
+    [LinqStage("TerminalAll")]
+    [InlineTemplate("{self}.all({0})")]
+    bool All(Func<T, bool> predicate);
+
+    [LinqStage("TerminalFirst")]
+    [InlineTemplate("{self}.next().cloned().unwrap()")]
+    T First();
+
+    [LinqStage("TerminalFirstWithPred")]
+    [InlineTemplate("{self}.find({0}).cloned().unwrap()")]
+    T First(Func<T, bool> predicate);
+
+    [LinqStage("TerminalFirstOrDefault")]
+    [InlineTemplate("{self}.next()")]
+    T? FirstOrDefault();
+
+    [LinqStage("TerminalFind")]
+    [InlineTemplate("{self}.find({0})")]
+    T? FirstOrDefault(Func<T, bool> predicate);
+
+    [LinqStage("TerminalLast")]
+    [InlineTemplate("{self}.last().cloned().unwrap()")]
+    T Last();
+
+    [LinqStage("TerminalLastOrDefault")]
+    [InlineTemplate("{self}.last().cloned()")]
+    T? LastOrDefault();
+
+    [LinqStage("TerminalAggregate")]
+    [InlineTemplate("{self}.fold({0}, {1})")]
+    TAccumulate Aggregate<TAccumulate>(TAccumulate seed, Func<TAccumulate, T, TAccumulate> func);
+
+    [LinqStage("TerminalCount")]
+    [InlineTemplate("{self}.count() as i32")]
+    int Count();
+
+    [LinqStage("TerminalSum")]
+    [InlineTemplate("{self}.sum()")]
+    T Sum();
+}
+
+// ----------------------------------------------------------------------------
+// 7. SYSTEM UTILITIES, NUMERICS, MATH & TIME FACADES
+// ----------------------------------------------------------------------------
+
+public static primitive class Math
+{
+    [InlineTemplate("({0}).min({1})")]
+    public static extern int Min(int val1, int val2);
+
+    [InlineTemplate("({0} as f64).min({1} as f64)")]
+    public static extern double Min(double val1, double val2);
+
+    [InlineTemplate("({0}).max({1})")]
+    public static extern int Max(int val1, int val2);
+
+    [InlineTemplate("({0} as f64).max({1} as f64)")]
+    public static extern double Max(double val1, double val2);
+
+    [InlineTemplate("({0}).abs()")]
+    public static extern int Abs(int value);
+
+    [InlineTemplate("({0} as f64).abs()")]
+    public static extern double Abs(double value);
+
+    [InlineTemplate("({0} as f64).sqrt()")]
+    public static extern double Sqrt(double d);
+
+    [InlineTemplate("({0} as f64).floor()")]
+    public static extern double Floor(double d);
+
+    [InlineTemplate("({0} as f64).ceil()")]
+    public static extern double Ceiling(double a);
+
+    [InlineTemplate("({0} as f64).round()")]
+    public static extern double Round(double a);
+
+    [InlineTemplate("({0} as f64).powf({1} as f64)")]
+    public static extern double Pow(double x, double y);
+
+    [InlineTemplate("({0}).clamp({1}, {2})")]
+    public static extern int Clamp(int value, int min, int max);
+}
+
+public static primitive class Int32
+{
+    [InlineTemplate("{0}.parse::<i32>().unwrap()")]
+    public static extern int Parse([Borrows] string s);
+
+    [InlineTemplate("{0}.parse::<i32>().ok()")]
+    public static extern int? TryParse([Borrows] string s);
+}
+
+public static primitive class Int64
+{
+    [InlineTemplate("{0}.parse::<i64>().unwrap()")]
+    public static extern long Parse([Borrows] string s);
+
+    [InlineTemplate("{0}.parse::<i64>().ok()")]
+    public static extern long? TryParse([Borrows] string s);
+}
+
+public static primitive class Double
+{
+    [InlineTemplate("{0}.parse::<f64>().unwrap()")]
+    public static extern double Parse([Borrows] string s);
+
+    [InlineTemplate("{0}.parse::<f64>().ok()")]
+    public static extern double? TryParse([Borrows] string s);
+}
+
+public static primitive class Boolean
+{
+    [InlineTemplate("{0}.parse::<bool>().unwrap()")]
+    public static extern bool Parse([Borrows] string s);
+
+    [InlineTemplate("{0}.parse::<bool>().ok()")]
+    public static extern bool? TryParse([Borrows] string s);
+}
+
+public static primitive class Environment
+{
+    [InlineTemplate("std::process::exit({0})")]
+    public static extern void Exit(int exitCode);
+}
+
+public static primitive class Console
+{
+    [InlineTemplate("println!(\"{}\", {0})")]
+    public static extern void WriteLine([Borrows] string message);
+
+    [InlineTemplate("print!(\"{}\", {0})")]
+    public static extern void Write([Borrows] string message);
+
+    [InlineTemplate("eprintln!(\"{}\", {0})")]
+    public static extern void WriteErrorLine([Borrows] string message);
+}
+
+[MapsTo("std::time::Duration")]
+public primitive struct TimeSpan
+{
+    [InlineTemplate("std::time::Duration::from_millis({0} as u64)")]
+    public static extern TimeSpan FromMilliseconds(long ms);
+
+    [InlineTemplate("std::time::Duration::from_secs({0} as u64)")]
+    public static extern TimeSpan FromSeconds(long seconds);
+
+    [Borrows]
+    [InlineTemplate("{self}.as_millis() as i64")]
+    public extern long TotalMilliseconds { get; }
+}
+
+// ----------------------------------------------------------------------------
+// 9. METAPROGRAMMING & JSON ATTRIBUTES (Serde Lowering)
+// ----------------------------------------------------------------------------
+
+public sealed class JsonPropertyNameAttribute : Attribute
+{
+    public JsonPropertyNameAttribute(string name) { }
+}
+
+public sealed class JsonIgnoreAttribute : Attribute { }
+
+public sealed class JsonRequiredAttribute : Attribute { }
+
+public sealed class SerializeAttribute : Attribute { }
+public sealed class DeserializeAttribute : Attribute { }
+
+// ----------------------------------------------------------------------------
+// 10. ASYNC RUNTIME & FUTURES (Task, ValueTask, IAsyncEnumerable)
+// ----------------------------------------------------------------------------
+
+[MapsTo("()")]
+public primitive struct Task
+{
+    [InlineTemplate("()")]
+    public static extern Task CompletedTask { get; }
+
+    [InlineTemplate("tokio::time::sleep(std::time::Duration::from_millis({0} as u64))")]
+    public static extern Task Delay(int milliseconds);
+}
+
+[MapsTo("{T}")]
+public primitive struct Task<T>
+{
+    [InlineTemplate("{0}")]
+    public static extern Task<T> FromResult(T value);
+}
+
+[MapsTo("()")]
+public primitive struct ValueTask { }
+
+[MapsTo("{T}")]
+public primitive struct ValueTask<T> { }
+
+[MapsTo("impl futures_core::Stream<Item = {T}>")]
+public extensible interface IAsyncEnumerable<T> { }
+
+// ----------------------------------------------------------------------------
+// 11. WEB ROUTING ATTRIBUTES (Axum Lowering)
+// ----------------------------------------------------------------------------
+
+public sealed class RouteAttribute : Attribute
+{
+    public RouteAttribute(string template) { }
+}
+
+public sealed class HttpGetAttribute : Attribute
+{
+    public HttpGetAttribute() { }
+    public HttpGetAttribute(string template) { }
+}
+
+public sealed class HttpPostAttribute : Attribute
+{
+    public HttpPostAttribute() { }
+    public HttpPostAttribute(string template) { }
+}
+
+public sealed class HttpPutAttribute : Attribute
+{
+    public HttpPutAttribute() { }
+    public HttpPutAttribute(string template) { }
+}
+
+public sealed class HttpDeleteAttribute : Attribute
+{
+    public HttpDeleteAttribute() { }
+    public HttpDeleteAttribute(string template) { }
+}
+
+public sealed class FromBodyAttribute : Attribute { }
+public sealed class FromRouteAttribute : Attribute { }
+public sealed class FromQueryAttribute : Attribute { }
+
+

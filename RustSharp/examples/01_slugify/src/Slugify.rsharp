@@ -1,0 +1,15 @@
+namespace TextAlgorithms;
+
+public static class Slugifier {
+    public static string GenerateSlug(string input) {
+        var lower = input.ToLower();
+        var words = lower.Split(" ");
+        var cleaned = words
+            .Where(w => !w.IsEmpty)
+            .Select(w => w.Trim())
+            .ToList();
+
+        return string.Join("-", cleaned);
+    }
+}
+

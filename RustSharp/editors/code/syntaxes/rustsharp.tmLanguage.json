@@ -1,0 +1,199 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "RustSharp",
+  "scopeName": "source.rsharp",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#attributes" },
+    { "include": "#keywords" },
+    { "include": "#types" },
+    { "include": "#numbers" },
+    { "include": "#linq-operators" },
+    { "include": "#operators" },
+    { "include": "#method-calls" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.block.documentation.rsharp",
+          "begin": "/\\*\\*",
+          "end": "\\*/"
+        },
+        {
+          "name": "comment.line.triple-slash.documentation.rsharp",
+          "match": "///.*$"
+        },
+        {
+          "name": "comment.line.double-slash.rsharp",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.rsharp",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.interpolated.rsharp",
+          "begin": "\\$\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.rsharp",
+              "match": "\\\\."
+            },
+            {
+              "name": "punctuation.definition.interpolation.rsharp",
+              "begin": "\\{",
+              "end": "\\}",
+              "patterns": [
+                { "include": "$self" }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.verbatim.rsharp",
+          "begin": "@\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.rsharp",
+              "match": "\"\""
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.raw.rsharp",
+          "begin": "\"\"\"",
+          "end": "\"\"\""
+        },
+        {
+          "name": "string.quoted.double.rsharp",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.rsharp",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.rsharp",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.rsharp",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "attributes": {
+      "patterns": [
+        {
+          "name": "meta.attribute.rsharp",
+          "match": "\\[\\s*([A-Za-z_][A-Za-z0-9_]*)(?:\\s*\\(([^\\)]*)\\))?\\s*\\]",
+          "captures": {
+            "1": { "name": "entity.other.attribute-name.rsharp" },
+            "2": { "name": "string.quoted.double.rsharp" }
+          }
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.rsharp",
+          "match": "\\b(if|else|while|for|foreach|in|return|switch|case|default|break|continue|throws|throw|try|catch|finally)\\b"
+        },
+        {
+          "name": "keyword.declaration.rsharp",
+          "match": "\\b(class|struct|record|interface|enum|namespace|using)\\b"
+        },
+        {
+          "name": "storage.modifier.rsharp",
+          "match": "\\b(public|private|internal|protected|static|readonly|mut|ref|out|in|partial|extern|abstract|virtual|override|sealed|async|await)\\b"
+        },
+        {
+          "name": "constant.language.rsharp",
+          "match": "\\b(true|false|null|this|base)\\b"
+        },
+        {
+          "name": "keyword.operator.expression.rsharp",
+          "match": "\\b(new|var|where|is|as|typeof|nameof)\\b"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "support.type.primitive.rsharp",
+          "match": "\\b(int|long|ulong|uint|short|ushort|byte|sbyte|float|double|decimal|bool|string|char|void|object)\\b"
+        },
+        {
+          "name": "support.type.collection.rsharp",
+          "match": "\\b(List|Dictionary|HashSet|IEnumerable|ICollection|IList|IOrderedEnumerable|KeyValuePair|Task|ValueTask|IAsyncEnumerable)\\b"
+        },
+        {
+          "name": "support.class.stdlib.rsharp",
+          "match": "\\b(Console|Math|Environment|String|Int32|Int64|Double|Boolean)\\b"
+        },
+        {
+          "name": "entity.name.type.rsharp",
+          "match": "\\b[A-Z][a-zA-Z0-9_]*\\b"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.hex.rsharp",
+          "match": "\\b0[xX][0-9a-fA-F_]+[uUlL]*\\b"
+        },
+        {
+          "name": "constant.numeric.binary.rsharp",
+          "match": "\\b0[bB][01_]+[uUlL]*\\b"
+        },
+        {
+          "name": "constant.numeric.decimal.rsharp",
+          "match": "\\b[0-9][0-9_]*(\\.[0-9_]+)?([eE][+-]?[0-9_]+)?[fFdDmMuUlL]*\\b"
+        }
+      ]
+    },
+    "linq-operators": {
+      "patterns": [
+        {
+          "name": "support.function.linq.rsharp",
+          "match": "\\.(Select|Where|OrderBy|OrderByDescending|Distinct|Reverse|WithIndex|ToList|ToArray|ToHashSet|First|FirstOrDefault|Last|LastOrDefault|Count|Any|All|Sum|Min|Max|Aggregate)\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.rsharp",
+          "match": "(\\+\\+|--|&&|\\|\\||==|!=|<=|>=|=>|\\?\\?|\\?\\.|\\?|<<<|>>>|<<|>>|[-+*/%&|^~!=<>])"
+        }
+      ]
+    },
+    "method-calls": {
+      "patterns": [
+        {
+          "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()",
+          "captures": {
+            "1": { "name": "entity.name.function.rsharp" }
+          }
+        }
+      ]
+    }
+  }
+}
