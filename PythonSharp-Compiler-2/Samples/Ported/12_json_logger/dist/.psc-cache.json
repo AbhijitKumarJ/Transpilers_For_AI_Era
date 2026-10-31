@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "emit_pyc": true,
+  "target_python": "3.11",
+  "inputs": {
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/PythonSharp.Core.d.ps": {
+      "sha256": "3faaee15c39031fa20e835d3a9772cda4ff172269b7bdfe3af3498350c22cade",
+      "mtime": 1793299927.3918216,
+      "size": 16359
+    },
+    "JsonFormatter.ps": {
+      "sha256": "a19f15d11c8f4ab98630fec6eb56f54066319432feb629fb4ffdbed0a881ee66",
+      "mtime": 1793410321.95734,
+      "size": 5372
+    }
+  },
+  "outputs": [
+    "micro_json_logger.py",
+    "micro_json_logger.pyc"
+  ]
+}

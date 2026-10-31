@@ -1,0 +1,19 @@
+namespace WebModels;
+
+using PythonSharp.Core;
+
+[SchemaModel]
+public class UserProfile
+{
+    public int Id { get; set; }
+    public string Username { get; set; }
+    public string Email { get; set; }
+    public bool IsActive { get; set; } = true;
+    public string Role { get; set; } = "standard";
+
+    public string DisplayBadge() => $"[{Role.ToUpper()}] {Username} <{Email}>";
+}
+
+[SchemaModel]
+public record AuthSession(string Token, int ExpiresIn = 3600);
+

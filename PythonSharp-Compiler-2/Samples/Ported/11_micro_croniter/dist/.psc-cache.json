@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "emit_pyc": true,
+  "target_python": "3.11",
+  "inputs": {
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/PythonSharp.Core.d.ps": {
+      "sha256": "3faaee15c39031fa20e835d3a9772cda4ff172269b7bdfe3af3498350c22cade",
+      "mtime": 1793299927.3918216,
+      "size": 16359
+    },
+    "Croniter.ps": {
+      "sha256": "bbe050c8af13f5362b1e8d154c6d553cc4db4437aae948d5cb6a1704b7ef466b",
+      "mtime": 1793410186.2377675,
+      "size": 7662
+    }
+  },
+  "outputs": [
+    "micro_croniter.py",
+    "micro_croniter.pyc"
+  ]
+}

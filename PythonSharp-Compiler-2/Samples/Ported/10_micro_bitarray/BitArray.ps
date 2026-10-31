@@ -1,0 +1,365 @@
+namespace MicroBitArray;
+
+using PythonSharp.Core;
+
+public class BitArray
+{
+    private int _length;
+    private List<int> _bytes;
+
+    public BitArray(int length = 0, bool initial = false)
+    {
+        this._length = length;
+        this._bytes = new List<int>();
+
+        if (length > 0)
+        {
+            int numBytes = (length + 7) / 8;
+            int fill = initial ? 0xFF : 0x00;
+            int i = 0;
+            while (i < numBytes)
+            {
+                this._bytes.Add(fill);
+                i = i + 1;
+            }
+            if (initial && (length % 8 != 0))
+            {
+                this.MaskUnusedBits();
+            }
+        }
+    }
+
+    public int Length
+    {
+        get { return this._length; }
+    }
+
+    public int ByteCount
+    {
+        get { return this._bytes.Count; }
+    }
+
+    private void MaskUnusedBits()
+    {
+        if (this._length == 0 || this._bytes.Count == 0)
+        {
+            return;
+        }
+        int remainder = this._length % 8;
+        if (remainder != 0)
+        {
+            int mask = (0xFF << (8 - remainder)) & 0xFF;
+            int lastIdx = this._bytes.Count - 1;
+            this._bytes[lastIdx] = this._bytes[lastIdx] & mask;
+        }
+    }
+
+    public bool Get(int index)
+    {
+        if (index < 0 || index >= this._length)
+        {
+            throw new ArgumentOutOfRangeException("Bit index out of range");
+        }
+        int byteIdx = index / 8;
+        int bitIdx = 7 - (index % 8);
+        return (this._bytes[byteIdx] & (1 << bitIdx)) != 0;
+    }
+
+    public void Set(int index, bool value)
+    {
+        if (index < 0 || index >= this._length)
+        {
+            throw new ArgumentOutOfRangeException("Bit index out of range");
+        }
+        int byteIdx = index / 8;
+        int bitIdx = 7 - (index % 8);
+        if (value)
+        {
+            this._bytes[byteIdx] = this._bytes[byteIdx] | (1 << bitIdx);
+        }
+        else
+        {
+            this._bytes[byteIdx] = this._bytes[byteIdx] & (~(1 << bitIdx) & 0xFF);
+        }
+    }
+
+    public void Append(bool bit)
+    {
+        int index = this._length;
+        this._length = this._length + 1;
+        int byteIdx = index / 8;
+        if (byteIdx >= this._bytes.Count)
+        {
+            this._bytes.Add(0);
+        }
+        if (bit)
+        {
+            int bitIdx = 7 - (index % 8);
+            this._bytes[byteIdx] = this._bytes[byteIdx] | (1 << bitIdx);
+        }
+    }
+
+    public static BitArray FromString(string bitString)
+    {
+        BitArray ba = new BitArray(0, false);
+        int i = 0;
+        while (i < bitString.Length)
+        {
+            string ch = bitString.Substring(i, 1);
+            if (ch == "1")
+            {
+                ba.Append(true);
+            }
+            else if (ch == "0")
+            {
+                ba.Append(false);
+            }
+            i = i + 1;
+        }
+        return ba;
+    }
+
+    public static BitArray FromHex(string hexString)
+    {
+        BitArray ba = new BitArray(0, false);
+        int i = 0;
+        while (i < hexString.Length)
+        {
+            string ch = hexString.Substring(i, 1).ToUpper();
+            int val = HexCharToInt(ch);
+            ba.Append((val & 0x08) != 0);
+            ba.Append((val & 0x04) != 0);
+            ba.Append((val & 0x02) != 0);
+            ba.Append((val & 0x01) != 0);
+            i = i + 1;
+        }
+        return ba;
+    }
+
+    private static int HexCharToInt(string ch)
+    {
+        if (ch == "0") return 0;
+        if (ch == "1") return 1;
+        if (ch == "2") return 2;
+        if (ch == "3") return 3;
+        if (ch == "4") return 4;
+        if (ch == "5") return 5;
+        if (ch == "6") return 6;
+        if (ch == "7") return 7;
+        if (ch == "8") return 8;
+        if (ch == "9") return 9;
+        if (ch == "A") return 10;
+        if (ch == "B") return 11;
+        if (ch == "C") return 12;
+        if (ch == "D") return 13;
+        if (ch == "E") return 14;
+        if (ch == "F") return 15;
+        return 0;
+    }
+
+    private static string IntToHexChar(int val)
+    {
+        int v = val & 0x0F;
+        if (v < 10) return $"{v}";
+        if (v == 10) return "A";
+        if (v == 11) return "B";
+        if (v == 12) return "C";
+        if (v == 13) return "D";
+        if (v == 14) return "E";
+        return "F";
+    }
+
+    public BitArray Clone()
+    {
+        BitArray copy = new BitArray(this._length, false);
+        int i = 0;
+        while (i < this._bytes.Count)
+        {
+            copy._bytes[i] = this._bytes[i];
+            i = i + 1;
+        }
+        return copy;
+    }
+
+    public void Invert()
+    {
+        int i = 0;
+        while (i < this._bytes.Count)
+        {
+            this._bytes[i] = (~this._bytes[i]) & 0xFF;
+            i = i + 1;
+        }
+        this.MaskUnusedBits();
+    }
+
+    public BitArray Not()
+    {
+        BitArray copy = this.Clone();
+        copy.Invert();
+        return copy;
+    }
+
+    public BitArray And(BitArray other)
+    {
+        if (this._length != other.Length)
+        {
+            throw new ArgumentException("BitArray lengths must match for bitwise AND");
+        }
+        BitArray result = new BitArray(this._length, false);
+        int i = 0;
+        while (i < this._bytes.Count)
+        {
+            result._bytes[i] = this._bytes[i] & other._bytes[i];
+            i = i + 1;
+        }
+        return result;
+    }
+
+    public BitArray Or(BitArray other)
+    {
+        if (this._length != other.Length)
+        {
+            throw new ArgumentException("BitArray lengths must match for bitwise OR");
+        }
+        BitArray result = new BitArray(this._length, false);
+        int i = 0;
+        while (i < this._bytes.Count)
+        {
+            result._bytes[i] = this._bytes[i] | other._bytes[i];
+            i = i + 1;
+        }
+        return result;
+    }
+
+    public BitArray Xor(BitArray other)
+    {
+        if (this._length != other.Length)
+        {
+            throw new ArgumentException("BitArray lengths must match for bitwise XOR");
+        }
+        BitArray result = new BitArray(this._length, false);
+        int i = 0;
+        while (i < this._bytes.Count)
+        {
+            result._bytes[i] = this._bytes[i] ^ other._bytes[i];
+            i = i + 1;
+        }
+        return result;
+    }
+
+    public BitArray ShiftLeft(int count)
+    {
+        BitArray res = new BitArray(this._length, false);
+        if (count >= this._length || count < 0)
+        {
+            return res;
+        }
+        int i = 0;
+        while (i + count < this._length)
+        {
+            if (this.Get(i + count))
+            {
+                res.Set(i, true);
+            }
+            i = i + 1;
+        }
+        return res;
+    }
+
+    public BitArray ShiftRight(int count)
+    {
+        BitArray res = new BitArray(this._length, false);
+        if (count >= this._length || count < 0)
+        {
+            return res;
+        }
+        int i = count;
+        while (i < this._length)
+        {
+            if (this.Get(i - count))
+            {
+                res.Set(i, true);
+            }
+            i = i + 1;
+        }
+        return res;
+    }
+
+    public int Count(bool target = true)
+    {
+        int count = 0;
+        int i = 0;
+        while (i < this._length)
+        {
+            if (this.Get(i) == target)
+            {
+                count = count + 1;
+            }
+            i = i + 1;
+        }
+        return count;
+    }
+
+    public int Find(bool target, int start = 0)
+    {
+        int i = start;
+        while (i < this._length)
+        {
+            if (this.Get(i) == target)
+            {
+                return i;
+            }
+            i = i + 1;
+        }
+        return -1;
+    }
+
+    public bool Any()
+    {
+        return this.Count(true) > 0;
+    }
+
+    public bool All()
+    {
+        return this.Count(true) == this._length;
+    }
+
+    public string To01()
+    {
+        List<string> bits = new List<string>();
+        int i = 0;
+        while (i < this._length)
+        {
+            bits.Add(this.Get(i) ? "1" : "0");
+            i = i + 1;
+        }
+        return String.Join("", bits);
+    }
+
+    public string ToHex()
+    {
+        List<string> hexChars = new List<string>();
+        int i = 0;
+        while (i < this._bytes.Count)
+        {
+            int b = this._bytes[i];
+            hexChars.Add(IntToHexChar(b >> 4));
+            hexChars.Add(IntToHexChar(b & 0x0F));
+            i = i + 1;
+        }
+        return String.Join("", hexChars);
+    }
+
+    public List<int> ToBytes()
+    {
+        List<int> copy = new List<int>();
+        int i = 0;
+        while (i < this._bytes.Count)
+        {
+            copy.Add(this._bytes[i]);
+            i = i + 1;
+        }
+        return copy;
+    }
+}
+

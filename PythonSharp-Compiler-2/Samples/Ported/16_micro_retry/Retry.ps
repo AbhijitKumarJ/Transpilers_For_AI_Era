@@ -1,0 +1,75 @@
+namespace MicroRetry;
+
+extern using time;
+using PythonSharp.Core;
+
+public class Retry
+{
+    [InlineTemplate("time.sleep({0})")]
+    public static extern void Sleep(double seconds);
+
+    [InlineTemplate("(isinstance({0}, tuple({1})) if {1} is not None else isinstance({0}, Exception))")]
+    public static extern bool MatchesException(object exc, List<object>? exceptions);
+
+    [InlineTemplate("{0}(*{1})")]
+    public static extern object InvokeWithList(object fn, List<object> args);
+
+    [InlineTemplate("(lambda fn: (lambda *args: Retry.call(fn, list(args), {0}, {1}, {2}, {3}, {4})))")]
+    private static extern object MakeDecorator(int tries, double delay, double maxDelay, double backoff, List<object>? exceptions);
+
+    public static object Call(
+        object fn,
+        List<object>? args = null,
+        int tries = 3,
+        double delay = 0.01,
+        double maxDelay = 10.0,
+        double backoff = 2.0,
+        List<object>? exceptions = null
+    )
+    {
+        List<object> safeArgs = args ?? new List<object>();
+        int attemptsRemaining = tries;
+        double currentDelay = delay;
+
+        while (attemptsRemaining > 0)
+        {
+            try
+            {
+                return InvokeWithList(fn, safeArgs);
+            }
+            catch (Exception ex)
+            {
+                attemptsRemaining = attemptsRemaining - 1;
+                if (attemptsRemaining <= 0 || !MatchesException(ex, exceptions))
+                {
+                    throw;
+                }
+
+                if (currentDelay > 0.0)
+                {
+                    Sleep(currentDelay);
+                }
+
+                currentDelay = currentDelay * backoff;
+                if (currentDelay > maxDelay)
+                {
+                    currentDelay = maxDelay;
+                }
+            }
+        }
+
+        throw new SystemException("Retry attempts exhausted");
+    }
+
+    public static object Decorator(
+        int tries = 3,
+        double delay = 0.01,
+        double maxDelay = 10.0,
+        double backoff = 2.0,
+        List<object>? exceptions = null
+    )
+    {
+        return MakeDecorator(tries, delay, maxDelay, backoff, exceptions);
+    }
+}
+

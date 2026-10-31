@@ -1,0 +1,81 @@
+namespace MicroRequests;
+
+extern using urllib.request as ureq;
+extern using urllib.error as uerr;
+extern using json;
+using PythonSharp.Core;
+
+public record HttpResponse(int StatusCode, string Text, Dict<string, string> Headers, string Url)
+{
+    public bool IsSuccessStatusCode => StatusCode >= 200 && StatusCode < 300;
+
+    public object Json()
+    {
+        return ParseJson(Text);
+    }
+
+    [InlineTemplate("json.loads({0})")]
+    private static extern object ParseJson(string text);
+}
+
+public class HttpClient
+{
+    [InlineTemplate("ureq.Request({0}, data={1}.encode('utf-8') if {1} is not None else None, headers={2} if {2} is not None else {}, method={3})")]
+    private static extern object CreateRequest(string url, string? data, Dict<string, string>? headers, string method);
+
+    [InlineTemplate("ureq.urlopen({0}, timeout={1})")]
+    private static extern object OpenUrl(object request, int timeout);
+
+    [InlineTemplate("{0}.status")]
+    private static extern int GetStatus(object response);
+
+    [InlineTemplate("{0}.read().decode('utf-8', errors='replace')")]
+    private static extern string ReadBody(object response);
+
+    [InlineTemplate("dict({0}.headers)")]
+    private static extern Dict<string, string> GetHeaders(object response);
+
+    [InlineTemplate("{0}.geturl()")]
+    private static extern string GetUrl(object response);
+
+    [InlineTemplate("getattr({0}, 'code', 0)")]
+    private static extern int ExtractErrorStatus(Exception ex);
+
+    [InlineTemplate("({0}.read().decode('utf-8', errors='replace') if hasattr({0}, 'read') else str({0}))")]
+    private static extern string ExtractErrorBody(Exception ex);
+
+    [InlineTemplate("(dict({0}.headers) if hasattr({0}, 'headers') else {})")]
+    private static extern Dict<string, string> ExtractErrorHeaders(Exception ex);
+
+    public static HttpResponse Send(string url, string method = "GET", string? data = null, Dict<string, string>? headers = null, int timeout = 10)
+    {
+        object req = CreateRequest(url, data, headers, method);
+        try
+        {
+            object resp = OpenUrl(req, timeout);
+            int status = GetStatus(resp);
+            string body = ReadBody(resp);
+            Dict<string, string> respHeaders = GetHeaders(resp);
+            string respUrl = GetUrl(resp);
+            return new HttpResponse(status, body, respHeaders, respUrl);
+        }
+        catch (Exception ex)
+        {
+            int errStatus = ExtractErrorStatus(ex);
+            string errBody = ExtractErrorBody(ex);
+            Dict<string, string> errHeaders = ExtractErrorHeaders(ex);
+            return new HttpResponse(errStatus, errBody, errHeaders, url);
+        }
+    }
+
+    public static HttpResponse Get(string url, Dict<string, string>? headers = null, int timeout = 10)
+    {
+        return Send(url, "GET", null, headers, timeout);
+    }
+
+    public static HttpResponse Post(string url, string data = "", Dict<string, string>? headers = null, int timeout = 10)
+    {
+        return Send(url, "POST", data, headers, timeout);
+    }
+}
+

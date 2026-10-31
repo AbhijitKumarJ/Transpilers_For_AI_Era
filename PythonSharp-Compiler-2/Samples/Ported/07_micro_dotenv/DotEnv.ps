@@ -1,0 +1,121 @@
+namespace MicroDotEnv;
+
+extern using os;
+using PythonSharp.Core;
+
+public class DotEnv
+{
+    [InlineTemplate("open({0}, 'r', encoding='utf-8').read()")]
+    public static extern string ReadAllText(string filePath);
+
+    [InlineTemplate("os.path.exists({0})")]
+    public static extern bool FileExists(string filePath);
+
+    [InlineTemplate("os.environ.setdefault({0}, {1})")]
+    public static extern void SetEnvDefault(string key, string value);
+
+    [InlineTemplate("os.environ.__setitem__({0}, {1})")]
+    public static extern void SetEnv(string key, string value);
+
+    public static Dict<string, string> Parse(string content)
+    {
+        Dict<string, string> result = new Dict<string, string>();
+        if (string.IsNullOrEmpty(content))
+        {
+            return result;
+        }
+
+        List<string> lines = content.Split("\n");
+        int i = 0;
+        while (i < lines.Count)
+        {
+            string line = lines[i].Trim();
+            i = i + 1;
+
+            if (line.Length == 0 || line.StartsWith("#"))
+            {
+                continue;
+            }
+
+            if (line.StartsWith("export "))
+            {
+                line = line.Substring(7).Trim();
+            }
+
+            int eqIdx = line.IndexOf("=");
+            if (eqIdx <= 0)
+            {
+                continue;
+            }
+
+            string key = line.Substring(0, eqIdx).Trim();
+            string val = line.Substring(eqIdx + 1).Trim();
+
+            val = CleanValue(val);
+            result[key] = val;
+        }
+
+        return result;
+    }
+
+    public static Dict<string, string> Load(string filePath = ".env", bool overrideExisting = false)
+    {
+        if (!FileExists(filePath))
+        {
+            return new Dict<string, string>();
+        }
+
+        string content = ReadAllText(filePath);
+        Dict<string, string> parsed = Parse(content);
+
+        foreach (KeyValuePair<string, string> pair in parsed.Items())
+        {
+            if (overrideExisting)
+            {
+                SetEnv(pair.Key, pair.Value);
+            }
+            else
+            {
+                SetEnvDefault(pair.Key, pair.Value);
+            }
+        }
+
+        return parsed;
+    }
+
+    private static string CleanValue(string rawVal)
+    {
+        if (rawVal.Length == 0)
+        {
+            return "";
+        }
+
+        // Double quoted value
+        if (rawVal.StartsWith("\"") && rawVal.EndsWith("\"") && rawVal.Length >= 2)
+        {
+            string inner = rawVal.Substring(1, rawVal.Length - 2);
+            return inner
+                .Replace("\\n", "\n")
+                .Replace("\\t", "\t")
+                .Replace("\\r", "\r")
+                .Replace("\\\"", "\"")
+                .Replace("\\\\", "\\");
+        }
+
+        // Single quoted value
+        if (rawVal.StartsWith("'") && rawVal.EndsWith("'") && rawVal.Length >= 2)
+        {
+            return rawVal.Substring(1, rawVal.Length - 2);
+        }
+
+        // Unquoted value: strip trailing inline comments like `PORT=8080 # comment`
+        int hashIdx = rawVal.IndexOf("#");
+        if (hashIdx >= 0)
+        {
+            return rawVal.Substring(0, hashIdx).Trim();
+        }
+
+        return rawVal;
+    }
+}
+

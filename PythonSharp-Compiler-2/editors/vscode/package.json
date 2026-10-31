@@ -1,0 +1,74 @@
+{
+  "name": "pythonsharp",
+  "displayName": "PythonSharp",
+  "description": "Rich Language Server, IntelliSense, and Syntax Support for PythonSharp (.ps)",
+  "version": "0.1.0",
+  "publisher": "pythonsharp",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Snippets"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onLanguage:pythonsharp"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "pythonsharp",
+        "aliases": [
+          "PythonSharp",
+          "pythonsharp"
+        ],
+        "extensions": [
+          ".ps",
+          ".d.ps",
+          ".pysharp",
+          ".d.pysharp",
+          ".pys",
+          ".d.pys"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "pythonsharp",
+        "scopeName": "source.ps",
+        "path": "./syntaxes/pythonsharp.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "pythonsharp.restartServer",
+        "title": "PythonSharp: Restart Language Server",
+        "category": "PythonSharp"
+      },
+      {
+        "command": "pythonsharp.build",
+        "title": "PythonSharp: Build Project (psc build)",
+        "category": "PythonSharp"
+      },
+      {
+        "command": "pythonsharp.check",
+        "title": "PythonSharp: Check Diagnostics (psc check)",
+        "category": "PythonSharp"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "PythonSharp",
+      "properties": {
+        "pythonsharp.serverPath": {
+          "type": "string",
+          "default": "",
+          "description": "Custom executable path to `psc` or Python executable running `psc lsp`."
+        }
+      }
+    }
+  }
+}

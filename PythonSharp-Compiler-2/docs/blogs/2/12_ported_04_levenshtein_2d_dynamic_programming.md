@@ -1,0 +1,262 @@
+# Level 2 — Blog 12: Ported 04 — Levenshtein (`04_levenshtein`): 2D Dynamic Programming & Distance Metrics
+
+In [Blog 11](./11_ported_03_isprime_number_theory_and_loops.md), we explored numerical loops and arbitrary precision math.
+
+Now, we advance to **`04_levenshtein`**, ported from concepts in the `Levenshtein` library. This project introduces **Dynamic Programming (DP)**, nested loops, matrix cell transitions, and normalized similarity ratios.
+
+In this post, we examine:
+1. **The Dynamic Programming Algorithm**: Levenshtein edit distance and Wagner-Fischer matrix reduction.
+2. **Project Layout**: The `.psproj` configuration.
+3. **The C# Implementation (`Levenshtein.ps`)**: Space-optimized two-row rolling vectors (`v0`, `v1`), cost calculation, and similarity ratios.
+4. **The Transpiled Output (`distance_util.py`)**: Vector swapping, index lookups, and float calculations.
+5. **The Verification Test Harness (`run_levenshtein.py`)**: Testing identical strings, insertions, deletions, substitutions, and ratio boundaries.
+
+---
+
+## 1. The Algorithm: Wagner-Fischer Dynamic Programming
+
+The **Levenshtein distance** is the minimum number of single-character edits (insertions, deletions, or substitutions) required to change one string into another.
+
+Given string $s_1$ of length $m$ and string $s_2$ of length $n$:
+- **Full Matrix Approach**: Allocate an $(m+1) \times (n+1)$ 2D matrix $D$. Cell $D[i, j]$ holds the edit distance between $s_1[0..i]$ and $s_2[0..j]$. This requires $O(m \times n)$ memory.
+- **Two-Row Rolling Vector Optimization**: Notice that computing row $i+1$ only requires values from the previous row $i$. We can discard earlier rows, reducing memory from $O(m \times n)$ to **$O(n)$**!
+
+The state transitions:
+$$\text{Cost} = \begin{cases} 0 & \text{if } s_1[i] = s_2[j] \\ 1 & \text{if } s_1[i] \neq s_2[j] \end{cases}$$
+$$D[i+1, j+1] = \min \begin{cases}
+D[i, j+1] + 1 & \text{(Deletion)} \\
+D[i+1, j] + 1 & \text{(Insertion)} \\
+D[i, j] + \text{Cost} & \text{(Substitution)}
+\end{cases}$$
+
+---
+
+## 2. Project Layout
+
+The project lives under [`Samples/Ported/04_levenshtein/`](file:///home/abhijit/Videos/transpilers/PythonSharp/Samples/Ported/04_levenshtein/):
+
+```
+Samples/Ported/04_levenshtein/
+├── Levenshtein.psproj   # Project manifest
+├── Levenshtein.ps       # C# source implementation
+├── README.md            # Documentation and build instructions
+├── run_levenshtein.py   # Automated verification test suite
+└── dist/
+    └── distance_util.py # Transpiled pure Python 3.11 module
+```
+
+---
+
+## 3. The C# Source Implementation: `Levenshtein.ps`
+
+[`Levenshtein.ps`](file:///home/abhijit/Videos/transpilers/PythonSharp/Samples/Ported/04_levenshtein/Levenshtein.ps) implements space-optimized edit distance and similarity ratio calculation:
+
+```csharp
+namespace DistanceUtil;
+
+using PythonSharp.Core;
+
+public class Levenshtein
+{
+    public static int Distance(string s1, string s2)
+    {
+        if (s1 == s2) return 0;
+        if (s1.Length == 0) return s2.Length;
+        if (s2.Length == 0) return s1.Length;
+
+        // Previous row vector v0
+        List<int> v0 = new List<int>();
+        int i = 0;
+        while (i <= s2.Length)
+        {
+            v0.Add(i);
+            i += 1;
+        }
+
+        // Compute current row vector v1 from v0
+        i = 0;
+        while (i < s1.Length)
+        {
+            List<int> v1 = new List<int>();
+            v1.Add(i + 1);
+
+            int j = 0;
+            while (j < s2.Length)
+            {
+                int deletionCost = v0[j + 1] + 1;
+                int insertionCost = v1[j] + 1;
+                int substitutionCost = v0[j];
+                if (s1[i] != s2[j])
+                {
+                    substitutionCost += 1;
+                }
+
+                int minCost = deletionCost;
+                if (insertionCost < minCost)
+                {
+                    minCost = insertionCost;
+                }
+                if (substitutionCost < minCost)
+                {
+                    minCost = substitutionCost;
+                }
+
+                v1.Add(minCost);
+                j += 1;
+            }
+
+            v0 = v1;  // Swap rolling row vectors
+            i += 1;
+        }
+
+        return v0[s2.Length];
+    }
+
+    public static double Ratio(string s1, string s2)
+    {
+        int dist = Distance(s1, s2);
+        int totalLen = s1.Length + s2.Length;
+        if (totalLen == 0) return 1.0;
+
+        double dDist = dist * 2.0;
+        double similarity = 1.0 - (dDist / totalLen);
+        if (similarity < 0.0) return 0.0;
+        return similarity;
+    }
+}
+```
+
+---
+
+## 4. The Transpiled Output: `distance_util.py`
+
+Compiling with:
+```bash
+psc build Samples/Ported/04_levenshtein -o Samples/Ported/04_levenshtein/dist
+```
+produces [`Samples/Ported/04_levenshtein/dist/distance_util.py`](file:///home/abhijit/Videos/transpilers/PythonSharp/Samples/Ported/04_levenshtein/dist/distance_util.py):
+
+```python
+# Auto-generated by PythonSharp (psc) — Bytecode line-pinned to Levenshtein.ps
+from __future__ import annotations
+
+class Levenshtein:
+    __ps_types__ = ('DistanceUtil.Levenshtein',)
+    __slots__ = ()
+
+    @staticmethod
+    def distance(s_1: str, s_2: str) -> int:
+        if s_1 == s_2:
+            return 0
+        if len(s_1) == 0:
+            return len(s_2)
+        if len(s_2) == 0:
+            return len(s_1)
+        v_0: list[int] = []
+        i: int = 0
+        while i <= len(s_2):
+            v_0.append(i)
+            i += 1
+        i = 0
+        while i < len(s_1):
+            v_1: list[int] = []
+            v_1.append(i + 1)
+            j: int = 0
+            while j < len(s_2):
+                deletion_cost: int = v_0[j + 1] + 1
+                insertion_cost: int = v_1[j] + 1
+                substitution_cost: int = v_0[j]
+                if s_1[i] != s_2[j]:
+                    substitution_cost += 1
+                min_cost: int = deletion_cost
+                if insertion_cost < min_cost:
+                    min_cost = insertion_cost
+                if substitution_cost < min_cost:
+                    min_cost = substitution_cost
+                v_1.append(min_cost)
+                j += 1
+            v_0 = v_1
+            i += 1
+        return v_0[len(s_2)]
+
+    @staticmethod
+    def ratio(s_1: str, s_2: str) -> float:
+        dist: int = Levenshtein.distance(s_1, s_2)
+        total_len: int = len(s_1) + len(s_2)
+        if total_len == 0:
+            return 1.0
+        d_dist: float = dist * 2.0
+        similarity: float = 1.0 - d_dist / total_len
+        if similarity < 0.0:
+            return 0.0
+        return similarity
+```
+
+### Codegen Analysis:
+1. **Name Mangling with Numbers**: C# variables `s1` and `s2` are converted by `pascal_to_snake` to `s_1` and `s_2`, inserting an underscore before digit boundaries.
+2. **List Indexing**: `v0[j + 1]` and `s1[i]` map straight to native Python list and string indexing.
+3. **Reference Assignment**: `v0 = v1` reassigns the list reference with zero copy overhead, just like in Python.
+4. **Floating-Point Precision**: `double` maps to Python `float` (which is a 64-bit IEEE-754 double in CPython).
+
+---
+
+## 5. Verification Test Suite
+
+[`run_levenshtein.py`](file:///home/abhijit/Videos/transpilers/PythonSharp/Samples/Ported/04_levenshtein/run_levenshtein.py) validates the module across classical edit distance problems:
+
+```python
+# 1. Classical "kitten" -> "sitting" (sub k->s, sub e->i, add g = 3)
+assert Levenshtein.distance("kitten", "sitting") == 3
+
+# 2. "flaw" -> "lawn" (del f, add n = 2)
+assert Levenshtein.distance("flaw", "lawn") == 2
+
+# 3. Identical strings
+assert Levenshtein.distance("pythonsharp", "pythonsharp") == 0
+
+# 4. Empty string boundaries
+assert Levenshtein.distance("", "hello") == 5
+assert Levenshtein.distance("world", "") == 5
+
+# 5. Similarity ratio
+ratio = Levenshtein.ratio("kitten", "sitting")
+assert round(ratio, 4) == 0.5385
+assert Levenshtein.ratio("identical", "identical") == 1.0
+```
+
+Running the runner:
+```bash
+python3 Samples/Ported/04_levenshtein/run_levenshtein.py
+```
+Outputs:
+```
+=== Step 1: Building Levenshtein via `psc build` ===
+Build is up to date: outputs in '.../dist' are fresh.
+
+=== Step 2: Testing Ported Levenshtein Functionality ===
+[PASS] Levenshtein.distance('kitten', 'sitting') -> 3
+[PASS] Levenshtein.distance('flaw', 'lawn') -> 2
+[PASS] Levenshtein.distance('pythonsharp', 'pythonsharp') -> 0
+[PASS] Levenshtein empty string boundary checks
+[PASS] Levenshtein.ratio('kitten', 'sitting') -> 0.5385
+[PASS] Levenshtein.ratio('identical', 'identical') -> 1.0
+
+All levenshtein verification checks succeeded with 0 errors!
+```
+
+---
+
+## Key Takeaways
+
+1. **Space Complexity Mastery**: Translating space-optimized rolling vectors preserves $O(N)$ memory behavior in Python.
+2. **High-Performance Nested Loops**: The compiler avoids introducing function call overhead inside inner matrix loops.
+3. **Strict Type Safety**: Prevents common dynamic bugs like off-by-one errors and indexing into uninitialized matrix cells.
+
+---
+
+## Next Steps
+
+Now let's explore semantic version parsing and C# record types!
+
+In **[Blog 13: Ported 05 — SemVer (`05_semver`): Grammar Parsing, Precedence & Immutable Records](./13_ported_05_semver_grammar_and_records.md)**, we examine how C# records compile to high-performance Python `@dataclass(frozen=True, slots=True)`!
+

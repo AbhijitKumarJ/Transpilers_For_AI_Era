@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "emit_pyc": true,
+  "target_python": "3.11",
+  "inputs": {
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/PythonSharp.Core.d.ps": {
+      "sha256": "3faaee15c39031fa20e835d3a9772cda4ff172269b7bdfe3af3498350c22cade",
+      "mtime": 1793299927.3918216,
+      "size": 16359
+    },
+    "DotEnv.ps": {
+      "sha256": "1fdaf53efe801fd4b5a8ba4c378f0fa87b3f26fa53f54d4c8d0d16434b113123",
+      "mtime": 1793299920.647717,
+      "size": 3208
+    }
+  },
+  "outputs": [
+    "micro_dot_env.py",
+    "micro_dot_env.pyc"
+  ]
+}

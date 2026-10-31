@@ -1,0 +1,25 @@
+{
+  "version": "0.1.0",
+  "emit_pyc": false,
+  "target_python": "3.11",
+  "inputs": {
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/PythonSharp.Core.d.ps": {
+      "sha256": "48e0c33f4925c62758acb16dd614c0181e45e0518031af28dc90feba6306ba56",
+      "mtime": 1793290658.1552455,
+      "size": 14944
+    },
+    "ArticlePublisher.ps": {
+      "sha256": "30d93df3c004eba066e7e7c4117a887b5caebd21382d3d36d85095cbd5af7d6f",
+      "mtime": 1793293658.3830633,
+      "size": 443
+    },
+    "stubs/native_text.d.ps": {
+      "sha256": "67013d06cdb15cf7022d56684c87b6dddae139367b8b31cb6ef939cab225a70e",
+      "mtime": 1793293552.181637,
+      "size": 550
+    }
+  },
+  "outputs": [
+    "publishing.py"
+  ]
+}

@@ -1,0 +1,66 @@
+namespace TextUtil;
+
+using PythonSharp.Core;
+
+public class PadUtil
+{
+    public static string LeftPad(string str, int length, string ch = " ")
+    {
+        if (str.Length >= length)
+        {
+            return str;
+        }
+
+        int targetPad = length - str.Length;
+        string padStr = "";
+        while (padStr.Length < targetPad)
+        {
+            padStr = padStr + ch;
+        }
+
+        if (padStr.Length > targetPad)
+        {
+            padStr = padStr.Substring(0, targetPad);
+        }
+
+        return padStr + str;
+    }
+
+    public static string RightPad(string str, int length, string ch = " ")
+    {
+        if (str.Length >= length)
+        {
+            return str;
+        }
+
+        int targetPad = length - str.Length;
+        string padStr = "";
+        while (padStr.Length < targetPad)
+        {
+            padStr = padStr + ch;
+        }
+
+        if (padStr.Length > targetPad)
+        {
+            padStr = padStr.Substring(0, targetPad);
+        }
+
+        return str + padStr;
+    }
+
+    public static string Center(string str, int length, string ch = " ")
+    {
+        if (str.Length >= length)
+        {
+            return str;
+        }
+
+        int totalPad = length - str.Length;
+        int leftLen = totalPad / 2;
+        int rightLen = totalPad - leftLen;
+
+        string leftStr = LeftPad("", leftLen, ch);
+        string rightStr = RightPad("", rightLen, ch);
+        return leftStr + str + rightStr;
+    }
+}

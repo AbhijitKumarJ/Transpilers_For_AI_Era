@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "emit_pyc": true,
+  "target_python": "3.11",
+  "inputs": {
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/PythonSharp.Core.d.ps": {
+      "sha256": "3faaee15c39031fa20e835d3a9772cda4ff172269b7bdfe3af3498350c22cade",
+      "mtime": 1793299927.3918216,
+      "size": 16359
+    },
+    "SemanticVersion.ps": {
+      "sha256": "17748d031e77a7b08d2a4a72c844617f749293c17ee279228a547548c74b2112",
+      "mtime": 1793299895.98951,
+      "size": 4615
+    }
+  },
+  "outputs": [
+    "sem_ver_util.py",
+    "sem_ver_util.pyc"
+  ]
+}

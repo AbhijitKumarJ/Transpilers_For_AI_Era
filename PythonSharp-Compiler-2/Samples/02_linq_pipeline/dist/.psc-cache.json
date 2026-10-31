@@ -1,0 +1,28 @@
+{
+  "version": "0.1.0",
+  "emit_pyc": true,
+  "target_python": "3.11",
+  "inputs": {
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/PythonSharp.Core.d.ps": {
+      "sha256": "48e0c33f4925c62758acb16dd614c0181e45e0518031af28dc90feba6306ba56",
+      "mtime": 1793290658.1552455,
+      "size": 14944
+    },
+    "Models/Product.ps": {
+      "sha256": "f8fb1890f2f5200657584d86c914927e15bc7e1e210619297c4d2d04901cf9f6",
+      "mtime": 1793293397.6630564,
+      "size": 118
+    },
+    "Services/InventoryAnalytics.ps": {
+      "sha256": "a7072627438a1e0989542762039d99945c598eaa0184815152c2dcaeaec484c8",
+      "mtime": 1793293404.227317,
+      "size": 807
+    }
+  },
+  "outputs": [
+    "data_pipeline/models.py",
+    "data_pipeline/models.pyc",
+    "data_pipeline/services.py",
+    "data_pipeline/services.pyc"
+  ]
+}

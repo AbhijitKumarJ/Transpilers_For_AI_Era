@@ -1,0 +1,27 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "data_pipeline/models.py",
+      "namespace": [
+        "DataPipeline",
+        "Models"
+      ],
+      "primary_ps": "Models/Product.ps",
+      "py": "data_pipeline/models.py",
+      "pyc": "data_pipeline/models.pyc"
+    },
+    {
+      "module": "data_pipeline/services.py",
+      "namespace": [
+        "DataPipeline",
+        "Services"
+      ],
+      "primary_ps": "Services/InventoryAnalytics.ps",
+      "py": "data_pipeline/services.py",
+      "pyc": "data_pipeline/services.pyc"
+    }
+  ],
+  "schema_version": 1
+}

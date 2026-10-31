@@ -1,0 +1,118 @@
+namespace MicroTqdmUtil;
+
+extern using time;
+using PythonSharp.Core;
+
+public class ProgressBar
+{
+    private readonly int _total;
+    private readonly int _barWidth;
+    private readonly double _startTime;
+    private int _current;
+    private string _desc;
+
+    public ProgressBar(int total, string desc = "", int barWidth = 30)
+    {
+        _total = total;
+        _desc = desc;
+        _barWidth = barWidth;
+        _current = 0;
+        _startTime = time.time();
+    }
+
+    public int Current => _current;
+    public int Total => _total;
+    public string Description => _desc;
+
+    public void SetDescription(string desc)
+    {
+        _desc = desc;
+    }
+
+    public void Update(int step = 1)
+    {
+        _current = _current + step;
+        if (_current > _total)
+        {
+            _current = _total;
+        }
+        Render();
+    }
+
+    public string RenderString()
+    {
+        double now = time.time();
+        double elapsed = now - _startTime;
+        double rate = elapsed > 0.0 ? (_current * 1.0) / elapsed : 0.0;
+        int remaining = _total - _current;
+        double eta = rate > 0.0 ? (remaining * 1.0) / rate : 0.0;
+
+        int percent = _total > 0 ? (_current * 100) / _total : 100;
+        int filledLen = _total > 0 ? (_current * _barWidth) / _total : _barWidth;
+        if (filledLen > _barWidth)
+        {
+            filledLen = _barWidth;
+        }
+
+        string bar = "";
+        int i = 0;
+        while (i < filledLen)
+        {
+            bar = bar + "=";
+            i = i + 1;
+        }
+        if (filledLen < _barWidth)
+        {
+            bar = bar + ">";
+            i = i + 1;
+        }
+        while (bar.Length < _barWidth)
+        {
+            bar = bar + ".";
+        }
+
+        string prefix = _desc.Length > 0 ? $"{_desc}: " : "";
+        string etaStr = FormatTime(eta);
+        string elapsedStr = FormatTime(elapsed);
+        string rateStr = FormatRate(rate);
+
+        return $"{prefix}[{bar}] {percent}% ({_current}/{_total}) [{elapsedStr}<{etaStr}, {rateStr}]";
+    }
+
+    public void Render()
+    {
+        string text = RenderString();
+        Console.Write($"\r{text}");
+        if (_current >= _total)
+        {
+            Console.WriteLine();
+        }
+    }
+
+    public static string FormatTime(double seconds)
+    {
+        int totalSec = Int32.From(seconds);
+        int mins = totalSec / 60;
+        int secs = totalSec % 60;
+        string mStr = mins < 10 ? $"0{mins}" : $"{mins}";
+        string sStr = secs < 10 ? $"0{secs}" : $"{secs}";
+        return $"{mStr}:{sStr}";
+    }
+
+    public static string FormatRate(double itPerSec)
+    {
+        if (itPerSec < 0.001)
+        {
+            return "0.00 it/s";
+        }
+        int whole = Int32.From(itPerSec);
+        double diff = (itPerSec - Double.From(whole)) * 100.0 + 0.5;
+        int frac = Int32.From(diff);
+        if (frac < 0)
+        {
+            frac = 0;
+        }
+        string fracStr = frac < 10 ? $"0{frac}" : $"{frac}";
+        return $"{whole}.{fracStr} it/s";
+    }
+}

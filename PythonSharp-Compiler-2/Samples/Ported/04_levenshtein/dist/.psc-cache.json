@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "emit_pyc": true,
+  "target_python": "3.11",
+  "inputs": {
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/PythonSharp.Core.d.ps": {
+      "sha256": "3faaee15c39031fa20e835d3a9772cda4ff172269b7bdfe3af3498350c22cade",
+      "mtime": 1793299927.3918216,
+      "size": 16359
+    },
+    "Levenshtein.ps": {
+      "sha256": "375f57c5083d0aae1876f037b4ea594f9be682ea5b0b7d923d1cdcf9140fb127",
+      "mtime": 1793299916.5834155,
+      "size": 1845
+    }
+  },
+  "outputs": [
+    "distance_util.py",
+    "distance_util.pyc"
+  ]
+}
