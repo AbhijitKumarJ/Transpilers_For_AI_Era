@@ -1,0 +1,153 @@
+namespace PythonSharp.Core;
+
+extern using builtins;
+extern using collections.abc as abc;
+extern using contextlib;
+extern using itertools;
+
+/// Implementing IDisposable on any PythonSharp class automatically synthesizes `__enter__`
+/// and `__exit__` calling `self.dispose()`, and lowers `using var x = ...;` to `with ... as x:`.
+[MapsTo("contextlib.AbstractContextManager")]
+public interface IDisposable
+{
+    [MapsTo("dispose")]
+    void Dispose();
+}
+
+/// Implementing IAsyncDisposable synthesizes `__aenter__` and `__aexit__`
+/// and lowers `await using var x = ...;` to `async with ... as x:`.
+[MapsTo("contextlib.AbstractAsyncContextManager")]
+public interface IAsyncDisposable
+{
+    [MapsTo("dispose_async")]
+    Task DisposeAsync();
+}
+
+public interface IEquatable<T>
+{
+    [MapsTo("__eq__")]
+    bool Equals(T other);
+}
+
+public interface IComparable<T>
+{
+    [InlineTemplate("(0 if {self} == {0} else (-1 if {self} < {0} else 1))")]
+    int CompareTo(T other);
+}
+
+[MapsTo("collections.abc.AsyncIterable")]
+[RuntimeType("collections.abc.AsyncIterable")]
+public primitive interface IAsyncEnumerable<T>
+{
+    IAsyncEnumerator<T> GetAsyncEnumerator();
+}
+
+[MapsTo("collections.abc.AsyncIterator")]
+public primitive interface IAsyncEnumerator<T> : IAsyncDisposable
+{
+    T Current { get; }
+    Task<bool> MoveNextAsync();
+}
+
+[MapsTo("collections.abc.Iterable")]
+[RuntimeType("collections.abc.Iterable")]
+public primitive interface IOrderedEnumerable<T> : IEnumerable<T>
+{
+    [LinqStage("ThenBy")]
+    IOrderedEnumerable<T> ThenBy<TKey>(Func<T, TKey> keySelector);
+
+    [LinqStage("ThenByDescending")]
+    IOrderedEnumerable<T> ThenByDescending<TKey>(Func<T, TKey> keySelector);
+}
+
+/// Zero-cost LINQ pipeline contract. Chained calls are fused by `LinqComprehensionFuser`
+/// in Pass 2B into single-pass native Python list, set, dict, or generator comprehensions.
+[MapsTo("collections.abc.Iterable")]
+[RuntimeType("collections.abc.Iterable")]
+public primitive interface IEnumerable<T>
+{
+    // --- Lazy Comprehension / Generator Stages (Fused in Pass 2B) ---
+
+    [LinqStage("Filter")]
+    IEnumerable<T> Where(Func<T, bool> predicate);
+
+    [LinqStage("Map")]
+    IEnumerable<TResult> Select<TResult>(Func<T, TResult> selector);
+
+    [LinqStage("FlatMap")]
+    IEnumerable<TResult> SelectMany<TResult>(Func<T, IEnumerable<TResult>> selector);
+
+    [LinqStage("Distinct")]
+    IEnumerable<T> Distinct();
+
+    [LinqStage("Take")]
+    IEnumerable<T> Take(int count);
+
+    [LinqStage("Skip")]
+    IEnumerable<T> Skip(int count);
+
+    [LinqStage("Concat")]
+    IEnumerable<T> Concat(IEnumerable<T> second);
+
+    [LinqStage("OrderBy")]
+    IOrderedEnumerable<T> OrderBy<TKey>(Func<T, TKey> keySelector);
+
+    [LinqStage("OrderByDescending")]
+    IOrderedEnumerable<T> OrderByDescending<TKey>(Func<T, TKey> keySelector);
+
+    [LinqStage("Enumerate")]
+    IEnumerable<KeyValuePair<int, T>> WithIndex();
+
+    [LinqStage("Contains")]
+    bool Contains(T value);
+
+    [LinqStage("LastOrDefault")]
+    T? LastOrDefault();
+
+    [LinqStage("LastOrDefaultPred")]
+    T? LastOrDefault(Func<T, bool> predicate);
+
+    [LinqStage("Average")]
+    double Average();
+
+    [LinqStage("TerminalMin")]
+    T Min();
+
+    [LinqStage("TerminalMax")]
+    T Max();
+
+    // --- Terminal Comprehension Consumers ---
+
+    [LinqStage("TerminalList")]
+    List<T> ToList();
+
+    [LinqStage("TerminalSet")]
+    HashSet<T> ToHashSet();
+
+    [LinqStage("TerminalDict")]
+    Dict<TKey, TValue> ToDict<TKey, TValue>(
+        Func<T, TKey> keySelector,
+        Func<T, TValue> valueSelector
+    );
+
+    [LinqStage("TerminalAny")]
+    bool Any();
+
+    [LinqStage("TerminalAnyPred")]
+    bool Any(Func<T, bool> predicate);
+
+    [LinqStage("TerminalAll")]
+    bool All(Func<T, bool> predicate);
+
+    [LinqStage("TerminalFirstOrDefault")]
+    T? FirstOrDefault();
+
+    [LinqStage("TerminalFirstOrDefaultPred")]
+    T? FirstOrDefault(Func<T, bool> predicate);
+
+    [LinqStage("TerminalCount")]
+    int Count();
+
+    [LinqStage("TerminalSum")]
+    T Sum();
+}

@@ -1,0 +1,34 @@
+namespace re;
+
+using PythonSharp.Core;
+using PythonSharp.Text.RegularExpressions;
+extern using re as _py_re;
+
+[SurfaceLevel(2)]
+[MapsTo("_py_re")]
+public static primitive class re
+{
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexEngine.CompilePattern", "PythonSharp.Re.Re.Compile")]
+    [InlineTemplate("_py_re.compile({0})")]
+    public static extern CompiledRegexPattern compile(string pattern);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexEngine.MatchAtBeginning", "PythonSharp.Re.Re.Match")]
+    [InlineTemplate("_py_re.match({0}, {1})")]
+    public static extern RegexMatch? match(string pattern, string @string);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexEngine.SearchAnywhere", "PythonSharp.Re.Re.Search")]
+    [InlineTemplate("_py_re.search({0}, {1})")]
+    public static extern RegexMatch? search(string pattern, string @string);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexEngine.FindAllMatches", "PythonSharp.Re.Re.FindAll")]
+    [InlineTemplate("_py_re.findall({0}, {1})")]
+    public static extern List<string> findall(string pattern, string @string);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexEngine.ReplaceAllMatches", "PythonSharp.Re.Re.Sub")]
+    [InlineTemplate("_py_re.sub({0}, {1}, {2})")]
+    public static extern string sub(string pattern, string repl, string @string);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexEngine.SplitByPattern", "PythonSharp.Re.Re.Split")]
+    [InlineTemplate("_py_re.split({0}, {1})")]
+    public static extern List<string> split(string pattern, string @string);
+}

@@ -1,0 +1,33 @@
+namespace PythonSharp.VectorSearch;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using PythonSharp.ArtificialIntelligence.Inference;
+extern using faiss as _faiss;
+extern using onnxruntime as _ort;
+
+[SurfaceLevel(3)]
+[MapsTo("_faiss")]
+public static primitive class faiss
+{
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.Inference.VectorIndexFactory.CreateEuclideanL2VectorIndex")]
+    [InlineTemplate("_faiss.IndexFlatL2({0})")]
+    public static extern VectorSimilarityIndex IndexFlatL2(int embeddingDimension);
+
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.Inference.VectorIndexFactory.CreateInnerProductVectorIndex")]
+    [InlineTemplate("_faiss.IndexFlatIP({0})")]
+    public static extern VectorSimilarityIndex IndexFlatIP(int embeddingDimension);
+
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.Inference.VectorIndexFactory.NormalizeRowsL2InPlace")]
+    [InlineTemplate("_faiss.normalize_L2({0})")]
+    public static extern void NormalizeL2(NDArray<double> embeddingMatrix);
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_ort")]
+public static primitive class ort
+{
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.Inference.OnnxSessionFactory.CreateInferenceSessionFromFile")]
+    [InlineTemplate("_ort.InferenceSession({0})")]
+    public static extern OnnxRuntimeInferenceSession InferenceSession(string onnxModelFilePath);
+}

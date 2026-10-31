@@ -1,0 +1,89 @@
+namespace PythonSharp.PyTorch;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using PythonSharp.DeepLearning;
+extern using torch as _torch;
+extern using torch.nn as _nn;
+extern using torch.optim as _optim;
+
+[SurfaceLevel(3)]
+[MapsTo("_torch.cuda")]
+public static primitive class PyTorchCudaModule
+{
+    [CanonicalApi("PythonSharp.DeepLearning.AcceleratorRuntime.IsCudaGpuAvailable")]
+    [InlineTemplate("_torch.cuda.is_available()")]
+    public static extern bool IsAvailable();
+
+    [CanonicalApi("PythonSharp.DeepLearning.AcceleratorRuntime.GetAvailableGpuCount")]
+    [InlineTemplate("_torch.cuda.device_count()")]
+    public static extern int DeviceCount();
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_nn")]
+public static primitive class PyTorchNnModule
+{
+    [CanonicalApi("PythonSharp.DeepLearning.NeuralLayerFactory.CreateFullyConnectedLinearLayer")]
+    [InlineTemplate("_nn.Linear({0}, {1})")]
+    public static extern FullyConnectedLinearLayer Linear(int inFeatures, int outFeatures);
+
+    [CanonicalApi("PythonSharp.DeepLearning.LossCriterionFactory.CreateMeanSquaredErrorLoss")]
+    [InlineTemplate("_nn.MSELoss()")]
+    public static extern MeanSquaredErrorLoss MSELoss();
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_optim")]
+public static primitive class PyTorchOptimModule
+{
+    [CanonicalApi("PythonSharp.DeepLearning.OptimizerFactory.CreateAdamOptimizer")]
+    [InlineTemplate("_optim.Adam({0}, lr={1})")]
+    public static extern GradientOptimizer Adam(object parameters, double learningRate = 0.001);
+
+    [CanonicalApi("PythonSharp.DeepLearning.OptimizerFactory.CreateStochasticGradientDescentOptimizer")]
+    [InlineTemplate("_optim.SGD({0}, lr={1})")]
+    public static extern GradientOptimizer SGD(object parameters, double learningRate = 0.01);
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_torch")]
+public static primitive class torch
+{
+    [InlineTemplate("_torch.cuda")]
+    public static extern PyTorchCudaModule Cuda { get; }
+
+    [InlineTemplate("_nn")]
+    public static extern PyTorchNnModule NN { get; }
+
+    [InlineTemplate("_optim")]
+    public static extern PyTorchOptimModule Optim { get; }
+
+    [CanonicalApi("PythonSharp.DeepLearning.TensorFactory.SetRandomSeed")]
+    [InlineTemplate("_torch.manual_seed({0})")]
+    public static extern void ManualSeed(int seed);
+
+    [CanonicalApi("PythonSharp.DeepLearning.TensorFactory.FromNumPyArray")]
+    [InlineTemplate("_torch.from_numpy({0})")]
+    public static extern TorchTensor<T> FromNumpy<T>(NDArray<T> array);
+
+    [CanonicalApi("PythonSharp.DeepLearning.TensorFactory.CreateZeroTensor")]
+    [InlineTemplate("_torch.zeros(({0}, {1}))")]
+    public static extern TorchTensor<double> Zeros(int rows, int cols);
+
+    [CanonicalApi("PythonSharp.DeepLearning.TensorFactory.CreateOnesTensor")]
+    [InlineTemplate("_torch.ones(({0}, {1}))")]
+    public static extern TorchTensor<double> Ones(int rows, int cols);
+
+    [CanonicalApi("PythonSharp.DeepLearning.TensorFactory.CreateRandomNormalTensor")]
+    [InlineTemplate("_torch.randn({0}, {1})")]
+    public static extern TorchTensor<double> RandN(int rows, int cols);
+
+    [CanonicalApi("PythonSharp.DeepLearning.ActivationFunctions.ApplyRectifiedLinearUnit")]
+    [InlineTemplate("_torch.relu({0})")]
+    public static extern TorchTensor<T> ReLU<T>(TorchTensor<T> input);
+
+    [CanonicalApi("PythonSharp.DeepLearning.ActivationFunctions.ApplySigmoid")]
+    [InlineTemplate("_torch.sigmoid({0})")]
+    public static extern TorchTensor<T> Sigmoid<T>(TorchTensor<T> input);
+}

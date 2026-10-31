@@ -1,0 +1,17 @@
+namespace Commerce.Domain;
+
+using Commerce.Services;
+
+/// <summary>
+/// Demonstrates decoupled virtual namespaces (`Commerce.Domain` merged with `IAuditable.ps`)
+/// and circular cross-file type references (`Order` references `OrderCache` while
+/// `OrderCache` in `Services/OrderCache.ps` references `Order`).
+/// </summary>
+public record Order(int Id, decimal Total, bool IsActive)
+{
+    public bool RegisterIn(OrderCache cache)
+    {
+        cache.Put(this);
+        return IsActive;
+    }
+}

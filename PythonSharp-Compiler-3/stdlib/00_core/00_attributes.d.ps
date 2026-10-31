@@ -1,0 +1,60 @@
+namespace PythonSharp.Core;
+
+public abstract class Attribute { }
+
+/// Erases the PythonSharp identifier and emits the target Python symbol or type annotation.
+public sealed class MapsToAttribute : Attribute
+{
+    public MapsToAttribute(string pythonTarget) { }
+}
+
+/// Substitutes {self}, {0}, {1}, and {value} directly into a Python 3.11+ AST expression.
+public sealed class InlineTemplateAttribute : Attribute
+{
+    public InlineTemplateAttribute(string pythonAstTemplate) { }
+}
+
+/// Specifies the concrete Python runtime class used inside `isinstance(arg, py_type)` checks
+/// when synthesizing method overload dispatch tables.
+public sealed class RuntimeTypeAttribute : Attribute
+{
+    public RuntimeTypeAttribute(string pythonRuntimeType) { }
+}
+
+/// Links a Surface 2 (Raw Python) or Surface 3 (C# Bridge) declaration to its
+/// Surface 1 Enterprise FQN and Surface 3 Bridge FQN for IDE hover cards and migration hints.
+public sealed class CanonicalApiAttribute : Attribute
+{
+    public CanonicalApiAttribute(string enterpriseFqn, string csharpBridgeFqn = "") { }
+}
+
+/// Identifies whether an ambient declaration belongs to Surface 1 (Enterprise),
+/// Surface 2 (Raw Python), or Surface 3 (C# Bridge).
+public sealed class SurfaceLevelAttribute : Attribute
+{
+    public SurfaceLevelAttribute(int surfaceNumber) { }
+}
+
+/// Lowers a Dict<string, T> or object parameter into Python `**kwargs: T`.
+public sealed class KwArgsAttribute : Attribute { }
+
+/// Marks an IEnumerable<T> method as part of a chainable LINQ query to be fused
+/// by Pass 2B into a single Python comprehension or generator expression.
+public sealed class LinqStageAttribute : Attribute
+{
+    public LinqStageAttribute(string stageKind) { }
+}
+
+/// Marks a C# attribute class so that applying `[MyAttr(...)]` to a class or method
+/// emits `@my_attr(...)` in Python.
+public class PythonDecoratorAttribute : Attribute
+{
+    public PythonDecoratorAttribute(string decoratorPath) { }
+}
+
+/// Suppresses automatic `__slots__` generation and lowers the type into a
+/// `pydantic.BaseModel` subclass for runtime schema validation.
+public sealed class SchemaModelAttribute : Attribute { }
+
+/// Instructs Pass 3 to emit strict `mypyc` / Cython compatible output for native compilation.
+public sealed class NativeCompileAttribute : Attribute { }

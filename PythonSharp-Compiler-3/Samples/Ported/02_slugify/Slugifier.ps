@@ -1,0 +1,62 @@
+namespace SlugifyUtil;
+
+using PythonSharp.Core;
+
+public class Slugifier
+{
+    public static string Slugify(string text, string separator = "-", bool lowercase = true)
+    {
+        if (text.Length == 0)
+        {
+            return "";
+        }
+
+        string normalized = lowercase ? text.ToLower() : text;
+        string result = "";
+        bool prevWasSep = false;
+
+        int i = 0;
+        while (i < normalized.Length)
+        {
+            string ch = normalized[i];
+            bool isAlphaNum = IsAlphanumeric(ch);
+
+            if (isAlphaNum)
+            {
+                result = result + ch;
+                prevWasSep = false;
+            }
+            else if (!prevWasSep && result.Length > 0)
+            {
+                result = result + separator;
+                prevWasSep = true;
+            }
+
+            i += 1;
+        }
+
+        while (result.EndsWith(separator))
+        {
+            result = result.Substring(0, result.Length - separator.Length);
+        }
+
+        return result;
+    }
+
+    private static bool IsAlphanumeric(string ch)
+    {
+        if (ch >= "a" && ch <= "z")
+        {
+            return true;
+        }
+        if (ch >= "A" && ch <= "Z")
+        {
+            return true;
+        }
+        if (ch >= "0" && ch <= "9")
+        {
+            return true;
+        }
+        return false;
+    }
+}

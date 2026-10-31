@@ -1,0 +1,9 @@
+<Project Sdk="PythonSharp.Sdk">
+  <PropertyGroup>
+    <ProjectName>TripleSurfaceMigration</ProjectName>
+    <OutputType>Library</OutputType>
+    <TargetPythonVersion>3.11</TargetPythonVersion>
+    <EmitPyc>false</EmitPyc>
+  </PropertyGroup>
+</Project>
+

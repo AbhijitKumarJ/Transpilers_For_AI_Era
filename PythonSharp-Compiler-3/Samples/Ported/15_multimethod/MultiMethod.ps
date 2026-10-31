@@ -1,0 +1,112 @@
+namespace MicroMultiMethod;
+
+using PythonSharp.Core;
+
+public class MultiMethodEntry
+{
+    private List<object> _types;
+    private object _fn;
+
+    public MultiMethodEntry(List<object> types, object fn)
+    {
+        this._types = types;
+        this._fn = fn;
+    }
+
+    public List<object> Types { get { return this._types; } }
+    public object Function { get { return this._fn; } }
+}
+
+public class MultiMethod
+{
+    private string _name;
+    private List<MultiMethodEntry> _entries;
+
+    public MultiMethod(string name = "multimethod")
+    {
+        this._name = name;
+        this._entries = new List<MultiMethodEntry>();
+    }
+
+    public string Name { get { return this._name; } }
+    public int Count { get { return this._entries.Count; } }
+
+    [InlineTemplate("[type(a) for a in {0}]")]
+    public static extern List<object> GetArgTypes(List<object> args);
+
+    [InlineTemplate("all(isinstance(a, t) for a, t in zip({0}, {1}))")]
+    public static extern bool IsCompatible(List<object> args, List<object> types);
+
+    [InlineTemplate("all(issubclass(t1, t2) for t1, t2 in zip({0}, {1}))")]
+    public static extern bool IsMoreSpecific(List<object> types1, List<object> types2);
+
+    [InlineTemplate("{0}(*{1})")]
+    public static extern object InvokeWithList(object fn, List<object> args);
+
+    [InlineTemplate("str(tuple(getattr(t, '__name__', str(t)) for t in {0}))")]
+    public static extern string TypeTupleToString(List<object> types);
+
+    [InlineTemplate("(lambda *args: {self}.dispatch(list(args)))")]
+    private extern object MakeCallable();
+
+    public object AsCallable()
+    {
+        return this.MakeCallable();
+    }
+
+    public void Register(List<object> types, object fn)
+    {
+        this._entries.Add(new MultiMethodEntry(types, fn));
+    }
+
+    public object Dispatch(List<object> args)
+    {
+        List<MultiMethodEntry> matches = new List<MultiMethodEntry>();
+        int i = 0;
+        while (i < this._entries.Count)
+        {
+            MultiMethodEntry entry = this._entries[i];
+            if (entry.Types.Count == args.Count && IsCompatible(args, entry.Types))
+            {
+                matches.Add(entry);
+            }
+            i = i + 1;
+        }
+
+        if (matches.Count == 0)
+        {
+            List<object> argTypes = GetArgTypes(args);
+            throw new ArgumentException($"No matching method for '{this._name}' with argument types {TypeTupleToString(argTypes)}");
+        }
+
+        if (matches.Count == 1)
+        {
+            return InvokeWithList(matches[0].Function, args);
+        }
+
+        MultiMethodEntry best = matches[0];
+        int b = 1;
+        while (b < matches.Count)
+        {
+            MultiMethodEntry cand = matches[b];
+            if (IsMoreSpecific(cand.Types, best.Types) && !IsMoreSpecific(best.Types, cand.Types))
+            {
+                best = cand;
+            }
+            b = b + 1;
+        }
+
+        int d = 0;
+        while (d < matches.Count)
+        {
+            MultiMethodEntry other = matches[d];
+            if (other != best && !IsMoreSpecific(best.Types, other.Types))
+            {
+                throw new ArgumentException($"Ambiguous dispatch for '{this._name}' among matching candidate signatures");
+            }
+            d = d + 1;
+        }
+
+        return InvokeWithList(best.Function, args);
+    }
+}

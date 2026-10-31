@@ -1,0 +1,28 @@
+namespace xgboost;
+
+using PythonSharp.Core;
+using PythonSharp.MachineLearning.GradientBoosting;
+extern using xgboost as _xgb;
+extern using lightgbm as _lgb;
+
+[SurfaceLevel(2)]
+[MapsTo("_xgb")]
+public static primitive class xgb
+{
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.GradientBoostingFactory.CreateXgBoostClassifier", "PythonSharp.GradientBoosting.xgb.XGBClassifier")]
+    [InlineTemplate("_xgb.XGBClassifier(n_estimators={0}, max_depth={1}, learning_rate={2}, random_state={3})")]
+    public static extern XgBoostClassifierModel XGBClassifier(int n_estimators = 100, int max_depth = 6, double learning_rate = 0.1, int random_state = 42);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.GradientBoostingFactory.CreateXgBoostRegressor", "PythonSharp.GradientBoosting.xgb.XGBRegressor")]
+    [InlineTemplate("_xgb.XGBRegressor(n_estimators={0}, max_depth={1}, learning_rate={2}, random_state={3})")]
+    public static extern XgBoostRegressorModel XGBRegressor(int n_estimators = 100, int max_depth = 6, double learning_rate = 0.1, int random_state = 42);
+}
+
+[SurfaceLevel(2)]
+[MapsTo("_lgb")]
+public static primitive class lgb
+{
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.GradientBoostingFactory.CreateLightGbmClassifier", "PythonSharp.GradientBoosting.lgb.LGBMClassifier")]
+    [InlineTemplate("_lgb.LGBMClassifier(n_estimators={0}, num_leaves={1}, learning_rate={2}, random_state={3})")]
+    public static extern LightGbmClassifierModel LGBMClassifier(int n_estimators = 100, int num_leaves = 31, double learning_rate = 0.1, int random_state = 42);
+}

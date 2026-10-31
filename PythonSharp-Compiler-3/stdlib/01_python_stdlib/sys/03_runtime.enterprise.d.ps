@@ -1,0 +1,33 @@
+namespace PythonSharp.System.Runtime;
+
+using PythonSharp.Core;
+extern using sys as _py_sys;
+
+[SurfaceLevel(1)]
+public static primitive class ProcessContext
+{
+    [InlineTemplate("_py_sys.argv")]
+    public static extern List<string> CommandLineArguments { get; }
+
+    [InlineTemplate("_py_sys.path")]
+    public static extern List<string> ModuleSearchPaths { get; }
+
+    [InlineTemplate("_py_sys.platform")]
+    public static extern string OperatingSystemPlatform { get; }
+
+    [InlineTemplate("_py_sys.version_info")]
+    public static extern PythonVersionInfo InterpreterVersionInfo { get; }
+
+    [InlineTemplate("_py_sys.exit({0})")]
+    public static extern void TerminateProcess(int exitStatusCode = 0);
+}
+
+[SurfaceLevel(1)]
+public static primitive class StandardStreams
+{
+    [InlineTemplate("_py_sys.stdout")]
+    public static extern TextOutputStream StandardOutput { get; }
+
+    [InlineTemplate("_py_sys.stderr")]
+    public static extern TextOutputStream StandardError { get; }
+}

@@ -1,0 +1,56 @@
+namespace PythonSharp.MachineLearning.Classical;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+extern using sklearn.model_selection as _ms;
+extern using sklearn.preprocessing as _prep;
+extern using sklearn.ensemble as _ens;
+extern using sklearn.linear_model as _lin;
+extern using sklearn.metrics as _met;
+
+[SurfaceLevel(1)]
+[MapsTo("_ms")]
+public static primitive class DatasetSplitter
+{
+    [InlineTemplate("_ms.train_test_split({0}, {1}, test_size={2}, random_state={3})")]
+    public static extern (NDArray<double> TrainingFeatures, NDArray<double> TestingFeatures, NDArray<TLabel> TrainingLabels, NDArray<TLabel> TestingLabels) SplitTrainAndTestSets<TLabel>(
+        NDArray<double> featureMatrix, NDArray<TLabel> labelVector, double testFraction = 0.2, int randomSeed = 42);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_prep")]
+public static primitive class FeaturePreprocessingFactory
+{
+    [InlineTemplate("_prep.StandardScaler()")]
+    public static extern StandardFeatureScaler CreateStandardZScoreScaler();
+}
+
+[SurfaceLevel(1)]
+public static primitive class ModelEstimatorFactory
+{
+    [InlineTemplate("_ens.RandomForestClassifier(n_estimators={0}, random_state={1})")]
+    public static extern RandomForestClassifierModel CreateRandomForestClassifier(int numberOfTrees = 100, int randomSeed = 42);
+
+    [InlineTemplate("_lin.LogisticRegression(max_iter={0}, random_state={1})")]
+    public static extern LogisticRegressionModel CreateLogisticRegressionClassifier(int maxOptimizationIterations = 200, int randomSeed = 42);
+
+    [InlineTemplate("_lin.Ridge(alpha={0})")]
+    public static extern RidgeRegressionModel CreateRidgeRegressor(double l2RegularizationStrength = 1.0);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_met")]
+public static primitive class EvaluationMetrics
+{
+    [InlineTemplate("_met.accuracy_score({0}, {1})")]
+    public static extern double ComputeAccuracyScore(NDArray<int> groundTruthLabels, NDArray<int> predictedLabels);
+
+    [InlineTemplate("_met.f1_score({0}, {1}, average={2})")]
+    public static extern double ComputeF1Score(NDArray<int> groundTruthLabels, NDArray<int> predictedLabels, string averagingMode = "weighted");
+
+    [InlineTemplate("_met.mean_squared_error({0}, {1})")]
+    public static extern double ComputeMeanSquaredError(NDArray<double> groundTruthValues, NDArray<double> predictedValues);
+
+    [InlineTemplate("_met.r2_score({0}, {1})")]
+    public static extern double ComputeR2Score(NDArray<double> groundTruthValues, NDArray<double> predictedValues);
+}

@@ -1,0 +1,34 @@
+namespace PythonSharp.Polars;
+
+using PythonSharp.Core;
+using PythonSharp.DataScience.Columnar;
+extern using polars as _pl;
+
+[SurfaceLevel(3)]
+[MapsTo("_pl")]
+public static primitive class pl
+{
+    [CanonicalApi("PythonSharp.DataScience.Columnar.ColumnarDataReader.ReadCsvFileEager")]
+    [InlineTemplate("_pl.read_csv({0})")]
+    public static extern PolarsDataFrame<TRow> ReadCsv<TRow>(string filePath);
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.ColumnarDataReader.ReadParquetFileEager")]
+    [InlineTemplate("_pl.read_parquet({0})")]
+    public static extern PolarsDataFrame<TRow> ReadParquet<TRow>(string filePath);
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.ColumnarDataReader.ScanCsvFileLazy")]
+    [InlineTemplate("_pl.scan_csv({0})")]
+    public static extern PolarsLazyFrame<TRow> ScanCsv<TRow>(string filePath);
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.ColumnarDataReader.ScanParquetFileLazy")]
+    [InlineTemplate("_pl.scan_parquet({0})")]
+    public static extern PolarsLazyFrame<TRow> ScanParquet<TRow>(string filePath);
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.ColumnarExpressionBuilder.ReferenceColumn")]
+    [InlineTemplate("_pl.col({0})")]
+    public static extern PolarsColumnExpression Col(string columnName);
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.ColumnarExpressionBuilder.ConstantLiteral")]
+    [InlineTemplate("_pl.lit({0})")]
+    public static extern PolarsColumnExpression Lit(object literalValue);
+}

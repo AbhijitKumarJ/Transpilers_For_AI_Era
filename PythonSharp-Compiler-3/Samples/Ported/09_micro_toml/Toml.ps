@@ -1,0 +1,566 @@
+namespace MicroToml;
+
+using PythonSharp.Core;
+
+public class Toml
+{
+    [InlineTemplate("isinstance({0}, bool)")]
+    public static extern bool IsBool(object val);
+
+    [InlineTemplate("isinstance({0}, int) and not isinstance({0}, bool)")]
+    public static extern bool IsInt(object val);
+
+    [InlineTemplate("isinstance({0}, float)")]
+    public static extern bool IsFloat(object val);
+
+    [InlineTemplate("isinstance({0}, str)")]
+    public static extern bool IsString(object val);
+
+    [InlineTemplate("isinstance({0}, list)")]
+    public static extern bool IsList(object val);
+
+    [InlineTemplate("isinstance({0}, dict)")]
+    public static extern bool IsDict(object val);
+
+    [InlineTemplate("{0}")]
+    public static extern Dict<string, object> AsDict(object obj);
+
+    [InlineTemplate("{0}")]
+    public static extern List<object> AsList(object obj);
+
+    [InlineTemplate("bool({0})")]
+    public static extern bool AsBool(object val);
+
+    [InlineTemplate("str({0})")]
+    public static extern string AsString(object val);
+
+    [InlineTemplate("list({0}.keys())")]
+    public static extern List<string> GetKeys(Dict<string, object> dict);
+
+    public static string StripComment(string line)
+    {
+        bool inQuote = false;
+        string quoteChar = "";
+        int i = 0;
+        while (i < line.Length)
+        {
+            string ch = line.Substring(i, 1);
+            if (ch == "\"" || ch == "'")
+            {
+                if (!inQuote)
+                {
+                    inQuote = true;
+                    quoteChar = ch;
+                }
+                else if (quoteChar == ch)
+                {
+                    if (ch == "'" || i == 0 || line.Substring(i - 1, 1) != "\\")
+                    {
+                        inQuote = false;
+                    }
+                }
+            }
+            else if (ch == "#" && !inQuote)
+            {
+                return line.Substring(0, i).Trim();
+            }
+            i = i + 1;
+        }
+        return line.Trim();
+    }
+
+    public static int FindOutsideQuotes(string line, string target)
+    {
+        bool inQuote = false;
+        string quoteChar = "";
+        int i = 0;
+        while (i <= line.Length - target.Length)
+        {
+            string ch = line.Substring(i, 1);
+            if (ch == "\"" || ch == "'")
+            {
+                if (!inQuote)
+                {
+                    inQuote = true;
+                    quoteChar = ch;
+                }
+                else if (quoteChar == ch)
+                {
+                    if (ch == "'" || i == 0 || line.Substring(i - 1, 1) != "\\")
+                    {
+                        inQuote = false;
+                    }
+                }
+            }
+            else if (!inQuote && line.Substring(i, target.Length) == target)
+            {
+                return i;
+            }
+            i = i + 1;
+        }
+        return -1;
+    }
+
+    public static List<string> SplitOutsideQuotes(string text, string delimiter)
+    {
+        List<string> parts = new List<string>();
+        bool inQuote = false;
+        string quoteChar = "";
+        int bracketDepth = 0;
+        int braceDepth = 0;
+        int lastStart = 0;
+        int i = 0;
+
+        while (i < text.Length)
+        {
+            string ch = text.Substring(i, 1);
+            if (ch == "\"" || ch == "'")
+            {
+                if (!inQuote)
+                {
+                    inQuote = true;
+                    quoteChar = ch;
+                }
+                else if (quoteChar == ch)
+                {
+                    if (ch == "'" || i == 0 || text.Substring(i - 1, 1) != "\\")
+                    {
+                        inQuote = false;
+                    }
+                }
+            }
+            else if (!inQuote)
+            {
+                if (ch == "[")
+                {
+                    bracketDepth = bracketDepth + 1;
+                }
+                else if (ch == "]")
+                {
+                    bracketDepth = bracketDepth - 1;
+                }
+                else if (ch == "{")
+                {
+                    braceDepth = braceDepth + 1;
+                }
+                else if (ch == "}")
+                {
+                    braceDepth = braceDepth - 1;
+                }
+                else if (bracketDepth == 0 && braceDepth == 0 && i <= text.Length - delimiter.Length)
+                {
+                    if (text.Substring(i, delimiter.Length) == delimiter)
+                    {
+                        string part = text.Substring(lastStart, i - lastStart).Trim();
+                        parts.Add(part);
+                        lastStart = i + delimiter.Length;
+                        i = lastStart - 1;
+                    }
+                }
+            }
+            i = i + 1;
+        }
+
+        if (lastStart < text.Length)
+        {
+            string lastPart = text.Substring(lastStart).Trim();
+            if (lastPart.Length > 0)
+            {
+                parts.Add(lastPart);
+            }
+        }
+
+        return parts;
+    }
+
+    public static object ParseValue(string raw)
+    {
+        string val = raw.Trim();
+        if (val.Length == 0)
+        {
+            return "";
+        }
+
+        if (val == "true")
+        {
+            return true;
+        }
+        if (val == "false")
+        {
+            return false;
+        }
+
+        if (val.StartsWith("\"") && val.EndsWith("\"") && val.Length >= 2)
+        {
+            string inner = val.Substring(1, val.Length - 2);
+            inner = inner.Replace("\\\"", "\"");
+            inner = inner.Replace("\\n", "\n");
+            inner = inner.Replace("\\t", "\t");
+            inner = inner.Replace("\\\\", "\\");
+            return inner;
+        }
+
+        if (val.StartsWith("'") && val.EndsWith("'") && val.Length >= 2)
+        {
+            return val.Substring(1, val.Length - 2);
+        }
+
+        if (val.StartsWith("[") && val.EndsWith("]"))
+        {
+            return ParseArray(val);
+        }
+
+        if (val.StartsWith("{") && val.EndsWith("}"))
+        {
+            return ParseInlineTable(val);
+        }
+
+        if (val.Contains("."))
+        {
+            try
+            {
+                return Double.Parse(val);
+            }
+            catch (Exception ex)
+            {
+                return val;
+            }
+        }
+
+        try
+        {
+            return Int32.Parse(val);
+        }
+        catch (Exception ex2)
+        {
+            return val;
+        }
+    }
+
+    public static List<object> ParseArray(string raw)
+    {
+        List<object> list = new List<object>();
+        string trimmed = raw.Trim();
+        if (trimmed.Length <= 2)
+        {
+            return list;
+        }
+        string inner = trimmed.Substring(1, trimmed.Length - 2).Trim();
+        if (inner.Length == 0)
+        {
+            return list;
+        }
+
+        List<string> items = SplitOutsideQuotes(inner, ",");
+        int i = 0;
+        while (i < items.Count)
+        {
+            string itemStr = items[i].Trim();
+            if (itemStr.Length > 0)
+            {
+                list.Add(ParseValue(itemStr));
+            }
+            i = i + 1;
+        }
+        return list;
+    }
+
+    public static Dict<string, object> ParseInlineTable(string raw)
+    {
+        Dict<string, object> table = new Dict<string, object>();
+        string trimmed = raw.Trim();
+        if (trimmed.Length <= 2)
+        {
+            return table;
+        }
+        string inner = trimmed.Substring(1, trimmed.Length - 2).Trim();
+        if (inner.Length == 0)
+        {
+            return table;
+        }
+
+        List<string> pairs = SplitOutsideQuotes(inner, ",");
+        int i = 0;
+        while (i < pairs.Count)
+        {
+            string pair = pairs[i].Trim();
+            int eqIdx = FindOutsideQuotes(pair, "=");
+            if (eqIdx > 0)
+            {
+                string key = pair.Substring(0, eqIdx).Trim();
+                string valStr = pair.Substring(eqIdx + 1).Trim();
+                table[key] = ParseValue(valStr);
+            }
+            i = i + 1;
+        }
+        return table;
+    }
+
+    public static Dict<string, object> ResolveTable(Dict<string, object> root, string headerPath)
+    {
+        List<string> parts = headerPath.Split(".");
+        Dict<string, object> current = root;
+        int i = 0;
+        while (i < parts.Count)
+        {
+            string part = parts[i].Trim();
+            if (!current.ContainsKey(part))
+            {
+                Dict<string, object> next = new Dict<string, object>();
+                current[part] = next;
+                current = next;
+            }
+            else
+            {
+                current = AsDict(current[part]);
+            }
+            i = i + 1;
+        }
+        return current;
+    }
+
+    public static Dict<string, object> ResolveArrayOfTables(Dict<string, object> root, string headerPath)
+    {
+        List<string> parts = headerPath.Split(".");
+        Dict<string, object> current = root;
+        int i = 0;
+        while (i < parts.Count - 1)
+        {
+            string part = parts[i].Trim();
+            if (!current.ContainsKey(part))
+            {
+                Dict<string, object> next = new Dict<string, object>();
+                current[part] = next;
+                current = next;
+            }
+            else
+            {
+                current = AsDict(current[part]);
+            }
+            i = i + 1;
+        }
+
+        string lastPart = parts[parts.Count - 1].Trim();
+        List<object> tableList = new List<object>();
+        if (!current.ContainsKey(lastPart))
+        {
+            current[lastPart] = tableList;
+        }
+        else
+        {
+            tableList = AsList(current[lastPart]);
+        }
+
+        Dict<string, object> newEntry = new Dict<string, object>();
+        tableList.Add(newEntry);
+        return newEntry;
+    }
+
+    public static Dict<string, object> Parse(string content)
+    {
+        Dict<string, object> root = new Dict<string, object>();
+        Dict<string, object> currentTable = root;
+
+        if (string.IsNullOrEmpty(content))
+        {
+            return root;
+        }
+
+        List<string> lines = content.Split("\n");
+        int i = 0;
+        while (i < lines.Count)
+        {
+            string rawLine = lines[i];
+            i = i + 1;
+
+            string line = StripComment(rawLine);
+            if (line.Length == 0)
+            {
+                continue;
+            }
+
+            if (line.StartsWith("[[") && line.EndsWith("]]") && line.Length >= 4)
+            {
+                string path = line.Substring(2, line.Length - 4).Trim();
+                currentTable = ResolveArrayOfTables(root, path);
+                continue;
+            }
+
+            if (line.StartsWith("[") && line.EndsWith("]") && line.Length >= 2)
+            {
+                string path = line.Substring(1, line.Length - 2).Trim();
+                currentTable = ResolveTable(root, path);
+                continue;
+            }
+
+            int eqIdx = FindOutsideQuotes(line, "=");
+            if (eqIdx > 0)
+            {
+                string keyPart = line.Substring(0, eqIdx).Trim();
+                string valPart = line.Substring(eqIdx + 1).Trim();
+
+                while (valPart.StartsWith("[") && !valPart.EndsWith("]") && i < lines.Count)
+                {
+                    string nextLine = StripComment(lines[i]);
+                    i = i + 1;
+                    valPart = valPart + " " + nextLine;
+                }
+
+                if (keyPart.Contains("."))
+                {
+                    List<string> keyParts = keyPart.Split(".");
+                    Dict<string, object> targetTable = currentTable;
+                    int k = 0;
+                    while (k < keyParts.Count - 1)
+                    {
+                        string kPart = keyParts[k].Trim();
+                        if (!targetTable.ContainsKey(kPart))
+                        {
+                            Dict<string, object> sub = new Dict<string, object>();
+                            targetTable[kPart] = sub;
+                            targetTable = sub;
+                        }
+                        else
+                        {
+                            targetTable = AsDict(targetTable[kPart]);
+                        }
+                        k = k + 1;
+                    }
+                    string finalKey = keyParts[keyParts.Count - 1].Trim();
+                    targetTable[finalKey] = ParseValue(valPart);
+                }
+                else
+                {
+                    currentTable[keyPart] = ParseValue(valPart);
+                }
+            }
+        }
+
+        return root;
+    }
+
+    public static string Dumps(Dict<string, object> dict)
+    {
+        List<string> lines = new List<string>();
+        DumpTable("", dict, lines);
+        return String.Join("\n", lines);
+    }
+
+    private static void DumpTable(string prefix, Dict<string, object> table, List<string> lines)
+    {
+        List<string> subTableKeys = new List<string>();
+        List<string> arrayTableKeys = new List<string>();
+        List<string> keys = GetKeys(table);
+
+        int k = 0;
+        while (k < keys.Count)
+        {
+            string key = keys[k];
+            object val = table[key];
+
+            if (IsDict(val))
+            {
+                subTableKeys.Add(key);
+            }
+            else if (IsList(val) && IsListOfDicts(AsList(val)))
+            {
+                arrayTableKeys.Add(key);
+            }
+            else
+            {
+                lines.Add($"{key} = {FormatValue(val)}");
+            }
+            k = k + 1;
+        }
+
+        int i = 0;
+        while (i < subTableKeys.Count)
+        {
+            string key = subTableKeys[i];
+            string fullPath = prefix.Length == 0 ? key : $"{prefix}.{key}";
+            if (lines.Count > 0)
+            {
+                lines.Add("");
+            }
+            lines.Add($"[{fullPath}]");
+            DumpTable(fullPath, AsDict(table[key]), lines);
+            i = i + 1;
+        }
+
+        int j = 0;
+        while (j < arrayTableKeys.Count)
+        {
+            string key = arrayTableKeys[j];
+            string fullPath = prefix.Length == 0 ? key : $"{prefix}.{key}";
+            List<object> items = AsList(table[key]);
+            int m = 0;
+            while (m < items.Count)
+            {
+                if (lines.Count > 0)
+                {
+                    lines.Add("");
+                }
+                lines.Add($"[[{fullPath}]]");
+                DumpTable(fullPath, AsDict(items[m]), lines);
+                m = m + 1;
+            }
+            j = j + 1;
+        }
+    }
+
+    public static string FormatValue(object val)
+    {
+        if (IsBool(val))
+        {
+            return AsBool(val) ? "true" : "false";
+        }
+        if (IsInt(val))
+        {
+            return $"{val}";
+        }
+        if (IsFloat(val))
+        {
+            return $"{val}";
+        }
+        if (IsString(val))
+        {
+            string s = AsString(val);
+            s = s.Replace("\\", "\\\\");
+            s = s.Replace("\"", "\\\"");
+            s = s.Replace("\n", "\\n");
+            s = s.Replace("\t", "\\t");
+            return $"\"{s}\"";
+        }
+        if (IsList(val))
+        {
+            List<object> items = AsList(val);
+            List<string> formattedItems = new List<string>();
+            int idx = 0;
+            while (idx < items.Count)
+            {
+                formattedItems.Add(FormatValue(items[idx]));
+                idx = idx + 1;
+            }
+            return "[" + String.Join(", ", formattedItems) + "]";
+        }
+        return $"{val}";
+    }
+
+    private static bool IsListOfDicts(List<object> items)
+    {
+        if (items.Count == 0)
+        {
+            return false;
+        }
+        int idx = 0;
+        while (idx < items.Count)
+        {
+            if (!IsDict(items[idx]))
+            {
+                return false;
+            }
+            idx = idx + 1;
+        }
+        return true;
+    }
+}

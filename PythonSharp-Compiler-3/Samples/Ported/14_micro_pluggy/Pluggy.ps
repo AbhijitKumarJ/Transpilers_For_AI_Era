@@ -1,0 +1,206 @@
+namespace MicroPluggy;
+
+using PythonSharp.Core;
+
+public class HookImpl
+{
+    private object _plugin;
+    private string _methodName;
+    private object _fn;
+
+    public HookImpl(object plugin, string methodName, object fn)
+    {
+        this._plugin = plugin;
+        this._methodName = methodName;
+        this._fn = fn;
+    }
+
+    public object Plugin { get { return this._plugin; } }
+    public string MethodName { get { return this._methodName; } }
+    public object Function { get { return this._fn; } }
+}
+
+public class HookCaller
+{
+    private string _name;
+    private bool _firstResult;
+    private List<HookImpl> _impls;
+
+    public HookCaller(string name, bool firstResult = false)
+    {
+        this._name = name;
+        this._firstResult = firstResult;
+        this._impls = new List<HookImpl>();
+    }
+
+    public string Name { get { return this._name; } }
+    public bool FirstResult { get { return this._firstResult; } }
+    public List<HookImpl> Implementations { get { return this._impls; } }
+
+    public void Register(HookImpl impl)
+    {
+        this._impls.Add(impl);
+    }
+
+    public void Unregister(object plugin)
+    {
+        List<HookImpl> filtered = new List<HookImpl>();
+        int i = 0;
+        while (i < this._impls.Count)
+        {
+            if (this._impls[i].Plugin != plugin)
+            {
+                filtered.Add(this._impls[i]);
+            }
+            i = i + 1;
+        }
+        this._impls = filtered;
+    }
+
+    [InlineTemplate("{0}(*{1})")]
+    public static extern object InvokeWithList(object fn, List<object> args);
+
+    public List<object> Call(List<object> args)
+    {
+        List<object> results = new List<object>();
+        int i = 0;
+        while (i < this._impls.Count)
+        {
+            HookImpl impl = this._impls[i];
+            object res = InvokeWithList(impl.Function, args);
+            if (this._firstResult && res != null)
+            {
+                results.Add(res);
+                return results;
+            }
+            results.Add(res);
+            i = i + 1;
+        }
+        return results;
+    }
+}
+
+public class PluginManager
+{
+    private string _projectName;
+    private Dict<string, HookCaller> _hooks;
+    private List<object> _plugins;
+
+    public PluginManager(string projectName = "app")
+    {
+        this._projectName = projectName;
+        this._hooks = new Dict<string, HookCaller>();
+        this._plugins = new List<object>();
+    }
+
+    [InlineTemplate("[m for m in dir({0}) if not m.startswith('_') and callable(getattr({0}, m, None))]")]
+    public static extern List<string> GetCallableMethods(object obj);
+
+    [InlineTemplate("getattr({0}, {1}, None)")]
+    public static extern object? GetAttr(object obj, string attr);
+
+    [InlineTemplate("bool(getattr({0}, '_firstresult', False))")]
+    public static extern bool IsFirstResult(object fn);
+
+    [InlineTemplate("list({0}.values())")]
+    public static extern List<HookCaller> GetCallerValues(Dict<string, HookCaller> dict);
+
+    public void AddHookspec(string name, bool firstResult = false)
+    {
+        this._hooks[name] = new HookCaller(name, firstResult);
+    }
+
+    public void AddHookspecs(object specObj)
+    {
+        List<string> methods = GetCallableMethods(specObj);
+        int i = 0;
+        while (i < methods.Count)
+        {
+            string mName = methods[i];
+            object? fn = GetAttr(specObj, mName);
+            bool firstResult = false;
+            if (fn != null)
+            {
+                firstResult = IsFirstResult(fn);
+            }
+            this.AddHookspec(mName, firstResult);
+            i = i + 1;
+        }
+    }
+
+    public void Register(object plugin)
+    {
+        this._plugins.Add(plugin);
+        List<string> methods = GetCallableMethods(plugin);
+        int i = 0;
+        while (i < methods.Count)
+        {
+            string mName = methods[i];
+            if (this._hooks.ContainsKey(mName))
+            {
+                object? fn = GetAttr(plugin, mName);
+                if (fn != null)
+                {
+                    HookImpl impl = new HookImpl(plugin, mName, fn);
+                    this._hooks[mName].Register(impl);
+                }
+            }
+            i = i + 1;
+        }
+    }
+
+    public void Unregister(object plugin)
+    {
+        List<object> active = new List<object>();
+        int i = 0;
+        while (i < this._plugins.Count)
+        {
+            if (this._plugins[i] != plugin)
+            {
+                active.Add(this._plugins[i]);
+            }
+            i = i + 1;
+        }
+        this._plugins = active;
+
+        List<HookCaller> callers = GetCallerValues(this._hooks);
+        int c = 0;
+        while (c < callers.Count)
+        {
+            callers[c].Unregister(plugin);
+            c = c + 1;
+        }
+    }
+
+    public bool HasHook(string name)
+    {
+        return this._hooks.ContainsKey(name);
+    }
+
+    public HookCaller GetHook(string name)
+    {
+        if (!this._hooks.ContainsKey(name))
+        {
+            throw new ArgumentException($"Hook '{name}' is not registered");
+        }
+        return this._hooks[name];
+    }
+
+    public List<object> Call(string name, List<object> args)
+    {
+        return this.GetHook(name).Call(args);
+    }
+
+    public List<object> GetPlugins()
+    {
+        List<object> copy = new List<object>();
+        int i = 0;
+        while (i < this._plugins.Count)
+        {
+            copy.Add(this._plugins[i]);
+            i = i + 1;
+        }
+        return copy;
+    }
+}
+

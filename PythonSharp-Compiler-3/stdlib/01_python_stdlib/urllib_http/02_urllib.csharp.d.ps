@@ -1,0 +1,38 @@
+namespace PythonSharp.Urllib;
+
+using PythonSharp.Core;
+using PythonSharp.Net.Http;
+extern using urllib.request as _py_req;
+extern using urllib.parse as _py_parse;
+
+[SurfaceLevel(3)]
+[MapsTo("_py_req")]
+public static primitive class UrllibRequestModule
+{
+    [CanonicalApi("PythonSharp.Net.Http.HttpClientOperations.OpenUrlStream")]
+    [InlineTemplate("_py_req.urlopen({0}, timeout={1})")]
+    public static extern HttpResponseStream UrlOpen(string url, double timeoutSeconds = 30.0);
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_py_parse")]
+public static primitive class UrllibParseModule
+{
+    [CanonicalApi("PythonSharp.Net.Http.UrlEncodingOperations.EncodeQueryParameters")]
+    [InlineTemplate("_py_parse.urlencode({0})")]
+    public static extern string UrlEncode(Dict<string, string> queryParameters);
+
+    [CanonicalApi("PythonSharp.Net.Http.UrlEncodingOperations.CombineBaseAndRelativeUrl")]
+    [InlineTemplate("_py_parse.urljoin({0}, {1})")]
+    public static extern string UrlJoin(string baseUrl, string relativeUrl);
+}
+
+[SurfaceLevel(3)]
+public static primitive class Urllib
+{
+    [InlineTemplate("_py_req")]
+    public static extern UrllibRequestModule Request { get; }
+
+    [InlineTemplate("_py_parse")]
+    public static extern UrllibParseModule Parse { get; }
+}

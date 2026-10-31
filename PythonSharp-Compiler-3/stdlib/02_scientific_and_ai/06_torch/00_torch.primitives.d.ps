@@ -1,0 +1,217 @@
+namespace PythonSharp.DeepLearning;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+extern using torch as _torch;
+extern using torch.nn as _nn;
+extern using torch.optim as _optim;
+
+public sealed class DisableGradientTrackingAttribute : PythonDecoratorAttribute
+{
+    public DisableGradientTrackingAttribute() : base("torch.no_grad()") { }
+}
+
+public sealed class NoGradAttribute : PythonDecoratorAttribute
+{
+    public NoGradAttribute() : base("torch.no_grad()") { }
+}
+
+[MapsTo("torch.Tensor")]
+[RuntimeType("torch.Tensor")]
+public primitive class TorchTensor<T>
+{
+    // --- Triple-Surface Properties ---
+    [InlineTemplate("list({self}.shape)")]
+    public extern List<int> TensorShape { get; }
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.TensorShape")]
+    [InlineTemplate("list({self}.shape)")]
+    public extern List<int> Shape { get; }
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.TensorShape", "Shape")]
+    [InlineTemplate("list({self}.shape)")]
+    public extern List<int> shape { get; }
+
+    [InlineTemplate("str({self}.device)")]
+    public extern string ExecutionDevice { get; }
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.ExecutionDevice")]
+    [InlineTemplate("str({self}.device)")]
+    public extern string Device { get; }
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.ExecutionDevice", "Device")]
+    [InlineTemplate("str({self}.device)")]
+    public extern string device { get; }
+
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [MapsTo("to")]
+    public extern TorchTensor<T> MoveToDevice(string targetDeviceName);
+
+    [MapsTo("backward")]
+    public extern void ComputeBackpropagationGradients();
+
+    [MapsTo("detach")]
+    public extern TorchTensor<T> DetachFromComputationGraph();
+
+    [InlineTemplate("{self}.detach().cpu().numpy()")]
+    public extern NDArray<T> ConvertToCpuNumPyArray();
+
+    [MapsTo("item")]
+    public extern T ExtractScalarValue();
+
+    [MapsTo("reshape")]
+    public extern TorchTensor<T> ReshapeTensor(params int[] dimensions);
+
+    [InlineTemplate("({self} @ {0})")]
+    public extern TorchTensor<T> MatrixMultiply(TorchTensor<T> rightTensor);
+
+    [MapsTo("mean")]
+    public extern TorchTensor<double> ComputeMean();
+
+    [MapsTo("sum")]
+    public extern TorchTensor<T> ComputeSum();
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.MoveToDevice")]
+    [MapsTo("to")]
+    public extern TorchTensor<T> To(string device);
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.ComputeBackpropagationGradients")]
+    [MapsTo("backward")]
+    public extern void Backward();
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.DetachFromComputationGraph")]
+    [MapsTo("detach")]
+    public extern TorchTensor<T> Detach();
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.ConvertToCpuNumPyArray")]
+    [InlineTemplate("{self}.detach().cpu().numpy()")]
+    public extern NDArray<T> ToNumpy();
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.ExtractScalarValue")]
+    [MapsTo("item")]
+    public extern T Item();
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.ReshapeTensor")]
+    [MapsTo("reshape")]
+    public extern TorchTensor<T> Reshape(params int[] shape);
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.MatrixMultiply")]
+    [MapsTo("matmul")]
+    public extern TorchTensor<T> MatMul(TorchTensor<T> other);
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.ComputeMean")]
+    [MapsTo("mean")]
+    public extern TorchTensor<double> Mean();
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.ComputeSum")]
+    [MapsTo("sum")]
+    public extern TorchTensor<T> Sum();
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.MoveToDevice", "To")]
+    [MapsTo("to")]
+    public extern TorchTensor<T> to(string device);
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.ComputeBackpropagationGradients", "Backward")]
+    [MapsTo("backward")]
+    public extern void backward();
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.DetachFromComputationGraph", "Detach")]
+    [MapsTo("detach")]
+    public extern TorchTensor<T> detach();
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.ConvertToCpuNumPyArray", "ToNumpy")]
+    [InlineTemplate("{self}.detach().cpu().numpy()")]
+    public extern NDArray<T> numpy();
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.ExtractScalarValue", "Item")]
+    [MapsTo("item")]
+    public extern T item();
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.ReshapeTensor", "Reshape")]
+    [MapsTo("reshape")]
+    public extern TorchTensor<T> reshape(params int[] shape);
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.MatrixMultiply", "MatMul")]
+    [MapsTo("matmul")]
+    public extern TorchTensor<T> matmul(TorchTensor<T> other);
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.ComputeMean", "Mean")]
+    [MapsTo("mean")]
+    public extern TorchTensor<double> mean();
+
+    [CanonicalApi("PythonSharp.DeepLearning.TorchTensor.ComputeSum", "Sum")]
+    [MapsTo("sum")]
+    public extern TorchTensor<T> sum();
+}
+
+[MapsTo("_nn.Linear")]
+[RuntimeType("object")]
+public primitive class FullyConnectedLinearLayer
+{
+    [InlineTemplate("{self}({0})")]
+    public extern TorchTensor<double> ExecuteForwardPass(TorchTensor<double> inputTensor);
+
+    [CanonicalApi("PythonSharp.DeepLearning.FullyConnectedLinearLayer.ExecuteForwardPass")]
+    [InlineTemplate("{self}({0})")]
+    public extern TorchTensor<double> Forward(TorchTensor<double> x);
+
+    [CanonicalApi("PythonSharp.DeepLearning.FullyConnectedLinearLayer.ExecuteForwardPass", "Forward")]
+    [InlineTemplate("{self}({0})")]
+    public extern TorchTensor<double> forward(TorchTensor<double> x);
+
+    [MapsTo("parameters")]
+    public extern object GetTrainableParameters();
+
+    [CanonicalApi("PythonSharp.DeepLearning.FullyConnectedLinearLayer.GetTrainableParameters")]
+    [MapsTo("parameters")]
+    public extern object Parameters();
+
+    [CanonicalApi("PythonSharp.DeepLearning.FullyConnectedLinearLayer.GetTrainableParameters", "Parameters")]
+    [MapsTo("parameters")]
+    public extern object parameters();
+}
+
+[MapsTo("_nn.MSELoss")]
+[RuntimeType("object")]
+public primitive class MeanSquaredErrorLoss
+{
+    [InlineTemplate("{self}({0}, {1})")]
+    public extern TorchTensor<double> ComputeLoss(TorchTensor<double> predictions, TorchTensor<double> targets);
+
+    [CanonicalApi("PythonSharp.DeepLearning.MeanSquaredErrorLoss.ComputeLoss")]
+    [InlineTemplate("{self}({0}, {1})")]
+    public extern TorchTensor<double> Forward(TorchTensor<double> input, TorchTensor<double> target);
+
+    [CanonicalApi("PythonSharp.DeepLearning.MeanSquaredErrorLoss.ComputeLoss", "Forward")]
+    [InlineTemplate("{self}({0}, {1})")]
+    public extern TorchTensor<double> forward(TorchTensor<double> input, TorchTensor<double> target);
+}
+
+[MapsTo("torch.optim.Optimizer")]
+[RuntimeType("object")]
+public primitive class GradientOptimizer
+{
+    [MapsTo("zero_grad")]
+    public extern void ResetAllGradientsToZero();
+
+    [CanonicalApi("PythonSharp.DeepLearning.GradientOptimizer.ResetAllGradientsToZero")]
+    [MapsTo("zero_grad")]
+    public extern void ZeroGrad();
+
+    [CanonicalApi("PythonSharp.DeepLearning.GradientOptimizer.ResetAllGradientsToZero", "ZeroGrad")]
+    [MapsTo("zero_grad")]
+    public extern void zero_grad();
+
+    [MapsTo("step")]
+    public extern void UpdateModelParameters();
+
+    [CanonicalApi("PythonSharp.DeepLearning.GradientOptimizer.UpdateModelParameters")]
+    [MapsTo("step")]
+    public extern void Step();
+
+    [CanonicalApi("PythonSharp.DeepLearning.GradientOptimizer.UpdateModelParameters", "Step")]
+    [MapsTo("step")]
+    public extern void step();
+}

@@ -1,0 +1,14 @@
+namespace PythonSharp.Optuna;
+
+using PythonSharp.Core;
+using PythonSharp.MachineLearning.HyperparameterTuning;
+extern using optuna as _optuna;
+
+[SurfaceLevel(3)]
+[MapsTo("_optuna")]
+public static primitive class optuna
+{
+    [CanonicalApi("PythonSharp.MachineLearning.HyperparameterTuning.HyperparameterStudyFactory.CreateOptimizationStudy")]
+    [InlineTemplate("_optuna.create_study(direction={0})")]
+    public static extern OptimizationStudy CreateStudy(string direction = "maximize");
+}

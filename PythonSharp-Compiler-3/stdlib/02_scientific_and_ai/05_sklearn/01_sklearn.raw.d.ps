@@ -1,0 +1,91 @@
+namespace sklearn;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using PythonSharp.MachineLearning.Classical;
+extern using sklearn.model_selection as _ms;
+extern using sklearn.preprocessing as _prep;
+extern using sklearn.ensemble as _ens;
+extern using sklearn.linear_model as _lin;
+extern using sklearn.metrics as _met;
+
+[SurfaceLevel(2)]
+[MapsTo("_ms")]
+public static primitive class ModelSelectionModule
+{
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.DatasetSplitter.SplitTrainAndTestSets", "PythonSharp.ScikitLearn.sk.ModelSelection.TrainTestSplit")]
+    [InlineTemplate("_ms.train_test_split({0}, {1}, test_size={2}, random_state={3})")]
+    public static extern (NDArray<double> X_train, NDArray<double> X_test, NDArray<TLabel> y_train, NDArray<TLabel> y_test) train_test_split<TLabel>(
+        NDArray<double> X, NDArray<TLabel> y, double test_size = 0.2, int random_state = 42);
+}
+
+[SurfaceLevel(2)]
+[MapsTo("_prep")]
+public static primitive class PreprocessingModule
+{
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.FeaturePreprocessingFactory.CreateStandardZScoreScaler", "PythonSharp.ScikitLearn.sk.Preprocessing.StandardScaler")]
+    [InlineTemplate("_prep.StandardScaler()")]
+    public static extern StandardFeatureScaler StandardScaler();
+}
+
+[SurfaceLevel(2)]
+[MapsTo("_ens")]
+public static primitive class EnsembleModule
+{
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.ModelEstimatorFactory.CreateRandomForestClassifier", "PythonSharp.ScikitLearn.sk.Ensemble.RandomForestClassifier")]
+    [InlineTemplate("_ens.RandomForestClassifier(n_estimators={0}, random_state={1})")]
+    public static extern RandomForestClassifierModel RandomForestClassifier(int n_estimators = 100, int random_state = 42);
+}
+
+[SurfaceLevel(2)]
+[MapsTo("_lin")]
+public static primitive class LinearModelModule
+{
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.ModelEstimatorFactory.CreateLogisticRegressionClassifier", "PythonSharp.ScikitLearn.sk.LinearModel.LogisticRegression")]
+    [InlineTemplate("_lin.LogisticRegression(max_iter={0}, random_state={1})")]
+    public static extern LogisticRegressionModel LogisticRegression(int max_iter = 200, int random_state = 42);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.ModelEstimatorFactory.CreateRidgeRegressor", "PythonSharp.ScikitLearn.sk.LinearModel.Ridge")]
+    [InlineTemplate("_lin.Ridge(alpha={0})")]
+    public static extern RidgeRegressionModel Ridge(double alpha = 1.0);
+}
+
+[SurfaceLevel(2)]
+[MapsTo("_met")]
+public static primitive class MetricsModule
+{
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.EvaluationMetrics.ComputeAccuracyScore", "PythonSharp.ScikitLearn.sk.Metrics.AccuracyScore")]
+    [InlineTemplate("_met.accuracy_score({0}, {1})")]
+    public static extern double accuracy_score(NDArray<int> y_true, NDArray<int> y_pred);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.EvaluationMetrics.ComputeF1Score", "PythonSharp.ScikitLearn.sk.Metrics.F1Score")]
+    [InlineTemplate("_met.f1_score({0}, {1}, average={2})")]
+    public static extern double f1_score(NDArray<int> y_true, NDArray<int> y_pred, string average = "weighted");
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.EvaluationMetrics.ComputeMeanSquaredError", "PythonSharp.ScikitLearn.sk.Metrics.MeanSquaredError")]
+    [InlineTemplate("_met.mean_squared_error({0}, {1})")]
+    public static extern double mean_squared_error(NDArray<double> y_true, NDArray<double> y_pred);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.EvaluationMetrics.ComputeR2Score", "PythonSharp.ScikitLearn.sk.Metrics.R2Score")]
+    [InlineTemplate("_met.r2_score({0}, {1})")]
+    public static extern double r2_score(NDArray<double> y_true, NDArray<double> y_pred);
+}
+
+[SurfaceLevel(2)]
+public static primitive class sklearn
+{
+    [InlineTemplate("_ms")]
+    public static extern ModelSelectionModule model_selection { get; }
+
+    [InlineTemplate("_prep")]
+    public static extern PreprocessingModule preprocessing { get; }
+
+    [InlineTemplate("_ens")]
+    public static extern EnsembleModule ensemble { get; }
+
+    [InlineTemplate("_lin")]
+    public static extern LinearModelModule linear_model { get; }
+
+    [InlineTemplate("_met")]
+    public static extern MetricsModule metrics { get; }
+}

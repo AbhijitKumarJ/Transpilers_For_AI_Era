@@ -1,0 +1,163 @@
+namespace PythonSharp.MachineLearning.GradientBoosting;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using PythonSharp.MachineLearning.Classical;
+extern using xgboost as _xgb;
+extern using lightgbm as _lgb;
+
+[MapsTo("xgboost.XGBClassifier")]
+[RuntimeType("object")]
+public primitive class XgBoostClassifierModel : ISupervisedEstimator<double, int>
+{
+    [InlineTemplate("{self}.feature_importances_")]
+    public extern NDArray<double> FeatureImportanceScores { get; }
+
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [MapsTo("fit")]
+    public extern void TrainOnLabeledDataset(NDArray<double> featureMatrix, NDArray<int> targetLabels);
+
+    [MapsTo("predict")]
+    public extern NDArray<int> PredictLabels(NDArray<double> featureMatrix);
+
+    [MapsTo("predict_proba")]
+    public extern NDArray<double> PredictClassProbabilities(NDArray<double> featureMatrix);
+
+    [MapsTo("score")]
+    public extern double EvaluateModelScore(NDArray<double> featureMatrix, NDArray<int> groundTruthLabels);
+
+    [MapsTo("save_model")]
+    public extern void SaveModelToFile(string modelFilePath);
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.XgBoostClassifierModel.TrainOnLabeledDataset")]
+    [MapsTo("fit")]
+    public extern void Fit(NDArray<double> X, NDArray<int> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.XgBoostClassifierModel.PredictLabels")]
+    [MapsTo("predict")]
+    public extern NDArray<int> Predict(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.XgBoostClassifierModel.PredictClassProbabilities")]
+    [MapsTo("predict_proba")]
+    public extern NDArray<double> PredictProba(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.XgBoostClassifierModel.EvaluateModelScore")]
+    [MapsTo("score")]
+    public extern double Score(NDArray<double> X, NDArray<int> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.XgBoostClassifierModel.SaveModelToFile")]
+    [MapsTo("save_model")]
+    public extern void SaveModel(string fname);
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.XgBoostClassifierModel.TrainOnLabeledDataset", "Fit")]
+    [MapsTo("fit")]
+    public extern void fit(NDArray<double> X, NDArray<int> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.XgBoostClassifierModel.PredictLabels", "Predict")]
+    [MapsTo("predict")]
+    public extern NDArray<int> predict(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.XgBoostClassifierModel.PredictClassProbabilities", "PredictProba")]
+    [MapsTo("predict_proba")]
+    public extern NDArray<double> predict_proba(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.XgBoostClassifierModel.EvaluateModelScore", "Score")]
+    [MapsTo("score")]
+    public extern double score(NDArray<double> X, NDArray<int> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.XgBoostClassifierModel.SaveModelToFile", "SaveModel")]
+    [MapsTo("save_model")]
+    public extern void save_model(string fname);
+}
+
+[MapsTo("xgboost.XGBRegressor")]
+[RuntimeType("object")]
+public primitive class XgBoostRegressorModel : ISupervisedEstimator<double, double>
+{
+    [MapsTo("fit")]
+    public extern void TrainOnLabeledDataset(NDArray<double> featureMatrix, NDArray<double> targetValues);
+
+    [MapsTo("predict")]
+    public extern NDArray<double> PredictLabels(NDArray<double> featureMatrix);
+
+    [MapsTo("score")]
+    public extern double EvaluateModelScore(NDArray<double> featureMatrix, NDArray<double> groundTruthValues);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.XgBoostRegressorModel.TrainOnLabeledDataset")]
+    [MapsTo("fit")]
+    public extern void Fit(NDArray<double> X, NDArray<double> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.XgBoostRegressorModel.PredictLabels")]
+    [MapsTo("predict")]
+    public extern NDArray<double> Predict(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.XgBoostRegressorModel.EvaluateModelScore")]
+    [MapsTo("score")]
+    public extern double Score(NDArray<double> X, NDArray<double> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.XgBoostRegressorModel.TrainOnLabeledDataset", "Fit")]
+    [MapsTo("fit")]
+    public extern void fit(NDArray<double> X, NDArray<double> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.XgBoostRegressorModel.PredictLabels", "Predict")]
+    [MapsTo("predict")]
+    public extern NDArray<double> predict(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.XgBoostRegressorModel.EvaluateModelScore", "Score")]
+    [MapsTo("score")]
+    public extern double score(NDArray<double> X, NDArray<double> y);
+}
+
+[MapsTo("lightgbm.LGBMClassifier")]
+[RuntimeType("object")]
+public primitive class LightGbmClassifierModel : ISupervisedEstimator<double, int>
+{
+    [InlineTemplate("{self}.feature_importances_")]
+    public extern NDArray<double> FeatureImportanceScores { get; }
+
+    [MapsTo("fit")]
+    public extern void TrainOnLabeledDataset(NDArray<double> featureMatrix, NDArray<int> targetLabels);
+
+    [MapsTo("predict")]
+    public extern NDArray<int> PredictLabels(NDArray<double> featureMatrix);
+
+    [MapsTo("predict_proba")]
+    public extern NDArray<double> PredictClassProbabilities(NDArray<double> featureMatrix);
+
+    [MapsTo("score")]
+    public extern double EvaluateModelScore(NDArray<double> featureMatrix, NDArray<int> groundTruthLabels);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.LightGbmClassifierModel.TrainOnLabeledDataset")]
+    [MapsTo("fit")]
+    public extern void Fit(NDArray<double> X, NDArray<int> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.LightGbmClassifierModel.PredictLabels")]
+    [MapsTo("predict")]
+    public extern NDArray<int> Predict(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.LightGbmClassifierModel.PredictClassProbabilities")]
+    [MapsTo("predict_proba")]
+    public extern NDArray<double> PredictProba(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.LightGbmClassifierModel.EvaluateModelScore")]
+    [MapsTo("score")]
+    public extern double Score(NDArray<double> X, NDArray<int> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.LightGbmClassifierModel.TrainOnLabeledDataset", "Fit")]
+    [MapsTo("fit")]
+    public extern void fit(NDArray<double> X, NDArray<int> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.LightGbmClassifierModel.PredictLabels", "Predict")]
+    [MapsTo("predict")]
+    public extern NDArray<int> predict(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.LightGbmClassifierModel.PredictClassProbabilities", "PredictProba")]
+    [MapsTo("predict_proba")]
+    public extern NDArray<double> predict_proba(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.GradientBoosting.LightGbmClassifierModel.EvaluateModelScore", "Score")]
+    [MapsTo("score")]
+    public extern double score(NDArray<double> X, NDArray<int> y);
+}

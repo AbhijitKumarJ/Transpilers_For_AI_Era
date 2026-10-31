@@ -1,0 +1,32 @@
+namespace PythonSharp.DataScience.Columnar;
+
+using PythonSharp.Core;
+extern using polars as _pl;
+
+[SurfaceLevel(1)]
+[MapsTo("_pl")]
+public static primitive class ColumnarDataReader
+{
+    [InlineTemplate("_pl.read_csv({0})")]
+    public static extern PolarsDataFrame<TRow> ReadCsvFileEager<TRow>(string csvFilePath);
+
+    [InlineTemplate("_pl.read_parquet({0})")]
+    public static extern PolarsDataFrame<TRow> ReadParquetFileEager<TRow>(string parquetFilePath);
+
+    [InlineTemplate("_pl.scan_csv({0})")]
+    public static extern PolarsLazyFrame<TRow> ScanCsvFileLazy<TRow>(string csvFilePath);
+
+    [InlineTemplate("_pl.scan_parquet({0})")]
+    public static extern PolarsLazyFrame<TRow> ScanParquetFileLazy<TRow>(string parquetFilePath);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_pl")]
+public static primitive class ColumnarExpressionBuilder
+{
+    [InlineTemplate("_pl.col({0})")]
+    public static extern PolarsColumnExpression ReferenceColumn(string columnName);
+
+    [InlineTemplate("_pl.lit({0})")]
+    public static extern PolarsColumnExpression ConstantLiteral(object literalValue);
+}

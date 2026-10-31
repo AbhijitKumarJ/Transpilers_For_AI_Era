@@ -1,0 +1,66 @@
+namespace PythonSharp.ArtificialIntelligence.Inference;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+extern using faiss as _faiss;
+extern using onnxruntime as _ort;
+
+[MapsTo("faiss.IndexFlat")]
+[RuntimeType("object")]
+public primitive class VectorSimilarityIndex
+{
+    [InlineTemplate("int({self}.ntotal)")]
+    public extern int IndexedVectorCount { get; }
+
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.Inference.VectorSimilarityIndex.IndexedVectorCount")]
+    [InlineTemplate("int({self}.ntotal)")]
+    public extern int NTotal { get; }
+
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.Inference.VectorSimilarityIndex.IndexedVectorCount", "NTotal")]
+    [InlineTemplate("int({self}.ntotal)")]
+    public extern int ntotal { get; }
+
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [MapsTo("add")]
+    public extern void AddEmbeddingVectors(NDArray<double> embeddingMatrix);
+
+    [MapsTo("search")]
+    public extern (NDArray<double> Distances, NDArray<int> NeighborIndices) SearchNearestNeighbors(NDArray<double> queryEmbeddingMatrix, int topKCount);
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.Inference.VectorSimilarityIndex.AddEmbeddingVectors")]
+    [MapsTo("add")]
+    public extern void Add(NDArray<double> vectors);
+
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.Inference.VectorSimilarityIndex.SearchNearestNeighbors")]
+    [MapsTo("search")]
+    public extern (NDArray<double> Distances, NDArray<int> Indices) Search(NDArray<double> queries, int k);
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.Inference.VectorSimilarityIndex.AddEmbeddingVectors", "Add")]
+    [MapsTo("add")]
+    public extern void add(NDArray<double> x);
+
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.Inference.VectorSimilarityIndex.SearchNearestNeighbors", "Search")]
+    [MapsTo("search")]
+    public extern (NDArray<double> D, NDArray<int> I) search(NDArray<double> x, int k);
+}
+
+[MapsTo("onnxruntime.InferenceSession")]
+[RuntimeType("object")]
+public primitive class OnnxRuntimeInferenceSession
+{
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [InlineTemplate("{self}.run(None, {0})")]
+    public extern List<NDArray<double>> ExecuteModelInference(Dict<string, NDArray<double>> namedInputFeeds);
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.Inference.OnnxRuntimeInferenceSession.ExecuteModelInference")]
+    [InlineTemplate("{self}.run({0}, {1})")]
+    public extern List<NDArray<double>> Run(List<string>? outputNames, Dict<string, NDArray<double>> inputFeed);
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.Inference.OnnxRuntimeInferenceSession.ExecuteModelInference", "Run")]
+    [InlineTemplate("{self}.run({0}, {1})")]
+    public extern List<NDArray<double>> run(List<string>? output_names, Dict<string, NDArray<double>> input_feed);
+}

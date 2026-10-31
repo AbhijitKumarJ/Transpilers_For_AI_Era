@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "micro_tar_file.py",
+      "namespace": [
+        "MicroTarFile"
+      ],
+      "primary_ps": "TarEngine.ps",
+      "py": "micro_tar_file.py",
+      "pyc": "micro_tar_file.pyc"
+    }
+  ],
+  "schema_version": 1
+}

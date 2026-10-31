@@ -1,0 +1,45 @@
+namespace NumpyNumerics;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Creation;
+using PythonSharp.Numerics.Tensors;
+
+public class TensorEngine
+{
+    public static NDArray<double> CreateIdentity(int size)
+    {
+        return ArrayFactory.CreateIdentityMatrix(size);
+    }
+
+    public static NDArray<double> CreateOnes(int rows, int cols)
+    {
+        return ArrayFactory.CreateOnesMatrix(rows, cols);
+    }
+
+    public static NDArray<double> CreateZeros(int rows, int cols)
+    {
+        return ArrayFactory.CreateZeroMatrix(rows, cols);
+    }
+
+    public static NDArray<double> Multiply(NDArray<double> a, NDArray<double> b)
+    {
+        return a.MultiplyMatrix(b);
+    }
+
+    public static NDArray<double> Transpose(NDArray<double> matrix)
+    {
+        return matrix.TransposedMatrix;
+    }
+
+    public static List<int> GetDimensions(NDArray<double> matrix)
+    {
+        return matrix.DimensionShape;
+    }
+
+    public static NDArray<double> SliceSubMatrix(NDArray<double> matrix)
+    {
+        // Multi-axis range slicing
+        return matrix[0..2, 0..2];
+    }
+}
+

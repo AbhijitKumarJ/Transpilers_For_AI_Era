@@ -1,0 +1,147 @@
+namespace MicroJsonLogger;
+
+extern using json;
+extern using time;
+extern using logging;
+using PythonSharp.Core;
+
+public class JsonFormatter
+{
+    private Dict<string, string> _renameFields;
+    private string _timeFormat;
+
+    public JsonFormatter(Dict<string, string>? renameFields = null, string timeFormat = "%Y-%m-%dT%H:%M:%S")
+    {
+        this._renameFields = renameFields ?? new Dict<string, string>();
+        this._timeFormat = timeFormat;
+    }
+
+    [InlineTemplate("getattr({0}, {1}, {2})")]
+    public static extern object? GetRecordAttr(object logRecord, string attr, object? defaultVal = null);
+
+    [InlineTemplate("json.dumps({0}, default=str)")]
+    public static extern string JsonDumps(Dict<string, object> payload);
+
+    [InlineTemplate("time.strftime({0}, time.localtime({1}))")]
+    public static extern string FormatTime(string fmt, double timestamp);
+
+    [InlineTemplate("float({0})")]
+    public static extern double ConvertToDouble(object obj);
+
+    [InlineTemplate("int({0})")]
+    public static extern int ConvertToInt(double val);
+
+    [InlineTemplate("getattr({0}, 'getMessage', lambda: str(getattr({0}, 'msg', '')))()")]
+    public static extern string GetMessage(object logRecord);
+
+    [InlineTemplate("dict(getattr({0}, '__dict__', {}))")]
+    public static extern Dict<string, object> GetRecordDict(object logRecord);
+
+    [InlineTemplate("list({0}.keys())")]
+    public static extern List<string> GetDictKeys(Dict<string, object> dict);
+
+    [InlineTemplate("logging.Formatter.formatException(self, {0}) if {0} else ''")]
+    public extern string FormatException(object? excInfo);
+
+    private static List<string> GetStandardFields()
+    {
+        List<string> f = new List<string>();
+        f.Add("name"); f.Add("msg"); f.Add("args"); f.Add("levelname"); f.Add("levelno");
+        f.Add("pathname"); f.Add("filename"); f.Add("module"); f.Add("exc_info"); f.Add("exc_text");
+        f.Add("stack_info"); f.Add("lineno"); f.Add("funcName"); f.Add("created"); f.Add("msecs");
+        f.Add("relativeCreated"); f.Add("thread"); f.Add("threadName"); f.Add("processName"); f.Add("process");
+        f.Add("taskName"); f.Add("message");
+        return f;
+    }
+
+    public string Format(object logRecord)
+    {
+        Dict<string, object> logDict = new Dict<string, object>();
+
+        // 1. Timestamp
+        double created = 0.0;
+        object? createdObj = GetRecordAttr(logRecord, "created", 0.0);
+        if (createdObj != null)
+        {
+            created = ConvertToDouble(createdObj);
+        }
+        string timeStr = FormatTime(this._timeFormat, created);
+
+        double msecs = 0.0;
+        object? msecsObj = GetRecordAttr(logRecord, "msecs", 0.0);
+        if (msecsObj != null)
+        {
+            msecs = ConvertToDouble(msecsObj);
+        }
+        int msecsInt = ConvertToInt(msecs);
+        string msecsStr = msecsInt < 10 ? $"00{msecsInt}" : (msecsInt < 100 ? $"0{msecsInt}" : $"{msecsInt}");
+        string isoTime = $"{timeStr}.{msecsStr}Z";
+
+        string timeKey = this._renameFields.ContainsKey("timestamp") ? this._renameFields["timestamp"] : "timestamp";
+        logDict[timeKey] = isoTime;
+
+        // 2. Level
+        string levelName = $"{GetRecordAttr(logRecord, "levelname", "INFO")}";
+        string levelKey = this._renameFields.ContainsKey("level") ? this._renameFields["level"] : "level";
+        logDict[levelKey] = levelName;
+
+        // 3. Logger name
+        string loggerName = $"{GetRecordAttr(logRecord, "name", "root")}";
+        string loggerKey = this._renameFields.ContainsKey("logger") ? this._renameFields["logger"] : "logger";
+        logDict[loggerKey] = loggerName;
+
+        // 4. Message
+        string message = GetMessage(logRecord);
+        string messageKey = this._renameFields.ContainsKey("message") ? this._renameFields["message"] : "message";
+        logDict[messageKey] = message;
+
+        // 5. Line number and module
+        object? lineNo = GetRecordAttr(logRecord, "lineno", null);
+        if (lineNo != null)
+        {
+            logDict["lineno"] = lineNo;
+        }
+        object? moduleName = GetRecordAttr(logRecord, "module", null);
+        if (moduleName != null)
+        {
+            logDict["module"] = moduleName;
+        }
+
+        // 6. Exception info
+        object? excText = GetRecordAttr(logRecord, "exc_text", null);
+        if (excText != null && $"{excText}".Length > 0)
+        {
+            logDict["exception"] = $"{excText}";
+        }
+        else
+        {
+            object? excInfo = GetRecordAttr(logRecord, "exc_info", null);
+            if (excInfo != null)
+            {
+                string formattedExc = this.FormatException(excInfo);
+                if (formattedExc.Length > 0)
+                {
+                    logDict["exception"] = formattedExc;
+                }
+            }
+        }
+
+        // 7. Extra custom attributes
+        Dict<string, object> recDict = GetRecordDict(logRecord);
+        List<string> standardFields = GetStandardFields();
+        List<string> keys = GetDictKeys(recDict);
+
+        int k = 0;
+        while (k < keys.Count)
+        {
+            string key = keys[k];
+            if (!standardFields.Contains(key) && !key.StartsWith("_"))
+            {
+                logDict[key] = recDict[key];
+            }
+            k = k + 1;
+        }
+
+        return JsonDumps(logDict);
+    }
+}

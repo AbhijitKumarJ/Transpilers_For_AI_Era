@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "micro_async.py",
+      "namespace": [
+        "MicroAsync"
+      ],
+      "primary_ps": "EventLoop.ps",
+      "py": "micro_async.py",
+      "pyc": "micro_async.pyc"
+    }
+  ],
+  "schema_version": 1
+}

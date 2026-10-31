@@ -1,0 +1,168 @@
+namespace MicroContextLib;
+
+using PythonSharp.Core;
+
+public class ManagedResource : IDisposable
+{
+    private string _name;
+    private bool _isDisposed;
+    private List<string> _eventLog;
+
+    public ManagedResource(string name, List<string> eventLog)
+    {
+        this._name = name;
+        this._isDisposed = false;
+        this._eventLog = eventLog;
+        this._eventLog.Add("acquire:" + name);
+    }
+
+    public string Name
+    {
+        get { return this._name; }
+    }
+
+    public bool IsDisposed
+    {
+        get { return this._isDisposed; }
+    }
+
+    public void Dispose()
+    {
+        if (!this._isDisposed)
+        {
+            this._isDisposed = true;
+            this._eventLog.Add("release:" + this._name);
+        }
+    }
+}
+
+public class MicroExitStack : IDisposable
+{
+    private List<IDisposable> _stack;
+    private List<string> _cleanupOrder;
+    private bool _isClosed;
+
+    public MicroExitStack()
+    {
+        this._stack = new List<IDisposable>();
+        this._cleanupOrder = new List<string>();
+        this._isClosed = false;
+    }
+
+    public int Count
+    {
+        get { return this._stack.Count; }
+    }
+
+    public bool IsClosed
+    {
+        get { return this._isClosed; }
+    }
+
+    public List<string> CleanupOrder
+    {
+        get { return this._cleanupOrder; }
+    }
+
+    public void Push(IDisposable resource)
+    {
+        if (this._isClosed)
+        {
+            throw new InvalidOperationException("Cannot push resource into a closed MicroExitStack.");
+        }
+        this._stack.Add(resource);
+    }
+
+    public ManagedResource EnterManaged(string name, List<string> log)
+    {
+        ManagedResource res = new ManagedResource(name, log);
+        this.Push(res);
+        return res;
+    }
+
+    public void Close()
+    {
+        if (this._isClosed)
+        {
+            return;
+        }
+
+        this._isClosed = true;
+        // Unwind in LIFO (reverse) order
+        while (this._stack.Count > 0)
+        {
+            int lastIndex = this._stack.Count - 1;
+            IDisposable item = this._stack[lastIndex];
+            this._stack.RemoveAt(lastIndex);
+
+            try
+            {
+                item.Dispose();
+                this._cleanupOrder.Add("ok");
+            }
+            catch (Exception ex)
+            {
+                this._cleanupOrder.Add("err:" + ex.Message);
+            }
+        }
+    }
+
+    public void Dispose()
+    {
+        this.Close();
+    }
+}
+
+public class ContextPipeline
+{
+    public static List<string> RunSuccessfulWorkflow()
+    {
+        List<string> trace = new List<string>();
+        MicroExitStack stack = new MicroExitStack();
+        try
+        {
+            ManagedResource conn = stack.EnterManaged("DatabaseConnection", trace);
+            ManagedResource tx = stack.EnterManaged("TransactionScope", trace);
+            ManagedResource file = stack.EnterManaged("AuditLogFile", trace);
+
+            trace.Add("execute:business_logic");
+        }
+        finally
+        {
+            stack.Dispose();
+        }
+        return trace;
+    }
+
+    public static List<string> RunFailingWorkflow()
+    {
+        List<string> trace = new List<string>();
+        MicroExitStack stack = new MicroExitStack();
+        bool caught = false;
+        try
+        {
+            ManagedResource conn = stack.EnterManaged("DatabaseConnection", trace);
+            ManagedResource tx = stack.EnterManaged("TransactionScope", trace);
+            ManagedResource file = stack.EnterManaged("AuditLogFile", trace);
+
+            trace.Add("execute:failing_operation");
+            throw new InvalidOperationException("Simulation failure during processing");
+        }
+        catch (Exception ex)
+        {
+            caught = true;
+            trace.Add("caught:" + ex.Message);
+        }
+        finally
+        {
+            stack.Dispose();
+        }
+
+        if (caught)
+        {
+            trace.Add("cleanup:guaranteed_complete");
+        }
+        return trace;
+    }
+}
+

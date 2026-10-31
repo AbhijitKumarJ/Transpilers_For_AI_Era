@@ -1,0 +1,83 @@
+namespace PythonSharp.Builtins;
+
+using PythonSharp.Core;
+extern using builtins as _py_builtins;
+extern using math as _py_math;
+
+[SurfaceLevel(3)]
+[MapsTo("_py_builtins")]
+public static primitive class Builtins
+{
+    // --- Special Module Properties ---
+    [CanonicalApi("PythonSharp.Core.ModuleContext.CurrentModuleName")]
+    [InlineTemplate("__name__")]
+    public static extern string ModuleName { get; }
+
+    [CanonicalApi("PythonSharp.Core.ModuleContext.CurrentFilePath")]
+    [InlineTemplate("__file__")]
+    public static extern string ModuleFilePath { get; }
+
+    // --- C#-Standardized Built-in Functions ---
+    [CanonicalApi("PythonSharp.Core.SequenceOperations.GetElementCount")]
+    [InlineTemplate("len({0})")]
+    public static extern int Len(object collection);
+
+    [CanonicalApi("PythonSharp.Core.IntegerRange.FromZeroToStop")]
+    [InlineTemplate("range({0})")]
+    public static extern IEnumerable<int> Range(int stop);
+
+    [CanonicalApi("PythonSharp.Core.IntegerRange.FromStartToStop")]
+    [InlineTemplate("range({0}, {1})")]
+    public static extern IEnumerable<int> Range(int start, int stop);
+
+    [CanonicalApi("PythonSharp.Core.IntegerRange.CreateStepped")]
+    [InlineTemplate("range({0}, {1}, {2})")]
+    public static extern IEnumerable<int> Range(int start, int stop, int step);
+
+    [CanonicalApi("PythonSharp.Core.SequenceOperations.EnumerateWithIndex")]
+    [InlineTemplate("enumerate({0}, {1})")]
+    public static extern IEnumerable<KeyValuePair<int, T>> Enumerate<T>(IEnumerable<T> sequence, int startIndex = 0);
+
+    [CanonicalApi("PythonSharp.Core.SequenceOperations.ZipSequences")]
+    [InlineTemplate("zip({0}, {1})")]
+    public static extern IEnumerable<KeyValuePair<TFirst, TSecond>> Zip<TFirst, TSecond>(
+        IEnumerable<TFirst> first,
+        IEnumerable<TSecond> second);
+
+    [CanonicalApi("PythonSharp.Core.StandardConsole.WriteLine")]
+    [InlineTemplate("print({0})")]
+    public static extern void Print(object? message = null);
+
+    [CanonicalApi("PythonSharp.Core.FileStreams.OpenTextStream")]
+    [InlineTemplate("open({0}, {1}, encoding={2})")]
+    public static extern TextFileStream Open(string filePath, string mode = "r", string encoding = "utf-8");
+
+    [CanonicalApi("PythonSharp.Core.ObjectInspector.GetAttributeOrDefault")]
+    [InlineTemplate("getattr({0}, {1}, {2})")]
+    public static extern object? GetAttr(object target, string attributeName, object? defaultValue = null);
+
+    [CanonicalApi("PythonSharp.Core.ObjectInspector.SetAttributeValue")]
+    [InlineTemplate("setattr({0}, {1}, {2})")]
+    public static extern void SetAttr(object target, string attributeName, object? value);
+
+    [CanonicalApi("PythonSharp.Core.ObjectInspector.HasAttribute")]
+    [InlineTemplate("hasattr({0}, {1})")]
+    public static extern bool HasAttr(object target, string attributeName);
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_py_math")]
+public static primitive class PyMath
+{
+    [CanonicalApi("PythonSharp.Core.MathematicalConstants.Pi")]
+    [InlineTemplate("_py_math.pi")]
+    public static extern double Pi { get; }
+
+    [CanonicalApi("PythonSharp.Core.MathematicalConstants.EulerNumber")]
+    [InlineTemplate("_py_math.e")]
+    public static extern double E { get; }
+
+    [CanonicalApi("PythonSharp.Core.MathematicalConstants.PositiveInfinity")]
+    [InlineTemplate("_py_math.inf")]
+    public static extern double Infinity { get; }
+}

@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "web_models.py",
+      "namespace": [
+        "WebModels"
+      ],
+      "primary_ps": "Schemas.ps",
+      "py": "web_models.py",
+      "pyc": "web_models.pyc"
+    }
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,17 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "enterprise_ai/churn_prediction.py",
+      "namespace": [
+        "EnterpriseAI",
+        "ChurnPrediction"
+      ],
+      "primary_ps": "CustomerChurnPipeline.ps",
+      "py": "enterprise_ai/churn_prediction.py",
+      "pyc": null
+    }
+  ],
+  "schema_version": 1
+}

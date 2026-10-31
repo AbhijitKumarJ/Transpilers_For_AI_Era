@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "micro_dot_env.py",
+      "namespace": [
+        "MicroDotEnv"
+      ],
+      "primary_ps": "DotEnv.ps",
+      "py": "micro_dot_env.py",
+      "pyc": "micro_dot_env.pyc"
+    }
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,87 @@
+namespace PythonSharp.MachineLearning.HyperparameterTuning;
+
+using PythonSharp.Core;
+extern using optuna as _optuna;
+
+[MapsTo("optuna.trial.Trial")]
+[RuntimeType("object")]
+public primitive class HyperparameterTrial
+{
+    [InlineTemplate("int({self}.number)")]
+    public extern int TrialNumber { get; }
+
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [InlineTemplate("{self}.suggest_float({0}, {1}, {2}, log={3})")]
+    public extern double SampleFloatHyperparameter(string parameterName, double lowerBound, double upperBound, bool logScale = false);
+
+    [InlineTemplate("{self}.suggest_int({0}, {1}, {2})")]
+    public extern int SampleIntegerHyperparameter(string parameterName, int lowerBound, int upperBound);
+
+    [InlineTemplate("{self}.suggest_categorical({0}, {1})")]
+    public extern T SampleCategoricalHyperparameter<T>(string parameterName, List<T> candidateChoices);
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.MachineLearning.HyperparameterTuning.HyperparameterTrial.SampleFloatHyperparameter")]
+    [InlineTemplate("{self}.suggest_float({0}, {1}, {2}, log={3})")]
+    public extern double SuggestFloat(string name, double low, double high, bool log = false);
+
+    [CanonicalApi("PythonSharp.MachineLearning.HyperparameterTuning.HyperparameterTrial.SampleIntegerHyperparameter")]
+    [InlineTemplate("{self}.suggest_int({0}, {1}, {2})")]
+    public extern int SuggestInt(string name, int low, int high);
+
+    [CanonicalApi("PythonSharp.MachineLearning.HyperparameterTuning.HyperparameterTrial.SampleCategoricalHyperparameter")]
+    [InlineTemplate("{self}.suggest_categorical({0}, {1})")]
+    public extern T SuggestCategorical<T>(string name, List<T> choices);
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.MachineLearning.HyperparameterTuning.HyperparameterTrial.SampleFloatHyperparameter", "SuggestFloat")]
+    [InlineTemplate("{self}.suggest_float({0}, {1}, {2}, log={3})")]
+    public extern double suggest_float(string name, double low, double high, bool log = false);
+
+    [CanonicalApi("PythonSharp.MachineLearning.HyperparameterTuning.HyperparameterTrial.SampleIntegerHyperparameter", "SuggestInt")]
+    [InlineTemplate("{self}.suggest_int({0}, {1}, {2})")]
+    public extern int suggest_int(string name, int low, int high);
+
+    [CanonicalApi("PythonSharp.MachineLearning.HyperparameterTuning.HyperparameterTrial.SampleCategoricalHyperparameter", "SuggestCategorical")]
+    [InlineTemplate("{self}.suggest_categorical({0}, {1})")]
+    public extern T suggest_categorical<T>(string name, List<T> choices);
+}
+
+[MapsTo("optuna.study.Study")]
+[RuntimeType("object")]
+public primitive class OptimizationStudy
+{
+    [InlineTemplate("float({self}.best_value)")]
+    public extern double BestObjectiveValue { get; }
+
+    [CanonicalApi("PythonSharp.MachineLearning.HyperparameterTuning.OptimizationStudy.BestObjectiveValue")]
+    [InlineTemplate("float({self}.best_value)")]
+    public extern double BestValue { get; }
+
+    [CanonicalApi("PythonSharp.MachineLearning.HyperparameterTuning.OptimizationStudy.BestObjectiveValue", "BestValue")]
+    [InlineTemplate("float({self}.best_value)")]
+    public extern double best_value { get; }
+
+    [InlineTemplate("dict({self}.best_params)")]
+    public extern Dict<string, object> BestHyperparameterMap { get; }
+
+    [CanonicalApi("PythonSharp.MachineLearning.HyperparameterTuning.OptimizationStudy.BestHyperparameterMap")]
+    [InlineTemplate("dict({self}.best_params)")]
+    public extern Dict<string, object> BestParams { get; }
+
+    [CanonicalApi("PythonSharp.MachineLearning.HyperparameterTuning.OptimizationStudy.BestHyperparameterMap", "BestParams")]
+    [InlineTemplate("dict({self}.best_params)")]
+    public extern Dict<string, object> best_params { get; }
+
+    // --- Triple-Surface Study Execution ---
+    [InlineTemplate("{self}.optimize({0}, n_trials={1})")]
+    public extern void RunHyperparameterOptimization(Func<HyperparameterTrial, double> objectiveFunction, int trialCount = 50);
+
+    [CanonicalApi("PythonSharp.MachineLearning.HyperparameterTuning.OptimizationStudy.RunHyperparameterOptimization")]
+    [InlineTemplate("{self}.optimize({0}, n_trials={1})")]
+    public extern void Optimize(Func<HyperparameterTrial, double> objective, int nTrials = 50);
+
+    [CanonicalApi("PythonSharp.MachineLearning.HyperparameterTuning.OptimizationStudy.RunHyperparameterOptimization", "Optimize")]
+    [InlineTemplate("{self}.optimize({0}, n_trials={1})")]
+    public extern void optimize(Func<HyperparameterTrial, double> func, int n_trials = 50);
+}

@@ -1,0 +1,24 @@
+namespace PythonSharp.Diagnostics.Logging;
+
+using PythonSharp.Core;
+extern using logging as _py_logging;
+extern using traceback as _py_tb;
+
+[SurfaceLevel(1)]
+[MapsTo("_py_logging")]
+public static primitive class LoggerFactory
+{
+    [InlineTemplate("_py_logging.getLogger({0})")]
+    public static extern ApplicationLogger GetNamedLogger(string? categoryName = null);
+
+    [InlineTemplate("_py_logging.basicConfig(level={0})")]
+    public static extern void ConfigureRootLogger(int minimumSeverityLevel = 20);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_py_tb")]
+public static primitive class TracebackFormatter
+{
+    [InlineTemplate("_py_tb.format_exc()")]
+    public static extern string FormatCurrentExceptionTraceback();
+}

@@ -1,0 +1,85 @@
+namespace PythonSharp.Diagnostics.Logging;
+
+using PythonSharp.Core;
+extern using logging as _py_logging;
+
+[MapsTo("logging.Logger")]
+[RuntimeType("logging.Logger")]
+public primitive class ApplicationLogger
+{
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [MapsTo("debug")]
+    public extern void LogDebugMessage(string message);
+
+    [MapsTo("info")]
+    public extern void LogInformationMessage(string message);
+
+    [MapsTo("warning")]
+    public extern void LogWarningMessage(string message);
+
+    [MapsTo("error")]
+    public extern void LogErrorMessage(string message);
+
+    [MapsTo("critical")]
+    public extern void LogCriticalMessage(string message);
+
+    [MapsTo("exception")]
+    public extern void LogExceptionWithTraceback(string message);
+
+    [MapsTo("setLevel")]
+    public extern void SetMinimumLogLevel(int severityLevel);
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.Diagnostics.Logging.ApplicationLogger.LogDebugMessage")]
+    [MapsTo("debug")]
+    public extern void Debug(string message);
+
+    [CanonicalApi("PythonSharp.Diagnostics.Logging.ApplicationLogger.LogInformationMessage")]
+    [MapsTo("info")]
+    public extern void Info(string message);
+
+    [CanonicalApi("PythonSharp.Diagnostics.Logging.ApplicationLogger.LogWarningMessage")]
+    [MapsTo("warning")]
+    public extern void Warning(string message);
+
+    [CanonicalApi("PythonSharp.Diagnostics.Logging.ApplicationLogger.LogErrorMessage")]
+    [MapsTo("error")]
+    public extern void Error(string message);
+
+    [CanonicalApi("PythonSharp.Diagnostics.Logging.ApplicationLogger.LogCriticalMessage")]
+    [MapsTo("critical")]
+    public extern void Critical(string message);
+
+    [CanonicalApi("PythonSharp.Diagnostics.Logging.ApplicationLogger.LogExceptionWithTraceback")]
+    [MapsTo("exception")]
+    public extern void Exception(string message);
+
+    [CanonicalApi("PythonSharp.Diagnostics.Logging.ApplicationLogger.SetMinimumLogLevel")]
+    [MapsTo("setLevel")]
+    public extern void SetLevel(int level);
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.Diagnostics.Logging.ApplicationLogger.LogDebugMessage", "Debug")]
+    [MapsTo("debug")]
+    public extern void debug(string msg);
+
+    [CanonicalApi("PythonSharp.Diagnostics.Logging.ApplicationLogger.LogInformationMessage", "Info")]
+    [MapsTo("info")]
+    public extern void info(string msg);
+
+    [CanonicalApi("PythonSharp.Diagnostics.Logging.ApplicationLogger.LogWarningMessage", "Warning")]
+    [MapsTo("warning")]
+    public extern void warning(string msg);
+
+    [CanonicalApi("PythonSharp.Diagnostics.Logging.ApplicationLogger.LogErrorMessage", "Error")]
+    [MapsTo("error")]
+    public extern void error(string msg);
+
+    [CanonicalApi("PythonSharp.Diagnostics.Logging.ApplicationLogger.LogCriticalMessage", "Critical")]
+    [MapsTo("critical")]
+    public extern void critical(string msg);
+
+    [CanonicalApi("PythonSharp.Diagnostics.Logging.ApplicationLogger.LogExceptionWithTraceback", "Exception")]
+    [MapsTo("exception")]
+    public extern void exception(string msg);
+}

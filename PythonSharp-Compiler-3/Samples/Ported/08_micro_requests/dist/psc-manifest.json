@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "micro_requests.py",
+      "namespace": [
+        "MicroRequests"
+      ],
+      "primary_ps": "HttpClient.ps",
+      "py": "micro_requests.py",
+      "pyc": "micro_requests.pyc"
+    }
+  ],
+  "schema_version": 1
+}
