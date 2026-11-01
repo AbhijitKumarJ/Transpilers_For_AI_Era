@@ -1,0 +1,144 @@
+namespace SklearnPipeline;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using PythonSharp.MachineLearning.Classical;
+using PythonSharp.ScikitLearn;
+using sklearn;
+
+public record ClassificationMetrics(
+    double Accuracy,
+    double F1
+);
+
+public record RegressionMetrics(
+    double MeanSquaredError,
+    double R2
+);
+
+public class CompositeMlPipeline
+{
+    public StandardFeatureScaler Scaler { get; set; }
+    public RandomForestClassifierModel Model { get; set; }
+
+    public CompositeMlPipeline(int numberOfTrees = 100, int randomSeed = 42)
+    {
+        Scaler = FeaturePreprocessingFactory.CreateStandardZScoreScaler();
+        Model = ModelEstimatorFactory.CreateRandomForestClassifier(numberOfTrees, randomSeed);
+    }
+
+    public void Fit(NDArray<double> features, NDArray<int> labels)
+    {
+        var scaledFeatures = Scaler.FitAndTransformFeatures(features);
+        Model.TrainOnLabeledDataset(scaledFeatures, labels);
+    }
+
+    public NDArray<int> Predict(NDArray<double> features)
+    {
+        var scaledFeatures = Scaler.TransformFeatures(features);
+        return Model.PredictLabels(scaledFeatures);
+    }
+
+    public ClassificationMetrics Evaluate(NDArray<double> testFeatures, NDArray<int> trueLabels)
+    {
+        var predictions = Predict(testFeatures);
+        double acc = EvaluationMetrics.ComputeAccuracyScore(trueLabels, predictions);
+        double f1 = EvaluationMetrics.ComputeF1Score(trueLabels, predictions, "weighted");
+        return new ClassificationMetrics(acc, f1);
+    }
+}
+
+public class PipelineEngine
+{
+    // ========================================================================
+    // Surface 1: Self-Documenting Enterprise Architecture ML Services
+    // ========================================================================
+
+    public static ClassificationMetrics ExecuteEnterpriseRandomForest(
+        NDArray<double> features,
+        NDArray<int> labels,
+        double testRatio = 0.25,
+        int randomSeed = 42
+    )
+    {
+        // 1. Train-test split
+        var split = DatasetSplitter.SplitTrainAndTestSets(features, labels, testRatio, randomSeed);
+
+        // 2. Build & train pipeline
+        var pipeline = new CompositeMlPipeline(100, randomSeed);
+        pipeline.Fit(split.TrainingFeatures, split.TrainingLabels);
+
+        // 3. Evaluate on held-out test partition
+        return pipeline.Evaluate(split.TestingFeatures, split.TestingLabels);
+    }
+
+    // ========================================================================
+    // Surface 3: C#-Standardized Bridge ML Services (PascalCase)
+    // ========================================================================
+
+    public static ClassificationMetrics ExecuteLogisticRegressionPipeline(
+        NDArray<double> X,
+        NDArray<int> y,
+        double testSize = 0.25,
+        int seed = 42
+    )
+    {
+        var split = sk.ModelSelection.TrainTestSplit<int>(X, y, testSize, seed);
+
+        var scaler = sk.Preprocessing.StandardScaler();
+        var xTrainScaled = scaler.FitTransform(split.XTrain);
+        var xTestScaled = scaler.Transform(split.XTest);
+
+        var clf = sk.LinearModel.LogisticRegression(200, seed);
+        clf.Fit(xTrainScaled, split.YTrain);
+
+        var predictions = clf.Predict(xTestScaled);
+        double accuracy = sk.Metrics.AccuracyScore(split.YTest, predictions);
+        double f1 = sk.Metrics.F1Score(split.YTest, predictions, "weighted");
+
+        return new ClassificationMetrics(accuracy, f1);
+    }
+
+    public static RegressionMetrics ExecuteRidgeRegressionPipeline(
+        NDArray<double> X,
+        NDArray<double> y,
+        double testSize = 0.25,
+        int seed = 42
+    )
+    {
+        var split = sk.ModelSelection.TrainTestSplit<double>(X, y, testSize, seed);
+
+        var scaler = sk.Preprocessing.StandardScaler();
+        var xTrainScaled = scaler.FitTransform(split.XTrain);
+        var xTestScaled = scaler.Transform(split.XTest);
+
+        var regressor = sk.LinearModel.Ridge(1.0);
+        regressor.Fit(xTrainScaled, split.YTrain);
+
+        var predictions = regressor.Predict(xTestScaled);
+        double mse = sk.Metrics.MeanSquaredError(split.YTest, predictions);
+        double r2 = sk.Metrics.R2Score(split.YTest, predictions);
+
+        return new RegressionMetrics(mse, r2);
+    }
+
+    // ========================================================================
+    // Surface 2: Raw Python snake_case ABI (Jupyter Notebook Portability)
+    // ========================================================================
+
+    public static double ExecuteQuickNotebookWorkflow(NDArray<double> X, NDArray<int> y)
+    {
+        var split = sklearn.model_selection.train_test_split(X, y, 0.2, 42);
+
+        var scaler = sklearn.preprocessing.StandardScaler();
+        var x_train = scaler.fit_transform(split.X_train);
+        var x_test = scaler.transform(split.X_test);
+
+        var rf = sklearn.ensemble.RandomForestClassifier(50, 42);
+        rf.fit(x_train, split.y_train);
+
+        var y_pred = rf.predict(x_test);
+        return sklearn.metrics.accuracy_score(split.y_test, y_pred);
+    }
+}
+

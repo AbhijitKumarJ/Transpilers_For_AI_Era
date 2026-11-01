@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "micro_retry.py",
+      "namespace": [
+        "MicroRetry"
+      ],
+      "primary_ps": "Retry.ps",
+      "py": "micro_retry.py",
+      "pyc": "micro_retry.pyc"
+    }
+  ],
+  "schema_version": 1
+}

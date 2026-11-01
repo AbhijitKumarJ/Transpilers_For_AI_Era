@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "micro_croniter.py",
+      "namespace": [
+        "MicroCroniter"
+      ],
+      "primary_ps": "Croniter.ps",
+      "py": "micro_croniter.py",
+      "pyc": "micro_croniter.pyc"
+    }
+  ],
+  "schema_version": 1
+}

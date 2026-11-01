@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "text_util.py",
+      "namespace": [
+        "TextUtil"
+      ],
+      "primary_ps": "PadUtil.ps",
+      "py": "text_util.py",
+      "pyc": "text_util.pyc"
+    }
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,24 @@
+namespace PythonSharp.Net.Http;
+
+using PythonSharp.Core;
+extern using urllib.request as _py_req;
+extern using urllib.parse as _py_parse;
+
+[SurfaceLevel(1)]
+[MapsTo("_py_req")]
+public static primitive class HttpClientOperations
+{
+    [InlineTemplate("_py_req.urlopen({0}, timeout={1})")]
+    public static extern HttpResponseStream OpenUrlStream(string targetUrl, double timeoutSeconds = 30.0);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_py_parse")]
+public static primitive class UrlEncodingOperations
+{
+    [InlineTemplate("_py_parse.urlencode({0})")]
+    public static extern string EncodeQueryParameters(Dict<string, string> queryParameterMap);
+
+    [InlineTemplate("_py_parse.urljoin({0}, {1})")]
+    public static extern string CombineBaseAndRelativeUrl(string baseUrl, string relativePath);
+}

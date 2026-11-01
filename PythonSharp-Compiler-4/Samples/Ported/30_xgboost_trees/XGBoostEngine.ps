@@ -1,0 +1,70 @@
+namespace PythonSharp.Samples.XGBoostTrees;
+
+using PythonSharp.Core;
+using xgb = xgboost.xgb;
+
+public record DecisionTreeConfig(
+    int MaxDepth,
+    double LearningRate,
+    int NumRounds,
+    string Objective
+);
+
+public record ModelMetrics(
+    double Accuracy,
+    double LogLoss,
+    int NumFeatures
+);
+
+public class XGBoostEngine
+{
+    public static object CreateDMatrix(object features, object labels)
+    {
+        return xgb.d_matrix(features, label=labels);
+    }
+
+    public static object TrainModel(object dtrain, DecisionTreeConfig config)
+    {
+        var parameters = new Dict<string, object>();
+        parameters["max_depth"] = config.MaxDepth;
+        parameters["eta"] = config.LearningRate;
+        parameters["objective"] = config.Objective;
+        parameters["eval_metric"] = "logloss";
+        return xgb.train(parameters, dtrain, num_boost_round=config.NumRounds);
+    }
+
+    public static List<double> PredictProbabilities(object bst, object dtest)
+    {
+        return bst.predict(dtest);
+    }
+
+    public static double CalculateAccuracy(List<double> probabilities, List<int> actuals, double threshold)
+    {
+        int correct = 0;
+        int total = probabilities.Count;
+        int i = 0;
+        while (i < total)
+        {
+            int predBinary = 0;
+            if (probabilities[i] >= threshold)
+            {
+                predBinary = 1;
+            }
+            if (predBinary == actuals[i])
+            {
+                correct += 1;
+            }
+            i += 1;
+        }
+        if (total > 0)
+        {
+            return (correct * 1.0) / total;
+        }
+        return 0.0;
+    }
+
+    public static Dict<string, double> GetFeatureImportances(object bst)
+    {
+        return bst.get_score(importance_type="weight");
+    }
+}

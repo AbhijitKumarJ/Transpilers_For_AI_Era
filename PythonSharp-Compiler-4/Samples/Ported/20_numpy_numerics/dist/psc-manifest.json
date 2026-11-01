@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "numpy_numerics.py",
+      "namespace": [
+        "NumpyNumerics"
+      ],
+      "primary_ps": "TensorEngine.ps",
+      "py": "numpy_numerics.py",
+      "pyc": null
+    }
+  ],
+  "schema_version": 1
+}

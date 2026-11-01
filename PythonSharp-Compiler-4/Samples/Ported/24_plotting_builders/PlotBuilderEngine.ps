@@ -1,0 +1,158 @@
+namespace PlottingBuilders;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Creation;
+using PythonSharp.Numerics.Tensors;
+using PythonSharp.Visualization;
+using PythonSharp.Matplotlib;
+using matplotlib;
+
+public class ChartBuilder
+{
+    public int Width { get; set; } = 8;
+    public int Height { get; set; } = 6;
+    public int Dpi { get; set; } = 150;
+    public string Title { get; set; } = "";
+    public string XAxisLabel { get; set; } = "";
+    public string YAxisLabel { get; set; } = "";
+    public bool ShowLegend { get; set; } = false;
+
+    public ChartBuilder(int width = 8, int height = 6)
+    {
+        Width = width;
+        Height = height;
+    }
+
+    public ChartBuilder WithTitle(string title)
+    {
+        Title = title;
+        return this;
+    }
+
+    public ChartBuilder WithXAxis(string label)
+    {
+        XAxisLabel = label;
+        return this;
+    }
+
+    public ChartBuilder WithYAxis(string label)
+    {
+        YAxisLabel = label;
+        return this;
+    }
+
+    public ChartBuilder WithDpi(int dpi)
+    {
+        Dpi = dpi;
+        return this;
+    }
+
+    public ChartBuilder EnableLegend()
+    {
+        ShowLegend = true;
+        return this;
+    }
+
+    public ChartBuilder AddLineSeries(NDArray<double> x, NDArray<double> y, string? label = null)
+    {
+        FigureCanvas.PlotLineSeries(x, y, label);
+        return this;
+    }
+
+    public ChartBuilder AddScatterPoints(NDArray<double> x, NDArray<double> y, string? label = null)
+    {
+        FigureCanvas.PlotScatterSeries(x, y, label);
+        return this;
+    }
+
+    public ChartBuilder AddHistogram(NDArray<double> values, int bins = 20)
+    {
+        FigureCanvas.PlotHistogram(values, bins);
+        return this;
+    }
+
+    public void Save(string outputFilePath)
+    {
+        if (Title != "")
+        {
+            FigureCanvas.SetChartTitle(Title);
+        }
+        if (XAxisLabel != "")
+        {
+            FigureCanvas.SetHorizontalAxisLabel(XAxisLabel);
+        }
+        if (YAxisLabel != "")
+        {
+            FigureCanvas.SetVerticalAxisLabel(YAxisLabel);
+        }
+        if (ShowLegend)
+        {
+            FigureCanvas.ShowLegend();
+        }
+        FigureCanvas.SaveChartToFile(outputFilePath, Dpi);
+        FigureCanvas.CloseCurrentFigure();
+    }
+}
+
+public class VisualAnalyticsService
+{
+    // ========================================================================
+    // Surface 1: Enterprise Architectural Plotting
+    // ========================================================================
+
+    public static void RenderMultiSeriesDashboard(
+        NDArray<double> timepoints,
+        NDArray<double> actualMetrics,
+        NDArray<double> projectedMetrics,
+        string outputPath
+    )
+    {
+        var builder = new ChartBuilder(10, 6);
+        builder.WithTitle("Executive Performance Dashboard")
+               .WithXAxis("Evaluation Quarter")
+               .WithYAxis("Metric Value ($M)")
+               .WithDpi(200)
+               .AddLineSeries(timepoints, projectedMetrics, "Forecast Baseline")
+               .AddScatterPoints(timepoints, actualMetrics, "Observed Actuals")
+               .EnableLegend()
+               .Save(outputPath);
+    }
+
+    public static void RenderCorrelationVisual(NDArray<double> matrix, string theme)
+    {
+        StatisticalPlotter.SetVisualTheme(theme);
+        StatisticalPlotter.RenderCorrelationHeatmap(matrix, true, "viridis");
+    }
+
+    // ========================================================================
+    // Surface 3: C# Standardized Bridge APIs (PascalCase)
+    // ========================================================================
+
+    public static void QuickLinePlot(NDArray<double> x, NDArray<double> y, string title, string filePath)
+    {
+        plt.Plot(x, y, "Signal");
+        plt.Title(title);
+        plt.SaveFig(filePath, 150);
+        plt.Close();
+    }
+
+    public static void QuickScatterPlot(NDArray<double> x, NDArray<double> y, string title, string filePath)
+    {
+        plt.Scatter(x, y, "Clusters");
+        plt.Title(title);
+        plt.SaveFig(filePath, 150);
+        plt.Close();
+    }
+
+    // ========================================================================
+    // Surface 2: Raw Python snake_case ABI (Direct Portability)
+    // ========================================================================
+
+    public static void QuickHistogramExport(NDArray<double> values, int bins, string path)
+    {
+        plt.hist(values, bins);
+        plt.title("Sample Distribution");
+        plt.savefig(path, 150);
+        plt.close();
+    }
+}

@@ -1,0 +1,12 @@
+<Project Sdk="PythonSharp.Sdk/0.1.0">
+  <PropertyGroup>
+    <AssemblyName>DataFrameAnalytics</AssemblyName>
+    <TargetFramework>py3.11</TargetFramework>
+    <EmitPyc>false</EmitPyc>
+  </PropertyGroup>
+  <ItemGroup>
+    <PyPiPackage Include="pandas" Version=">=2.0.0" />
+    <PyPiPackage Include="numpy" Version=">=1.24.0" />
+  </ItemGroup>
+</Project>
+

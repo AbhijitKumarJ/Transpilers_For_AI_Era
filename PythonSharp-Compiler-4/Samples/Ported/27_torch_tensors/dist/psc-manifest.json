@@ -1,0 +1,18 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "python_sharp/samples/torch_tensors.py",
+      "namespace": [
+        "PythonSharp",
+        "Samples",
+        "TorchTensors"
+      ],
+      "primary_ps": "TorchEngine.ps",
+      "py": "python_sharp/samples/torch_tensors.py",
+      "pyc": "python_sharp/samples/torch_tensors.pyc"
+    }
+  ],
+  "schema_version": 1
+}

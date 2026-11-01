@@ -1,0 +1,27 @@
+namespace Commerce.Services;
+
+using PythonSharp.Core;
+using Commerce.Domain;
+
+public class OrderCache : IAuditable, IDisposable
+{
+    private readonly Dict<int, Order> _store = new Dict<int, Order>();
+    public string AuditTag { get; private set; }
+
+    public OrderCache(string tag) => AuditTag = tag;
+
+    public void Put(Order order) => _store[order.Id] = order;
+    public void Put(int id, decimal total) => _store[id] = new Order(id, total, true);
+
+    public Order? GetOrNull(int id) => _store.GetOrDefault(id);
+
+    public List<int> GetActiveIds(decimal minTotal = 0.0m)
+    {
+        return _store.Values()
+            .Where(o => o.IsActive && o.Total >= minTotal)
+            .Select(o => o.Id)
+            .ToList();
+    }
+
+    public void Dispose() => _store.Clear();
+}

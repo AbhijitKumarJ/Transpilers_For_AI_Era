@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "micro_json_logger.py",
+      "namespace": [
+        "MicroJsonLogger"
+      ],
+      "primary_ps": "JsonFormatter.ps",
+      "py": "micro_json_logger.py",
+      "pyc": "micro_json_logger.pyc"
+    }
+  ],
+  "schema_version": 1
+}

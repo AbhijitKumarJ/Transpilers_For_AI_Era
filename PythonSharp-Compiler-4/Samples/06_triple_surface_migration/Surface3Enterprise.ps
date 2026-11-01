@@ -1,0 +1,31 @@
+namespace TripleSurfaceMigration;
+
+using PythonSharp.Core;
+using PythonSharp.System.Diagnostics;
+using PythonSharp.Serialization.Json;
+using PythonSharp.Numerics.Creation;
+using PythonSharp.Numerics.Tensors;
+
+public class Surface3EnterprisePipeline
+{
+    public static string RunPipeline()
+    {
+        double startTime = SystemClock.GetUnixTimestampSeconds();
+
+        // Surface 3: Enterprise C# Architecture (Domain semantics)
+        NDArray<double> a = ArrayFactory.CreateOnesMatrix(2, 2);
+        NDArray<double> b = ArrayFactory.CreateOnesMatrix(2, 2);
+
+        // Enterprise matrix multiplication (lowering directly to @)
+        NDArray<double> c = a.MultiplyMatrix(b);
+
+        double elapsed = SystemClock.GetUnixTimestampSeconds() - startTime;
+
+        Dict<string, object> metrics = new Dict<string, object>();
+        metrics["surface"] = "Surface 3 (Enterprise C# Architecture)";
+        metrics["elapsed_sec"] = elapsed;
+        metrics["matrix_dims"] = c.DimensionShape;
+
+        return JsonSerializer.Serialize(metrics);
+    }
+}

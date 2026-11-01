@@ -1,0 +1,23 @@
+namespace Streaming;
+
+using PythonSharp.Core;
+
+public class EventStreamService
+{
+    public string ServiceName { get; set; }
+
+    public EventStreamService(string serviceName)
+    {
+        ServiceName = serviceName;
+    }
+
+    public async IAsyncEnumerable<string> StreamEvents(string channel, int count)
+    {
+        int i = 1;
+        while (i <= count)
+        {
+            yield return $"[{ServiceName} / {channel}] Event #{i} dispatched";
+            i = i + 1;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "publishing.py",
+      "namespace": [
+        "Publishing"
+      ],
+      "primary_ps": "ArticlePublisher.ps",
+      "py": "publishing.py",
+      "pyc": "publishing.pyc"
+    }
+  ],
+  "schema_version": 1
+}

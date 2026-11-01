@@ -1,0 +1,50 @@
+namespace sympy;
+
+using PythonSharp.Core;
+using PythonSharp.SymbolicMath;
+extern using sympy as _sp;
+
+[SurfaceLevel(2)]
+[MapsTo("_sp")]
+public static primitive class sp
+{
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolFactory.DeclareSymbol", "PythonSharp.SymPy.sp.Symbols")]
+    [InlineTemplate("_sp.symbols({0})")]
+    public static extern SymbolicVariable symbols(string names);
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolFactory.ParseSymbolicExpression", "PythonSharp.SymPy.sp.Sympify")]
+    [InlineTemplate("_sp.sympify({0})")]
+    public static extern SymbolicExpression sympify(string expressionText);
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicCalculus.DifferentiateWithRespectTo", "PythonSharp.SymPy.sp.Diff")]
+    [InlineTemplate("_sp.diff({0}, {1}, {2})")]
+    public static extern SymbolicExpression diff(SymbolicExpression expr, SymbolicVariable symbol, int order = 1);
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicCalculus.IntegrateIndefinite", "PythonSharp.SymPy.sp.Integrate")]
+    [InlineTemplate("_sp.integrate({0}, {1})")]
+    public static extern SymbolicExpression integrate(SymbolicExpression expr, SymbolicVariable symbol);
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicCalculus.IntegrateDefinite", "PythonSharp.SymPy.sp.IntegrateDefinite")]
+    [InlineTemplate("_sp.integrate({0}, ({1}, {2}, {3}))")]
+    public static extern SymbolicExpression integrate(SymbolicExpression expr, SymbolicVariable symbol, double lowerBound, double upperBound);
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicAlgebra.SimplifyExpression", "PythonSharp.SymPy.sp.Simplify")]
+    [InlineTemplate("_sp.simplify({0})")]
+    public static extern SymbolicExpression simplify(SymbolicExpression expr);
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicAlgebra.SolveAlgebraicEquation", "PythonSharp.SymPy.sp.Solve")]
+    [InlineTemplate("_sp.solve({0}, {1})")]
+    public static extern List<SymbolicExpression> solve(SymbolicExpression equation, SymbolicVariable symbol);
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicTrigonometry.Sine", "PythonSharp.SymPy.sp.Sin")]
+    [InlineTemplate("_sp.sin({0})")]
+    public static extern SymbolicExpression sin(SymbolicExpression expr);
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicTrigonometry.Cosine", "PythonSharp.SymPy.sp.Cos")]
+    [InlineTemplate("_sp.cos({0})")]
+    public static extern SymbolicExpression cos(SymbolicExpression expr);
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicTrigonometry.Exponential", "PythonSharp.SymPy.sp.Exp")]
+    [InlineTemplate("_sp.exp({0})")]
+    public static extern SymbolicExpression exp(SymbolicExpression expr);
+}

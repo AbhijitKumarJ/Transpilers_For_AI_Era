@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "sklearn_pipeline.py",
+      "namespace": [
+        "SklearnPipeline"
+      ],
+      "primary_ps": "PipelineEngine.ps",
+      "py": "sklearn_pipeline.py",
+      "pyc": null
+    }
+  ],
+  "schema_version": 1
+}

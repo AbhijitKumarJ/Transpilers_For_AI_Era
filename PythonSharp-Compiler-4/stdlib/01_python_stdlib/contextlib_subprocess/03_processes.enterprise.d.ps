@@ -1,0 +1,33 @@
+namespace PythonSharp.System.Processes;
+
+using PythonSharp.Core;
+extern using contextlib as _py_ctx;
+extern using subprocess as _py_sub;
+
+[SurfaceLevel(1)]
+[MapsTo("_py_ctx")]
+public static primitive class ResourceManagement
+{
+    [InlineTemplate("_py_ctx.ExitStack()")]
+    public static extern DisposableResourceStack CreateExitStack();
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_py_sub")]
+public static primitive class SubprocessRunner
+{
+    [InlineTemplate("_py_sub.run({0}, capture_output={1}, text={2}, check={3})")]
+    public static extern CompletedProcessResult RunCommandCapturingOutput(
+        List<string> commandArguments,
+        bool captureStandardStreams = true,
+        bool decodeStreamsAsUtf8 = true,
+        bool throwOnNonZeroExit = false);
+
+    [InlineTemplate("_py_sub.run({0}, input={1}, capture_output={2}, text={3}, check={4})")]
+    public static extern CompletedProcessResult ExecuteWithPipedInput(
+        List<string> commandArguments,
+        string standardInputData,
+        bool captureStandardStreams = true,
+        bool decodeStreamsAsUtf8 = true,
+        bool throwOnNonZeroExit = false);
+}

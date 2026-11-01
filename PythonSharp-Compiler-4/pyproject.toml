@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=77.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pythonsharp-compiler"
+version = "0.1.0"
+description = "PythonSharp (psc) - multi-pass static C#-to-Python 3.11+ transpiler"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "PythonSharp contributors" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.6",
+    "mypy>=1.10",
+]
+
+[project.scripts]
+psc = "psc.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.data-files]
+"share/pythonsharp" = ["stdlib/PythonSharp.Core.d.ps"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+extend-exclude = ["docs", "Ideation", "tests/fixtures/golden/expected"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+
+[tool.mypy]
+python_version = "3.11"
+mypy_path = "src"
+strict = true
+
+[tool.coverage.run]
+source = ["psc"]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true

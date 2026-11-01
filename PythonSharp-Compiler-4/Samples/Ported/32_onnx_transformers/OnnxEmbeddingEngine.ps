@@ -1,0 +1,114 @@
+namespace PythonSharp.Samples.OnnxTransformers;
+
+using PythonSharp.Core;
+extern using onnxruntime as ort;
+
+public record EmbeddingDocument(
+    string DocId,
+    string Text,
+    List<double> Vector,
+    int Dimension
+);
+
+public record VectorSearchResult(
+    string DocId,
+    double SimilarityScore,
+    int Rank
+);
+
+public class OnnxEmbeddingEngine
+{
+    public static List<double> NormalizeVector(List<double> vec)
+    {
+        double sumSq = 0.0;
+        int i = 0;
+        while (i < vec.Count)
+        {
+            sumSq += vec[i] * vec[i];
+            i += 1;
+        }
+        double norm = Math.Sqrt(sumSq);
+        if (norm == 0.0)
+        {
+            norm = 1.0;
+        }
+        var normalized = new List<double>();
+        int j = 0;
+        while (j < vec.Count)
+        {
+            normalized.Add(vec[j] / norm);
+            j += 1;
+        }
+        return normalized;
+    }
+
+    public static double CosineSimilarity(List<double> a, List<double> b)
+    {
+        double dot = 0.0;
+        int limit = a.Count < b.Count ? a.Count : b.Count;
+        int i = 0;
+        while (i < limit)
+        {
+            dot += a[i] * b[i];
+            i += 1;
+        }
+        return dot;
+    }
+
+    public static EmbeddingDocument IndexDocument(string docId, string text, List<double> rawVector)
+    {
+        var normVec = NormalizeVector(rawVector);
+        return new EmbeddingDocument(docId, text, normVec, normVec.Count);
+    }
+
+    public static List<VectorSearchResult> SearchTopK(List<double> rawQuery, List<EmbeddingDocument> corpus, int topK)
+    {
+        var queryNorm = NormalizeVector(rawQuery);
+        var scoredDocs = new List<VectorSearchResult>();
+
+        int i = 0;
+        while (i < corpus.Count)
+        {
+            var doc = corpus[i];
+            double sim = CosineSimilarity(queryNorm, doc.Vector);
+            scoredDocs.Add(new VectorSearchResult(doc.DocId, sim, 0));
+            i += 1;
+        }
+
+        // Sort scoredDocs descending by similarity score
+        int n = scoredDocs.Count;
+        int p = 0;
+        while (p < n)
+        {
+            int q = p + 1;
+            while (q < n)
+            {
+                if (scoredDocs[q].SimilarityScore > scoredDocs[p].SimilarityScore)
+                {
+                    var temp = scoredDocs[p];
+                    scoredDocs[p] = scoredDocs[q];
+                    scoredDocs[q] = temp;
+                }
+                q += 1;
+            }
+            p += 1;
+        }
+
+        var results = new List<VectorSearchResult>();
+        int rank = 1;
+        int k = 0;
+        while (k < scoredDocs.Count && k < topK)
+        {
+            results.Add(new VectorSearchResult(scoredDocs[k].DocId, scoredDocs[k].SimilarityScore, rank));
+            rank += 1;
+            k += 1;
+        }
+        return results;
+    }
+
+    public static object CreateInferenceSession(string modelPath)
+    {
+        return ort.InferenceSession(modelPath);
+    }
+}
+

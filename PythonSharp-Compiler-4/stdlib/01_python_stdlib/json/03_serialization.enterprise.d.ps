@@ -1,0 +1,27 @@
+namespace PythonSharp.Serialization.Json;
+
+using PythonSharp.Core;
+extern using json as _py_json;
+
+[SurfaceLevel(1)]
+[MapsTo("_py_json")]
+public static primitive class JsonSerializer
+{
+    [InlineTemplate("_py_json.loads({0})")]
+    public static extern JsonDocumentObject DeserializeFromString(string jsonText);
+
+    [InlineTemplate("_py_json.loads({0})")]
+    public static extern T DeserializeTypedFromString<T>(string jsonText);
+
+    [InlineTemplate("_py_json.loads({0})")]
+    public static extern T Deserialize<T>(string jsonText);
+
+    [InlineTemplate("_py_json.dumps({0})")]
+    public static extern string Serialize(object payload);
+
+    [InlineTemplate("_py_json.dumps({0})")]
+    public static extern string SerializeToString(object payload);
+
+    [InlineTemplate("_py_json.dumps({0}, indent={1}, sort_keys={2})")]
+    public static extern string SerializeFormatted(object payload, int indentSpaces = 2, bool sortKeysAlphabetically = false);
+}

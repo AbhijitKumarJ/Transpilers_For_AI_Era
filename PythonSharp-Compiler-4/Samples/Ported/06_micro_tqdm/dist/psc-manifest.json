@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "micro_tqdm_util.py",
+      "namespace": [
+        "MicroTqdmUtil"
+      ],
+      "primary_ps": "ProgressBar.ps",
+      "py": "micro_tqdm_util.py",
+      "pyc": "micro_tqdm_util.pyc"
+    }
+  ],
+  "schema_version": 1
+}

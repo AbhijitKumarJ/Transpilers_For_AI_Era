@@ -1,0 +1,486 @@
+{
+  "version": "0.1.0",
+  "emit_pyc": true,
+  "target_python": "3.11",
+  "inputs": {
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/00_core/00_attributes.d.ps": {
+      "sha256": "36b64cd04420d389ed84dfdd4db65aace410ad442ec3a6d9965646a4055ad821",
+      "mtime": 1793464080.8828561,
+      "size": 2305
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/00_core/01_contracts.d.ps": {
+      "sha256": "0bcfb2e78e4384e495e6b02caffbcf28fe5e31e8fc7ee388bea3ef7eeb330acb",
+      "mtime": 1793464573.6832237,
+      "size": 4013
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/00_core/02_primitives.d.ps": {
+      "sha256": "7df58c0d9b8c008d0cd913580c9cfdd1371a91c24c42f2f3e86ffe699b0aafd1",
+      "mtime": 1793468106.2165575,
+      "size": 22855
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/00_core/03_builtins.raw.d.ps": {
+      "sha256": "c7af5f14ddf1a59d135de55bc2b0b02ae72dc5b671052965b98962ec6f1e9bf5",
+      "mtime": 1793464080.883746,
+      "size": 4021
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/00_core/04_builtins.csharp.d.ps": {
+      "sha256": "fe57dd2b1012ea4b40fdf8cb23c0ec399490fdae5c7b042c7d46f7d03f4983bc",
+      "mtime": 1793464080.8840315,
+      "size": 3393
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/00_core/05_core.enterprise.d.ps": {
+      "sha256": "66caaacf57e04d4d4b961ea20c70dcf089f4ae6006799f41f6704dbedb02f217",
+      "mtime": 1793464080.8843095,
+      "size": 3302
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/contextlib_subprocess/00_contextlib.primitives.d.ps": {
+      "sha256": "e94102482c9e3e58a9f0efa85ca840b9951cf6fa7e9e8157d01135e3cb1a02f1",
+      "mtime": 1793464080.8971665,
+      "size": 2842
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/contextlib_subprocess/01_contextlib.raw.d.ps": {
+      "sha256": "6671a67e545b7740e598941d994c82cb1c6b25405ed214264b81b7fff689f9ab",
+      "mtime": 1793468315.1744256,
+      "size": 1314
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/contextlib_subprocess/02_contextlib.csharp.d.ps": {
+      "sha256": "b05f9bf997d07cb373ecb0795adb22d2df282ec11df8d4f35bd2b024d6bd168a",
+      "mtime": 1793468327.8042042,
+      "size": 1194
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/contextlib_subprocess/03_processes.enterprise.d.ps": {
+      "sha256": "a2b1a1a651cf4bab206437081a6afa9751a448615f898d233482723466666edd",
+      "mtime": 1793468341.286606,
+      "size": 1119
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/json/00_json.primitives.d.ps": {
+      "sha256": "7a87922da4004af89d60c9fd8b0ae1167ccac5919cdb4e2a348714021a75adbb",
+      "mtime": 1793464080.8870032,
+      "size": 1068
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/json/01_json.raw.d.ps": {
+      "sha256": "7056e82d8b2e4b5729a755ff31439078adbb7b4ae49a91fbc853e64c5c818265",
+      "mtime": 1793464080.8872252,
+      "size": 1123
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/json/02_json.csharp.d.ps": {
+      "sha256": "70fe6a4927907dc8aa5a47a55f56f3c345515690c32c77cd2c0b695c5a33402b",
+      "mtime": 1793464080.8874395,
+      "size": 1026
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/json/03_serialization.enterprise.d.ps": {
+      "sha256": "8f9b5f0dde02401bcf7b11dba99b5674dae26c0f70d8e3ad6e6558057e1655ce",
+      "mtime": 1793466419.9061885,
+      "size": 955
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/logging/00_logging.primitives.d.ps": {
+      "sha256": "12c80ec9e9fb4b4b342b4e8616cae10c672132cf6f08603a501264f493c637e8",
+      "mtime": 1793464080.892265,
+      "size": 3125
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/logging/01_logging.raw.d.ps": {
+      "sha256": "4e632115536938487d8a26f46f7b58aa4e96dea820f01b966685bef8cd820c3d",
+      "mtime": 1793464080.893275,
+      "size": 1409
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/logging/02_logging.csharp.d.ps": {
+      "sha256": "c0dbdc24d903f8f4f05b89fd1c35acdefff85232e2bc6831d91fb68e1433b9d4",
+      "mtime": 1793464080.8935652,
+      "size": 1313
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/logging/03_logging.enterprise.d.ps": {
+      "sha256": "58bcab63e2d48c610c42a82214bb72d0d55c0698c3001d2750987f6b9e0500c2",
+      "mtime": 1793464080.893919,
+      "size": 713
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/os_shutil/00_os.primitives.d.ps": {
+      "sha256": "d341b77a895b3b550d07b5489dc4a706c63fdac6725e9c59da21967295751bff",
+      "mtime": 1793464080.8850002,
+      "size": 2703
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/os_shutil/01_os.raw.d.ps": {
+      "sha256": "94a5a208bfcdd69230964303e473877f7b4d98ad6f3c53dbf6020678dddbdd90",
+      "mtime": 1793467356.9960291,
+      "size": 5270
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/os_shutil/02_os.csharp.d.ps": {
+      "sha256": "e2ad163325418ba30404277e06e26d5bb4df89c9276d1097c0a0ec58649686f7",
+      "mtime": 1793467363.782007,
+      "size": 4719
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/os_shutil/03_io.enterprise.d.ps": {
+      "sha256": "dc990dce5c994cd4c66414ae3986b3c73cc132a10403741700fd157a42c00e67",
+      "mtime": 1793467368.4799914,
+      "size": 3542
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/pathlib_hashlib_uuid/00_pathlib.primitives.d.ps": {
+      "sha256": "7c4783c5deae4a3d41deb6b4d74762970a66727087d7cd6ab1004a034c4a505f",
+      "mtime": 1793464080.898241,
+      "size": 3771
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/pathlib_hashlib_uuid/01_pathlib.raw.d.ps": {
+      "sha256": "d33d02da1ff42538fff06ece9f4f06b060557f62f010158988621365a39095c1",
+      "mtime": 1793464080.898502,
+      "size": 1148
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/pathlib_hashlib_uuid/02_pathlib.csharp.d.ps": {
+      "sha256": "7595120f431bbc97a6eee82215aadebed6fb4c3699ef6e5e4c64b852a59a232d",
+      "mtime": 1793464080.8987525,
+      "size": 1051
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/pathlib_hashlib_uuid/03_security.enterprise.d.ps": {
+      "sha256": "10d54743eb7372f612045cc1d8f9b4548efd0fb9c9c00ea8ff5c53721c836f82",
+      "mtime": 1793464080.8989737,
+      "size": 991
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/re/00_re.primitives.d.ps": {
+      "sha256": "9ebdee71dc3651f15016d555ec6c451b03486ec7d8ada0317a42333c67d08ea9",
+      "mtime": 1793464080.8879056,
+      "size": 3024
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/re/01_re.raw.d.ps": {
+      "sha256": "8f9ac6a5ead5e33c06220496abdcbd340d8da7a05e5875297ae096991a2b4f3e",
+      "mtime": 1793464080.8881066,
+      "size": 1616
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/re/02_re.csharp.d.ps": {
+      "sha256": "c17f7bc49fe7985f651949dbfb5ef328564419c2b1ae68b6cf25fe481915da96",
+      "mtime": 1793464080.8882985,
+      "size": 1455
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/re/03_regex.enterprise.d.ps": {
+      "sha256": "a247983be3f82078c13693dc8552f85c77abf2ab14eaffe167a30557fbb78817",
+      "mtime": 1793464080.888532,
+      "size": 1042
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/sys/00_sys.primitives.d.ps": {
+      "sha256": "398e9819cbc4243e6cab2e1548a06da32d11e5c2d21e7167a50c33329288ea68",
+      "mtime": 1793464080.8861191,
+      "size": 2480
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/sys/01_sys.raw.d.ps": {
+      "sha256": "7c17c4bc81a09fda735d0b8ba4eb15d3b85312f1ac0126b07724d54b3dbb3e6d",
+      "mtime": 1793464080.8863328,
+      "size": 1646
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/sys/02_sys.csharp.d.ps": {
+      "sha256": "93b756735f6146a6a84419d8231c3476d2a06ac884b4093e99e3bbe4c37e1ef6",
+      "mtime": 1793464080.8865335,
+      "size": 1448
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/sys/03_runtime.enterprise.d.ps": {
+      "sha256": "51233b6f6fc8f1dbbee388c287d140b8d3ff48c145333559553c62b537cc9e89",
+      "mtime": 1793464080.8867545,
+      "size": 990
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/time_datetime/00_time.primitives.d.ps": {
+      "sha256": "aa367000a98835556ef7f12867946c6af62f0cc3c4270e71ed703ff2b384a948",
+      "mtime": 1793464080.8888724,
+      "size": 2175
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/time_datetime/01_time.raw.d.ps": {
+      "sha256": "2ec1a2371df0dd0bb50812bbdf530855347da43f881391b0b14aab80f0bc7267",
+      "mtime": 1793464080.88956,
+      "size": 1917
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/time_datetime/02_time.csharp.d.ps": {
+      "sha256": "f1e976b183cb682e74ea098b81b1ec4c87a28c9621b653c8f66972417927c41e",
+      "mtime": 1793464080.8905241,
+      "size": 1666
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/time_datetime/03_clock.enterprise.d.ps": {
+      "sha256": "f0110024967630513e902c9665838d7c18d88eb2d4df4a7186144dd74b2f20b4",
+      "mtime": 1793464080.8912392,
+      "size": 1171
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/urllib_http/00_urllib.primitives.d.ps": {
+      "sha256": "2679effe312e788477c9777a55328beb9240b5b04230a1bbc83f4dc5d66245e7",
+      "mtime": 1793464080.8943167,
+      "size": 1478
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/urllib_http/01_urllib.raw.d.ps": {
+      "sha256": "0fe98b2c5dc5ad90330cac25cf702e25b2ed0405e24bce7128a4af91ee6b3d04",
+      "mtime": 1793464080.8946865,
+      "size": 1335
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/urllib_http/02_urllib.csharp.d.ps": {
+      "sha256": "ed80307fac087e025fcd8865690936cf63a492173dbd26b9b46d9e49764edc18",
+      "mtime": 1793464080.8953054,
+      "size": 1265
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/01_python_stdlib/urllib_http/03_http.enterprise.d.ps": {
+      "sha256": "2bf3ddabbd0f49c545d1f6cbe814ff501e4291ad80de1ecda70ceff14443987f",
+      "mtime": 1793464080.8964922,
+      "size": 786
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/01_numpy/00_numpy.primitives.d.ps": {
+      "sha256": "dcd5fd99f260299c5543c303b84a953efe2cbe050d7ffa9810274b4c90f13754",
+      "mtime": 1793464080.8994317,
+      "size": 9503
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/01_numpy/01_numpy.raw.d.ps": {
+      "sha256": "62e9eca692e79ab4974b9f79e08d89c8a9fd720adef34b7599b8fd25455f41fb",
+      "mtime": 1793464755.2652285,
+      "size": 8486
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/01_numpy/02_numpy.csharp.d.ps": {
+      "sha256": "af88c852c02df08730ef2634ceba9e593abbfbb167f29bf6c4b5e4ae5c2d4045",
+      "mtime": 1793464080.900062,
+      "size": 7555
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/01_numpy/03_numerics.enterprise.d.ps": {
+      "sha256": "10fde3b0ee71c1c2498bfdaa080c1712fdb1db8128699a6a45f02b7f7232a6a2",
+      "mtime": 1793464080.9003296,
+      "size": 5678
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/02_scipy/00_scipy.primitives.d.ps": {
+      "sha256": "5169d8fc9fae79fb419c80fe73b450e9d33024ddb0515e6e96f7b5aef93e0baf",
+      "mtime": 1793464080.9134707,
+      "size": 4579
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/02_scipy/01_scipy.raw.d.ps": {
+      "sha256": "dc86b0ccbb33edb9abcbea52018553395098b229c5eac051790d7b6dcffb3e02",
+      "mtime": 1793464080.9138641,
+      "size": 5026
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/02_scipy/02_scipy.csharp.d.ps": {
+      "sha256": "e4f1cab406d4778c0b57350a9b81b2eb89d4049001535a558c780f1c3f836c8e",
+      "mtime": 1793464080.9141495,
+      "size": 4734
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/02_scipy/03_scientific.enterprise.d.ps": {
+      "sha256": "5642ce80e756af48bb933396bd683d7b06876f82dfb89f4b217f66cef3d9827d",
+      "mtime": 1793464080.9144866,
+      "size": 3377
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/03_pandas/00_pandas.primitives.d.ps": {
+      "sha256": "ae32ccd48a59f05b099ccc6363f300b21327346a10a179c7bc48766d551d3528",
+      "mtime": 1793464080.914733,
+      "size": 10645
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/03_pandas/01_pandas.raw.d.ps": {
+      "sha256": "96b95f2c70f9c77bb534e99ba165c476afce9067bc1cc0c424abb824e521fc8e",
+      "mtime": 1793464080.914979,
+      "size": 2032
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/03_pandas/02_pandas.csharp.d.ps": {
+      "sha256": "ba6a69e7baf50ea1856cef437298a3d04b65434079a41b1ebeeadcf7e2c93ef7",
+      "mtime": 1793464080.915162,
+      "size": 2045
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/03_pandas/03_tabular.enterprise.d.ps": {
+      "sha256": "3a005107a7739ea439ae4905470cac0992ba4ab5e7cb6f4d30e380dff55bb0e5",
+      "mtime": 1793464080.9153476,
+      "size": 1801
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/04_matplotlib_seaborn/00_viz.primitives.d.ps": {
+      "sha256": "2286408ccdbe01c6f2835a6f85615d4c731cce34481a50d55af2addd33cefbe6",
+      "mtime": 1793464080.915557,
+      "size": 4755
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/04_matplotlib_seaborn/01_viz.raw.d.ps": {
+      "sha256": "fd57c7f78de4da004e5ec66d05effffc2d091a112e1977504c231dc9e452b3ea",
+      "mtime": 1793464080.9157636,
+      "size": 4241
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/04_matplotlib_seaborn/02_viz.csharp.d.ps": {
+      "sha256": "ac6df24d83fce3f4b5eea2c286f0310ae2241475a643f1d6178d1a76d2a6c3b3",
+      "mtime": 1793464080.9159477,
+      "size": 3732
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/04_matplotlib_seaborn/03_visualization.enterprise.d.ps": {
+      "sha256": "2d06b574fcdc41ba5f307e739a3e7df06a2df8ab8c04c4f7852ce8e86ace649c",
+      "mtime": 1793464080.9161298,
+      "size": 2779
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/05_sklearn/00_sklearn.primitives.d.ps": {
+      "sha256": "b5ce19e8c9b72df65f38af99bc02184e36143ed46d4e695db4f921d4de9224fe",
+      "mtime": 1793464080.9163246,
+      "size": 11446
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/05_sklearn/01_sklearn.raw.d.ps": {
+      "sha256": "4b5a49d7e9b39b22c3fa6b1f494d1f66914d06d9c754c90195f7ccfb36fa7503",
+      "mtime": 1793464080.9165368,
+      "size": 4306
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/05_sklearn/02_sklearn.csharp.d.ps": {
+      "sha256": "58cf9743faa4e05517507ad80dab767f2380bdaf7eda1aba67a520ce2eee90b7",
+      "mtime": 1793464080.9167259,
+      "size": 3943
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/05_sklearn/03_ml.enterprise.d.ps": {
+      "sha256": "34d284cdab0b7bbd9add5ce314e7bbc05a42bfac88639dd90d818f3fa5da34c7",
+      "mtime": 1793464080.916934,
+      "size": 2504
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/06_torch/00_torch.primitives.d.ps": {
+      "sha256": "08d5b65ecb71ab2f44a22806551a3bcc54214dd5951c415cf145ee7d79a30d8f",
+      "mtime": 1793464080.9171607,
+      "size": 7814
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/06_torch/01_torch.raw.d.ps": {
+      "sha256": "0a195c9017e0163856ef9bb6145abeb3ef760860a382b4a80399c4d32991f884",
+      "mtime": 1793464080.917372,
+      "size": 3914
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/06_torch/02_torch.csharp.d.ps": {
+      "sha256": "9f40e7fafa232128c682957b820ef5aa19f305eca595f9c3ef33c71a573ab7d0",
+      "mtime": 1793464080.9175484,
+      "size": 3484
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/06_torch/03_deeplearning.enterprise.d.ps": {
+      "sha256": "04f238805b05aac7ac315096c40590f03cb8328e57d68e665b034056e953ea94",
+      "mtime": 1793464080.9177315,
+      "size": 2622
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/07_sympy/00_sympy.primitives.d.ps": {
+      "sha256": "7fd9d7369ddc50279e9ff3aea515a61454e65e5f3d18be0509fa90eeb3b66e33",
+      "mtime": 1793464080.9179327,
+      "size": 3084
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/07_sympy/01_sympy.raw.d.ps": {
+      "sha256": "12cf299eb192a3d432e1f5e574b95a810bdd7aef2246652b63eca0d96b101742",
+      "mtime": 1793464080.9181116,
+      "size": 2662
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/07_sympy/02_sympy.csharp.d.ps": {
+      "sha256": "891f2da1ac4348ca0bd5fa8c136af595087a1b4b9650e358f0c4033d366a6fc1",
+      "mtime": 1793464080.9182804,
+      "size": 2373
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/07_sympy/03_symbolicmath.enterprise.d.ps": {
+      "sha256": "53024eb62745ae6deb4a9aba2feba85cbf846a1d0e55f0e2af320b68dc886db0",
+      "mtime": 1793464080.9184623,
+      "size": 2023
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/08_qiskit/00_qiskit.primitives.d.ps": {
+      "sha256": "ee7f13589621092acadfbea11050753de4f7e49e5ec10bd1156caf1d5c79c7c8",
+      "mtime": 1793464080.9186714,
+      "size": 7629
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/08_qiskit/01_qiskit.raw.d.ps": {
+      "sha256": "836e19fc3ced20522ad691d36bdc0be55359e3533acb89de95192d5606ef0e93",
+      "mtime": 1793464080.9188845,
+      "size": 1265
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/08_qiskit/02_qiskit.csharp.d.ps": {
+      "sha256": "d1180b4d1370513179bf9e74948f686584b18df1d4bd67305a90bf8b9a69c1d8",
+      "mtime": 1793464080.91906,
+      "size": 1149
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/08_qiskit/03_quantum.enterprise.d.ps": {
+      "sha256": "69813f4a221bc310f89a735474a920ce3131772191175648edf5d139c557d0d0",
+      "mtime": 1793464080.919229,
+      "size": 970
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/09_polars/00_polars.primitives.d.ps": {
+      "sha256": "aa48dbd2d84ad5cb4515a732f6c137777e28c2f5ef93a00525bc33fe682c22de",
+      "mtime": 1793464080.9015362,
+      "size": 7738
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/09_polars/01_polars.raw.d.ps": {
+      "sha256": "109e4ae0848adc7fd7ceced1f47ca1c134ca0bad68a46caf8daca9f93f8db179",
+      "mtime": 1793464080.9018836,
+      "size": 1637
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/09_polars/02_polars.csharp.d.ps": {
+      "sha256": "29d2ef3af31811126334cfcc0e0ab44b3f5e41cdcd70a3bf078ac10b1bc942a0",
+      "mtime": 1793464080.9021654,
+      "size": 1484
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/09_polars/03_columnar.enterprise.d.ps": {
+      "sha256": "6073fb000cb41d4bb90e774a058121b6e371f2bb1d0df557d0e704d266b3ebd3",
+      "mtime": 1793464080.9024413,
+      "size": 1082
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/10_xgboost_lightgbm/00_gbdt.primitives.d.ps": {
+      "sha256": "7ed9351e5fa053ecd42cb32d943e43042ebdf847883a79bbd593c93b0f8eef18",
+      "mtime": 1793464080.9032643,
+      "size": 7353
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/10_xgboost_lightgbm/01_gbdt.raw.d.ps": {
+      "sha256": "5a826063d5154828ddd972cce4324e5e24dc47a4ea10659e636f35ecc9c7e4d5",
+      "mtime": 1793464080.9042833,
+      "size": 1614
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/10_xgboost_lightgbm/02_gbdt.csharp.d.ps": {
+      "sha256": "513d680c3bb1ceb40899dcdbb9d7c1226a63bd7216f4cb964c27710521346608",
+      "mtime": 1793464080.9045095,
+      "size": 1473
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/10_xgboost_lightgbm/03_gbdt.enterprise.d.ps": {
+      "sha256": "7b9479e7cb7cdb1fa2c8741cae7df30b1e5b89401e81df548a7536776df39ede",
+      "mtime": 1793464080.9047296,
+      "size": 1226
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/11_optuna/00_optuna.primitives.d.ps": {
+      "sha256": "3e9bbef8359b66af265e1cb971601aa1b066a66545b6774c4213200a450af3be",
+      "mtime": 1793464080.9049854,
+      "size": 4620
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/11_optuna/01_optuna.raw.d.ps": {
+      "sha256": "cfe02b1e16b7bf86f693816690baa0763ad3dad160a18b3ba0509a9682faf27a",
+      "mtime": 1793464080.905303,
+      "size": 522
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/11_optuna/02_optuna.csharp.d.ps": {
+      "sha256": "0c58708837738a63ac02e6d5ce30ef1d411cce2defe75fb90b5accac74995e2e",
+      "mtime": 1793464080.9055483,
+      "size": 492
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/11_optuna/03_tuning.enterprise.d.ps": {
+      "sha256": "ce75f507e59dd31c6b2054e0f5d04d18f6146274064d61faaf7e8ac62860e8c5",
+      "mtime": 1793464080.9058719,
+      "size": 664
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/12_transformers/00_transformers.primitives.d.ps": {
+      "sha256": "21fe6f9831a8e00673f73d3b77d0aefaba273c3c6f4d0226a02753104a7fbbbe",
+      "mtime": 1793464080.9064367,
+      "size": 3957
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/12_transformers/01_transformers.raw.d.ps": {
+      "sha256": "8262ab531fa941cfe56c10cf6fd3b57865348300253074bb89a264e33cb2a00e",
+      "mtime": 1793464080.906768,
+      "size": 1404
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/12_transformers/02_transformers.csharp.d.ps": {
+      "sha256": "4c74152e61c40d31b115d4bae8616fd319d45699dfeef83ed79c9596c6f1d8a1",
+      "mtime": 1793464080.907339,
+      "size": 1452
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/12_transformers/03_languagemodels.enterprise.d.ps": {
+      "sha256": "aea3b3c3ee0d689d8e99fb35454c28aeb0ae540f7f510c7c5560ab68da6390bf",
+      "mtime": 1793464080.9079676,
+      "size": 752
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/13_faiss_onnxruntime/00_inference.primitives.d.ps": {
+      "sha256": "4cb4e92548c342c776748b931e42d068c87cafcc49baf6adb6f4f7fcc797c831",
+      "mtime": 1793464080.9088228,
+      "size": 3060
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/13_faiss_onnxruntime/01_inference.raw.d.ps": {
+      "sha256": "2677dffe45d79fa96b1d52dd90067a0f53e68f03e5d625acce35a5d3cdaaed7b",
+      "mtime": 1793464080.910013,
+      "size": 1478
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/13_faiss_onnxruntime/02_inference.csharp.d.ps": {
+      "sha256": "2f0d3670066a5906c45134497200b91d01e3b569a601af42ab69e1bd6952b0e5",
+      "mtime": 1793464080.9104836,
+      "size": 1361
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/stdlib/02_scientific_and_ai/13_faiss_onnxruntime/03_inference.enterprise.d.ps": {
+      "sha256": "9f5155b1c0a7425d1f1151989a7d0f6da530c6ca9fb19ca3f65cd83a5e1c2e78",
+      "mtime": 1793464080.9109638,
+      "size": 968
+    },
+    "ShutilEngine.ps": {
+      "sha256": "29dea6d1d917957d6f31ec9d74ba6b6be8e8700dae5ea0e4a418e661ad0d8a54",
+      "mtime": 1793467845.208737,
+      "size": 4213
+    }
+  },
+  "outputs": [
+    "micro_shutil.py",
+    "micro_shutil.pyc"
+  ]
+}

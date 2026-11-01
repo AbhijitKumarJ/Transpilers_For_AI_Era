@@ -1,0 +1,8 @@
+<Project Sdk="PythonSharp.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Commerce.Sample</AssemblyName>
+    <OutputPath>dist</OutputPath>
+    <TargetPython>3.11</TargetPython>
+    <EmitPyc>true</EmitPyc>
+  </PropertyGroup>
+</Project>
