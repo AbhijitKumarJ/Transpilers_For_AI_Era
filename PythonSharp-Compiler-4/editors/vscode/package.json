@@ -3,7 +3,8 @@
   "displayName": "PythonSharp",
   "description": "Rich Language Server, IntelliSense, and Syntax Support for PythonSharp (.ps)",
   "version": "0.1.0",
-  "publisher": "pythonsharp",
+  "repository":"https://github.com/AbhijitKumarJ/Transpilers_For_AI_Era",
+  "publisher": "AbhijitKumarJ",
   "engines": {
     "vscode": "^1.75.0"
   },

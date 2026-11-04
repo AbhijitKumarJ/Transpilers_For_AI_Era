@@ -129,6 +129,34 @@ class DiagnosticEngine:
             )
         )
 
+    def report_ps005_surface_migration(
+        self,
+        span: SourceSpan,
+        symbol_name: str,
+        current_surface: int,
+        target_surface: int,
+        canonical_target: str | None = None,
+        *,
+        hint: str | None = None,
+    ) -> None:
+        default_hint = (
+            f"Migrate to '{canonical_target}' to comply with targeted enterprise Surface {target_surface}."
+            if canonical_target
+            else f"Upgrade to a Surface {target_surface} enterprise API."
+        )
+        self.diagnostics.append(
+            Diagnostic(
+                code="PS005",
+                severity="WARNING",
+                message=(
+                    f"Symbol '{symbol_name}' is a Surface {current_surface} API; "
+                    f"project targets Surface {target_surface}."
+                ),
+                span=span,
+                hint=hint or default_hint,
+            )
+        )
+
     def has_errors(self) -> bool:
         return any(d.severity == "ERROR" for d in self.diagnostics)
 

@@ -272,6 +272,13 @@ class SlotAndHierarchyAnalyzer:
                     seen.add(canonical)
                     result.append(canonical)
 
+        # Structural duck typing conformance: check known interfaces
+        for sym in self.symtab.types_by_id.values():
+            if sym.is_interface and not sym.is_primitive and sym.qualified_name not in seen:
+                if type_sym.structurally_implements(sym):
+                    seen.add(sym.qualified_name)
+                    result.append(sym.qualified_name)
+
         return tuple(result)
 
     def check_disposable_contract(self, type_sym: TypeSymbol) -> bool:

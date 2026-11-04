@@ -48,6 +48,7 @@ class TokenKind(Enum):
     AWAIT = auto()
     WHERE = auto()
     PARAMS = auto()
+    OPERATOR = auto()
 
     # Keywords — Contextual & OOP
     GET = auto()
@@ -87,6 +88,7 @@ class TokenKind(Enum):
     RETURN = auto()
     YIELD = auto()
     BREAK = auto()
+    CONTINUE = auto()
     THROW = auto()
     TRY = auto()
     CATCH = auto()
@@ -136,6 +138,14 @@ class TokenKind(Enum):
     SLASH = auto()  # /
     PERCENT = auto()  # %
 
+    # Bitwise Operators
+    AMP = auto()  # &
+    PIPE = auto()  # |
+    TILDE = auto()  # ~
+    LSHIFT = auto()  # <<
+    RSHIFT = auto()  # >>
+    AT = auto()  # @
+
 
 KEYWORDS: dict[str, TokenKind] = {
     "namespace": TokenKind.NAMESPACE,
@@ -163,6 +173,7 @@ KEYWORDS: dict[str, TokenKind] = {
     "await": TokenKind.AWAIT,
     "where": TokenKind.WHERE,
     "params": TokenKind.PARAMS,
+    "operator": TokenKind.OPERATOR,
     "get": TokenKind.GET,
     "set": TokenKind.SET,
     "this": TokenKind.THIS,
@@ -194,6 +205,7 @@ KEYWORDS: dict[str, TokenKind] = {
     "return": TokenKind.RETURN,
     "yield": TokenKind.YIELD,
     "break": TokenKind.BREAK,
+    "continue": TokenKind.CONTINUE,
     "throw": TokenKind.THROW,
     "try": TokenKind.TRY,
     "catch": TokenKind.CATCH,

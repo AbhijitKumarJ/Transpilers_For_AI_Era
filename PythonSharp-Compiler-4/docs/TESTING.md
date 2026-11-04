@@ -337,6 +337,27 @@ Test that:
 | Wheel install | Fresh venv, no third-party runtime imports |
 | `psc --version` | Prints compiler and language version |
 
+### 10.1 Wheel Packaging & Standard Library Bundling Verification
+
+To ensure self-contained distribution, every release must pass:
+1. **Wheel Generation**: `pyproject-build --outdir dist` or `python -m build --outdir dist` produces `dist/pythonsharp_compiler-0.1.0-py3-none-any.whl`.
+2. **Bundled Stubs Count**: Exactly 95 ambient `.d.ps` stubs must be present inside `psc/stdlib/` within the `.whl` archive:
+   ```bash
+   python -c "
+   import zipfile, pathlib
+   whl = sorted(pathlib.Path('dist').glob('*.whl'))[-1]
+   with zipfile.ZipFile(whl) as z:
+       stubs = [n for n in z.namelist() if n.endswith('.d.ps')]
+       print(f'Wheel: {whl.name} | Bundled stubs: {len(stubs)} (Expected: 95)')
+       assert len(stubs) == 95, f'Expected 95 stubs in wheel, found {len(stubs)}'
+   "
+   ```
+3. **Clean Environment Isolation**: In an isolated virtual environment (`uv venv` or `python -m venv`):
+   - Install the wheel with `uv pip install dist/*.whl`.
+   - Compile `Samples/Ported/20_numpy_numerics/NumpyNumerics.psproj`.
+   - Assert emitted code contains `import numpy as _np`, lowered `@` operator, and `.T`.
+   - Execute `python Samples/Ported/20_numpy_numerics/run_numpy.py` to confirm zero runtime errors.
+
 ## 11. CI pipeline
 
 ```text
@@ -380,7 +401,7 @@ CI must fail on:
 | Emitter | ≥ 90% |
 | CLI | ≥ 80% |
 
-Current results: 95.1% total, 91.5% codegen, and 91.6% CLI across 142 tests and 34 test suites. P2.4 adds static property, static-member qualification, dataclass member-shape, and cross-version regression coverage. P2.5 adds golden snapshot comparison and execution, interpolated-string member qualification, nullable-erasure PS002 coverage, and cross-version golden runs. Milestones U1–U5 add full coverage for triple-surface compilation, bindgen multi-file generation, PS005 migration diagnostics, and LSP tri-modal hover cards.
+Current results: 152 unit tests passing across 37 test files with >95% line coverage; 6 LSP protocol tests passing; 32 ported dogfooding packages and 7 showcases verified (39 operational projects total). P2.4 adds static property, static-member qualification, dataclass member-shape, and cross-version regression coverage. P2.5 adds golden snapshot comparison and execution, interpolated-string member qualification, nullable-erasure PS002 coverage, and cross-version golden runs. Milestones U1–U5 add full coverage for triple-surface compilation, bindgen multi-file generation, PS005 migration diagnostics, and LSP tri-modal hover cards. Packaging validation asserts all 95 standard library stubs are bundled in the wheel and verified in clean virtual environments.
 
 Coverage is a floor, not a goal. A 95% suite that misses traceback fidelity is
 worse than a 90% suite that covers the contract.

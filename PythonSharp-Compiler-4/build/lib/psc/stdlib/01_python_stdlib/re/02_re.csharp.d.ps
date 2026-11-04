@@ -1,0 +1,34 @@
+namespace PythonSharp.Re;
+
+using PythonSharp.Core;
+using PythonSharp.Text.RegularExpressions;
+extern using re as _py_re;
+
+[SurfaceLevel(3)]
+[MapsTo("_py_re")]
+public static primitive class Re
+{
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexEngine.CompilePattern")]
+    [InlineTemplate("_py_re.compile({0})")]
+    public static extern CompiledRegexPattern Compile(string pattern);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexEngine.MatchAtBeginning")]
+    [InlineTemplate("_py_re.match({0}, {1})")]
+    public static extern RegexMatch? Match(string pattern, string text);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexEngine.SearchAnywhere")]
+    [InlineTemplate("_py_re.search({0}, {1})")]
+    public static extern RegexMatch? Search(string pattern, string text);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexEngine.FindAllMatches")]
+    [InlineTemplate("_py_re.findall({0}, {1})")]
+    public static extern List<string> FindAll(string pattern, string text);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexEngine.ReplaceAllMatches")]
+    [InlineTemplate("_py_re.sub({0}, {1}, {2})")]
+    public static extern string Sub(string pattern, string replacement, string text);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexEngine.SplitByPattern")]
+    [InlineTemplate("_py_re.split({0}, {1})")]
+    public static extern List<string> Split(string pattern, string text);
+}

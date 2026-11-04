@@ -5,6 +5,25 @@ import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
 from pathlib import Path
 
+PS_SOURCE_EXTENSIONS: tuple[str, ...] = (".ps", ".pysharp", ".pys")
+PS_STUB_EXTENSIONS: tuple[str, ...] = (".d.ps", ".d.pysharp", ".d.pys")
+PS_PROJECT_EXTENSIONS: tuple[str, ...] = (".psproj", ".pysharpproj")
+
+
+def is_ps_stub_file(path: Path | str) -> bool:
+    name = Path(path).name.lower()
+    return any(name.endswith(ext) for ext in PS_STUB_EXTENSIONS)
+
+
+def is_ps_source_file(path: Path | str) -> bool:
+    name = Path(path).name.lower()
+    return any(name.endswith(ext) for ext in PS_SOURCE_EXTENSIONS) and not is_ps_stub_file(path)
+
+
+def is_ps_project_file(path: Path | str) -> bool:
+    name = Path(path).name.lower()
+    return any(name.endswith(ext) for ext in PS_PROJECT_EXTENSIONS)
+
 
 @dataclass(slots=True)
 class PsProjectConfig:
@@ -22,6 +41,44 @@ class PsProjectConfig:
     def all_input_files(self) -> list[Path]:
         """Returns ambient .d.ps stubs first, followed by user .ps source files."""
         return [*self.stub_files, *self.source_files]
+
+
+def stdlib_stub_sort_key(p: Path) -> tuple[int, str]:
+    """Ensures 00_core stubs are sorted in strict topological order before others."""
+    name = p.name
+    pos = str(p)
+    if "00_core" in pos:
+        if name.startswith("00_"):
+            return (0, name)
+        if name.startswith("01_"):
+            return (1, name)
+        if name.startswith("02_"):
+            return (2, name)
+        if name.startswith("03_"):
+            return (3, name)
+        if name.startswith("04_"):
+            return (4, name)
+        if name.startswith("05_"):
+            return (5, name)
+        return (6, name)
+    if "01_python_stdlib" in pos:
+        return (10, pos)
+    if "02_scientific_and_ai" in pos:
+        return (20, pos)
+    return (30, pos)
+
+
+def find_stdlib_stubs(stdlib_dir: Path | None) -> list[Path]:
+    """Discovers and deterministically orders all standard library `.d.ps` stubs."""
+    if stdlib_dir is None or not stdlib_dir.exists():
+        return []
+    has_00_core = (stdlib_dir / "00_core").is_dir()
+    stubs = [
+        p for p in stdlib_dir.rglob("*")
+        if p.is_file() and is_ps_stub_file(p) and not (has_00_core and p.name == "PythonSharp.Core.d.ps")
+    ]
+    stubs.sort(key=stdlib_stub_sort_key)
+    return stubs
 
 
 def load_project(psproj_path: Path, stdlib_dir: Path | None = None) -> PsProjectConfig:
@@ -69,16 +126,20 @@ def load_project(psproj_path: Path, stdlib_dir: Path | None = None) -> PsProject
         emit_pyc = bool(proj_sec.get("emit_pyc", emit_pyc))
         pypi_deps = dict(data.get("dependencies", {}))
 
-    stub_files: list[Path] = []
-    if stdlib_dir is not None and stdlib_dir.exists():
-        stub_files.extend(sorted(stdlib_dir.rglob("*.d.ps")))
+    stub_files: list[Path] = find_stdlib_stubs(stdlib_dir)
 
-    project_stubs = sorted(root_dir.rglob("*.d.ps"))
-    for st in project_stubs:
-        if st not in stub_files:
-            stub_files.append(st)
+    project_stubs: list[Path] = []
+    for p in root_dir.rglob("*"):
+        if p.is_file() and is_ps_stub_file(p):
+            if p not in stub_files:
+                project_stubs.append(p)
+    project_stubs.sort()
+    stub_files.extend(project_stubs)
 
-    source_files = sorted(p for p in root_dir.rglob("*.ps") if not p.name.endswith(".d.ps"))
+    source_files = sorted(
+        p for p in root_dir.rglob("*")
+        if p.is_file() and is_ps_source_file(p)
+    )
 
     return PsProjectConfig(
         project_name=project_name,

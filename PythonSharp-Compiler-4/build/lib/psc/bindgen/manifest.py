@@ -25,6 +25,8 @@ class BindingEntry:
     pyi_hash: str
     d_ps_path: str
     d_ps_hash: str
+    surface_files: dict[str, str] = field(default_factory=dict)
+    dependencies: list[str] = field(default_factory=list)
 
 
 @dataclass(slots=True)
@@ -39,6 +41,9 @@ class BindingManifest:
         pyi_hash: str,
         d_ps_path: Path,
         d_ps_hash: str,
+        *,
+        surface_files: dict[str, str] | None = None,
+        dependencies: list[str] | None = None,
     ) -> None:
         self.entries[package_name] = BindingEntry(
             package_name=package_name,
@@ -46,6 +51,8 @@ class BindingManifest:
             pyi_hash=pyi_hash,
             d_ps_path=str(d_ps_path),
             d_ps_hash=d_ps_hash,
+            surface_files=surface_files or {},
+            dependencies=dependencies or [],
         )
 
     def is_drifted(self, package_name: str, pyi_path: Path) -> bool:

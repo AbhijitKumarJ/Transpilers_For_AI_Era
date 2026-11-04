@@ -1,9 +1,9 @@
 # PythonSharp Progress Tracker
 
-**Last updated:** 2026-11-01
-**Repository HEAD:** `8ccc866` feat(triple-surface): implement showcase sample 06, refactor ported samples, and implement Tier 9 numpy_numerics (Milestone U5)
-**Current phase:** Phases 1-5 Complete; Triple-Surface Architecture (Milestones U1-U5) Complete; Expanded Standard Library (23 Packages, 94 Stubs); Sample 07 AI/ML Showcase; Real-World Dogfooding (32 Ported Libraries across 12 Tiers including Tier 8 systems, Tier 9 numpy_numerics, Tier 10 pandas & plotting, Tier 11 sklearn, sympy, torch & qiskit, and Tier 12 polars, xgboost, optuna & onnx); Level 1 (12 Blogs), Level 2 (26 Blogs), Level 3 (10 Blogs) & Level 4 (6 Blogs) Complete (54 Blogs Total); CI marked OUT OF SCOPE
-**Overall implementation:** All 5 roadmap phases verified; Triple-Surface Architecture implemented across compiler, LSP, CLI, and stdlib; 23-package expanded standard library across `00_core`, `01_python_stdlib`, and `02_scientific_and_ai`; 32 canonical Python libraries ported in `Samples/Ported/` across 12 tiers; dedicated showcases in `Samples/06_triple_surface_migration/` and `Samples/07_ai_ml_triple_surface/`; 12-part Level 1 blog series in `docs/blogs/`, 26-part Level 2 deep dive blog series in `docs/blogs/2/`, 10-part Level 3 advanced series in `docs/blogs/3/`, and 6-part Level 4 AI & Next-Gen series in `docs/blogs/4/` (54 blogs total); 152 test suites passing locally; 39 total samples verified 100% operational; CI marked OUT OF SCOPE (D-015)
+**Last updated:** 2026-11-04
+**Repository HEAD:** `87dd0f2` docs(vscode): sync LICENSE file in editors/vscode to MIT (2026 PythonSharp Contributors)
+**Current phase:** Phases 1-5 Complete; Triple-Surface Architecture (Milestones U1-U5) Complete; Expanded Standard Library (23 Packages, 95 Stubs Bundled in Wheel); Sample 07 AI/ML Showcase; Real-World Dogfooding (32 Ported Libraries across 12 Tiers including Tier 8 systems, Tier 9 numpy_numerics, Tier 10 pandas & plotting, Tier 11 sklearn, sympy, torch & qiskit, and Tier 12 polars, xgboost, optuna & onnx); Level 1 (12 Blogs), Level 2 (26 Blogs), Level 3 (10 Blogs) & Level 4 (6 Blogs) Complete (54 Blogs Total); Packaged VS Code Extension (`editors/vscode/pythonsharp-0.1.0.vsix`); CI marked OUT OF SCOPE
+**Overall implementation:** All 5 roadmap phases verified; Triple-Surface Architecture implemented across compiler, LSP, CLI, and stdlib; 23-package expanded standard library (95 definition stubs) bundled inside `psc.stdlib`; 32 canonical Python libraries ported in `Samples/Ported/` across 12 tiers; dedicated showcases in `Samples/06_triple_surface_migration/` and `Samples/07_ai_ml_triple_surface/`; 12-part Level 1 blog series in `docs/blogs/`, 26-part Level 2 deep dive blog series in `docs/blogs/2/`, 10-part Level 3 advanced series in `docs/blogs/3/`, and 6-part Level 4 AI & Next-Gen series in `docs/blogs/4/` (54 blogs total); 152 unit tests and 6 LSP tests passing locally; 39 total samples verified 100% operational; CI marked OUT OF SCOPE (D-015)
 
 This is the single live status document. Update it whenever work starts, a task
 completes, a gate passes, or a decision is made.
@@ -30,8 +30,8 @@ completes, a gate passes, or a decision is made.
 | Compiler Enhancements | DONE | Bitwise operators (`&`, `\|`, `^`, `~`, `<<`, `>>`), hex/binary literals (`0x...`, `0b...`), nested generic token splitting (`>>`), `BreakStmt`/`ContinueStmt`, ternary `? :`, integer division `//`, binary expression type resolution, escape unescaping, Core stdlib additions (`Int32`, `Double`, `Boolean`, `Console.Write`, `String.Join`), matrix `@` operator lowering, multi-axis range slicing, user-defined operator overloading (`__add__`, `__sub__`, `__neg__`, `__matmul__`, etc.), `partial` classes & structs cross-file merging, Query Syntax LINQ (`from ... where ... select ...`), String-Backed Enums (`enum Status : string` -> `StrEnum`), Structural Duck-Typing Interface Conformance (`@runtime_checkable` Protocols & structural `__ps_types__` checks), and Advanced Pattern Matching (List patterns with rest/slice `[var first, ..var rest]`, relational patterns `> 0`, `var` patterns) |
 | Multi-Extension Support | DONE | `.ps`, `.pysharp`, `.pys`, `.d.ps`, `.d.pysharp`, `.d.pys`, `.psproj`, `.pysharpproj` |
 | Diagnostics PS000-PS005 | DONE | All six codes implemented, tested, and equipped with actionable hints (`PS005` surface migration warnings) |
-| Packaging | DONE | Tested and verified wheel and sdist generation (`dist/pythonsharp_compiler-0.1.0-py3-none-any.whl`) |
-| Editor support | DONE | Documented LSP integration (`docs/LSP.md`), Go-To-Definition across files and stdlib, tri-modal surface ladder hover cards, VS Code extension bundle (`editors/vscode/`) |
+| Packaging | DONE | Verified wheel and sdist generation with 95 bundled stubs in `psc.stdlib` (`dist/pythonsharp_compiler-0.1.0-py3-none-any.whl`, 225KB); verified clean venv install |
+| Editor support | DONE | Documented LSP integration (`docs/LSP.md`), Go-To-Definition across files and stdlib, tri-modal surface ladder hover cards, packaged VS Code extension (`editors/vscode/pythonsharp-0.1.0.vsix`) |
 | Test suite | DONE | 37 test files, 152 tests, >95% line coverage (all passing locally) |
 | CI | OUT OF SCOPE | Remote GitHub Actions / cross-platform CI matrix marked OUT OF SCOPE (D-015); local Linux suite (CPython 3.11-3.13) is 100% green |
 | Git status | Complete | All 5 phases, Triple-Surface architecture, 32 ported libraries, 7 showcases (39 projects total), and 54 blog posts implemented and verified locally |
@@ -314,22 +314,26 @@ Detailed scope and gates are in [ROADMAP.md](ROADMAP.md).
 | 2026-10-31 | Completed remaining Tier 8 dogfooding ports (Systems, Resources & OS Native Boundaries): implemented `Samples/Ported/21_micro_tarfile` (POSIX USTAR binary archive decoding/encoding, fixed-offset byte slicing, checksum calculation, and stream manipulation with `Bytes` primitive) and `Samples/Ported/22_micro_subprocess` (native OS process execution, IPC, stdout/stderr isolation, non-throwing error handling, and stdin piping); expanded `Bytes` primitive with `.Slice`, `.Concat`, `.FromBytes`, `.AllocateZeros`, `.IndexOf`; aliased `subprocess.subprocess` stub; verified all 29 samples and ports (7 showcase + 22 ported) 100% operational with 0 errors via `scripts/verify_all_samples.py` |
 | 2026-10-31 | Authored complete 10-part Level 3 blog series in `docs/blogs/3/` with master `PLAN.md`: Track A (Blogs 01-05) Triple-Surface Philosophy, `00_core` modular decomposition, `bindgen --triple-surface`, Rule `PS005` compiler enforcement, and interactive LSP hover ladders; Track B (Blogs 06-07) NumPy numerics matrix `@` operator, multi-axis slicing, and multi-framework customer churn pipeline (Pandas + Scikit-Learn + PyTorch); Track C (Blogs 08-10) systems programming (`micro_shutil`, `micro_contextlib`, `micro_tarfile` POSIX USTAR binary archive, `micro_subprocess` IPC); 48 total blog posts across Levels 1-3 |
 | 2026-11-01 | Implemented Language Specification Enhancements: user-defined operator overloading (`__add__`, `__sub__`, `__neg__`, `__matmul__`), `partial` classes/structs cross-file merging, Query Syntax LINQ parser desugaring; implemented Tier 10 `23_pandas_dataframe` & `24_plotting_builders`; completed all 4 Tier 11 packages: `25_sklearn_pipeline`, `26_sympy_math`, `27_torch_tensors` & `28_qiskit_quantum` (quantum register circuits, Bell state entanglement, GHZ states, teleportation, statevector probability sampling); 148 pytest tests passing; 35 total samples/ports verified operational |
+| 2026-11-02 | Completed Tier 12 AI & Data Engineering dogfooding ports: implemented `29_polars_dataframe`, `30_xgboost_trees`, `31_optuna_tuning`, and `32_onnx_transformers`; added String-Backed Enums (`enum Status : string` -> `StrEnum`), Structural Duck-Typing Interface Conformance (`@runtime_checkable Protocol`), and Advanced Pattern Matching (list patterns with slice `[var first, ..var rest]` and relational patterns); authored 6-part Level 4 AI/ML blog series in `docs/blogs/4/` (54 blogs total); reached 152 unit tests and 39 total operational samples/ports |
+| 2026-11-04 | Fixed standard library stub packaging and distribution: symlinked `src/psc/stdlib -> ../../stdlib`, updated `pyproject.toml` package data (`psc = ["stdlib/**"]`), and added `MANIFEST.in` to bundle all 95 ambient `.d.ps` files directly inside `pythonsharp_compiler-0.1.0-py3-none-any.whl` (225KB); updated `_find_default_stdlib_dir()` in `cli.py` to prioritize `Path(__file__).resolve().parent / "stdlib"`; packaged VS Code extension `editors/vscode/pythonsharp-0.1.0.vsix` (13.5KB); verified clean virtual environment installation (`uv pip install *.whl`) ensuring native NumPy lowering (`_np.eye`, `@`, `.T`) and full LSP symbol resolution; synchronized build and packaging documentation across README, CONTRIBUTING, ARCHITECTURE, TECH-STACK, LSP, TESTING, and ROADMAP |
 
 ## 10. Metrics
 
 | Metric | Current | Target |
 | --- | --- | --- |
-| Documentation set | 12 core docs + 48 blogs | 9 / 9 |
+| Documentation set | 12 core docs + 54 blogs | 9 / 9 |
 | Phase 1 milestones started | 7 / 7 | 7 / 7 |
 | Phase 1 milestones verified | 7 / 7 | 7 / 7 |
 | Phase 2-5 milestones verified | 16 / 16 | 16 / 16 |
 | Showcase sample packages | 7 / 7 (including Samples 06 & 07) | 7 / 7 |
-| Ported sample packages | 28 / 28 across 11 tiers (including Tiers 8, 9, 10, and Tier 11 sklearn, sympy, torch & qiskit) | 28 / 28 |
-| Master sample verification | 35 / 35 operational (scripts/verify_all_samples.py) | 35 / 35 |
-| Blog posts authored | 48 (12 Level 1 + 26 Level 2 + 10 Level 3) | 48 |
+| Ported sample packages | 32 / 32 across 12 tiers | 32 / 32 |
+| Master sample verification | 39 / 39 operational (scripts/verify_all_samples.py) | 39 / 39 |
+| Blog posts authored | 54 (12 Level 1 + 26 Level 2 + 10 Level 3 + 6 Level 4) | 54 |
 | Diagnostics implemented | 6 / 6 (PS000-PS005) | 6 / 6 |
-| Test files | 36 | All milestone suites |
-| Automated tests | 148 passed in 36.0s | Grows with each milestone |
+| Test files | 37 | All milestone suites |
+| Automated tests | 152 unit tests + 6 LSP tests passing | Grows with each milestone |
+| Bundled stdlib stubs | 95 .d.ps stubs across 23 packages in wheel | 95 |
+| VS Code extension | Packaged VSIX (editors/vscode/pythonsharp-0.1.0.vsix) | Packaged |
 | Compiler line coverage | 95.1% | ≥ 90% |
 | Frontend coverage | 98.3% | ≥ 90% |
 | Semantic passes coverage | 95.1% | ≥ 90% |

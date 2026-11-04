@@ -25,7 +25,7 @@ ecosystem it targets.
 | Linting/formatting | `ruff` | current |
 | Compiler type checking | `mypy` strict | current |
 | Generated-code validation | `pyright` strict | current |
-| Packaging | `pyproject.toml` + `setuptools` | current |
+| Packaging | `pyproject.toml` + `setuptools` (`MANIFEST.in` & package data) | current |
 | CI | GitHub Actions | n/a |
 
 ## 2. Guiding principles
@@ -252,6 +252,10 @@ a Phase 1 target.
 ## 15. Dependency policy
 
 - **Runtime:** zero third-party dependencies.
+- **Standard Library Bundling:** 95 ambient `.d.ps` definitions across `00_core/`,
+  `01_python_stdlib/`, and `02_scientific_and_ai/` are bundled directly inside
+  `psc.stdlib` as package data. No external stub downloads or runtime network
+  access are needed.
 - **Development:** `pytest`, `pytest-cov`, `ruff`, `mypy`, `pyright`, `build`,
   `twine`, and `pip-audit`.
 - **Optional:** `hypothesis` for fuzzing, `uv` for fast local environments.
@@ -263,14 +267,21 @@ a Phase 1 target.
 
 ```text
 PythonSharp/
-├── docs/                       # Maintained documentation
+├── docs/                       # Maintained documentation and 54 technical blog posts
 ├── Ideation/                   # Raw design archive
+├── editors/
+│   └── vscode/                 # VS Code extension and pythonsharp-0.1.0.vsix package
+├── dist/                       # Packaged wheels (.whl) and source distributions (.tar.gz)
 ├── src/
 │   └── psc/
 │       ├── __init__.py
 │       ├── cli.py
 │       ├── diagnostics.py
 │       ├── project.py
+│       ├── stdlib/             # Symlink to ../../stdlib (packaged inside wheel)
+│       ├── bindgen/            # ps-bindgen parser, converter, and manifest generator
+│       ├── lsp/                # JSON-RPC 2.0 Language Server Protocol implementation
+│       ├── native/             # AOT native compilation orchestrator
 │       ├── frontend/
 │       │   ├── __init__.py
 │       │   ├── tokens.py
@@ -286,7 +297,8 @@ PythonSharp/
 │       │   ├── primitive_resolver.py
 │       │   ├── overload_resolver.py
 │       │   ├── linq_fuser.py
-│       │   └── type_checker.py
+│       │   ├── type_checker.py
+│       │   └── surface_checker.py
 │       └── codegen/
 │           ├── __init__.py
 │           ├── topo_sorter.py
@@ -294,12 +306,15 @@ PythonSharp/
 │           ├── overload_emitter.py
 │           ├── py_ast_builder.py
 │           └── emitter.py
-├── stdlib/
-│   └── PythonSharp.Core.d.ps
+├── stdlib/                     # Modular standard library (95 .d.ps stubs across 23 packages)
+│   ├── 00_core/
+│   ├── 01_python_stdlib/
+│   └── 02_scientific_and_ai/
+├── Samples/                    # 7 showcases and 32 real-world ported packages (Tiers 1-12)
 ├── tests/
 │   ├── fixtures/
-│   │   └── commerce_sample/
 │   └── test_*.py
+├── MANIFEST.in                 # Explicit sdist and wheel inclusion rules
 ├── pyproject.toml
 ├── README.md
 └── LICENSE
@@ -316,7 +331,10 @@ ruff check .
 ruff format --check .
 mypy src/psc
 pytest
-python -m build
+
+# Packaging build and stub verification
+pyproject-build --outdir dist
+python -c "import zipfile, pathlib; assert len([n for n in zipfile.ZipFile(sorted(pathlib.Path('dist').glob('*.whl'))[-1]).namelist() if n.endswith('.d.ps')]) == 95"
 ```
 
 Windows activation uses `.venv\Scripts\activate`. The retained CI workflow runs the

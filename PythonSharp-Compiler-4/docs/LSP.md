@@ -45,13 +45,36 @@ When hovering on any type or member symbol from ambient bindings (`stdlib/01_pyt
 
 This gives developers instant inline feedback on where their code sits on the tri-modal ladder and guides them toward enterprise-grade canonical APIs without leaving their editor.
 
+### 2.2 Ambient Stub Resolution in Installed Environments
+
+The LSP server locates ambient definition stubs via `_find_default_stdlib_dir()`. In a packaged wheel installation, all 95 standard library stubs (`00_core/`, `01_python_stdlib/`, `02_scientific_and_ai/`) are packaged directly inside `site-packages/psc/stdlib/`.
+
+When initialized in any editor workspace:
+1. `psc lsp` scans its own package directory (`Path(__file__).resolve().parent / "stdlib"`).
+2. It ingests all 95 ambient `.d.ps` definitions into its root symbol table.
+3. **Go To Definition (`F12`)** on types like `ArrayFactory`, `NDArray`, `DataFrame`, `Task`, `List`, or `Console` immediately resolves to the corresponding `.d.ps` file in `site-packages/psc/stdlib/`.
+4. IntelliSense autocompletions and hover documentation work without needing access to the compiler repository or source checkout.
+
 ---
 
 ## 3. Editor Configurations
 
 ### Visual Studio Code
-A ready-to-use extension definition is located in `editors/vscode/`. It contributes syntax highlighting, language configuration, file associations for `*.ps`, `*.pysharp`, `*.pys`, `*.d.ps`, `*.d.pysharp`, `*.d.pys`, and automated LSP server launching.
+A ready-to-use extension is provided in `editors/vscode/`. It contributes syntax highlighting, language configuration, file associations (`*.ps`, `*.pysharp`, `*.pys`, `*.d.ps`, `*.d.pysharp`, `*.d.pys`), and automated LSP client management (`psc lsp`).
 
+#### Installing the Extension
+You can install the packaged `.vsix` extension or link the development folder:
+
+```bash
+# Option 1: Install the pre-built VSIX package
+code --install-extension editors/vscode/pythonsharp-0.1.0.vsix
+
+# Option 2: Link into your local extensions directory for development
+mkdir -p ~/.vscode/extensions
+ln -s $(pwd)/editors/vscode ~/.vscode/extensions/pythonsharp
+```
+
+#### Manual Configuration
 To configure manually via the generic `vscode-languageclient` or standard runner:
 ```json
 {

@@ -1,0 +1,34 @@
+namespace pathlib;
+
+using PythonSharp.Core;
+using PythonSharp.System.Security;
+extern using pathlib as _py_pathlib;
+extern using hashlib as _py_hashlib;
+extern using uuid as _py_uuid;
+
+[SurfaceLevel(2)]
+[MapsTo("_py_pathlib")]
+public static primitive class pathlib
+{
+    [CanonicalApi("PythonSharp.System.Security.PathObjectFactory.CreateFileSystemPath", "PythonSharp.Pathlib.Pathlib.Path")]
+    [InlineTemplate("_py_pathlib.Path({0})")]
+    public static extern FileSystemPath Path(string pathSegment);
+}
+
+[SurfaceLevel(2)]
+[MapsTo("_py_hashlib")]
+public static primitive class hashlib
+{
+    [CanonicalApi("PythonSharp.System.Security.CryptographicHasher.ComputeSha256FromBytes", "PythonSharp.Pathlib.Hashlib.Sha256")]
+    [InlineTemplate("_py_hashlib.sha256({0})")]
+    public static extern CryptographicHashDigest sha256(Bytes data);
+}
+
+[SurfaceLevel(2)]
+[MapsTo("_py_uuid")]
+public static primitive class uuid
+{
+    [CanonicalApi("PythonSharp.System.Security.UniqueIdentifierGenerator.GenerateRandomUuidV4String", "PythonSharp.Pathlib.Uuid.Uuid4String")]
+    [InlineTemplate("str(_py_uuid.uuid4())")]
+    public static extern string uuid4();
+}

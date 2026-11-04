@@ -406,6 +406,10 @@ class TypeChecker:
         elif expr.kind in (ExprKind.BINARY, ExprKind.NULL_COALESCE):
             self._check_expr_generic_instantiations(expr.data.get("left"), caller_type, active_tparams)
             self._check_expr_generic_instantiations(expr.data.get("right"), caller_type, active_tparams)
+        elif expr.kind == ExprKind.CONDITIONAL:
+            self._check_expr_generic_instantiations(expr.data.get("condition"), caller_type, active_tparams)
+            self._check_expr_generic_instantiations(expr.data.get("then_expr"), caller_type, active_tparams)
+            self._check_expr_generic_instantiations(expr.data.get("else_expr"), caller_type, active_tparams)
 
     def _verify_type_ref_constraints(
         self,

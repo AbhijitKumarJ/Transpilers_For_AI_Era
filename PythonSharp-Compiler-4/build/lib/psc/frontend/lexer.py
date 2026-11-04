@@ -214,6 +214,26 @@ class Lexer:
         chars: list[str] = []
         is_float = False
 
+        # Hexadecimal literal 0x...
+        if self._peek() == "0" and self._peek_next() in ("x", "X"):
+            chars.append(self._advance())  # '0'
+            chars.append(self._advance())  # 'x'
+            while not self._is_at_end() and (self._peek().isalnum() or self._peek() == "_"):
+                ch = self._advance()
+                if ch != "_":
+                    chars.append(ch)
+            return Token(TokenKind.INT_LIT, "".join(chars), self._make_span(start_line, start_col))
+
+        # Binary literal 0b...
+        if self._peek() == "0" and self._peek_next() in ("b", "B"):
+            chars.append(self._advance())  # '0'
+            chars.append(self._advance())  # 'b'
+            while not self._is_at_end() and (self._peek() in ("0", "1", "_")):
+                ch = self._advance()
+                if ch != "_":
+                    chars.append(ch)
+            return Token(TokenKind.INT_LIT, "".join(chars), self._make_span(start_line, start_col))
+
         while not self._is_at_end() and (self._peek().isdigit() or self._peek() == "_"):
             ch = self._advance()
             if ch != "_":
@@ -272,6 +292,8 @@ class Lexer:
             ">=": TokenKind.GTE,
             "&&": TokenKind.AND_AND,
             "||": TokenKind.OR_OR,
+            "<<": TokenKind.LSHIFT,
+            ">>": TokenKind.RSHIFT,
         }
         pair = ch + nxt
         if pair in two_char_map:
@@ -301,6 +323,10 @@ class Lexer:
             "*": TokenKind.STAR,
             "/": TokenKind.SLASH,
             "%": TokenKind.PERCENT,
+            "&": TokenKind.AMP,
+            "|": TokenKind.PIPE,
+            "~": TokenKind.TILDE,
+            "@": TokenKind.AT,
         }
         if ch in one_char_map:
             return Token(one_char_map[ch], ch, self._make_span(start_line, start_col))

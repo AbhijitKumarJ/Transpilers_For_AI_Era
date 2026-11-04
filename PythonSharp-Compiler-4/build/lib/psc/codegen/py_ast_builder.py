@@ -12,7 +12,8 @@ from psc.frontend.ast_nodes import (
     MethodDecl,
     PropertyDecl,
 )
-from psc.semantics.symbols import GlobalSymbolTable, TypeSymbol, namespace_to_module_path
+from psc.semantics.collector import resolve_operator_dunder
+from psc.semantics.symbols import GlobalSymbolTable, TypeSymbol, namespace_to_module_path, pascal_to_snake
 
 
 def _loaded_names(node: ast.AST) -> set[str]:
@@ -223,7 +224,13 @@ class PythonAstBuilder:
 
         # 2. Standard library & typing imports
         stdlib_imports: list[ast.Import] = []
-        if needs_enum:
+        existing_extern_aliases = {
+            alias.asname or alias.name
+            for imp in extern_import_nodes
+            for alias in imp.names
+        }
+
+        if needs_enum and "enum" not in existing_extern_aliases:
             stdlib_imports.append(
                 ast.Import(
                     names=[ast.alias(name="enum", asname=None)],
@@ -231,7 +238,7 @@ class PythonAstBuilder:
                     col_offset=0,
                 )
             )
-        if needs_itertools:
+        if needs_itertools and "itertools" not in existing_extern_aliases:
             stdlib_imports.append(
                 ast.Import(
                     names=[ast.alias(name="itertools", asname=None)],
@@ -239,7 +246,7 @@ class PythonAstBuilder:
                     col_offset=0,
                 )
             )
-        if needs_math:
+        if needs_math and "math" not in existing_extern_aliases:
             stdlib_imports.append(
                 ast.Import(
                     names=[ast.alias(name="math", asname=None)],
@@ -247,7 +254,7 @@ class PythonAstBuilder:
                     col_offset=0,
                 )
             )
-        if needs_statistics:
+        if needs_statistics and "statistics" not in existing_extern_aliases:
             stdlib_imports.append(
                 ast.Import(
                     names=[ast.alias(name="statistics", asname=None)],
@@ -255,6 +262,124 @@ class PythonAstBuilder:
                     col_offset=0,
                 )
             )
+
+        known_stdlib_auto = (
+            "os",
+            "sys",
+            "json",
+            "re",
+            "time",
+            "datetime",
+            "logging",
+            "contextlib",
+            "subprocess",
+            "shutil",
+            "math",
+            "pathlib",
+            "hashlib",
+            "uuid",
+            "urllib",
+            "scipy",
+            "sklearn",
+            "torch",
+            "pandas",
+            "polars",
+            "numpy",
+            "xgboost",
+            "lightgbm",
+            "optuna",
+            "transformers",
+            "faiss",
+            "onnxruntime",
+            "sympy",
+            "qiskit",
+        )
+        for mod_name in known_stdlib_auto:
+            if mod_name in runtime_names and mod_name not in existing_extern_aliases:
+                stdlib_imports.append(
+                    ast.Import(
+                        names=[ast.alias(name=mod_name, asname=None)],
+                        lineno=1,
+                        col_offset=0,
+                    )
+                )
+
+        known_aliased_stdlib = {
+            "_py_os": "os",
+            "_py_time": "time",
+            "_py_json": "json",
+            "_py_re": "re",
+            "_py_sys": "sys",
+            "_py_shutil": "shutil",
+            "_py_logging": "logging",
+            "_py_log": "logging",
+            "_py_ctx": "contextlib",
+            "_py_sub": "subprocess",
+            "_py_proc": "subprocess",
+            "_py_pathlib": "pathlib",
+            "_py_path": "pathlib",
+            "_py_hashlib": "hashlib",
+            "_py_hash": "hashlib",
+            "_py_uuid": "uuid",
+            "_py_req": "urllib.request",
+            "_py_urllib_req": "urllib.request",
+            "_py_parse": "urllib.parse",
+            "_py_dt": "datetime",
+            "dt": "datetime",
+            "_py_math": "math",
+            "py_math": "math",
+            "_py_builtins": "builtins",
+            "_py_tb": "traceback",
+            "np": "numpy",
+            "_np": "numpy",
+            "pd": "pandas",
+            "_pd": "pandas",
+            "pl": "polars",
+            "_pl": "polars",
+            "xgb": "xgboost",
+            "_xgb": "xgboost",
+            "lgb": "lightgbm",
+            "_lgb": "lightgbm",
+            "optuna": "optuna",
+            "_optuna": "optuna",
+            "_hf": "transformers",
+            "transformers": "transformers",
+            "_faiss": "faiss",
+            "ort": "onnxruntime",
+            "_ort": "onnxruntime",
+            "_scipy_fft": "scipy.fft",
+            "_scipy_linalg": "scipy.linalg",
+            "_scipy_opt": "scipy.optimize",
+            "_scipy_sparse": "scipy.sparse",
+            "_scipy_stats": "scipy.stats",
+            "plt": "matplotlib.pyplot",
+            "_plt": "matplotlib.pyplot",
+            "sns": "seaborn",
+            "_sns": "seaborn",
+            "_ens": "sklearn.ensemble",
+            "_lin": "sklearn.linear_model",
+            "_met": "sklearn.metrics",
+            "_ms": "sklearn.model_selection",
+            "_prep": "sklearn.preprocessing",
+            "sp": "sympy",
+            "_sp": "sympy",
+            "torch": "torch",
+            "_torch": "torch",
+            "_nn": "torch.nn",
+            "_optim": "torch.optim",
+            "_qk": "qiskit",
+            "_qi": "qiskit.quantum_info",
+        }
+        for alias, mod_name in known_aliased_stdlib.items():
+            if alias in runtime_names and alias not in existing_extern_aliases:
+                stdlib_imports.append(
+                    ast.Import(
+                        names=[ast.alias(name=mod_name, asname=alias)],
+                        lineno=1,
+                        col_offset=0,
+                    )
+                )
+
         stdlib_imports.sort(key=lambda node: node.names[0].name)
         body.extend(stdlib_imports)
 
@@ -300,6 +425,7 @@ class PythonAstBuilder:
             typing_names.append("Any")
         if needs_protocol:
             typing_names.append("Protocol")
+            typing_names.append("runtime_checkable")
         if needs_overload:
             typing_names.append("overload")
         if needs_classvar:
@@ -474,16 +600,32 @@ class PythonAstBuilder:
             bases=bases,
             keywords=[],
             body=body,
-            decorator_list=[],
+            decorator_list=[ast.Name(id="runtime_checkable", ctx=ast.Load())],
         )
         return stamp_span(cls_def, decl.span)  # type: ignore[return-value]
 
     def build_enum_class(self, type_sym: TypeSymbol, lowerer: ExpressionLowerer) -> ast.ClassDef:
         decl = type_sym.ast_node
+        is_string_enum = any(
+            (b.path and b.path[-1] in ("string", "str", "String"))
+            for b in decl.base_types
+        )
+        if not is_string_enum:
+            for em in decl.enum_members:
+                if em.value is not None:
+                    try:
+                        v = ast.literal_eval(lowerer.lower_expr(em.value))
+                        if isinstance(v, str):
+                            is_string_enum = True
+                            break
+                    except Exception:
+                        pass
+
+        enum_base_attr = "StrEnum" if is_string_enum else "IntEnum"
         bases: list[ast.expr] = [
             ast.Attribute(
                 value=ast.Name(id="enum", ctx=ast.Load()),
-                attr="IntEnum",
+                attr=enum_base_attr,
                 ctx=ast.Load(),
             )
         ]
@@ -492,16 +634,19 @@ class PythonAstBuilder:
         for idx, em in enumerate(decl.enum_members):
             if em.value is not None:
                 val_ast = lowerer.lower_expr(em.value)
-                try:
-                    literal_value = ast.literal_eval(val_ast)
-                except (ValueError, TypeError, SyntaxError):
-                    next_value = None
-                else:
-                    next_value = (
-                        literal_value + 1
-                        if isinstance(literal_value, int) and not isinstance(literal_value, bool)
-                        else None
-                    )
+                if not is_string_enum:
+                    try:
+                        literal_value = ast.literal_eval(val_ast)
+                    except (ValueError, TypeError, SyntaxError):
+                        next_value = None
+                    else:
+                        next_value = (
+                            literal_value + 1
+                            if isinstance(literal_value, int) and not isinstance(literal_value, bool)
+                            else None
+                        )
+            elif is_string_enum:
+                val_ast = ast.Constant(value=em.name)
             elif next_value is not None:
                 val_ast = ast.Constant(value=next_value)
                 next_value += 1
@@ -687,7 +832,12 @@ class PythonAstBuilder:
             elif isinstance(member, IndexerDecl):
                 stmts.extend(self._emit_indexer(member, lowerer, overload_emitter))
             elif isinstance(member, MethodDecl):
-                snake = "__init__" if member.is_constructor else member.lowering_mode.emitted_snake_name
+                if member.is_constructor:
+                    snake = "__init__"
+                elif member.is_operator:
+                    snake = resolve_operator_dunder(member.operator_token, len(member.params))
+                else:
+                    snake = member.lowering_mode.emitted_snake_name or pascal_to_snake(member.name)
                 if snake in overload_groups_by_name:
                     if snake in emitted_overload_groups:
                         continue
@@ -697,7 +847,16 @@ class PythonAstBuilder:
                         m
                         for m in decl.members
                         if isinstance(m, MethodDecl)
-                        and ("__init__" if m.is_constructor else m.lowering_mode.emitted_snake_name) == snake
+                        and (
+                            "__init__"
+                            if m.is_constructor
+                            else (
+                                resolve_operator_dunder(m.operator_token, len(m.params))
+                                if m.is_operator
+                                else (m.lowering_mode.emitted_snake_name or pascal_to_snake(m.name))
+                            )
+                        )
+                        == snake
                     ]
                     stmts.extend(
                         overload_emitter.emit_overload_group(
@@ -972,11 +1131,18 @@ class PythonAstBuilder:
         overload_emitter: OverloadAstEmitter,
         ctor_slot_inits: list[ast.stmt] | None = None,
     ) -> ast.FunctionDef | ast.AsyncFunctionDef:
-        is_static = "static" in method.modifiers
+        is_static = "static" in method.modifiers and not method.is_operator
         is_async = "async" in method.modifiers
-        snake_name = "__init__" if method.is_constructor else method.lowering_mode.emitted_snake_name
+        if method.is_constructor:
+            snake_name = "__init__"
+        elif method.is_operator:
+            snake_name = resolve_operator_dunder(method.operator_token, len(method.params))
+        else:
+            snake_name = method.lowering_mode.emitted_snake_name or pascal_to_snake(method.name)
 
-        py_args = overload_emitter._build_method_arguments(method.params, is_static=is_static)
+        py_args = overload_emitter._build_method_arguments(
+            method.params, is_static=True if method.is_operator else is_static
+        )
         ret_ann = (
             ast.Constant(value=None) if method.is_constructor else lowerer.lower_type_ref_annotation(method.return_type)
         )

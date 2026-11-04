@@ -1,0 +1,44 @@
+namespace PythonSharp.Time;
+
+using PythonSharp.Core;
+using PythonSharp.System.Diagnostics;
+extern using time as _py_time;
+extern using datetime as _py_dt;
+
+[SurfaceLevel(3)]
+[MapsTo("_py_time")]
+public static primitive class Time
+{
+    [CanonicalApi("PythonSharp.System.Diagnostics.SystemClock.GetUnixTimestampSeconds")]
+    [InlineTemplate("_py_time.time()")]
+    public static extern double NowEpoch();
+
+    [CanonicalApi("PythonSharp.System.Diagnostics.SystemClock.GetHighResolutionSeconds")]
+    [InlineTemplate("_py_time.perf_counter()")]
+    public static extern double PerfCounter();
+
+    [CanonicalApi("PythonSharp.System.Diagnostics.SystemClock.GetMonotonicSeconds")]
+    [InlineTemplate("_py_time.monotonic()")]
+    public static extern double Monotonic();
+
+    [CanonicalApi("PythonSharp.System.Diagnostics.SystemClock.SleepCurrentThreadSeconds")]
+    [InlineTemplate("_py_time.sleep({0})")]
+    public static extern void Sleep(double seconds);
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_py_dt.datetime")]
+public static primitive class DateTimeClock
+{
+    [CanonicalApi("PythonSharp.System.Diagnostics.SystemClock.GetCurrentLocalTimestamp")]
+    [InlineTemplate("_py_dt.datetime.now()")]
+    public static extern TimestampInstant Now();
+
+    [CanonicalApi("PythonSharp.System.Diagnostics.SystemClock.GetCurrentUtcTimestamp")]
+    [InlineTemplate("_py_dt.datetime.now(_py_dt.timezone.utc)")]
+    public static extern TimestampInstant UtcNow();
+
+    [CanonicalApi("PythonSharp.System.Diagnostics.SystemClock.ParseIso8601Timestamp")]
+    [InlineTemplate("_py_dt.datetime.fromisoformat({0})")]
+    public static extern TimestampInstant FromIsoFormat(string isoString);
+}

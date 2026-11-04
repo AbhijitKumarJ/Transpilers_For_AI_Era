@@ -9,9 +9,11 @@ from psc.frontend.ast_nodes import (
     AttributeNode,
     BinaryOp,
     BlockStmt,
+    BreakStmt,
     CatchClause,
     CompilationUnit,
     ConstructorChain,
+    ContinueStmt,
     EnumMember,
     Expr,
     ExprKind,
@@ -106,7 +108,7 @@ class Parser:
         return cls(
             tokens=tokens,
             diagnostics=diag,
-            is_ambient_stub=ps_filename.endswith(".d.ps"),
+            is_ambient_stub=ps_filename.endswith((".d.ps", ".d.pysharp", ".d.pys")),
         )
 
     # ========================================================================
@@ -132,9 +134,9 @@ class Parser:
         return self._current().kind in kinds
 
     def _check_ident_like(self) -> bool:
-        """Allows contextual keywords like `get`, `set`, `value`, or `from` as identifiers."""
+        """Allows contextual keywords like `get`, `set`, `where`, `value`, or `from` as identifiers."""
         k = self._current().kind
-        return k in (TokenKind.IDENT, TokenKind.GET, TokenKind.SET)
+        return k in (TokenKind.IDENT, TokenKind.GET, TokenKind.SET, TokenKind.WHERE)
 
     def _advance(self) -> Token:
         if not self._is_at_end():
@@ -148,6 +150,26 @@ class Parser:
         return False
 
     def _expect(self, kind: TokenKind, message: str) -> Token:
+        if kind == TokenKind.GT and self._check(TokenKind.RSHIFT):
+            tok = self.tokens[self.pos]
+            span1 = SourceSpan(
+                file_id=tok.span.file_id,
+                ps_filename=tok.span.ps_filename,
+                start_line=tok.span.start_line,
+                start_col=tok.span.start_col,
+                end_line=tok.span.start_line,
+                end_col=tok.span.start_col + 1,
+            )
+            span2 = SourceSpan(
+                file_id=tok.span.file_id,
+                ps_filename=tok.span.ps_filename,
+                start_line=tok.span.start_line,
+                start_col=tok.span.start_col + 1,
+                end_line=tok.span.start_line,
+                end_col=tok.span.start_col + 2,
+            )
+            self.tokens[self.pos] = Token(TokenKind.GT, ">", span1)
+            self.tokens.insert(self.pos + 1, Token(TokenKind.GT, ">", span2))
         if self._check(kind):
             return self._advance()
         if self._speculative_depth > 0:
@@ -170,10 +192,20 @@ class Parser:
         namespace: list[str] = []
         imports: list[ImportDecl] = []
         types: list[TypeDecl] = []
+        namespace_span: SourceSpan | None = None
 
         if self._match(TokenKind.NAMESPACE):
+            ns_start = self._previous().span
             namespace = self._parse_qualified_ident()
-            self._expect(TokenKind.SEMICOLON, "Expected ';' after namespace declaration")
+            semi_tok = self._expect(TokenKind.SEMICOLON, "Expected ';' after namespace declaration")
+            namespace_span = SourceSpan(
+                file_id=ns_start.file_id,
+                ps_filename=ns_start.ps_filename,
+                start_line=ns_start.start_line,
+                start_col=ns_start.start_col,
+                end_line=semi_tok.span.end_line,
+                end_col=semi_tok.span.end_col,
+            )
 
         while self._check(TokenKind.USING, TokenKind.EXTERN):
             if self._check(TokenKind.EXTERN) and self._peek(1).kind != TokenKind.USING:
@@ -190,6 +222,7 @@ class Parser:
             namespace=namespace,
             imports=imports,
             types=types,
+            namespace_span=namespace_span,
         )
 
     def _parse_qualified_ident(self) -> list[str]:
@@ -302,7 +335,10 @@ class Parser:
         type_params = self._parse_optional_type_params()
 
         if kind == TypeKind.ENUM:
-            return self._parse_enum_body(start_span, attrs, access, modifiers, name_tok.lexeme)
+            base_types: list[TypeRef] = []
+            if self._match(TokenKind.COLON):
+                base_types.append(self.parse_type_ref())
+            return self._parse_enum_body(start_span, attrs, access, modifiers, name_tok.lexeme, base_types)
 
         # Primary constructor parameters for records
         primary_ctor_params: list[ParamDecl] = []
@@ -356,6 +392,7 @@ class Parser:
         access: AccessMod,
         modifiers: list[str],
         name: str,
+        base_types: list[TypeRef] | None = None,
     ) -> TypeDecl:
         self._expect(TokenKind.LBRACE, f"Expected '{{' in enum '{name}'")
         enum_members: list[EnumMember] = []
@@ -384,6 +421,7 @@ class Parser:
             modifiers=modifiers,
             kind=TypeKind.ENUM,
             name=name,
+            base_types=base_types or [],
             enum_members=enum_members,
         )
 
@@ -495,6 +533,62 @@ class Parser:
                 type_ref=member_type,
                 params=params,
                 accessors=accessors,
+            )
+
+        # Operator overload check: `T operator <op>(...)`
+        if self._match(TokenKind.OPERATOR):
+            op_tok = self._current()
+            valid_operator_tokens = {
+                TokenKind.PLUS: "+",
+                TokenKind.MINUS: "-",
+                TokenKind.STAR: "*",
+                TokenKind.SLASH: "/",
+                TokenKind.PERCENT: "%",
+                TokenKind.DOUBLE_STAR: "**",
+                TokenKind.EQ: "==",
+                TokenKind.NEQ: "!=",
+                TokenKind.LT: "<",
+                TokenKind.LTE: "<=",
+                TokenKind.GT: ">",
+                TokenKind.GTE: ">=",
+                TokenKind.AMP: "&",
+                TokenKind.PIPE: "|",
+                TokenKind.CARET: "^",
+                TokenKind.TILDE: "~",
+                TokenKind.BANG: "!",
+                TokenKind.LSHIFT: "<<",
+                TokenKind.RSHIFT: ">>",
+                TokenKind.AT: "@",
+            }
+            if op_tok.kind in valid_operator_tokens:
+                self._advance()
+                op_str = valid_operator_tokens[op_tok.kind]
+            else:
+                self.diagnostics.report_syntax_error(
+                    op_tok.span, f"Unexpected operator token in operator declaration: '{op_tok.lexeme}'."
+                )
+                op_str = op_tok.lexeme
+                self._advance()
+
+            self._expect(TokenKind.LPAREN, f"Expected '(' in operator '{op_str}' declaration")
+            params = self._parse_param_list_until_rparen()
+            body, expr_body, end_span = self._parse_callable_body()
+            return MethodDecl(
+                span=start_span.merge(end_span),
+                attributes=attrs,
+                access=access,
+                modifiers=modifiers,
+                is_constructor=False,
+                name=f"operator {op_str}",
+                return_type=member_type,
+                type_params=[],
+                params=params,
+                constraints=[],
+                ctor_chain=None,
+                body=body,
+                expr_body=expr_body,
+                is_operator=True,
+                operator_token=op_str,
             )
 
         name_tok = self._expect_ident("Expected member name")
@@ -754,6 +848,14 @@ class Parser:
             return self._parse_foreach_stmt(self._previous().span, is_await=False)
         if self._match(TokenKind.RETURN):
             return self._parse_return_stmt(self._previous().span)
+        if self._match(TokenKind.BREAK):
+            start = self._previous().span
+            semi = self._expect(TokenKind.SEMICOLON, "Expected ';' after 'break'")
+            return BreakStmt(span=start.merge(semi.span))
+        if self._match(TokenKind.CONTINUE):
+            start = self._previous().span
+            semi = self._expect(TokenKind.SEMICOLON, "Expected ';' after 'continue'")
+            return ContinueStmt(span=start.merge(semi.span))
         if self._match(TokenKind.YIELD):
             return self._parse_yield_stmt(self._previous().span)
         if self._match(TokenKind.THROW):
@@ -1012,9 +1114,60 @@ class Parser:
             lit_expr = self._parse_unary()
             return PatternNode(span=lit_expr.span, kind="Literal", literal_expr=lit_expr)
 
+        # Var pattern `var ident`
+        if self._match(TokenKind.VAR):
+            name_tok = self._expect_ident("Expected variable name after 'var'")
+            return PatternNode(span=start_span.merge(name_tok.span), kind="VarPattern", bind_name=name_tok.lexeme)
+
+        # Slice pattern `..`, `..var ident`, `.._`
+        if self._match(TokenKind.DOT_DOT):
+            bind_name = None
+            if self._match(TokenKind.VAR):
+                bind_name = self._expect_ident("Expected variable name after '..var'").lexeme
+            elif self._check(TokenKind.IDENT) and self._current().lexeme == "_":
+                self._advance()
+            return PatternNode(span=start_span.merge(self._previous().span), kind="SlicePattern", bind_name=bind_name)
+
+        # Relational pattern (`> 0`, `>= 10`, `< 5`, `<= 100`, `== 42`, `!= 0`)
+        rel_tokens = {
+            TokenKind.GT: ">",
+            TokenKind.LT: "<",
+            TokenKind.GTE: ">=",
+            TokenKind.LTE: "<=",
+            TokenKind.EQ: "==",
+            TokenKind.NEQ: "!=",
+        }
+        if self._current().kind in rel_tokens:
+            op_str = rel_tokens[self._advance().kind]
+            rel_expr = self._parse_unary()
+            return PatternNode(
+                span=start_span.merge(rel_expr.span),
+                kind="RelationalPattern",
+                relational_op=op_str,
+                literal_expr=rel_expr,
+            )
+
+        # List pattern `[ ... ]`
+        if self._match(TokenKind.LBRACKET):
+            elements: list[PatternNode] = []
+            while not self._is_at_end() and not self._check(TokenKind.RBRACKET):
+                elements.append(self.parse_pattern())
+                if not self._match(TokenKind.COMMA):
+                    break
+            rbracket = self._expect(TokenKind.RBRACKET, "Expected ']' after list pattern")
+            bind_name = None
+            if self._check_ident_like():
+                bind_name = self._advance().lexeme
+            return PatternNode(
+                span=start_span.merge(rbracket.span if not bind_name else self._previous().span),
+                kind="ListPattern",
+                element_subpatterns=elements,
+                bind_name=bind_name,
+            )
+
         # Type and/or Property pattern: `TypeRef bindIdent? ({ Prop: SubPat, ... })?`
         ty = self.parse_type_ref()
-        bind_name: str | None = None
+        bind_name = None
         if self._check_ident_like():
             bind_name = self._advance().lexeme
 
@@ -1103,7 +1256,7 @@ class Parser:
         )
 
     def _parse_assignment(self) -> Expr:
-        left = self._parse_null_coalesce()
+        left = self._parse_conditional()
         assign_map: dict[TokenKind, BinaryOp] = {
             TokenKind.ASSIGN: BinaryOp.ASSIGN,
             TokenKind.PLUS_ASSIGN: BinaryOp.ADD_ASSIGN,
@@ -1121,6 +1274,19 @@ class Parser:
                 data={"op": op, "left": left, "right": right},
             )
         return left
+
+    def _parse_conditional(self) -> Expr:
+        expr = self._parse_null_coalesce()
+        if self._match(TokenKind.QUESTION):
+            then_expr = self.parse_expr()
+            self._expect(TokenKind.COLON, "Expected ':' in ternary conditional expression")
+            else_expr = self.parse_expr()
+            return Expr(
+                span=expr.span.merge(else_expr.span),
+                kind=ExprKind.CONDITIONAL,
+                data={"condition": expr, "then_expr": then_expr, "else_expr": else_expr},
+            )
+        return expr
 
     def _parse_null_coalesce(self) -> Expr:
         left = self._parse_logical_or()
@@ -1145,13 +1311,46 @@ class Parser:
         return left
 
     def _parse_logical_and(self) -> Expr:
-        left = self._parse_equality()
+        left = self._parse_bitwise_or()
         while self._match(TokenKind.AND_AND):
-            right = self._parse_equality()
+            right = self._parse_bitwise_or()
             left = Expr(
                 span=left.span.merge(right.span),
                 kind=ExprKind.BINARY,
                 data={"op": BinaryOp.AND, "left": left, "right": right},
+            )
+        return left
+
+    def _parse_bitwise_or(self) -> Expr:
+        left = self._parse_bitwise_xor()
+        while self._match(TokenKind.PIPE):
+            right = self._parse_bitwise_xor()
+            left = Expr(
+                span=left.span.merge(right.span),
+                kind=ExprKind.BINARY,
+                data={"op": BinaryOp.BITWISE_OR, "left": left, "right": right},
+            )
+        return left
+
+    def _parse_bitwise_xor(self) -> Expr:
+        left = self._parse_bitwise_and()
+        while self._match(TokenKind.CARET):
+            right = self._parse_bitwise_and()
+            left = Expr(
+                span=left.span.merge(right.span),
+                kind=ExprKind.BINARY,
+                data={"op": BinaryOp.BITWISE_XOR, "left": left, "right": right},
+            )
+        return left
+
+    def _parse_bitwise_and(self) -> Expr:
+        left = self._parse_equality()
+        while self._match(TokenKind.AMP):
+            right = self._parse_equality()
+            left = Expr(
+                span=left.span.merge(right.span),
+                kind=ExprKind.BINARY,
+                data={"op": BinaryOp.BITWISE_AND, "left": left, "right": right},
             )
         return left
 
@@ -1169,7 +1368,7 @@ class Parser:
         return left
 
     def _parse_relational(self) -> Expr:
-        left = self._parse_additive()
+        left = self._parse_shift()
         rel_map: dict[TokenKind, BinaryOp] = {
             TokenKind.LT: BinaryOp.LT,
             TokenKind.GT: BinaryOp.GT,
@@ -1178,7 +1377,7 @@ class Parser:
         }
         if self._current().kind in rel_map:
             op = rel_map[self._advance().kind]
-            right = self._parse_additive()
+            right = self._parse_shift()
             return Expr(
                 span=left.span.merge(right.span),
                 kind=ExprKind.BINARY,
@@ -1197,6 +1396,19 @@ class Parser:
                 span=left.span.merge(ty.span),
                 kind=ExprKind.TYPE_CAST_AS,
                 data={"target": left, "type_ref": ty},
+            )
+        return left
+
+    def _parse_shift(self) -> Expr:
+        left = self._parse_additive()
+        while self._check(TokenKind.LSHIFT, TokenKind.RSHIFT):
+            tok = self._advance()
+            op = BinaryOp.LSHIFT if tok.kind == TokenKind.LSHIFT else BinaryOp.RSHIFT
+            right = self._parse_additive()
+            left = Expr(
+                span=left.span.merge(right.span),
+                kind=ExprKind.BINARY,
+                data={"op": op, "left": left, "right": right},
             )
         return left
 
@@ -1220,6 +1432,7 @@ class Parser:
             TokenKind.SLASH: BinaryOp.DIV,
             TokenKind.PERCENT: BinaryOp.MOD,
             TokenKind.DOUBLE_STAR: BinaryOp.POW,
+            TokenKind.AT: BinaryOp.MATMUL,
         }
         while self._current().kind in mul_map:
             op = mul_map[self._advance().kind]
@@ -1237,6 +1450,7 @@ class Parser:
             TokenKind.MINUS: UnaryOp.NEG,
             TokenKind.AWAIT: UnaryOp.AWAIT,
             TokenKind.CARET: UnaryOp.FROM_END,
+            TokenKind.TILDE: UnaryOp.BITWISE_NOT,
         }
         if self._current().kind in unary_map:
             op_tok = self._advance()
@@ -1449,7 +1663,7 @@ class Parser:
             return Expr(
                 span=tok.span,
                 kind=ExprKind.LITERAL,
-                data={"literal_kind": LiteralKind.INT, "value": int(tok.lexeme)},
+                data={"literal_kind": LiteralKind.INT, "value": int(tok.lexeme, 0)},
             )
         if self._match(TokenKind.FLOAT_LIT):
             return Expr(
@@ -1565,6 +1779,14 @@ class Parser:
             first.span = tok.span.merge(end_tok.span)
             return first
 
+        # Query Syntax LINQ: `from <ident> in <expr> ...`
+        if (
+            tok.lexeme == "from"
+            and self._peek(1).kind in (TokenKind.IDENT, TokenKind.GET, TokenKind.SET, TokenKind.WHERE)
+            and self._peek(2).kind == TokenKind.IN
+        ):
+            return self._parse_query_expression()
+
         # Identifier or built-in type name used for static member access (`string.Join(...)`)
         if self._check_ident_like() or self._current().kind in PRIMITIVE_TYPE_TOKENS:
             id_tok = self._advance()
@@ -1581,6 +1803,95 @@ class Parser:
         self._advance()
         return Expr(span=tok.span, kind=ExprKind.LITERAL, data={"literal_kind": LiteralKind.NULL, "value": None})
 
+    def _parse_query_expression(self) -> Expr:
+        from_tok = self._advance()  # Consume 'from'
+        range_var_tok = self._expect_ident("Expected range variable in 'from' clause")
+        range_var_name = range_var_tok.lexeme
+        self._expect(TokenKind.IN, "Expected 'in' in 'from' clause")
+
+        source_expr = self._parse_conditional()
+
+        while not self._is_at_end():
+            curr = self._current()
+            if curr.lexeme == "where" or curr.kind == TokenKind.WHERE:
+                self._advance()
+                cond_expr = self._parse_conditional()
+                lambda_expr = Expr(
+                    span=cond_expr.span,
+                    kind=ExprKind.LAMBDA,
+                    data={
+                        "is_async": False,
+                        "params": [LambdaParam(span=range_var_tok.span, name=range_var_name)],
+                        "body": cond_expr,
+                    },
+                )
+                callee = Expr(
+                    span=source_expr.span,
+                    kind=ExprKind.MEMBER_ACCESS,
+                    data={"target": source_expr, "member": "Where"},
+                )
+                source_expr = Expr(
+                    span=source_expr.span.merge(cond_expr.span),
+                    kind=ExprKind.CALL,
+                    data={"callee": callee, "type_args": [], "args": [ArgNode(span=lambda_expr.span, name=None, expr=lambda_expr)]},
+                )
+            elif curr.lexeme == "orderby":
+                self._advance()
+                key_expr = self._parse_conditional()
+                is_descending = False
+                if self._current().lexeme == "descending":
+                    self._advance()
+                    is_descending = True
+                elif self._current().lexeme == "ascending":
+                    self._advance()
+                method_name = "OrderByDescending" if is_descending else "OrderBy"
+                lambda_expr = Expr(
+                    span=key_expr.span,
+                    kind=ExprKind.LAMBDA,
+                    data={
+                        "is_async": False,
+                        "params": [LambdaParam(span=range_var_tok.span, name=range_var_name)],
+                        "body": key_expr,
+                    },
+                )
+                callee = Expr(
+                    span=source_expr.span,
+                    kind=ExprKind.MEMBER_ACCESS,
+                    data={"target": source_expr, "member": method_name},
+                )
+                source_expr = Expr(
+                    span=source_expr.span.merge(key_expr.span),
+                    kind=ExprKind.CALL,
+                    data={"callee": callee, "type_args": [], "args": [ArgNode(span=lambda_expr.span, name=None, expr=lambda_expr)]},
+                )
+            elif curr.lexeme == "select":
+                self._advance()
+                proj_expr = self._parse_conditional()
+                lambda_expr = Expr(
+                    span=proj_expr.span,
+                    kind=ExprKind.LAMBDA,
+                    data={
+                        "is_async": False,
+                        "params": [LambdaParam(span=range_var_tok.span, name=range_var_name)],
+                        "body": proj_expr,
+                    },
+                )
+                callee = Expr(
+                    span=source_expr.span,
+                    kind=ExprKind.MEMBER_ACCESS,
+                    data={"target": source_expr, "member": "Select"},
+                )
+                source_expr = Expr(
+                    span=source_expr.span.merge(proj_expr.span),
+                    kind=ExprKind.CALL,
+                    data={"callee": callee, "type_args": [], "args": [ArgNode(span=lambda_expr.span, name=None, expr=lambda_expr)]},
+                )
+                break
+            else:
+                break
+
+        return source_expr
+
     def _parse_interpolated_parts(self, interp_tok: Token) -> list[InterpolatedPart]:
         raw = interp_tok.lexeme
         parts: list[InterpolatedPart] = []
@@ -1589,6 +1900,13 @@ class Parser:
         n = len(raw)
 
         while i < n:
+            if raw[i] == "\\" and i + 1 < n:
+                esc = raw[i + 1]
+                escape_map = {"n": "\n", "r": "\r", "t": "\t", '"': '"', "\\": "\\", "0": "\0"}
+                if esc in escape_map:
+                    buf.append(escape_map[esc])
+                    i += 2
+                    continue
             if raw[i] == "{" and i + 1 < n and raw[i + 1] == "{":
                 buf.append("{")
                 i += 2

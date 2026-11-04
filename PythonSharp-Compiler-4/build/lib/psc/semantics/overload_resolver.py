@@ -94,7 +94,7 @@ class OverloadResolver:
                 mem_sym = self.symtab.members_by_id.get(member.symbol_id)
                 if mem_sym is None:
                     continue
-                snake = "__init__" if member.is_constructor else pascal_to_snake(member.name)
+                snake = mem_sym.snake_name
                 methods_by_snake.setdefault(snake, []).append((member, mem_sym))
 
         groups: list[OverloadDispatchGroup] = []
@@ -293,6 +293,29 @@ class OverloadResolver:
                 if member.expr_body is not None:
                     self._resolve_expr(member.expr_body, type_sym, env)
 
+    def _register_pattern_bindings(
+        self,
+        pat: PatternNode | None,
+        caller_type: TypeSymbol,
+        env: dict[str, ResolvedType],
+    ) -> None:
+        if pat is None:
+            return
+        if pat.bind_name:
+            if pat.type_ref is not None:
+                env[pat.bind_name] = self.symtab.resolve_type_ref(
+                    pat.type_ref,
+                    current_ns=caller_type.namespace,
+                    imports=caller_type.unit.imports,
+                    active_type_params=set(caller_type.type_params),
+                )
+            else:
+                env[pat.bind_name] = ResolvedType("object", "object")
+        for _, sub in pat.property_subpatterns:
+            self._register_pattern_bindings(sub, caller_type, env)
+        for elem in pat.element_subpatterns:
+            self._register_pattern_bindings(elem, caller_type, env)
+
     def _resolve_stmt(
         self,
         stmt: Stmt,
@@ -377,13 +400,8 @@ class OverloadResolver:
             for sec in stmt.sections:
                 sec_env = dict(env)
                 for pat, guard in sec.labels:
-                    if pat is not None and pat.type_ref is not None and pat.bind_name:
-                        sec_env[pat.bind_name] = self.symtab.resolve_type_ref(
-                            pat.type_ref,
-                            current_ns=caller_type.namespace,
-                            imports=caller_type.unit.imports,
-                            active_type_params=set(caller_type.type_params),
-                        )
+                    if pat is not None:
+                        self._register_pattern_bindings(pat, caller_type, sec_env)
                     if guard is not None:
                         self._resolve_expr(guard, caller_type, sec_env)
                 for s in sec.statements:
@@ -612,7 +630,10 @@ class OverloadResolver:
                     runtime_isinstance_type="bool",
                     is_primitive=True,
                 )
-            return left_ty or right_ty
+            res_ty = left_ty or right_ty
+            if res_ty is not None:
+                expr.resolved_type = res_ty.py_annotation
+            return res_ty
 
         if kind == ExprKind.NULL_COALESCE:
             left_ty = self._resolve_expr(expr.data.get("left"), caller_type, env)
@@ -621,6 +642,15 @@ class OverloadResolver:
             if coalesced is not None:
                 expr.resolved_type = coalesced.py_annotation
             return coalesced
+
+        if kind == ExprKind.CONDITIONAL:
+            self._resolve_expr(expr.data.get("condition"), caller_type, env)
+            then_ty = self._resolve_expr(expr.data.get("then_expr"), caller_type, env)
+            else_ty = self._resolve_expr(expr.data.get("else_expr"), caller_type, env)
+            chosen_ty = then_ty or else_ty
+            if chosen_ty is not None:
+                expr.resolved_type = chosen_ty.py_annotation
+            return chosen_ty
 
         if kind == ExprKind.UNARY:
             return self._resolve_expr(expr.data.get("operand"), caller_type, env)
@@ -653,6 +683,8 @@ class OverloadResolver:
                     active_type_params=set(caller_type.type_params),
                 )
                 expr.data["runtime_type_check"] = self._compute_runtime_type_check(pat_ty)
+            if pat is not None:
+                self._register_pattern_bindings(pat, caller_type, env)
             expr.resolved_type = "bool"
             return None
 

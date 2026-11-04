@@ -1,0 +1,110 @@
+namespace PythonSharp.SciPy;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using PythonSharp.Scientific;
+extern using scipy.optimize as _scipy_opt;
+extern using scipy.linalg as _scipy_linalg;
+extern using scipy.fft as _scipy_fft;
+extern using scipy.sparse as _scipy_sparse;
+extern using scipy.stats as _scipy_stats;
+
+[SurfaceLevel(3)]
+[MapsTo("_scipy_opt")]
+public static primitive class SciPyOptimizeModule
+{
+    [CanonicalApi("PythonSharp.Scientific.FunctionMinimizer.MinimizeScalarFunction")]
+    [InlineTemplate("_scipy_opt.minimize({0}, {1})")]
+    public static extern OptimizationResult Minimize(object objectiveFunction, NDArray<double> initialGuess);
+
+    [CanonicalApi("PythonSharp.Scientific.FunctionMinimizer.MinimizeScalarFunctionWithMethod")]
+    [InlineTemplate("_scipy_opt.minimize({0}, {1}, method={2})")]
+    public static extern OptimizationResult Minimize(object objectiveFunction, NDArray<double> initialGuess, string solverMethod);
+
+    [CanonicalApi("PythonSharp.Scientific.FunctionMinimizer.FindScalarRoot")]
+    [InlineTemplate("_scipy_opt.root({0}, {1})")]
+    public static extern OptimizationResult Root(object equationFunction, NDArray<double> initialGuess);
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_scipy_linalg")]
+public static primitive class SciPyLinearAlgebraModule
+{
+    [CanonicalApi("PythonSharp.Scientific.MatrixDecompositions.ComputeLuDecomposition")]
+    [InlineTemplate("_scipy_linalg.lu({0})")]
+    public static extern (NDArray<double> Permutation, NDArray<double> Lower, NDArray<double> Upper) Lu(NDArray<double> matrix);
+
+    [CanonicalApi("PythonSharp.Scientific.MatrixDecompositions.ComputeCholeskyDecomposition")]
+    [InlineTemplate("_scipy_linalg.cholesky({0})")]
+    public static extern NDArray<double> Cholesky(NDArray<double> matrix);
+
+    [CanonicalApi("PythonSharp.Scientific.MatrixDecompositions.ComputeSingularValueDecomposition")]
+    [InlineTemplate("_scipy_linalg.svd({0})")]
+    public static extern (NDArray<double> U, NDArray<double> SingularValues, NDArray<double> Vh) Svd(NDArray<double> matrix);
+
+    [CanonicalApi("PythonSharp.Scientific.MatrixDecompositions.SolveLinearSystem")]
+    [InlineTemplate("_scipy_linalg.solve({0}, {1})")]
+    public static extern NDArray<double> Solve(NDArray<double> matrixA, NDArray<double> vectorB);
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_scipy_fft")]
+public static primitive class SciPyFftModule
+{
+    [CanonicalApi("PythonSharp.Scientific.FourierTransform.ComputeFastFourierTransform")]
+    [InlineTemplate("_scipy_fft.fft({0})")]
+    public static extern NDArray<double> Fft1D(NDArray<double> signal);
+
+    [CanonicalApi("PythonSharp.Scientific.FourierTransform.ComputeInverseFastFourierTransform")]
+    [InlineTemplate("_scipy_fft.ifft({0})")]
+    public static extern NDArray<double> Ifft1D(NDArray<double> spectrum);
+
+    [CanonicalApi("PythonSharp.Scientific.FourierTransform.ComputeRealFastFourierTransform")]
+    [InlineTemplate("_scipy_fft.rfft({0})")]
+    public static extern NDArray<double> Rfft1D(NDArray<double> realSignal);
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_scipy_sparse")]
+public static primitive class SciPySparseModule
+{
+    [CanonicalApi("PythonSharp.Scientific.SparseMatrixFactory.CreateCompressedSparseRowMatrix")]
+    [InlineTemplate("_scipy_sparse.csr_matrix({0})")]
+    public static extern CompressedSparseRowMatrix<double> CsrMatrix(NDArray<double> denseMatrix);
+
+    [CanonicalApi("PythonSharp.Scientific.SparseMatrixFactory.CreateSparseIdentityMatrix")]
+    [InlineTemplate("_scipy_sparse.eye({0}, format='csr')")]
+    public static extern CompressedSparseRowMatrix<double> Eye(int dimensionSize);
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_scipy_stats")]
+public static primitive class SciPyStatsModule
+{
+    [CanonicalApi("PythonSharp.Scientific.StatisticalAnalysis.ComputePearsonCorrelation")]
+    [InlineTemplate("_scipy_stats.pearsonr({0}, {1})")]
+    public static extern (double Correlation, double PValue) PearsonR(NDArray<double> x, NDArray<double> y);
+
+    [CanonicalApi("PythonSharp.Scientific.StatisticalAnalysis.ComputeZScoreNormalized")]
+    [InlineTemplate("_scipy_stats.zscore({0})")]
+    public static extern NDArray<double> ZScore(NDArray<double> values);
+}
+
+[SurfaceLevel(3)]
+public static primitive class sp
+{
+    [InlineTemplate("_scipy_opt")]
+    public static extern SciPyOptimizeModule Optimize { get; }
+
+    [InlineTemplate("_scipy_linalg")]
+    public static extern SciPyLinearAlgebraModule LinearAlgebra { get; }
+
+    [InlineTemplate("_scipy_fft")]
+    public static extern SciPyFftModule Fft { get; }
+
+    [InlineTemplate("_scipy_sparse")]
+    public static extern SciPySparseModule Sparse { get; }
+
+    [InlineTemplate("_scipy_stats")]
+    public static extern SciPyStatsModule Stats { get; }
+}

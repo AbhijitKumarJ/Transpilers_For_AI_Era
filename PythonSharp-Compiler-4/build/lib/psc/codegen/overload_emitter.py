@@ -67,8 +67,8 @@ class OverloadAstEmitter:
         snake_name: str,
         method: MethodDecl,
     ) -> ast.FunctionDef | ast.AsyncFunctionDef:
-        is_static = "static" in method.modifiers
-        py_args = self._build_method_arguments(method.params, is_static=is_static)
+        is_static = "static" in method.modifiers and not method.is_operator
+        py_args = self._build_method_arguments(method.params, is_static=True if method.is_operator else is_static)
         ret_ann = (
             ast.Constant(value=None)
             if method.is_constructor
@@ -97,10 +97,10 @@ class OverloadAstEmitter:
         ctor_slot_inits: list[ast.stmt],
     ) -> ast.FunctionDef | ast.AsyncFunctionDef:
         first_var = variants[0]
-        is_static = "static" in first_var.modifiers
+        is_static = "static" in first_var.modifiers and not first_var.is_operator
         is_async = any("async" in v.modifiers for v in variants)
 
-        pos_args = [] if is_static else [ast.arg(arg="self")]
+        pos_args = [] if (is_static or first_var.is_operator) else [ast.arg(arg="self")]
         dispatcher_args = ast.arguments(
             posonlyargs=[],
             args=pos_args,

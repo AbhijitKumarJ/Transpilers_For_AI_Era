@@ -1,0 +1,94 @@
+namespace PythonSharp.System.IO;
+
+using PythonSharp.Core;
+extern using os as _py_os;
+extern using shutil as _py_shutil;
+
+[SurfaceLevel(1)]
+public static primitive class EnvironmentVariables
+{
+    [InlineTemplate("_py_os.environ")]
+    public static extern EnvironmentVariableMap Variables { get; }
+
+    [InlineTemplate("_py_os.getenv({0}, {1})")]
+    public static extern string? GetVariableOrDefault(string variableName, string? defaultValue = null);
+
+    [InlineTemplate("_py_os.environ[{0}]")]
+    public static extern string GetRequiredVariable(string variableName);
+}
+
+[SurfaceLevel(1)]
+public static primitive class FilePath
+{
+    [InlineTemplate("_py_os.sep")]
+    public static extern string DirectorySeparator { get; }
+
+    [InlineTemplate("_py_os.path.join({0}, {1})")]
+    public static extern string Combine(string firstSegment, string secondSegment);
+
+    [InlineTemplate("_py_os.path.join({0}, {1}, {2})")]
+    public static extern string CombineThree(string firstSegment, string secondSegment, string thirdSegment);
+
+    [InlineTemplate("_py_os.path.abspath({0})")]
+    public static extern string GetAbsolutePath(string relativeOrAnyPath);
+
+    [InlineTemplate("_py_os.path.dirname({0})")]
+    public static extern string GetDirectoryName(string filePath);
+
+    [InlineTemplate("_py_os.path.basename({0})")]
+    public static extern string GetFileName(string filePath);
+
+    [InlineTemplate("_py_os.path.splitext({0})")]
+    public static extern (string PathWithoutExtension, string Extension) SplitExtension(string filePath);
+}
+
+[SurfaceLevel(1)]
+public static primitive class FileSystemEntry
+{
+    [InlineTemplate("_py_os.path.exists({0})")]
+    public static extern bool ExistsAtPath(string targetPath);
+
+    [InlineTemplate("_py_os.path.isfile({0})")]
+    public static extern bool IsRegularFile(string targetPath);
+
+    [InlineTemplate("_py_os.path.isdir({0})")]
+    public static extern bool IsDirectory(string targetPath);
+}
+
+[SurfaceLevel(1)]
+public static primitive class DirectoryOperations
+{
+    [InlineTemplate("_py_os.getcwd()")]
+    public static extern string GetCurrentWorkingDirectory();
+
+    [InlineTemplate("_py_os.listdir({0})")]
+    public static extern List<string> ListEntryNames(string directoryPath = ".");
+
+    [InlineTemplate("_py_os.makedirs({0}, exist_ok={1})")]
+    public static extern void CreateDirectoryRecursive(string directoryPath, bool ignoreIfAlreadyExists = true);
+
+    [InlineTemplate("_py_shutil.copytree({0}, {1}, dirs_exist_ok={2})")]
+    public static extern string CopyDirectoryTreeRecursively(string sourceDirectoryPath, string destinationDirectoryPath, bool overwriteExistingDirectories = true);
+
+    [InlineTemplate("_py_shutil.rmtree({0}, ignore_errors={1})")]
+    public static extern void DeleteDirectoryTreeRecursively(string directoryPath, bool ignoreErrors = false);
+}
+
+[SurfaceLevel(1)]
+public static primitive class FileOperations
+{
+    [InlineTemplate("_py_shutil.copy2({0}, {1})")]
+    public static extern string CopyFileWithMetadata(string sourceFilePath, string destinationFilePath);
+
+    [InlineTemplate("_py_shutil.move({0}, {1})")]
+    public static extern string MoveEntry(string sourcePath, string destinationPath);
+
+    [InlineTemplate("_py_os.rename({0}, {1})")]
+    public static extern void RenameEntry(string currentPath, string newPath);
+
+    [InlineTemplate("_py_os.remove({0})")]
+    public static extern void DeleteFile(string filePath);
+
+    [InlineTemplate("_py_os.path.getsize({0})")]
+    public static extern long GetFileSize(string filePath);
+}

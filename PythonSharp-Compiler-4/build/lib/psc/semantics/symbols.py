@@ -61,6 +61,11 @@ BUILTIN_PRIMITIVE_MAP: dict[str, tuple[str, str, str | None]] = {
     "string": ("PythonSharp.Core.String", "str", "str"),
     "object": ("object", "object", "object"),
     "dynamic": ("dynamic", "Any", None),
+    "Bytes": ("PythonSharp.Core.Bytes", "bytes", "bytes"),
+    "bytes": ("PythonSharp.Core.Bytes", "bytes", "bytes"),
+    "byte[]": ("PythonSharp.Core.Bytes", "bytes", "bytes"),
+    "Complex": ("PythonSharp.Core.Complex", "complex", "complex"),
+    "complex": ("PythonSharp.Core.Complex", "complex", "complex"),
 }
 
 
@@ -147,6 +152,9 @@ class MemberSymbol:
     inline_template: str | None = None
     setter_inline_template: str | None = None
     linq_stage: str | None = None
+    canonical_api: str | None = None
+    bridge_api: str | None = None
+    surface_level: int = 0
 
 
 @dataclass(slots=True)
@@ -170,11 +178,14 @@ class TypeSymbol:
     base_type_symbols: list[TypeSymbol] = field(default_factory=list)
     base_type_refs: list[ResolvedType] = field(default_factory=list)
 
-    # Extracted from attributes ([MapsTo], [RuntimeType], [SchemaModel], [NativeCompile])
+    # Extracted from attributes ([MapsTo], [RuntimeType], [SchemaModel], [NativeCompile], [CanonicalApi], [SurfaceLevel])
     maps_to_py_type: str | None = None
     runtime_isinstance_type: str | None = None
     is_schema_model: bool = False
     is_native_compile: bool = False
+    canonical_api: str | None = None
+    bridge_api: str | None = None
+    surface_level: int = 0
 
     # Registered in Pass 1C
     members_by_name: dict[str, list[MemberSymbol]] = field(default_factory=dict)
@@ -239,6 +250,33 @@ class TypeSymbol:
                 queue.extend(cur.base_type_symbols)
         return False
 
+    def structurally_implements(self, iface_sym: TypeSymbol) -> bool:
+        """
+        Checks whether this class structurally satisfies all methods and properties
+        declared on `iface_sym` without necessarily having declared explicit inheritance.
+        """
+        if not iface_sym.is_interface or self.is_interface or self.is_enum:
+            return False
+        if not iface_sym.members_by_name:
+            return False
+        for iface_member_name, iface_mems in iface_sym.members_by_name.items():
+            class_mems = self.lookup_member(iface_member_name, include_bases=True)
+            if not class_mems:
+                return False
+            for im in iface_mems:
+                if im.kind == "method":
+                    match = any(
+                        cm.kind == "method" and cm.min_arity <= im.max_arity and cm.max_arity >= im.min_arity
+                        for cm in class_mems
+                    )
+                    if not match:
+                        return False
+                elif im.kind == "property":
+                    match = any(cm.kind in ("property", "field") for cm in class_mems)
+                    if not match:
+                        return False
+        return True
+
 
 class GlobalSymbolTable:
     """
@@ -269,6 +307,9 @@ class GlobalSymbolTable:
         runtime_isinstance_type: str | None = None,
         is_schema_model: bool = False,
         is_native_compile: bool = False,
+        canonical_api: str | None = None,
+        bridge_api: str | None = None,
+        surface_level: int = 0,
     ) -> TypeSymbol:
         ns_tuple = tuple(unit.namespace)
         qname = ".".join((*ns_tuple, decl.name)) if ns_tuple else decl.name
@@ -293,12 +334,29 @@ class GlobalSymbolTable:
             runtime_isinstance_type=runtime_isinstance_type,
             is_schema_model=is_schema_model,
             is_native_compile=is_native_compile,
+            canonical_api=canonical_api,
+            bridge_api=bridge_api,
+            surface_level=surface_level,
         )
 
         self.types_by_id[sym_id] = type_sym
         self.types_by_qname[qname] = type_sym
         self.short_name_index.setdefault(decl.name, []).append(type_sym)
         self.namespaces.setdefault(ns_tuple, []).append(type_sym)
+
+        # Enterprise alias registrations for Numerics domain sub-namespaces
+        if qname == "PythonSharp.Numerics.ArrayFactory":
+            self.types_by_qname["PythonSharp.Numerics.Creation.ArrayFactory"] = type_sym
+        elif qname == "PythonSharp.Numerics.MatrixOperations":
+            self.types_by_qname["PythonSharp.Numerics.LinearAlgebra.MatrixOperations"] = type_sym
+        elif qname == "PythonSharp.Numerics.RandomTensorGenerator":
+            self.types_by_qname["PythonSharp.Numerics.Random.RandomTensorGenerator"] = type_sym
+        elif qname == "PythonSharp.Numerics.ElementWiseMath":
+            self.types_by_qname["PythonSharp.Numerics.Mathematics.ElementWiseMath"] = type_sym
+        elif qname == "PythonSharp.Numerics.TensorManipulation":
+            self.types_by_qname["PythonSharp.Numerics.Manipulation.TensorManipulation"] = type_sym
+        elif qname == "contextlib.subprocess":
+            self.types_by_qname["subprocess.subprocess"] = type_sym
         return type_sym
 
     def register_member(self, type_sym: TypeSymbol, member: MemberSymbol) -> None:
@@ -348,11 +406,28 @@ class GlobalSymbolTable:
                 candidate = f"{ns_prefix}.{joined}"
                 if candidate in self.types_by_qname:
                     return self.types_by_qname[candidate]
+                if "." in ns_prefix:
+                    parent_ns = ns_prefix.rsplit(".", 1)[0]
+                    parent_candidate = f"{parent_ns}.{joined}"
+                    if parent_candidate in self.types_by_qname:
+                        return self.types_by_qname[parent_candidate]
 
         # 5. Implicitly search `PythonSharp.Core`
         core_candidate = f"PythonSharp.Core.{joined}"
         if core_candidate in self.types_by_qname:
             return self.types_by_qname[core_candidate]
+
+        # 6. Check built-in primitive aliases
+        if joined in BUILTIN_PRIMITIVE_MAP:
+            mapped_qname = BUILTIN_PRIMITIVE_MAP[joined][0]
+            if mapped_qname in self.types_by_qname:
+                return self.types_by_qname[mapped_qname]
+        if joined == "int" and "PythonSharp.Core.Int32" in self.types_by_qname:
+            return self.types_by_qname["PythonSharp.Core.Int32"]
+        if joined == "double" and "PythonSharp.Core.Double" in self.types_by_qname:
+            return self.types_by_qname["PythonSharp.Core.Double"]
+        if joined == "bool" and "PythonSharp.Core.Boolean" in self.types_by_qname:
+            return self.types_by_qname["PythonSharp.Core.Boolean"]
 
         return None
 

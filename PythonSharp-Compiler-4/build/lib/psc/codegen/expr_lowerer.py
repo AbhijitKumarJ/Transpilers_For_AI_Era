@@ -9,8 +9,10 @@ from psc.frontend.ast_nodes import (
     ArgNode,
     BinaryOp,
     BlockStmt,
+    BreakStmt,
     CatchClause,
     ComprehensionKind,
+    ContinueStmt,
     Expr,
     ExprKind,
     ExprStmt,
@@ -259,6 +261,12 @@ class ExpressionLowerer:
             return_value_ast: ast.expr | None = self.lower_expr(stmt.value) if stmt.value is not None else None
             node = ast.Return(value=return_value_ast)
             return [stamp_span(node, stmt.span)]  # type: ignore[list-item]
+
+        if isinstance(stmt, BreakStmt):
+            return [stamp_span(ast.Break(), stmt.span)]  # type: ignore[list-item]
+
+        if isinstance(stmt, ContinueStmt):
+            return [stamp_span(ast.Continue(), stmt.span)]  # type: ignore[list-item]
 
         if isinstance(stmt, YieldStmt):
             if stmt.is_break:
@@ -517,6 +525,8 @@ class ExpressionLowerer:
                 return stamp_span(ast.Await(value=operand_ast), span)  # type: ignore[return-value]
             if op == UnaryOp.NOT:
                 return stamp_span(ast.UnaryOp(op=ast.Not(), operand=operand_ast), span)  # type: ignore[return-value]
+            if op == UnaryOp.BITWISE_NOT:
+                return stamp_span(ast.UnaryOp(op=ast.Invert(), operand=operand_ast), span)  # type: ignore[return-value]
             # Both UnaryOp.NEG (`-x`) and UnaryOp.FROM_END (`^x`) lower to `-x`!
             return stamp_span(ast.UnaryOp(op=ast.USub(), operand=operand_ast), span)  # type: ignore[return-value]
 
@@ -552,6 +562,12 @@ class ExpressionLowerer:
         if kind == ExprKind.SWITCH_EXPR:
             return stamp_span(self._lower_switch_expr(expr), span)  # type: ignore[return-value]
 
+        if kind == ExprKind.CONDITIONAL:
+            test_ast = self.lower_expr(expr.data["condition"])
+            body_ast = self.lower_expr(expr.data["then_expr"])
+            orelse_ast = self.lower_expr(expr.data["else_expr"])
+            return stamp_span(ast.IfExp(test=test_ast, body=body_ast, orelse=orelse_ast), span)  # type: ignore[return-value]
+
         if kind == ExprKind.LINQ_COMPREHENSION:
             return stamp_span(self._lower_linq_comprehension(expr), span)  # type: ignore[return-value]
 
@@ -578,6 +594,9 @@ class ExpressionLowerer:
     def _lower_ident(self, expr: Expr) -> ast.expr:
         raw_name = str(expr.data.get("name", ""))
         lowering = expr.resolved_lowering
+        if lowering is not None and lowering.kind == "PrimitiveInlineTemplate":
+            return self.expand_inline_template(lowering.inline_template, None, [])
+
         attr_name = (
             lowering.emitted_snake_name if lowering and lowering.emitted_snake_name else pascal_to_snake(raw_name)
         )
@@ -763,13 +782,40 @@ class ExpressionLowerer:
         if op in cmp_map:
             return ast.Compare(left=left_ast, ops=[cmp_map[op]], comparators=[right_ast])
 
+        if op == BinaryOp.DIV:
+            def _is_int_type(t: object) -> bool:
+                if not t:
+                    return False
+                name = getattr(t, "qualified_name", None) or (t if isinstance(t, str) else "")
+                return name in ("int", "long", "short", "byte", "sbyte", "ushort", "uint", "ulong")
+
+            def _is_float_type(t: object) -> bool:
+                if not t:
+                    return False
+                name = getattr(t, "qualified_name", None) or (t if isinstance(t, str) else "")
+                return name in ("float", "double", "decimal")
+
+            left_t = getattr(expr.data.get("left"), "resolved_type", None)
+            right_t = getattr(expr.data.get("right"), "resolved_type", None)
+            has_float = _is_float_type(expr.resolved_type) or _is_float_type(left_t) or _is_float_type(right_t)
+            is_int_div = not has_float and (
+                _is_int_type(expr.resolved_type) or (_is_int_type(left_t) and _is_int_type(right_t))
+            )
+            op_node = ast.FloorDiv() if is_int_div else ast.Div()
+            return ast.BinOp(left=left_ast, op=op_node, right=right_ast)
+
         bin_map: dict[BinaryOp, ast.operator] = {
             BinaryOp.ADD: ast.Add(),
             BinaryOp.SUB: ast.Sub(),
             BinaryOp.MUL: ast.Mult(),
-            BinaryOp.DIV: ast.Div(),
             BinaryOp.MOD: ast.Mod(),
             BinaryOp.POW: ast.Pow(),
+            BinaryOp.BITWISE_AND: ast.BitAnd(),
+            BinaryOp.BITWISE_OR: ast.BitOr(),
+            BinaryOp.BITWISE_XOR: ast.BitXor(),
+            BinaryOp.LSHIFT: ast.LShift(),
+            BinaryOp.RSHIFT: ast.RShift(),
+            BinaryOp.MATMUL: ast.MatMult(),
         }
         if op in bin_map:
             return ast.BinOp(left=left_ast, op=bin_map[op], right=right_ast)
@@ -898,6 +944,17 @@ class ExpressionLowerer:
                 ops=[ast.Eq()],
                 comparators=[self.lower_expr(pat.literal_expr)],
             )
+        if pat.kind == "RelationalPattern" and pat.literal_expr is not None:
+            op_map = {">": ast.Gt(), ">=": ast.GtE(), "<": ast.Lt(), "<=": ast.LtE(), "==": ast.Eq(), "!=": ast.NotEq()}
+            return ast.Compare(
+                left=target_ast,
+                ops=[op_map.get(pat.relational_op or ">", ast.Gt())],
+                comparators=[self.lower_expr(pat.literal_expr)],
+            )
+        if pat.kind == "VarPattern":
+            if pat.bind_name:
+                return ast.NamedExpr(target=ast.Name(id=pascal_to_snake(pat.bind_name), ctx=ast.Store()), value=target_ast)
+            return ast.Constant(value=True)
 
         if pat.bind_name:
             bind_id = pascal_to_snake(pat.bind_name)
@@ -1087,6 +1144,18 @@ class ExpressionLowerer:
                     comparators=[self.lower_expr(pat.literal_expr)],
                 )
             )
+        elif pat.kind == "VarPattern":
+            if pat.bind_name:
+                conds.append(ast.NamedExpr(target=ast.Name(id=pascal_to_snake(pat.bind_name), ctx=ast.Store()), value=subject_ast))
+        elif pat.kind == "RelationalPattern" and pat.literal_expr is not None:
+            op_map = {">": ast.Gt(), ">=": ast.GtE(), "<": ast.Lt(), "<=": ast.LtE(), "==": ast.Eq(), "!=": ast.NotEq()}
+            conds.append(
+                ast.Compare(
+                    left=subject_ast,
+                    ops=[op_map.get(pat.relational_op or ">", ast.Gt())],
+                    comparators=[self.lower_expr(pat.literal_expr)],
+                )
+            )
         elif pat.kind == "TypePattern" and pat.type_ref is not None:
             subj: ast.expr
             if pat.bind_name:
@@ -1114,6 +1183,33 @@ class ExpressionLowerer:
             return ast.MatchSingleton(value=None), None
         if pat.kind == "Literal" and pat.literal_expr is not None:
             return ast.MatchValue(value=self.lower_expr(pat.literal_expr)), None
+        if pat.kind == "VarPattern":
+            return ast.MatchAs(pattern=None, name=pascal_to_snake(pat.bind_name) if pat.bind_name else None), None
+        if pat.kind == "SlicePattern":
+            return ast.MatchStar(name=pascal_to_snake(pat.bind_name) if pat.bind_name else None), None
+        if pat.kind == "RelationalPattern" and pat.literal_expr is not None:
+            op_map = {">": ast.Gt(), ">=": ast.GtE(), "<": ast.Lt(), "<=": ast.LtE(), "==": ast.Eq(), "!=": ast.NotEq()}
+            cmp_op = op_map.get(pat.relational_op or ">", ast.Gt())
+            var_name = pascal_to_snake(pat.bind_name) if pat.bind_name else self.allocate_temp_var("_ps_rel")
+            guard = ast.Compare(
+                left=ast.Name(id=var_name, ctx=ast.Load()),
+                ops=[cmp_op],
+                comparators=[self.lower_expr(pat.literal_expr)],
+            )
+            return ast.MatchAs(pattern=None, name=var_name), guard
+        if pat.kind == "ListPattern":
+            py_subpats: list[ast.pattern] = []
+            extra_guards: list[ast.expr] = []
+            for ep in pat.element_subpatterns:
+                sub_p, sub_g = self.lower_pattern(ep)
+                py_subpats.append(sub_p)
+                if sub_g is not None:
+                    extra_guards.append(sub_g)
+            seq_pat: ast.pattern = ast.MatchSequence(patterns=py_subpats)
+            bind_id = pascal_to_snake(pat.bind_name) if pat.bind_name else None
+            final_pat = ast.MatchAs(pattern=seq_pat, name=bind_id) if bind_id else seq_pat
+            combined_guard = extra_guards[0] if len(extra_guards) == 1 else (ast.BoolOp(op=ast.And(), values=extra_guards) if extra_guards else None)
+            return final_pat, combined_guard
         if pat.kind == "TypePattern" and pat.type_ref is not None:
             type_name = pat.type_ref.path[-1] if pat.type_ref.path else "object"
             py_map = {"string": "str", "int": "int", "bool": "bool", "double": "float", "decimal": "Decimal"}

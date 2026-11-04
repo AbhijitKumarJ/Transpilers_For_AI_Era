@@ -1,0 +1,30 @@
+namespace PythonSharp.MachineLearning.GradientBoosting;
+
+using PythonSharp.Core;
+extern using xgboost as _xgb;
+extern using lightgbm as _lgb;
+
+[SurfaceLevel(1)]
+public static primitive class GradientBoostingFactory
+{
+    [InlineTemplate("_xgb.XGBClassifier(n_estimators={0}, max_depth={1}, learning_rate={2}, random_state={3})")]
+    public static extern XgBoostClassifierModel CreateXgBoostClassifier(
+        int numberOfBoostedTrees = 100,
+        int maximumTreeDepth = 6,
+        double shrinkageLearningRate = 0.1,
+        int randomSeed = 42);
+
+    [InlineTemplate("_xgb.XGBRegressor(n_estimators={0}, max_depth={1}, learning_rate={2}, random_state={3})")]
+    public static extern XgBoostRegressorModel CreateXgBoostRegressor(
+        int numberOfBoostedTrees = 100,
+        int maximumTreeDepth = 6,
+        double shrinkageLearningRate = 0.1,
+        int randomSeed = 42);
+
+    [InlineTemplate("_lgb.LGBMClassifier(n_estimators={0}, num_leaves={1}, learning_rate={2}, random_state={3})")]
+    public static extern LightGbmClassifierModel CreateLightGbmClassifier(
+        int numberOfBoostedTrees = 100,
+        int maximumTreeLeaves = 31,
+        double shrinkageLearningRate = 0.1,
+        int randomSeed = 42);
+}

@@ -11,20 +11,31 @@ from psc.codegen import ArtifactEmitter, EmittedArtifact, NamespacePackagePlanne
 from psc.diagnostics import DiagnosticEngine
 from psc.frontend import CompilationUnit, Parser
 from psc.native import NativeCompiler
-from psc.project import PsProjectConfig, load_project
+from psc.project import (
+    PsProjectConfig,
+    find_stdlib_stubs,
+    is_ps_project_file,
+    is_ps_source_file,
+    is_ps_stub_file,
+    load_project,
+)
 from psc.semantics import GlobalSymbolTable, analyze_compilation_units
 from psc.semantics.symbols import pascal_to_snake
 
 
 def _find_default_stdlib_dir() -> Path | None:
-    """Locates `stdlib/PythonSharp.Core.d.ps` relative to the package or working directory."""
+    """Locates stdlib relative to the package, virtualenv, or working directory."""
     candidates = [
+        Path(__file__).resolve().parent / "stdlib",
         Path(__file__).resolve().parent.parent.parent / "stdlib",
         Path(sys.prefix) / "share" / "pythonsharp",
         Path.cwd() / "stdlib",
     ]
     for cand in candidates:
-        if cand.exists() and any(cand.glob("*.d.ps")):
+        if cand.exists() and (
+            any(is_ps_stub_file(p) for p in cand.glob("*"))
+            or (cand / "00_core").is_dir()
+        ):
             return cand
     return None
 
@@ -33,14 +44,14 @@ def _discover_inputs(target: Path, out_dir: Path | None) -> PsProjectConfig:
     stdlib_dir = _find_default_stdlib_dir()
     target = target.resolve()
 
-    if target.is_file() and target.suffix == ".psproj":
+    if target.is_file() and is_ps_project_file(target):
         cfg = load_project(target, stdlib_dir=stdlib_dir)
         if out_dir is not None:
             cfg.out_dir = out_dir.resolve()
         return cfg
 
-    if target.is_file() and target.suffix == ".ps":
-        stubs = sorted(stdlib_dir.rglob("*.d.ps")) if stdlib_dir else []
+    if target.is_file() and is_ps_source_file(target):
+        stubs = find_stdlib_stubs(stdlib_dir)
         return PsProjectConfig(
             project_name=target.stem,
             root_dir=target.parent,
@@ -49,19 +60,19 @@ def _discover_inputs(target: Path, out_dir: Path | None) -> PsProjectConfig:
             stub_files=stubs,
         )
 
-    # Directory target: look for a `.psproj` first, or scan all `.ps` files
-    psproj_files = list(target.glob("*.psproj"))
+    # Directory target: look for a project file first, or scan all source files
+    psproj_files = [p for p in target.glob("*") if is_ps_project_file(p)]
     if psproj_files:
         cfg = load_project(psproj_files[0], stdlib_dir=stdlib_dir)
         if out_dir is not None:
             cfg.out_dir = out_dir.resolve()
         return cfg
 
-    stubs = sorted(stdlib_dir.rglob("*.d.ps")) if stdlib_dir else []
-    for local_stub in sorted(target.rglob("*.d.ps")):
-        if local_stub not in stubs:
+    stubs = find_stdlib_stubs(stdlib_dir)
+    for local_stub in sorted(target.rglob("*")):
+        if local_stub.is_file() and is_ps_stub_file(local_stub) and local_stub not in stubs:
             stubs.append(local_stub)
-    sources = sorted(p for p in target.rglob("*.ps") if not p.name.endswith(".d.ps"))
+    sources = sorted(p for p in target.rglob("*") if p.is_file() and is_ps_source_file(p))
     return PsProjectConfig(
         project_name=target.name,
         root_dir=target,
@@ -73,6 +84,7 @@ def _discover_inputs(target: Path, out_dir: Path | None) -> PsProjectConfig:
 
 def parse_and_analyze_config(
     config: PsProjectConfig,
+    target_surface: int | None = None,
 ) -> tuple[list[CompilationUnit], GlobalSymbolTable, DiagnosticEngine]:
     diag = DiagnosticEngine()
     units: list[CompilationUnit] = []
@@ -98,6 +110,7 @@ def parse_and_analyze_config(
             symtab=symtab,
             diagnostics=diag,
             assembly_name=config.project_name,
+            target_surface=target_surface,
         )
 
     return units, symtab, diag
@@ -121,6 +134,13 @@ def build_parser() -> argparse.ArgumentParser:
     check_p.add_argument(
         "target", type=Path, nargs="?", default=Path("."), help="Path to .psproj, directory, or .ps file"
     )
+    check_p.add_argument(
+        "--target-surface",
+        type=int,
+        choices=[1, 2, 3],
+        default=None,
+        help="Enforce enterprise surface level (1=Raw, 2=Bridge, 3=Enterprise). Emits PS005 warnings.",
+    )
 
     build_p = subparsers.add_parser("build", help="Compile .ps project into Python packages and line-pinned .pyc files")
     build_p.add_argument(
@@ -132,6 +152,13 @@ def build_parser() -> argparse.ArgumentParser:
     build_p.add_argument("--no-cache", action="store_true", help="Disable build caching")
     build_p.add_argument(
         "--native", action="store_true", help="Compile [NativeCompile] types to C-extensions via mypyc/Cython"
+    )
+    build_p.add_argument(
+        "--target-surface",
+        type=int,
+        choices=[1, 2, 3],
+        default=None,
+        help="Enforce enterprise surface level (1=Raw, 2=Bridge, 3=Enterprise). Emits PS005 warnings.",
     )
 
     watch_p = subparsers.add_parser("watch", help="Watch project files and rebuild incrementally on change")
@@ -162,6 +189,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     bindgen_p.add_argument(
         "--root-namespace", type=str, default="Extern", help="Root namespace prefix (default: Extern)"
+    )
+    bindgen_p.add_argument(
+        "--triple-surface",
+        action="store_true",
+        help="Generate 4-file Triple Surface bundle (primitives, raw surface 1, csharp bridge surface 2, enterprise surface 3)",
     )
     return parser
 
@@ -206,6 +238,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             target,
             out_dir=args.out_dir.resolve(),
             root_namespace=args.root_namespace,
+            triple_surface=getattr(args, "triple_surface", False),
         )
         print(f"Bindgen succeeded: generated {len(generated)} .d.ps file(s) into '{args.out_dir}'.")
         return 0
@@ -225,7 +258,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(f"Build is up to date: outputs in '{config.out_dir}' are fresh.")
         return 0
 
-    _, symtab, diag = parse_and_analyze_config(config)
+    target_surface = getattr(args, "target_surface", None)
+    _, symtab, diag = parse_and_analyze_config(config, target_surface=target_surface)
+    for d in diag.diagnostics:
+        if d.severity == "WARNING":
+            print(str(d), file=sys.stderr)
     if diag.has_errors():
         print(diag.format_all(), file=sys.stderr)
         return 1

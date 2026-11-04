@@ -50,10 +50,13 @@ def generate_bindings(
     *,
     manifest_path: Path | None = None,
     root_namespace: str = "Extern",
+    triple_surface: bool = False,
 ) -> list[Path]:
     """
     Generate .d.ps stubs from a single .pyi file or directory of .pyi files.
     Writes emitted files and updates the binding manifest.
+    When triple_surface=True, outputs the 4-file bundle per module
+    (primitives, raw surface 1, csharp bridge surface 2, enterprise surface 3).
     """
     out_dir.mkdir(parents=True, exist_ok=True)
     mpath = manifest_path or (out_dir / "psc-bindings-manifest.json")
@@ -81,19 +84,50 @@ def generate_bindings(
             except ValueError:
                 pass
 
-        d_ps_content = parse_pyi_file(pyi, module_name, root_namespace=root_namespace)
-        dest_filename = f"{module_name}.d.ps"
-        dest_path = out_dir / dest_filename
-        dest_path.write_text(d_ps_content, encoding="utf-8")
-        generated_files.append(dest_path)
+        if triple_surface:
+            source = pyi.read_text(encoding="utf-8")
+            pyi_ast = ast.parse(source)
+            gen = BindgenGenerator(module_name=module_name, root_namespace=root_namespace)
+            bundle = gen.generate_triple_surface_bundle(pyi_ast)
 
-        manifest.add_entry(
-            package_name=module_name,
-            pyi_path=pyi.resolve(),
-            pyi_hash=compute_file_hash(pyi),
-            d_ps_path=dest_path.resolve(),
-            d_ps_hash=compute_content_hash(d_ps_content),
-        )
+            pkg_dir = out_dir / module_name
+            pkg_dir.mkdir(parents=True, exist_ok=True)
+            surface_map: dict[str, str] = {}
+            for fname, content in bundle.items():
+                dest_path = pkg_dir / fname
+                dest_path.write_text(content, encoding="utf-8")
+                generated_files.append(dest_path)
+                if "primitives" in fname:
+                    surface_map["primitives"] = str(dest_path.resolve())
+                elif "raw" in fname:
+                    surface_map["surface_1"] = str(dest_path.resolve())
+                elif "csharp" in fname:
+                    surface_map["surface_2"] = str(dest_path.resolve())
+                elif "enterprise" in fname:
+                    surface_map["surface_3"] = str(dest_path.resolve())
+
+            manifest.add_entry(
+                package_name=module_name,
+                pyi_path=pyi.resolve(),
+                pyi_hash=compute_file_hash(pyi),
+                d_ps_path=pkg_dir.resolve(),
+                d_ps_hash=compute_content_hash("\n".join(bundle.values())),
+                surface_files=surface_map,
+            )
+        else:
+            d_ps_content = parse_pyi_file(pyi, module_name, root_namespace=root_namespace)
+            dest_filename = f"{module_name}.d.ps"
+            dest_path = out_dir / dest_filename
+            dest_path.write_text(d_ps_content, encoding="utf-8")
+            generated_files.append(dest_path)
+
+            manifest.add_entry(
+                package_name=module_name,
+                pyi_path=pyi.resolve(),
+                pyi_hash=compute_file_hash(pyi),
+                d_ps_path=dest_path.resolve(),
+                d_ps_hash=compute_content_hash(d_ps_content),
+            )
 
     manifest.write_to(mpath)
     return generated_files

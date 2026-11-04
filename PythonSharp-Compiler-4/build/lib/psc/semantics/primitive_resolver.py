@@ -20,6 +20,7 @@ from psc.frontend.ast_nodes import (
     WhileStmt,
     YieldStmt,
 )
+from psc.semantics.collector import resolve_operator_dunder
 from psc.semantics.symbols import GlobalSymbolTable, TypeSymbol, pascal_to_snake
 
 INTRINSIC_ATTR_NAMES = frozenset(
@@ -40,6 +41,10 @@ INTRINSIC_ATTR_NAMES = frozenset(
         "SchemaModelAttribute",
         "NativeCompile",
         "NativeCompileAttribute",
+        "CanonicalApi",
+        "CanonicalApiAttribute",
+        "SurfaceLevel",
+        "SurfaceLevelAttribute",
     }
 )
 
@@ -134,7 +139,12 @@ class PrimitiveResolver:
         type_sym: TypeSymbol,
         method: MethodDecl,
     ) -> MemberLoweringMode:
-        snake = "__init__" if method.is_constructor else pascal_to_snake(method.name)
+        if method.is_constructor:
+            snake = "__init__"
+        elif method.is_operator:
+            snake = resolve_operator_dunder(method.operator_token, len(method.params))
+        else:
+            snake = pascal_to_snake(method.name)
 
         inline_tpl = self._extract_string_attr(method.attributes, ("InlineTemplate", "InlineTemplateAttribute"))
         if inline_tpl is not None:

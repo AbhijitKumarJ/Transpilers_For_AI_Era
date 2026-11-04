@@ -24,14 +24,18 @@ from psc.semantics.symbols import pascal_to_snake
 
 
 def _find_default_stdlib_dir() -> Path | None:
-    """Locates stdlib relative to the package or working directory."""
+    """Locates stdlib relative to the package, virtualenv, or working directory."""
     candidates = [
+        Path(__file__).resolve().parent / "stdlib",
         Path(__file__).resolve().parent.parent.parent / "stdlib",
         Path(sys.prefix) / "share" / "pythonsharp",
         Path.cwd() / "stdlib",
     ]
     for cand in candidates:
-        if cand.exists() and any(is_ps_stub_file(p) for p in cand.glob("*")):
+        if cand.exists() and (
+            any(is_ps_stub_file(p) for p in cand.glob("*"))
+            or (cand / "00_core").is_dir()
+        ):
             return cand
     return None
 

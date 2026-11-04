@@ -1,7 +1,7 @@
 # PythonSharp Roadmap
 
-**Status:** Phase 0–Phase 5, Triple-Surface Architecture, Real-World Dogfooding (Tiers 1–12), Language Enhancements, and 54-Part Blog Series complete and verified; CI marked OUT OF SCOPE (D-015)
-**Last updated:** 2026-11-01
+**Status:** Phase 0–Phase 5, Triple-Surface Architecture, Real-World Dogfooding (Tiers 1–12), Language Enhancements, 54-Part Blog Series, and Self-Contained Wheel Distribution complete and verified; CI marked OUT OF SCOPE (D-015)
+**Last updated:** 2026-11-04
 **Related docs:** [PRD.md](PRD.md), [TECH-STACK.md](TECH-STACK.md), [PROGRESS.md](PROGRESS.md), [CORE-API.md](CORE-API.md), [RELEASE-NOTES-PHASE-2.md](RELEASE-NOTES-PHASE-2.md), [LSP.md](LSP.md), [Triple Surface](Triple%20Surface/README.md)
 
 ## 1. Phase overview
@@ -509,8 +509,8 @@ Phase 0 ──▶ Phase 1 ──▶ Phase 2 ──▶ Phase 3 ──▶ Phase 4 
 | `1.1.0` | Phase 3 | Bindgen for representative packages |
 | `1.2.0` | Phase 4 | Decorators, schema models, async |
 | `2.0.0` | Phase 5 | LSP, incremental builds, native compilation |
-| `2.1.0` | Triple-Surface & AI | Tri-modal ladder, modular stdlib (23 packages, 94 stubs), bindgen bundles, Sample 07 AI/ML showcase, and Tier 9 NumPy |
-| `2.2.0-dev` | Next-Gen AI & Modern Language Features | Tiers 10–12 real-world dogfooding (32 ported packages, 7 showcases, 39 operational projects), String-Backed Enums (`enum.StrEnum`), Structural Duck-Typing (`@runtime_checkable Protocol`), Advanced Pattern Matching (List & Relational patterns), Level 4 blog series (54 blogs total), 152 unit tests |
+| `2.1.0` | Triple-Surface & AI | Tri-modal ladder, modular stdlib (23 packages, 95 stubs), bindgen bundles, Sample 07 AI/ML showcase, and Tier 9 NumPy |
+| `2.2.0-dev` | Next-Gen AI, Language & Distribution | Tiers 10–12 real-world dogfooding (32 ported packages, 7 showcases, 39 operational projects), String-Backed Enums (`enum.StrEnum`), Structural Duck-Typing (`@runtime_checkable Protocol`), Advanced Pattern Matching (List & Relational patterns), Level 4 blog series (54 blogs total), 152 unit tests, self-contained wheel bundling 95 standard library stubs, clean venv installation, and pre-packaged VS Code extension (`pythonsharp-0.1.0.vsix`) |
 
 ## 12. Change control
 

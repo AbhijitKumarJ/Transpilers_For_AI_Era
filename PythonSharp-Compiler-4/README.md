@@ -74,6 +74,62 @@ pytest --cov=psc --cov-report=term-missing
 The retained CI workflow mirrors these checks plus generated-code Pyright
 validation and clean wheel installation. Remote CI is marked OUT OF SCOPE; all gates pass locally.
 
+## Building & Distribution
+
+PythonSharp is distributed as a self-contained pure-Python wheel (`.whl`) and source distribution (`.tar.gz`). The wheel bundles all 95 standard library definition stubs (`00_core/`, `01_python_stdlib/`, `02_scientific_and_ai/`) under `psc.stdlib`, ensuring full offline compilation, zero wrapper tax, and instant lowering for native operators (`@`, `.T`):
+
+### 1. Build Wheel and Sdist
+```bash
+# Build into dist/ using pyproject-build or python -m build
+pyproject-build --outdir dist
+# or: python -m build --outdir dist
+```
+
+### 2. Verify Wheel Bundled Stubs
+```bash
+python -c "
+import zipfile, pathlib
+whl = sorted(pathlib.Path('dist').glob('*.whl'))[-1]
+with zipfile.ZipFile(whl) as z:
+    stubs = [n for n in z.namelist() if n.endswith('.d.ps')]
+    print(f'Wheel: {whl.name} | Bundled stubs: {len(stubs)} (Expected: 95)')
+    assert len(stubs) == 95, f'Missing stubs! Found {len(stubs)}'
+"
+```
+
+### 3. Install in a Clean Virtual Environment
+```bash
+# Create clean virtual environment
+mkdir -p ~/my_pythonsharp_project && cd ~/my_pythonsharp_project
+uv venv .venv && source .venv/bin/activate
+# or: python -m venv .venv && source .venv/bin/activate
+
+# Install from the wheel
+uv pip install /path/to/PythonSharp/dist/pythonsharp_compiler-0.1.0-py3-none-any.whl
+
+# Verify CLI
+psc --version
+```
+
+## Visual Studio Code Extension
+
+A pre-packaged VS Code extension (`editors/vscode/pythonsharp-0.1.0.vsix`) provides syntax highlighting, language configuration, and seamless LSP integration (`psc lsp`):
+
+```bash
+# Option A: Install the pre-packaged .vsix
+code --install-extension /path/to/PythonSharp/editors/vscode/pythonsharp-0.1.0.vsix
+
+# Option B: Link the extension directory for live development
+mkdir -p ~/.vscode/extensions
+ln -s /path/to/PythonSharp/editors/vscode ~/.vscode/extensions/pythonsharp
+```
+
+When opened in VS Code with your virtual environment selected, the extension provides:
+- **Go To Definition (`F12`)**: Jumps into project files and ambient stubs inside `site-packages/psc/stdlib/`.
+- **Hover**: Real-time type signatures and interactive Tri-Modal Surface Ladder cards.
+- **IntelliSense**: Autocompletes C# keywords, project types, and standard library members.
+- **Diagnostics**: Real-time compiler errors (`PS000`–`PS005`) with exact spans and actionable fix hints.
+
 ## Documentation & Blog Series
 
 - [Documentation index](docs/README.md)

@@ -462,6 +462,41 @@ File "Services/OrderCache.ps", line 24, in get_or_create
 `co_filename` is pinned recursively for functions, methods, lambdas, and nested
 comprehensions. The age of the `.pyc` header does not affect traceback fidelity.
 
+### 8.1 Packaging & Standard Library Distribution Architecture
+
+PythonSharp distributes its compiler and standard library definition stubs as a unified, self-contained wheel. To ensure zero-configuration execution and full offline capability across virtual environments, the standard library is bundled as package data within `psc.stdlib`:
+
+1. **Package Data Layout:**
+   - `src/psc/stdlib` symlinks to the repository `stdlib/` directory.
+   - `pyproject.toml` registers `[tool.setuptools.package-data] "psc" = ["stdlib/**"]`.
+   - `MANIFEST.in` includes `recursive-include src/psc/stdlib *.d.ps` and `recursive-include stdlib *.d.ps`.
+   - The compiled wheel (`.whl`) bundles all 95 ambient `.d.ps` stubs across:
+     - `00_core/` (Core runtime types, collections, LINQ, task abstractions)
+     - `01_python_stdlib/` (12 packages, 24 stubs: `math`, `os`, `sys`, `json`, `re`, `datetime`, `shutil`, `tempfile`, `hashlib`, `pathlib`, `subprocess`, `random`)
+     - `02_scientific_and_ai/` (11 packages, 70 stubs: NumPy, SciPy, Pandas, Polars, Matplotlib, Seaborn, Scikit-Learn, PyTorch, XGBoost, HuggingFace Transformers, Qiskit)
+
+2. **Runtime Discovery Resolution Order (`_find_default_stdlib_dir`):**
+   When `psc` CLI or `psc lsp` starts, it resolves the standard library via:
+   ```python
+   # 1. Check inside installed package directory (site-packages/psc/stdlib)
+   pkg_stdlib = Path(__file__).resolve().parent / "stdlib"
+   if pkg_stdlib.is_dir() and (pkg_stdlib / "00_core" / "PythonSharp.Core.d.ps").exists():
+       return pkg_stdlib
+
+   # 2. Check repo root relative to src/psc/cli.py (for editable installs)
+   repo_stdlib = Path(__file__).resolve().parents[2] / "stdlib"
+   if repo_stdlib.is_dir() and (repo_stdlib / "00_core" / "PythonSharp.Core.d.ps").exists():
+       return repo_stdlib
+
+   # 3. System prefix fallback
+   sys_stdlib = Path(sys.prefix) / "share" / "psc" / "stdlib"
+   if sys_stdlib.is_dir():
+       return sys_stdlib
+   ```
+
+3. **Semantic Invariant:**
+   Ambient stubs provide compile-time type symbols, `[MapsTo]` runtime mappings, and `[InlineTemplate]` expansion recipes (e.g. `ArrayFactory.CreateIdentityMatrix` -> `_np.eye`, matrix multiplication -> `@`, transposition -> `.T`). Bundling the stubs inside the package guarantees that code compiled in clean virtual environments achieves identical Zero Runtime Wrapper Tax lowering without requiring a checkout of the compiler source code.
+
 ## 9. Runtime contract
 
 Emitted modules may rely on the following conventions:

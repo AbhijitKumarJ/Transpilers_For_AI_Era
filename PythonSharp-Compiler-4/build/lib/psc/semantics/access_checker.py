@@ -339,6 +339,31 @@ class AccessChecker:
         for elem_tr, _ in type_ref.tuple_elements:
             self._check_type_ref_access(elem_tr, caller_type, active_tparams)
 
+    def _register_pattern_bindings(
+        self,
+        pat: PatternNode | None,
+        caller_type: TypeSymbol,
+        env: dict[str, ResolvedType],
+    ) -> None:
+        if pat is None:
+            return
+        if pat.type_ref is not None:
+            self._check_type_ref_access(pat.type_ref, caller_type, set(caller_type.type_params))
+        if pat.bind_name:
+            if pat.type_ref is not None:
+                env[pat.bind_name] = self.symtab.resolve_type_ref(
+                    pat.type_ref,
+                    current_ns=caller_type.namespace,
+                    imports=caller_type.unit.imports,
+                    active_type_params=set(caller_type.type_params),
+                )
+            else:
+                env[pat.bind_name] = ResolvedType("object", "object")
+        for _, sub in pat.property_subpatterns:
+            self._register_pattern_bindings(sub, caller_type, env)
+        for elem in pat.element_subpatterns:
+            self._register_pattern_bindings(elem, caller_type, env)
+
     def _check_stmt(
         self,
         stmt: Stmt,
@@ -442,15 +467,8 @@ class AccessChecker:
             for sec in stmt.sections:
                 sec_env = dict(env)
                 for pat, guard in sec.labels:
-                    if pat is not None and pat.type_ref is not None:
-                        self._check_type_ref_access(pat.type_ref, caller_type, set(caller_type.type_params))
-                        if pat.bind_name:
-                            sec_env[pat.bind_name] = self.symtab.resolve_type_ref(
-                                pat.type_ref,
-                                current_ns=caller_type.namespace,
-                                imports=caller_type.unit.imports,
-                                active_type_params=set(caller_type.type_params),
-                            )
+                    if pat is not None:
+                        self._register_pattern_bindings(pat, caller_type, sec_env)
                     if guard is not None:
                         self._check_expr(guard, caller_type, sec_env, in_constructor)
                 for s in sec.statements:
@@ -662,8 +680,8 @@ class AccessChecker:
         if kind == ExprKind.TYPE_CHECK_IS:
             self._check_expr(expr.data.get("target"), caller_type, env, in_constructor)
             pat = expr.data.get("pattern")
-            if pat is not None and pat.type_ref is not None:
-                self._check_type_ref_access(pat.type_ref, caller_type, set(caller_type.type_params))
+            if pat is not None:
+                self._register_pattern_bindings(pat, caller_type, env)
             return None
 
         if kind == ExprKind.TYPE_CAST_AS:

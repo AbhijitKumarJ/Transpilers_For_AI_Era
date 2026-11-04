@@ -26,8 +26,8 @@ psc = "psc.cli:main"
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.setuptools.data-files]
-"share/pythonsharp" = ["stdlib/PythonSharp.Core.d.ps"]
+[tool.setuptools.package-data]
+"psc" = ["stdlib/**"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

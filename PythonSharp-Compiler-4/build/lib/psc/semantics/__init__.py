@@ -8,6 +8,7 @@ from psc.semantics.linq_fuser import ComprehensionGenerator, LinqComprehensionFu
 from psc.semantics.overload_resolver import OverloadResolver
 from psc.semantics.primitive_resolver import PrimitiveResolver
 from psc.semantics.slot_analyzer import SlotAndHierarchyAnalyzer
+from psc.semantics.surface_checker import SurfaceMigrationChecker
 from psc.semantics.symbols import (
     BUILTIN_PRIMITIVE_MAP,
     GlobalSymbolTable,
@@ -25,6 +26,7 @@ def analyze_compilation_units(
     symtab: GlobalSymbolTable,
     diagnostics: DiagnosticEngine,
     assembly_name: str | None = None,
+    target_surface: int | None = None,
 ) -> None:
     """
     Runs the complete Pass 1 + Pass 2A + Pass 2B semantic pipeline across all units:
@@ -34,6 +36,8 @@ def analyze_compilation_units(
       4. PrimitiveResolver (Pass 2B: [MapsTo], [InlineTemplate], [KwArgs], generators)
       5. OverloadResolver (Pass 2B: @overload dispatch groups, Rule PS002, call-site binding)
       6. LinqComprehensionFuser (Pass 2B: .Where().Select().ToList() comprehension fusion)
+      7. TypeChecker (Pass 2B: static type conformance)
+      8. SurfaceMigrationChecker (Pass 2C: Rule PS005 target surface compliance)
     """
     SymbolCollector(symtab, diagnostics).collect_all(units, assembly_name=assembly_name)
     SlotAndHierarchyAnalyzer(symtab, diagnostics).analyze_all(units)
@@ -42,6 +46,8 @@ def analyze_compilation_units(
     OverloadResolver(symtab, diagnostics).resolve_all(units)
     LinqComprehensionFuser(symtab).fuse_all(units)
     TypeChecker(symtab, diagnostics).verify_all(units)
+    if target_surface is not None and target_surface > 1:
+        SurfaceMigrationChecker(symtab, diagnostics, target_surface=target_surface).check_all(units)
 
 
 __all__ = [
@@ -57,6 +63,7 @@ __all__ = [
     "OverloadResolver",
     "LinqComprehensionFuser",
     "TypeChecker",
+    "SurfaceMigrationChecker",
     "ComprehensionGenerator",
     "analyze_compilation_units",
     "namespace_to_module_path",

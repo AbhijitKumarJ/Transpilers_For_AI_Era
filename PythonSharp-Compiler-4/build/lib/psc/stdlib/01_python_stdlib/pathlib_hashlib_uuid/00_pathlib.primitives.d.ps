@@ -1,0 +1,102 @@
+namespace PythonSharp.System.Security;
+
+using PythonSharp.Core;
+extern using pathlib as _py_pathlib;
+extern using hashlib as _py_hashlib;
+
+[MapsTo("pathlib.Path")]
+[RuntimeType("pathlib.Path")]
+public primitive class FileSystemPath
+{
+    [InlineTemplate("str({self}.name)")]
+    public extern string FileName { get; }
+
+    [CanonicalApi("PythonSharp.System.Security.FileSystemPath.FileName")]
+    [InlineTemplate("str({self}.name)")]
+    public extern string Name { get; }
+
+    [CanonicalApi("PythonSharp.System.Security.FileSystemPath.FileName", "Name")]
+    [InlineTemplate("str({self}.name)")]
+    public extern string name { get; }
+
+    [InlineTemplate("str({self}.suffix)")]
+    public extern string FileExtension { get; }
+
+    [CanonicalApi("PythonSharp.System.Security.FileSystemPath.FileExtension")]
+    [InlineTemplate("str({self}.suffix)")]
+    public extern string Suffix { get; }
+
+    [CanonicalApi("PythonSharp.System.Security.FileSystemPath.FileExtension", "Suffix")]
+    [InlineTemplate("str({self}.suffix)")]
+    public extern string suffix { get; }
+
+    [InlineTemplate("{self}.parent")]
+    public extern FileSystemPath ParentDirectory { get; }
+
+    [CanonicalApi("PythonSharp.System.Security.FileSystemPath.ParentDirectory")]
+    [InlineTemplate("{self}.parent")]
+    public extern FileSystemPath Parent { get; }
+
+    [CanonicalApi("PythonSharp.System.Security.FileSystemPath.ParentDirectory", "Parent")]
+    [InlineTemplate("{self}.parent")]
+    public extern FileSystemPath parent { get; }
+
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [InlineTemplate("({self} / {0})")]
+    public extern FileSystemPath JoinChildPath(string childSegment);
+
+    [MapsTo("exists")]
+    public extern bool ExistsOnDisk();
+
+    [MapsTo("read_text")]
+    public extern string ReadAllTextUtf8(string encoding = "utf-8");
+
+    [MapsTo("write_text")]
+    public extern int WriteAllTextUtf8(string content, string encoding = "utf-8");
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.System.Security.FileSystemPath.JoinChildPath")]
+    [InlineTemplate("({self} / {0})")]
+    public extern FileSystemPath JoinPath(string child);
+
+    [CanonicalApi("PythonSharp.System.Security.FileSystemPath.ExistsOnDisk")]
+    [MapsTo("exists")]
+    public extern bool Exists();
+
+    [CanonicalApi("PythonSharp.System.Security.FileSystemPath.ReadAllTextUtf8")]
+    [MapsTo("read_text")]
+    public extern string ReadText(string encoding = "utf-8");
+
+    [CanonicalApi("PythonSharp.System.Security.FileSystemPath.WriteAllTextUtf8")]
+    [MapsTo("write_text")]
+    public extern int WriteText(string data, string encoding = "utf-8");
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.System.Security.FileSystemPath.ExistsOnDisk", "Exists")]
+    [MapsTo("exists")]
+    public extern bool exists();
+
+    [CanonicalApi("PythonSharp.System.Security.FileSystemPath.ReadAllTextUtf8", "ReadText")]
+    [MapsTo("read_text")]
+    public extern string read_text(string encoding = "utf-8");
+
+    [CanonicalApi("PythonSharp.System.Security.FileSystemPath.WriteAllTextUtf8", "WriteText")]
+    [MapsTo("write_text")]
+    public extern int write_text(string data, string encoding = "utf-8");
+}
+
+[MapsTo("hashlib._Hash")]
+[RuntimeType("object")]
+public primitive class CryptographicHashDigest
+{
+    [MapsTo("hexdigest")]
+    public extern string ComputeHexadecimalDigest();
+
+    [CanonicalApi("PythonSharp.System.Security.CryptographicHashDigest.ComputeHexadecimalDigest")]
+    [MapsTo("hexdigest")]
+    public extern string HexDigest();
+
+    [CanonicalApi("PythonSharp.System.Security.CryptographicHashDigest.ComputeHexadecimalDigest", "HexDigest")]
+    [MapsTo("hexdigest")]
+    public extern string hexdigest();
+}

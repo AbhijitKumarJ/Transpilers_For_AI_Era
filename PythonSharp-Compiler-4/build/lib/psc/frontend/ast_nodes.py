@@ -166,6 +166,7 @@ class CompilationUnit:
     types: list[TypeDecl]
     # Pass 2 slot
     emitted_py_module_path: str = ""
+    namespace_span: SourceSpan | None = None
 
 
 @dataclass(slots=True)
@@ -296,6 +297,8 @@ class MethodDecl:
     lowering_mode: MemberLoweringMode = field(default_factory=MemberLoweringMode)
     is_generator: bool = False
     decorators_to_emit: list[Expr] = field(default_factory=list)
+    is_operator: bool = False
+    operator_token: str = ""
 
 
 MemberDecl = FieldDecl | PropertyDecl | IndexerDecl | MethodDecl
@@ -309,11 +312,13 @@ MemberDecl = FieldDecl | PropertyDecl | IndexerDecl | MethodDecl
 @dataclass(slots=True)
 class PatternNode:
     span: SourceSpan
-    kind: str  # "Discard" | "Null" | "Literal" | "TypePattern"
+    kind: str  # "Discard" | "Null" | "Literal" | "TypePattern" | "ListPattern" | "SlicePattern" | "RelationalPattern" | "VarPattern"
     literal_expr: Expr | None = None
     type_ref: TypeRef | None = None
     bind_name: str | None = None
     property_subpatterns: list[tuple[str, PatternNode]] = field(default_factory=list)
+    element_subpatterns: list[PatternNode] = field(default_factory=list)
+    relational_op: str | None = None
 
 
 @dataclass(slots=True)
@@ -378,6 +383,16 @@ class YieldStmt:
 
 
 @dataclass(slots=True)
+class BreakStmt:
+    span: SourceSpan
+
+
+@dataclass(slots=True)
+class ContinueStmt:
+    span: SourceSpan
+
+
+@dataclass(slots=True)
 class ThrowStmt:
     span: SourceSpan
     exception: Expr | None = None
@@ -429,6 +444,8 @@ Stmt = (
     | ForEachStmt
     | ReturnStmt
     | YieldStmt
+    | BreakStmt
+    | ContinueStmt
     | ThrowStmt
     | TryCatchFinallyStmt
     | SwitchStmt
@@ -456,6 +473,7 @@ class UnaryOp(Enum):
     NEG = "-"
     AWAIT = "await"
     FROM_END = "^"
+    BITWISE_NOT = "~"
 
 
 class BinaryOp(Enum):
@@ -474,6 +492,12 @@ class BinaryOp(Enum):
     IN = "in"
     AND = "&&"
     OR = "||"
+    BITWISE_AND = "&"
+    BITWISE_OR = "|"
+    BITWISE_XOR = "^"
+    LSHIFT = "<<"
+    RSHIFT = ">>"
+    MATMUL = "@"
     ASSIGN = "="
     ADD_ASSIGN = "+="
     SUB_ASSIGN = "-="
@@ -541,6 +565,7 @@ class ExprKind(Enum):
     TYPE_CAST_AS = auto()
     LAMBDA = auto()
     SWITCH_EXPR = auto()
+    CONDITIONAL = auto()
     LINQ_COMPREHENSION = auto()  # Fused by Pass 2
     RAW_PYTHON_AST = auto()
 

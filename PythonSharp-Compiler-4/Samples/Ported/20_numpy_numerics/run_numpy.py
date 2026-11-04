@@ -59,25 +59,25 @@ from numpy_numerics import TensorEngine  # noqa: E402
 def test_numpy_operations() -> None:
     print("=== Step 1: Testing TensorEngine Creation ===")
     eye = TensorEngine.create_identity(3)
-    assert eye.shape == [3, 3], f"Expected [3, 3], got {eye.shape}"
+    assert list(eye.shape) == [3, 3], f"Expected [3, 3], got {eye.shape}"
     print(f"[PASS] 3x3 Identity matrix created with shape {eye.shape}")
 
     ones = TensorEngine.create_ones(3, 3)
-    assert ones.shape == [3, 3], f"Expected [3, 3], got {ones.shape}"
+    assert list(ones.shape) == [3, 3], f"Expected [3, 3], got {ones.shape}"
     print(f"[PASS] 3x3 Ones matrix created with shape {ones.shape}")
 
     print("\n=== Step 2: Testing Matrix Multiplication (@ operator lowering) ===")
     prod = TensorEngine.multiply(eye, ones)
-    assert prod.shape == [3, 3], f"Expected [3, 3], got {prod.shape}"
+    assert list(prod.shape) == [3, 3], f"Expected [3, 3], got {prod.shape}"
     print(f"[PASS] Matrix multiplication executed cleanly: eye @ ones = shape {prod.shape}")
 
     print("\n=== Step 3: Testing Transpose and Multi-Axis Slicing ===")
     trans = TensorEngine.transpose(prod)
-    assert trans.shape == [3, 3]
+    assert list(trans.shape) == [3, 3]
     print(f"[PASS] Transpose matrix property (.T) verified: shape {trans.shape}")
 
     sub = TensorEngine.slice_sub_matrix(prod)
-    assert sub.shape == [2, 2], f"Expected sub-matrix [2, 2], got {sub.shape}"
+    assert list(sub.shape) == [2, 2], f"Expected sub-matrix [2, 2], got {sub.shape}"
     print(f"[PASS] Multi-axis slicing (matrix[0:2, 0:2]) verified: shape {sub.shape}")
 
     print("\nAll 20_numpy_numerics verification checks succeeded with 0 errors!")

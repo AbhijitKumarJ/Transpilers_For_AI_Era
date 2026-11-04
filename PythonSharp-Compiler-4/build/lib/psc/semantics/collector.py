@@ -23,6 +23,43 @@ from psc.semantics.symbols import (
 )
 
 
+OPERATOR_DUNDER_MAP: dict[str, str] = {
+    "+": "__add__",
+    "-": "__sub__",
+    "*": "__mul__",
+    "/": "__truediv__",
+    "%": "__mod__",
+    "**": "__pow__",
+    "==": "__eq__",
+    "!=": "__ne__",
+    "<": "__lt__",
+    "<=": "__le__",
+    ">": "__gt__",
+    ">=": "__ge__",
+    "&": "__and__",
+    "|": "__or__",
+    "^": "__xor__",
+    "~": "__invert__",
+    "!": "__bool__",
+    "<<": "__lshift__",
+    ">>": "__rshift__",
+    "@": "__matmul__",
+}
+
+UNARY_OPERATOR_DUNDER_MAP: dict[str, str] = {
+    "-": "__neg__",
+    "+": "__pos__",
+    "~": "__invert__",
+    "!": "__bool__",
+}
+
+
+def resolve_operator_dunder(op_tok: str, param_count: int) -> str:
+    if param_count == 1 and op_tok in UNARY_OPERATOR_DUNDER_MAP:
+        return UNARY_OPERATOR_DUNDER_MAP[op_tok]
+    return OPERATOR_DUNDER_MAP.get(op_tok, f"__{op_tok}__")
+
+
 class SymbolCollector:
     """
     Pass 1 of the PythonSharp Compiler (`psc`):
@@ -67,7 +104,8 @@ class SymbolCollector:
                 namespace_paths[module_path] = ns_tuple
             for decl in unit.types:
                 type_sym = self._register_type_decl(unit, decl, assembly_name)
-                registered_types.append(type_sym)
+                if type_sym not in registered_types:
+                    registered_types.append(type_sym)
 
         # Sub-pass 1B: Resolve inheritance hierarchies & verify acyclic base chains
         for type_sym in registered_types:
@@ -93,17 +131,59 @@ class SymbolCollector:
         runtime_type = self._extract_string_attr(decl.attributes, ("RuntimeType", "RuntimeTypeAttribute"))
         is_schema = self._has_attr(decl.attributes, ("SchemaModel", "SchemaModelAttribute"))
         is_native = self._has_attr(decl.attributes, ("NativeCompile", "NativeCompileAttribute"))
+        canon_api, bridge_api = self._extract_canonical_attr(decl.attributes)
+        surface_level = self._extract_surface_level(decl.attributes)
 
         ns_tuple = tuple(unit.namespace)
         qname = ".".join((*ns_tuple, decl.name)) if ns_tuple else decl.name
 
         if qname in self.symtab.types_by_qname and not unit.is_ambient_stub:
             existing = self.symtab.types_by_qname[qname]
-            if not existing.is_ambient_stub and "partial" not in decl.modifiers:
-                self.diagnostics.report_syntax_error(
-                    decl.span,
-                    f"Duplicate type definition '{qname}' (already defined at {existing.span.format_location()}).",
-                )
+            if not existing.is_ambient_stub:
+                if "partial" in decl.modifiers and "partial" in existing.ast_node.modifiers:
+                    if decl.kind != existing.kind:
+                        self.diagnostics.report_syntax_error(
+                            decl.span,
+                            f"Partial declarations of '{qname}' must have the same type kind ({existing.kind.name.lower()} vs {decl.kind.name.lower()}).",
+                        )
+                    # Merge base types
+                    for bt in decl.base_types:
+                        if bt not in existing.ast_node.base_types:
+                            existing.ast_node.base_types.append(bt)
+                    # Merge attributes
+                    for attr in decl.attributes:
+                        existing.ast_node.attributes.append(attr)
+                    # Merge imports
+                    for imp in unit.imports:
+                        if imp not in existing.unit.imports:
+                            existing.unit.imports.append(imp)
+                    # Handle partial method declarations / member merging
+                    for new_member in decl.members:
+                        if isinstance(new_member, MethodDecl):
+                            replaced = False
+                            for idx, existing_m in enumerate(existing.ast_node.members):
+                                if (
+                                    isinstance(existing_m, MethodDecl)
+                                    and existing_m.name == new_member.name
+                                    and len(existing_m.params) == len(new_member.params)
+                                    and existing_m.body is None
+                                    and existing_m.expr_body is None
+                                    and (new_member.body is not None or new_member.expr_body is not None)
+                                ):
+                                    existing.ast_node.members[idx] = new_member
+                                    replaced = True
+                                    break
+                            if not replaced:
+                                existing.ast_node.members.append(new_member)
+                        else:
+                            existing.ast_node.members.append(new_member)
+                    decl.symbol_id = existing.id
+                    return existing
+                else:
+                    self.diagnostics.report_syntax_error(
+                        decl.span,
+                        f"Duplicate type definition '{qname}' (already defined at {existing.span.format_location()}).",
+                    )
 
         asm = "PythonSharp.Core" if unit.is_ambient_stub else (assembly_name or self.symtab.default_assembly_name)
         return self.symtab.register_type(
@@ -114,6 +194,9 @@ class SymbolCollector:
             runtime_isinstance_type=runtime_type or maps_to,
             is_schema_model=is_schema,
             is_native_compile=is_native,
+            canonical_api=canon_api,
+            bridge_api=bridge_api,
+            surface_level=surface_level,
         )
 
     # ========================================================================
@@ -123,6 +206,17 @@ class SymbolCollector:
     def _resolve_base_types(self, type_sym: TypeSymbol) -> None:
         decl = type_sym.ast_node
         active_tparams = set(type_sym.type_params)
+
+        if type_sym.is_enum:
+            for base_ref in decl.base_types:
+                resolved_base = self.symtab.resolve_type_ref(
+                    base_ref,
+                    current_ns=type_sym.namespace,
+                    imports=type_sym.unit.imports,
+                    active_type_params=active_tparams,
+                )
+                type_sym.base_type_refs.append(resolved_base)
+            return
 
         for base_ref in decl.base_types:
             resolved_base = self.symtab.resolve_type_ref(
@@ -266,6 +360,9 @@ class SymbolCollector:
             active_type_params=class_tparams,
         )
 
+        canon_api, bridge_api = self._extract_canonical_attr(field_decl.attributes)
+        surface_level = self._extract_surface_level(field_decl.attributes)
+
         mem_sym = MemberSymbol(
             id=sym_id,
             name=field_decl.name,
@@ -282,6 +379,9 @@ class SymbolCollector:
             span=field_decl.span,
             ast_node=field_decl,
             resolved_type=resolved_ty,
+            canonical_api=canon_api,
+            bridge_api=bridge_api,
+            surface_level=surface_level,
         )
         self.symtab.register_member(type_sym, mem_sym)
 
@@ -321,6 +421,8 @@ class SymbolCollector:
 
         maps_to = self._extract_string_attr(prop_decl.attributes, ("MapsTo", "MapsToAttribute"))
         inline_tpl = self._extract_string_attr(prop_decl.attributes, ("InlineTemplate", "InlineTemplateAttribute"))
+        canon_api, bridge_api = self._extract_canonical_attr(prop_decl.attributes)
+        surface_level = self._extract_surface_level(prop_decl.attributes)
 
         mem_sym = MemberSymbol(
             id=sym_id,
@@ -340,6 +442,9 @@ class SymbolCollector:
             resolved_type=resolved_ty,
             maps_to_py_name=maps_to,
             inline_template=inline_tpl,
+            canonical_api=canon_api,
+            bridge_api=bridge_api,
+            surface_level=surface_level,
         )
         self.symtab.register_member(type_sym, mem_sym)
 
@@ -373,6 +478,8 @@ class SymbolCollector:
             param_names.append(p.emitted_snake_name)
 
         inline_tpl = self._extract_string_attr(idx_decl.attributes, ("InlineTemplate", "InlineTemplateAttribute"))
+        canon_api, bridge_api = self._extract_canonical_attr(idx_decl.attributes)
+        surface_level = self._extract_surface_level(idx_decl.attributes)
         setter_tpl: str | None = None
         setter_acc: AccessMod | None = None
         for acc in idx_decl.accessors:
@@ -402,6 +509,9 @@ class SymbolCollector:
             max_arity=len(param_types),
             inline_template=inline_tpl,
             setter_inline_template=setter_tpl,
+            canonical_api=canon_api,
+            bridge_api=bridge_api,
+            surface_level=surface_level,
         )
         self.symtab.register_member(type_sym, mem_sym)
 
@@ -418,6 +528,16 @@ class SymbolCollector:
         if method_decl.is_constructor:
             snake_name = "__init__"
             ret_type = None
+        elif method_decl.is_operator:
+            snake_name = resolve_operator_dunder(method_decl.operator_token, len(method_decl.params))
+            assert method_decl.return_type is not None
+            ret_type = self.symtab.resolve_type_ref(
+                method_decl.return_type,
+                current_ns=type_sym.namespace,
+                imports=type_sym.unit.imports,
+                active_type_params=active_tparams,
+            )
+            method_decl.lowering_mode.emitted_snake_name = snake_name
         else:
             snake_name = pascal_to_snake(method_decl.name)
             assert method_decl.return_type is not None
@@ -457,17 +577,19 @@ class SymbolCollector:
         maps_to = self._extract_string_attr(method_decl.attributes, ("MapsTo", "MapsToAttribute"))
         inline_tpl = self._extract_string_attr(method_decl.attributes, ("InlineTemplate", "InlineTemplateAttribute"))
         linq_stage = self._extract_string_attr(method_decl.attributes, ("LinqStage", "LinqStageAttribute"))
+        canon_api, bridge_api = self._extract_canonical_attr(method_decl.attributes)
+        surface_level = self._extract_surface_level(method_decl.attributes)
 
         mem_sym = MemberSymbol(
             id=sym_id,
             name=method_decl.name,
             snake_name=maps_to or snake_name,
-            kind="constructor" if method_decl.is_constructor else "method",
+            kind="operator" if method_decl.is_operator else ("constructor" if method_decl.is_constructor else "method"),
             owner_type_id=type_sym.id,
             owner_qualified_name=type_sym.qualified_name,
             access=method_decl.access,
             setter_access=None,
-            is_static="static" in method_decl.modifiers,
+            is_static="static" in method_decl.modifiers and not method_decl.is_operator,
             is_async="async" in method_decl.modifiers,
             is_extern="extern" in method_decl.modifiers or type_sym.is_primitive,
             is_readonly=False,
@@ -483,6 +605,9 @@ class SymbolCollector:
             maps_to_py_name=maps_to,
             inline_template=inline_tpl,
             linq_stage=linq_stage,
+            canonical_api=canon_api,
+            bridge_api=bridge_api,
+            surface_level=surface_level,
         )
         self.symtab.register_member(type_sym, mem_sym)
 
@@ -502,3 +627,28 @@ class SymbolCollector:
                 if first_expr.kind == ExprKind.LITERAL and first_expr.data.get("literal_kind") == LiteralKind.STRING:
                     return str(first_expr.data["value"])
         return None
+
+    @staticmethod
+    def _extract_canonical_attr(attrs: list[AttributeNode]) -> tuple[str | None, str | None]:
+        for attr in attrs:
+            if attr.path[-1] in ("CanonicalApi", "CanonicalApiAttribute") and attr.args:
+                canon: str | None = None
+                bridge: str | None = None
+                first_expr = attr.args[0].expr
+                if first_expr.kind == ExprKind.LITERAL and first_expr.data.get("literal_kind") == LiteralKind.STRING:
+                    canon = str(first_expr.data["value"])
+                if len(attr.args) > 1:
+                    second_expr = attr.args[1].expr
+                    if second_expr.kind == ExprKind.LITERAL and second_expr.data.get("literal_kind") == LiteralKind.STRING:
+                        bridge = str(second_expr.data["value"])
+                return canon, bridge
+        return None, None
+
+    @staticmethod
+    def _extract_surface_level(attrs: list[AttributeNode]) -> int:
+        for attr in attrs:
+            if attr.path[-1] in ("SurfaceLevel", "SurfaceLevelAttribute") and attr.args:
+                first_expr = attr.args[0].expr
+                if first_expr.kind == ExprKind.LITERAL and first_expr.data.get("literal_kind") == LiteralKind.INT:
+                    return int(first_expr.data["value"])
+        return 0

@@ -1,0 +1,83 @@
+namespace PythonSharp.SymbolicMath;
+
+using PythonSharp.Core;
+extern using sympy as _sp;
+
+[MapsTo("sympy.Expr")]
+[RuntimeType("sympy.Expr")]
+public primitive class SymbolicExpression
+{
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [MapsTo("subs")]
+    public extern SymbolicExpression SubstituteVariable(SymbolicExpression targetVariable, object replacementValue);
+
+    [InlineTemplate("float({self}.evalf())")]
+    public extern double EvaluateNumerically();
+
+    [MapsTo("simplify")]
+    public extern SymbolicExpression SimplifyAlgebraically();
+
+    [MapsTo("expand")]
+    public extern SymbolicExpression ExpandPolynomial();
+
+    [MapsTo("factor")]
+    public extern SymbolicExpression FactorizePolynomial();
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicExpression.SubstituteVariable")]
+    [MapsTo("subs")]
+    public extern SymbolicExpression Subs(SymbolicExpression variable, object value);
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicExpression.EvaluateNumerically")]
+    [InlineTemplate("float({self}.evalf())")]
+    public extern double EvalF();
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicExpression.SimplifyAlgebraically")]
+    [MapsTo("simplify")]
+    public extern SymbolicExpression Simplify();
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicExpression.ExpandPolynomial")]
+    [MapsTo("expand")]
+    public extern SymbolicExpression Expand();
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicExpression.FactorizePolynomial")]
+    [MapsTo("factor")]
+    public extern SymbolicExpression Factor();
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicExpression.SubstituteVariable", "Subs")]
+    [MapsTo("subs")]
+    public extern SymbolicExpression subs(SymbolicExpression variable, object value);
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicExpression.EvaluateNumerically", "EvalF")]
+    [InlineTemplate("float({self}.evalf())")]
+    public extern double evalf();
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicExpression.SimplifyAlgebraically", "Simplify")]
+    [MapsTo("simplify")]
+    public extern SymbolicExpression simplify();
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicExpression.ExpandPolynomial", "Expand")]
+    [MapsTo("expand")]
+    public extern SymbolicExpression expand();
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicExpression.FactorizePolynomial", "Factor")]
+    [MapsTo("factor")]
+    public extern SymbolicExpression factor();
+}
+
+[MapsTo("sympy.Symbol")]
+[RuntimeType("sympy.Symbol")]
+public primitive class SymbolicVariable : SymbolicExpression
+{
+    [InlineTemplate("str({self}.name)")]
+    public extern string SymbolName { get; }
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicVariable.SymbolName")]
+    [InlineTemplate("str({self}.name)")]
+    public extern string Name { get; }
+
+    [CanonicalApi("PythonSharp.SymbolicMath.SymbolicVariable.SymbolName", "Name")]
+    [InlineTemplate("str({self}.name)")]
+    public extern string name { get; }
+}
