@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "plotting_builders.py",
+      "namespace": [
+        "PlottingBuilders"
+      ],
+      "primary_ps": "PlotBuilderEngine.ps",
+      "py": "plotting_builders.py",
+      "pyc": null
+    }
+  ],
+  "schema_version": 1
+}

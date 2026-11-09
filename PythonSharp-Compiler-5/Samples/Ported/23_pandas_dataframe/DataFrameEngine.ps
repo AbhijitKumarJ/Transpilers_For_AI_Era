@@ -1,0 +1,115 @@
+namespace DataFrameAnalytics;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using PythonSharp.DataScience.Tabular;
+using PythonSharp.Pandas;
+using pandas;
+
+public record EmployeeRecord(
+    string Name,
+    string Department,
+    double Salary,
+    double Bonus,
+    int YearsOfService
+);
+
+public class DataFrameEngine
+{
+    // ========================================================================
+    // Surface 1: Self-Documenting Enterprise Architecture APIs
+    // ========================================================================
+
+    public static DataFrame<EmployeeRecord> BuildEmployeeTable(object columnData)
+    {
+        return TabularDataFactory.CreateDataFrameFromDictionary<EmployeeRecord>(columnData);
+    }
+
+    public static (int Rows, int Columns) InspectDimensions(DataFrame<EmployeeRecord> table)
+    {
+        return table.TableDimensions;
+    }
+
+    public static List<string> InspectColumns(DataFrame<EmployeeRecord> table)
+    {
+        return table.ColumnNames;
+    }
+
+    public static DataFrame<EmployeeRecord> CleanseMissingData(DataFrame<EmployeeRecord> table)
+    {
+        return table.DropRowsWithMissingValues();
+    }
+
+    public static DataFrame<EmployeeRecord> ImputeMissingValues(DataFrame<EmployeeRecord> table, double fallbackValue)
+    {
+        return table.FillMissingValuesWith(fallbackValue);
+    }
+
+    public static DataFrame<EmployeeRecord> AggregateDepartmentalMeans(DataFrame<EmployeeRecord> table, string departmentColumn)
+    {
+        return table.GroupRowsByColumn(departmentColumn).AggregateByMean();
+    }
+
+    public static DataFrame<EmployeeRecord> SortBySalaryRank(DataFrame<EmployeeRecord> table, string salaryColumn, bool ascending)
+    {
+        return table.SortRowsByColumn(salaryColumn, ascending);
+    }
+
+    public static NDArray<double> ExtractNumericalFeatureMatrix(DataFrame<EmployeeRecord> table)
+    {
+        return table.ConvertToFeatureMatrix();
+    }
+
+    public static DataFrame<object> GenerateStatisticalSummary(DataFrame<EmployeeRecord> table)
+    {
+        return table.ComputeSummaryStatistics();
+    }
+
+    // ========================================================================
+    // Surface 3: C#-Standardized Bridge APIs (PascalCase)
+    // ========================================================================
+
+    public static Series<double> CreateSalarySeries(List<double> salaries)
+    {
+        return TabularDataFactory.CreateSeriesFromSequence<double>(salaries);
+    }
+
+    public static double CalculateAverageSalary(Series<double> salarySeries)
+    {
+        return salarySeries.Mean();
+    }
+
+    public static double CalculateSalaryStandardDeviation(Series<double> salarySeries)
+    {
+        return salarySeries.Std();
+    }
+
+    public static double CalculateTotalPayroll(Series<double> salarySeries)
+    {
+        return salarySeries.Sum();
+    }
+
+    public static double GetLowestSalary(Series<double> salarySeries)
+    {
+        return salarySeries.Min();
+    }
+
+    public static double GetHighestSalary(Series<double> salarySeries)
+    {
+        return salarySeries.Max();
+    }
+
+    // ========================================================================
+    // Surface 2: Raw Python snake_case ABI (Jupyter Notebook Portability)
+    // ========================================================================
+
+    public static DataFrame<EmployeeRecord> PreviewTopRecords(DataFrame<EmployeeRecord> table, int count)
+    {
+        return table.head(count);
+    }
+
+    public static DataFrame<EmployeeRecord> PreviewBottomRecords(DataFrame<EmployeeRecord> table, int count)
+    {
+        return table.tail(count);
+    }
+}

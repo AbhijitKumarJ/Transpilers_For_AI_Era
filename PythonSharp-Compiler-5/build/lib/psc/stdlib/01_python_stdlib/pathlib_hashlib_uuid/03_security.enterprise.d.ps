@@ -1,0 +1,33 @@
+namespace PythonSharp.System.Security;
+
+using PythonSharp.Core;
+extern using pathlib as _py_pathlib;
+extern using hashlib as _py_hashlib;
+extern using uuid as _py_uuid;
+
+[SurfaceLevel(1)]
+[MapsTo("_py_pathlib")]
+public static primitive class PathObjectFactory
+{
+    [InlineTemplate("_py_pathlib.Path({0})")]
+    public static extern FileSystemPath CreateFileSystemPath(string pathString);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_py_hashlib")]
+public static primitive class CryptographicHasher
+{
+    [InlineTemplate("_py_hashlib.sha256({0})")]
+    public static extern CryptographicHashDigest ComputeSha256FromBytes(Bytes payloadBytes);
+
+    [InlineTemplate("_py_hashlib.sha256({0}.encode('utf-8')).hexdigest()")]
+    public static extern string ComputeSha256HexFromString(string utf8Text);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_py_uuid")]
+public static primitive class UniqueIdentifierGenerator
+{
+    [InlineTemplate("str(_py_uuid.uuid4())")]
+    public static extern string GenerateRandomUuidV4String();
+}

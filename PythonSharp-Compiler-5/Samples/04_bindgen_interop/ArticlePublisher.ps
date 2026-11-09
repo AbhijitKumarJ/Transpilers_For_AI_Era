@@ -1,0 +1,21 @@
+namespace Publishing;
+
+using PythonSharp.Core;
+using Extern.NativeText;
+extern using native_text as NativeText;
+
+public class Article
+{
+    public string Title { get; set; }
+    public string Body { get; set; }
+
+    public Article(string title, string body)
+    {
+        Title = title;
+        Body = body;
+    }
+
+    public string GenerateSlug() => NativeText.Slugify(Title);
+
+    public int GetWordCount() => NativeText.CountWords(Body);
+}

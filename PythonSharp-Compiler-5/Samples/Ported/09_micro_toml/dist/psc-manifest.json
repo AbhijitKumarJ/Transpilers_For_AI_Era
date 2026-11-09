@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "micro_toml.py",
+      "namespace": [
+        "MicroToml"
+      ],
+      "primary_ps": "Toml.ps",
+      "py": "micro_toml.py",
+      "pyc": "micro_toml.pyc"
+    }
+  ],
+  "schema_version": 1
+}

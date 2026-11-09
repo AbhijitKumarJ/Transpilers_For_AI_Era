@@ -1,0 +1,28 @@
+namespace PythonSharp.ArtificialIntelligence.Inference;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+extern using faiss as _faiss;
+extern using onnxruntime as _ort;
+
+[SurfaceLevel(1)]
+[MapsTo("_faiss")]
+public static primitive class VectorIndexFactory
+{
+    [InlineTemplate("_faiss.IndexFlatL2({0})")]
+    public static extern VectorSimilarityIndex CreateEuclideanL2VectorIndex(int embeddingDimensionSize);
+
+    [InlineTemplate("_faiss.IndexFlatIP({0})")]
+    public static extern VectorSimilarityIndex CreateInnerProductVectorIndex(int embeddingDimensionSize);
+
+    [InlineTemplate("_faiss.normalize_L2({0})")]
+    public static extern void NormalizeRowsL2InPlace(NDArray<double> embeddingMatrix);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_ort")]
+public static primitive class OnnxSessionFactory
+{
+    [InlineTemplate("_ort.InferenceSession({0})")]
+    public static extern OnnxRuntimeInferenceSession CreateInferenceSessionFromFile(string onnxModelFilePath);
+}

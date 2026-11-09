@@ -1,0 +1,7 @@
+include README.md
+include LICENSE
+include pyproject.toml
+recursive-include stdlib *.d.ps *.json
+recursive-include src/psc/stdlib *.d.ps *.json
+recursive-include tests *.py *.ps *.d.ps *.psproj *.json
+

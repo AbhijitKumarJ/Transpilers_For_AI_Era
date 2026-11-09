@@ -1,0 +1,44 @@
+namespace PythonSharp.Net.Http;
+
+using PythonSharp.Core;
+extern using urllib.request as _py_urllib_req;
+
+[MapsTo("http.client.HTTPResponse")]
+[RuntimeType("object")]
+public primitive class HttpResponseStream : IDisposable
+{
+    [InlineTemplate("int({self}.status)")]
+    public extern int StatusCode { get; }
+
+    [CanonicalApi("PythonSharp.Net.Http.HttpResponseStream.StatusCode")]
+    [InlineTemplate("int({self}.status)")]
+    public extern int Status { get; }
+
+    [CanonicalApi("PythonSharp.Net.Http.HttpResponseStream.StatusCode", "Status")]
+    [InlineTemplate("int({self}.status)")]
+    public extern int status { get; }
+
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [InlineTemplate("{self}.read().decode('utf-8')")]
+    public extern string ReadResponseTextUtf8();
+
+    [MapsTo("read")]
+    public extern Bytes ReadResponseBytes();
+
+    [MapsTo("close")]
+    public extern void Dispose();
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.Net.Http.HttpResponseStream.ReadResponseTextUtf8")]
+    [InlineTemplate("{self}.read().decode('utf-8')")]
+    public extern string ReadText();
+
+    [CanonicalApi("PythonSharp.Net.Http.HttpResponseStream.ReadResponseBytes")]
+    [MapsTo("read")]
+    public extern Bytes Read();
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.Net.Http.HttpResponseStream.ReadResponseBytes", "Read")]
+    [MapsTo("read")]
+    public extern Bytes read();
+}

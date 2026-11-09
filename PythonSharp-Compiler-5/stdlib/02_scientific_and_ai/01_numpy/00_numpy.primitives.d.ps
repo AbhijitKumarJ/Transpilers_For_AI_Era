@@ -1,0 +1,254 @@
+namespace PythonSharp.Numerics.Tensors;
+
+using PythonSharp.Core;
+extern using numpy as np;
+
+[MapsTo("np.ndarray")]
+[RuntimeType("np.ndarray")]
+public primitive class NDArray<T> : IEnumerable<T>
+{
+    // ========================================================================
+    // 1. PROPERTIES (Surface 1: Enterprise | Surface 3: C# | Surface 2: Raw)
+    // ========================================================================
+    [InlineTemplate("list({self}.shape)")]
+    public extern List<int> DimensionShape { get; }
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.DimensionShape")]
+    [InlineTemplate("list({self}.shape)")]
+    public extern List<int> Shape { get; }
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.DimensionShape", "Shape")]
+    [InlineTemplate("list({self}.shape)")]
+    public extern List<int> shape { get; }
+
+    [InlineTemplate("int({self}.ndim)")]
+    public extern int NumberOfDimensions { get; }
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.NumberOfDimensions")]
+    [InlineTemplate("int({self}.ndim)")]
+    public extern int NDim { get; }
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.NumberOfDimensions", "NDim")]
+    [InlineTemplate("int({self}.ndim)")]
+    public extern int ndim { get; }
+
+    [InlineTemplate("int({self}.size)")]
+    public extern int TotalElementCount { get; }
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.TotalElementCount")]
+    [InlineTemplate("int({self}.size)")]
+    public extern int Size { get; }
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.TotalElementCount", "Size")]
+    [InlineTemplate("int({self}.size)")]
+    public extern int size { get; }
+
+    [InlineTemplate("str({self}.dtype)")]
+    public extern string ElementDataType { get; }
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.ElementDataType")]
+    [InlineTemplate("str({self}.dtype)")]
+    public extern string DType { get; }
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.ElementDataType", "DType")]
+    [InlineTemplate("str({self}.dtype)")]
+    public extern string dtype { get; }
+
+    [InlineTemplate("{self}.T")]
+    public extern NDArray<T> TransposedMatrix { get; }
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.TransposedMatrix")]
+    [InlineTemplate("{self}.T")]
+    public extern NDArray<T> T { get; }
+
+    // ========================================================================
+    // 2. SHAPE & TYPE TRANSFORMATIONS
+    // ========================================================================
+    [InlineTemplate("{self}.reshape(({0}, {1}))")]
+    public extern NDArray<T> ReshapeToMatrix(int rows, int columns);
+
+    [InlineTemplate("{self}.reshape(({0}, {1}, {2}))")]
+    public extern NDArray<T> ReshapeTo3DTensor(int depth, int rows, int columns);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.ReshapeToMatrix")]
+    [MapsTo("reshape")]
+    public extern NDArray<T> Reshape(params int[] shape);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.ReshapeToMatrix", "Reshape")]
+    [MapsTo("reshape")]
+    public extern NDArray<T> reshape(params int[] shape);
+
+    [MapsTo("flatten")]
+    public extern NDArray<T> FlattenTo1DVector();
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.FlattenTo1DVector")]
+    [MapsTo("flatten")]
+    public extern NDArray<T> Flatten();
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.FlattenTo1DVector", "Flatten")]
+    [MapsTo("flatten")]
+    public extern NDArray<T> flatten();
+
+    [MapsTo("squeeze")]
+    public extern NDArray<T> SqueezeSingletonDimensions(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.SqueezeSingletonDimensions")]
+    [MapsTo("squeeze")]
+    public extern NDArray<T> Squeeze(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.SqueezeSingletonDimensions", "Squeeze")]
+    [MapsTo("squeeze")]
+    public extern NDArray<T> squeeze(int? axis = null);
+
+    [InlineTemplate("{self}.astype({0})")]
+    public extern NDArray<TOut> CastElementsTo<TOut>(string targetDtype);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.CastElementsTo")]
+    [InlineTemplate("{self}.astype({0})")]
+    public extern NDArray<TOut> AsType<TOut>(string dtype);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.CastElementsTo", "AsType")]
+    [InlineTemplate("{self}.astype({0})")]
+    public extern NDArray<TOut> astype<TOut>(string dtype);
+
+    [MapsTo("copy")]
+    public extern NDArray<T> CloneDeepCopy();
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.CloneDeepCopy")]
+    [MapsTo("copy")]
+    public extern NDArray<T> Copy();
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.CloneDeepCopy", "Copy")]
+    [MapsTo("copy")]
+    public extern NDArray<T> copy();
+
+    [MapsTo("tolist")]
+    public extern List<T> ConvertToList();
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.ConvertToList")]
+    [MapsTo("tolist")]
+    public extern List<T> ToList();
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.ConvertToList", "ToList")]
+    [MapsTo("tolist")]
+    public extern List<T> tolist();
+
+    // ========================================================================
+    // 3. STATISTICAL & AXIS REDUCTIONS (ML Feature Scaling & Logit ArgMax)
+    // ========================================================================
+    [MapsTo("mean")]
+    public extern double ComputeArithmeticMean(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.ComputeArithmeticMean")]
+    [MapsTo("mean")]
+    public extern double Mean(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.ComputeArithmeticMean", "Mean")]
+    [MapsTo("mean")]
+    public extern double mean(int? axis = null);
+
+    [MapsTo("std")]
+    public extern double ComputeStandardDeviation(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.ComputeStandardDeviation")]
+    [MapsTo("std")]
+    public extern double Std(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.ComputeStandardDeviation", "Std")]
+    [MapsTo("std")]
+    public extern double std(int? axis = null);
+
+    [MapsTo("var")]
+    public extern double ComputeVariance(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.ComputeVariance")]
+    [MapsTo("var")]
+    public extern double Var(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.ComputeVariance", "Var")]
+    [MapsTo("var")]
+    public extern double @var(int? axis = null);
+
+    [MapsTo("sum")]
+    public extern T ComputeSum(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.ComputeSum")]
+    [MapsTo("sum")]
+    public extern T Sum(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.ComputeSum", "Sum")]
+    [MapsTo("sum")]
+    public extern T sum(int? axis = null);
+
+    [MapsTo("min")]
+    public extern T FindMinimumValue(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.FindMinimumValue")]
+    [MapsTo("min")]
+    public extern T Min(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.FindMinimumValue", "Min")]
+    [MapsTo("min")]
+    public extern T min(int? axis = null);
+
+    [MapsTo("max")]
+    public extern T FindMaximumValue(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.FindMaximumValue")]
+    [MapsTo("max")]
+    public extern T Max(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.FindMaximumValue", "Max")]
+    [MapsTo("max")]
+    public extern T max(int? axis = null);
+
+    [MapsTo("argmax")]
+    public extern int FindIndexOfMaximum(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.FindIndexOfMaximum")]
+    [MapsTo("argmax")]
+    public extern int ArgMax(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.FindIndexOfMaximum", "ArgMax")]
+    [MapsTo("argmax")]
+    public extern int argmax(int? axis = null);
+
+    [MapsTo("argmin")]
+    public extern int FindIndexOfMinimum(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.FindIndexOfMinimum")]
+    [MapsTo("argmin")]
+    public extern int ArgMin(int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.FindIndexOfMinimum", "ArgMin")]
+    [MapsTo("argmin")]
+    public extern int argmin(int? axis = null);
+
+    [MapsTo("clip")]
+    public extern NDArray<T> ClipValuesToRange(T minLimit, T maxLimit);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.ClipValuesToRange")]
+    [MapsTo("clip")]
+    public extern NDArray<T> Clip(T min, T max);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.ClipValuesToRange", "Clip")]
+    [MapsTo("clip")]
+    public extern NDArray<T> clip(T min, T max);
+
+    // ========================================================================
+    // 4. LINEAR ALGEBRA & MULTI-AXIS SLICING
+    // ========================================================================
+    [InlineTemplate("({self} @ {0})")]
+    public extern NDArray<T> MultiplyMatrix(NDArray<T> other);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.MultiplyMatrix")]
+    [MapsTo("dot")]
+    public extern NDArray<T> Dot(NDArray<T> other);
+
+    [CanonicalApi("PythonSharp.Numerics.Tensors.NDArray.MultiplyMatrix", "Dot")]
+    [MapsTo("dot")]
+    public extern NDArray<T> dot(NDArray<T> other);
+
+    [InlineTemplate("{self}[{0}]")]
+    public extern NDArray<T> this[params object[] slices] { get; set; }
+}

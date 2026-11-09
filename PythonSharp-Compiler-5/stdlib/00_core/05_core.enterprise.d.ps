@@ -1,0 +1,98 @@
+namespace PythonSharp.Core;
+
+extern using builtins as _py_builtins;
+extern using math as _py_math;
+
+[SurfaceLevel(1)]
+public static primitive class ModuleContext
+{
+    [InlineTemplate("__name__")]
+    public static extern string CurrentModuleName { get; }
+
+    [InlineTemplate("__file__")]
+    public static extern string CurrentFilePath { get; }
+
+    [InlineTemplate("(__name__ == '__main__')")]
+    public static extern bool IsMainEntryPoint { get; }
+}
+
+[SurfaceLevel(1)]
+public static primitive class SequenceOperations
+{
+    [InlineTemplate("len({0})")]
+    public static extern int GetElementCount(object sizedCollection);
+
+    [InlineTemplate("enumerate({0}, {1})")]
+    public static extern IEnumerable<KeyValuePair<int, T>> EnumerateWithIndex<T>(IEnumerable<T> sequence, int startIndex = 0);
+
+    [InlineTemplate("zip({0}, {1})")]
+    public static extern IEnumerable<KeyValuePair<TFirst, TSecond>> ZipSequences<TFirst, TSecond>(
+        IEnumerable<TFirst> firstSequence,
+        IEnumerable<TSecond> secondSequence);
+}
+
+[SurfaceLevel(1)]
+public static primitive class IntegerRange
+{
+    [InlineTemplate("range({0})")]
+    public static extern IEnumerable<int> FromZeroToStop(int stopExclusive);
+
+    [InlineTemplate("range({0}, {1})")]
+    public static extern IEnumerable<int> FromStartToStop(int startInclusive, int stopExclusive);
+
+    [InlineTemplate("range({0}, {1}, {2})")]
+    public static extern IEnumerable<int> CreateStepped(int startInclusive, int stopExclusive, int stepIncrement);
+}
+
+[SurfaceLevel(1)]
+public static primitive class ObjectInspector
+{
+    [InlineTemplate("getattr({0}, {1}, {2})")]
+    public static extern object? GetAttributeOrDefault(object targetInstance, string attributeName, object? fallbackValue = null);
+
+    [InlineTemplate("setattr({0}, {1}, {2})")]
+    public static extern void SetAttributeValue(object targetInstance, string attributeName, object? newValue);
+
+    [InlineTemplate("hasattr({0}, {1})")]
+    public static extern bool HasAttribute(object targetInstance, string attributeName);
+}
+
+[SurfaceLevel(1)]
+public static primitive class FileStreams
+{
+    [InlineTemplate("open({0}, {1}, encoding={2})")]
+    public static extern TextFileStream OpenTextStream(string filePath, string accessMode = "r", string textEncoding = "utf-8");
+
+    [InlineTemplate("open({0}, 'r', encoding='utf-8')")]
+    public static extern TextFileStream OpenTextReaderUtf8(string filePath);
+
+    [InlineTemplate("open({0}, 'w', encoding='utf-8')")]
+    public static extern TextFileStream OpenTextWriterUtf8(string filePath);
+}
+
+[SurfaceLevel(1)]
+public static primitive class StandardConsole
+{
+    [InlineTemplate("print({0})")]
+    public static extern void WriteLine(object? message = null);
+
+    [InlineTemplate("print({0}, end='')")]
+    public static extern void Write(object? message);
+
+    [InlineTemplate("input({0})")]
+    public static extern string ReadLineFromStdin(string promptText = "");
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_py_math")]
+public static primitive class MathematicalConstants
+{
+    [InlineTemplate("_py_math.pi")]
+    public static extern double Pi { get; }
+
+    [InlineTemplate("_py_math.e")]
+    public static extern double EulerNumber { get; }
+
+    [InlineTemplate("_py_math.inf")]
+    public static extern double PositiveInfinity { get; }
+}

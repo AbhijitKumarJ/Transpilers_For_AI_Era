@@ -1,0 +1,16 @@
+namespace TripleSurfaceMigration;
+
+using PythonSharp.Core;
+
+public class Program
+{
+    public static List<string> RunAllSurfaces()
+    {
+        List<string> results = new List<string>();
+        results.Add(Surface1RawPipeline.RunPipeline());
+        results.Add(Surface2BridgePipeline.RunPipeline());
+        results.Add(Surface3EnterprisePipeline.RunPipeline());
+        return results;
+    }
+}
+

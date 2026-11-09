@@ -1,0 +1,84 @@
+namespace builtins;
+
+using PythonSharp.Core;
+extern using builtins as _py_builtins;
+extern using math as _py_math;
+
+[SurfaceLevel(2)]
+[MapsTo("_py_builtins")]
+public static primitive class builtins
+{
+    // --- Special Module Variables ---
+    [CanonicalApi("PythonSharp.Core.ModuleContext.CurrentModuleName", "PythonSharp.Builtins.Builtins.ModuleName")]
+    [InlineTemplate("__name__")]
+    public static extern string __name__ { get; }
+
+    [CanonicalApi("PythonSharp.Core.ModuleContext.CurrentFilePath", "PythonSharp.Builtins.Builtins.ModuleFilePath")]
+    [InlineTemplate("__file__")]
+    public static extern string __file__ { get; }
+
+    // --- Built-in Sequence & Iteration Functions ---
+    [CanonicalApi("PythonSharp.Core.SequenceOperations.GetElementCount", "PythonSharp.Builtins.Builtins.Len")]
+    [InlineTemplate("len({0})")]
+    public static extern int len(object sizedCollection);
+
+    [CanonicalApi("PythonSharp.Core.IntegerRange.FromZeroToStop", "PythonSharp.Builtins.Builtins.Range")]
+    [InlineTemplate("range({0})")]
+    public static extern IEnumerable<int> range(int stop);
+
+    [CanonicalApi("PythonSharp.Core.IntegerRange.FromStartToStop", "PythonSharp.Builtins.Builtins.Range")]
+    [InlineTemplate("range({0}, {1})")]
+    public static extern IEnumerable<int> range(int start, int stop);
+
+    [CanonicalApi("PythonSharp.Core.IntegerRange.CreateStepped", "PythonSharp.Builtins.Builtins.Range")]
+    [InlineTemplate("range({0}, {1}, {2})")]
+    public static extern IEnumerable<int> range(int start, int stop, int step);
+
+    [CanonicalApi("PythonSharp.Core.SequenceOperations.EnumerateWithIndex", "PythonSharp.Builtins.Builtins.Enumerate")]
+    [InlineTemplate("enumerate({0}, {1})")]
+    public static extern IEnumerable<KeyValuePair<int, T>> enumerate<T>(IEnumerable<T> iterable, int start = 0);
+
+    [CanonicalApi("PythonSharp.Core.SequenceOperations.ZipSequences", "PythonSharp.Builtins.Builtins.Zip")]
+    [InlineTemplate("zip({0}, {1})")]
+    public static extern IEnumerable<KeyValuePair<TFirst, TSecond>> zip<TFirst, TSecond>(
+        IEnumerable<TFirst> first,
+        IEnumerable<TSecond> second);
+
+    // --- Built-in I/O & Reflection Functions ---
+    [CanonicalApi("PythonSharp.Core.StandardConsole.WriteLine", "PythonSharp.Builtins.Builtins.Print")]
+    [InlineTemplate("print({0})")]
+    public static extern void print(object? value = null);
+
+    [CanonicalApi("PythonSharp.Core.FileStreams.OpenTextStream", "PythonSharp.Builtins.Builtins.Open")]
+    [InlineTemplate("open({0}, {1}, encoding={2})")]
+    public static extern TextFileStream open(string file, string mode = "r", string encoding = "utf-8");
+
+    [CanonicalApi("PythonSharp.Core.ObjectInspector.GetAttributeOrDefault", "PythonSharp.Builtins.Builtins.GetAttr")]
+    [InlineTemplate("getattr({0}, {1}, {2})")]
+    public static extern object? getattr(object target, string name, object? defaultValue = null);
+
+    [CanonicalApi("PythonSharp.Core.ObjectInspector.SetAttributeValue", "PythonSharp.Builtins.Builtins.SetAttr")]
+    [InlineTemplate("setattr({0}, {1}, {2})")]
+    public static extern void setattr(object target, string name, object? value);
+
+    [CanonicalApi("PythonSharp.Core.ObjectInspector.HasAttribute", "PythonSharp.Builtins.Builtins.HasAttr")]
+    [InlineTemplate("hasattr({0}, {1})")]
+    public static extern bool hasattr(object target, string name);
+}
+
+[SurfaceLevel(2)]
+[MapsTo("_py_math")]
+public static primitive class math
+{
+    [CanonicalApi("PythonSharp.Core.MathematicalConstants.Pi", "PythonSharp.Builtins.PyMath.Pi")]
+    [InlineTemplate("_py_math.pi")]
+    public static extern double pi { get; }
+
+    [CanonicalApi("PythonSharp.Core.MathematicalConstants.EulerNumber", "PythonSharp.Builtins.PyMath.E")]
+    [InlineTemplate("_py_math.e")]
+    public static extern double e { get; }
+
+    [CanonicalApi("PythonSharp.Core.MathematicalConstants.PositiveInfinity", "PythonSharp.Builtins.PyMath.Infinity")]
+    [InlineTemplate("_py_math.inf")]
+    public static extern double inf { get; }
+}

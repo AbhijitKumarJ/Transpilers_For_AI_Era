@@ -1,0 +1,17 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "d_ps": "test_main_prj.d.ps",
+      "module": "test_main_prj.py",
+      "namespace": [
+        "TestMainPrj"
+      ],
+      "primary_ps": "ProjMain.ps",
+      "py": "test_main_prj.py",
+      "pyc": "test_main_prj.pyc"
+    }
+  ],
+  "schema_version": 1
+}

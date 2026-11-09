@@ -1,0 +1,21 @@
+namespace HelloApp;
+
+using PythonSharp.Core;
+
+public static class Program
+{
+    public static string CreateGreeting(string name)
+    {
+        return $"Hello, {name}! Welcome to PythonSharp.";
+    }
+
+    public static int Add(int a, int b) => a + b;
+
+    public static void Main()
+    {
+        string message = CreateGreeting("Developer");
+        Console.WriteLine(message);
+        Console.WriteLine($"2 + 3 = {Add(2, 3)}");
+    }
+}
+

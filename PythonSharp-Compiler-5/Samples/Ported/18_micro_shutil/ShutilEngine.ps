@@ -1,0 +1,159 @@
+namespace MicroShutil;
+
+using os;
+using shutil;
+using PythonSharp.Core;
+
+public record PathMetadata(string Path, string FileName, string Extension, long SizeBytes, bool IsDirectory);
+
+public record TreeStats(int FileCount, int DirectoryCount, long TotalSizeBytes);
+
+public class ShutilEngine
+{
+    public static string CombinePaths(string part1, string part2)
+    {
+        return os.path.join(part1, part2);
+    }
+
+    public static string CombineThreePaths(string part1, string part2, string part3)
+    {
+        return os.path.join(part1, part2, part3);
+    }
+
+    public static bool Exists(string path)
+    {
+        return os.path.exists(path);
+    }
+
+    public static bool IsFile(string path)
+    {
+        return os.path.isfile(path);
+    }
+
+    public static bool IsDirectory(string path)
+    {
+        return os.path.isdir(path);
+    }
+
+    public static void EnsureDirectory(string path)
+    {
+        os.makedirs(path, true);
+    }
+
+    public static void CopyFile(string src, string dst)
+    {
+        shutil.copy2(src, dst);
+    }
+
+    public static void MoveFile(string src, string dst)
+    {
+        shutil.move(src, dst);
+    }
+
+    public static void DeleteFile(string path)
+    {
+        os.remove(path);
+    }
+
+    public static void CopyTree(string srcDir, string dstDir, bool dirsExistOk = true)
+    {
+        shutil.copytree(srcDir, dstDir, dirsExistOk);
+    }
+
+    public static void RemoveTree(string dirPath, bool ignoreErrors = false)
+    {
+        shutil.rmtree(dirPath, ignoreErrors);
+    }
+
+    public static List<string> ListContents(string dirPath)
+    {
+        return os.listdir(dirPath);
+    }
+
+    public static PathMetadata GetMetadata(string targetPath)
+    {
+        string fileName = os.path.basename(targetPath);
+        int dotIdx = fileName.LastIndexOf(".");
+        string ext = "";
+        if (dotIdx >= 0)
+        {
+            ext = fileName.Substring(dotIdx);
+        }
+
+        bool isDir = os.path.isdir(targetPath);
+        long size = 0;
+        if (!isDir && os.path.exists(targetPath))
+        {
+            size = os.path.getsize(targetPath);
+        }
+        return new PathMetadata(targetPath, fileName, ext, size, isDir);
+    }
+
+    public static TreeStats ScanTree(string rootPath)
+    {
+        int fileCount = 0;
+        int dirCount = 0;
+        long totalBytes = 0;
+
+        if (!os.path.exists(rootPath) || !os.path.isdir(rootPath))
+        {
+            return new TreeStats(0, 0, 0);
+        }
+
+        List<string> entries = os.listdir(rootPath);
+        int i = 0;
+        while (i < entries.Count)
+        {
+            string entry = entries[i];
+            i = i + 1;
+            string fullPath = os.path.join(rootPath, entry);
+            if (os.path.isdir(fullPath))
+            {
+                dirCount = dirCount + 1;
+                TreeStats subStats = ScanTree(fullPath);
+                fileCount = fileCount + subStats.FileCount;
+                dirCount = dirCount + subStats.DirectoryCount;
+                totalBytes = totalBytes + subStats.TotalSizeBytes;
+            }
+            else
+            {
+                fileCount = fileCount + 1;
+                totalBytes = totalBytes + os.path.getsize(fullPath);
+            }
+        }
+
+        return new TreeStats(fileCount, dirCount, totalBytes);
+    }
+
+    public static List<string> FindFilesWithExtension(string rootPath, string targetExt)
+    {
+        List<string> results = new List<string>();
+        if (!os.path.exists(rootPath) || !os.path.isdir(rootPath))
+        {
+            return results;
+        }
+
+        List<string> entries = os.listdir(rootPath);
+        int i = 0;
+        while (i < entries.Count)
+        {
+            string entry = entries[i];
+            i = i + 1;
+            string fullPath = os.path.join(rootPath, entry);
+            if (os.path.isdir(fullPath))
+            {
+                List<string> subResults = FindFilesWithExtension(fullPath, targetExt);
+                results.AddRange(subResults);
+            }
+            else
+            {
+                if (entry.EndsWith(targetExt))
+                {
+                    results.Add(fullPath);
+                }
+            }
+        }
+        return results;
+    }
+}
+

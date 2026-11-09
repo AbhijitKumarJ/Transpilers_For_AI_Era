@@ -1,0 +1,78 @@
+namespace PythonSharp.DeepLearning;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+extern using torch as _torch;
+extern using torch.nn as _nn;
+extern using torch.optim as _optim;
+
+[SurfaceLevel(1)]
+public static primitive class AcceleratorRuntime
+{
+    [InlineTemplate("_torch.cuda.is_available()")]
+    public static extern bool IsCudaGpuAvailable();
+
+    [InlineTemplate("_torch.cuda.device_count()")]
+    public static extern int GetAvailableGpuCount();
+
+    [InlineTemplate("('cuda' if _torch.cuda.is_available() else 'cpu')")]
+    public static extern string SelectOptimalDeviceName();
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_torch")]
+public static primitive class TensorFactory
+{
+    [InlineTemplate("_torch.manual_seed({0})")]
+    public static extern void SetRandomSeed(int seedValue);
+
+    [InlineTemplate("_torch.from_numpy({0})")]
+    public static extern TorchTensor<T> FromNumPyArray<T>(NDArray<T> sourceArray);
+
+    [InlineTemplate("_torch.zeros(({0}, {1}))")]
+    public static extern TorchTensor<double> CreateZeroTensor(int rows, int columns);
+
+    [InlineTemplate("_torch.ones(({0}, {1}))")]
+    public static extern TorchTensor<double> CreateOnesTensor(int rows, int columns);
+
+    [InlineTemplate("_torch.randn({0}, {1})")]
+    public static extern TorchTensor<double> CreateRandomNormalTensor(int rows, int columns);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_nn")]
+public static primitive class NeuralLayerFactory
+{
+    [InlineTemplate("_nn.Linear({0}, {1})")]
+    public static extern FullyConnectedLinearLayer CreateFullyConnectedLinearLayer(int inputFeatureCount, int outputFeatureCount);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_nn")]
+public static primitive class LossCriterionFactory
+{
+    [InlineTemplate("_nn.MSELoss()")]
+    public static extern MeanSquaredErrorLoss CreateMeanSquaredErrorLoss();
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_optim")]
+public static primitive class OptimizerFactory
+{
+    [InlineTemplate("_optim.Adam({0}, lr={1})")]
+    public static extern GradientOptimizer CreateAdamOptimizer(object trainableParameters, double learningRate = 0.001);
+
+    [InlineTemplate("_optim.SGD({0}, lr={1})")]
+    public static extern GradientOptimizer CreateStochasticGradientDescentOptimizer(object trainableParameters, double learningRate = 0.01);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_torch")]
+public static primitive class ActivationFunctions
+{
+    [InlineTemplate("_torch.relu({0})")]
+    public static extern TorchTensor<T> ApplyRectifiedLinearUnit<T>(TorchTensor<T> inputTensor);
+
+    [InlineTemplate("_torch.sigmoid({0})")]
+    public static extern TorchTensor<T> ApplySigmoid<T>(TorchTensor<T> inputTensor);
+}

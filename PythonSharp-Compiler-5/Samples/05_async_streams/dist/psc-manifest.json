@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "streaming.py",
+      "namespace": [
+        "Streaming"
+      ],
+      "primary_ps": "StreamService.ps",
+      "py": "streaming.py",
+      "pyc": "streaming.pyc"
+    }
+  ],
+  "schema_version": 1
+}

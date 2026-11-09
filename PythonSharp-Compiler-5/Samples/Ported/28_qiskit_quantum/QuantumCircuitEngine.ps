@@ -1,0 +1,148 @@
+namespace PythonSharp.Samples.QiskitQuantum;
+
+using PythonSharp.Core;
+using PythonSharp.QuantumComputing;
+using PyQiskit = PythonSharp.Qiskit.qk;
+using RawQk = qiskit.qk;
+
+public record QuantumMeasurementResult(int Qubits, int Depth, Dict<string, double> Probabilities);
+
+public class BellStateGenerator
+{
+    public QuantumRegisterCircuit Circuit { get; set; }
+
+    public BellStateGenerator()
+    {
+        Circuit = QuantumCircuitFactory.CreateQuantumCircuit(2);
+        Circuit.ApplyHadamardGate(0);
+        Circuit.ApplyControlledNotGate(0, 1);
+    }
+
+    public QuantumMeasurementResult Simulate()
+    {
+        var sv = QuantumSimulator.SimulateStatevectorFromCircuit(Circuit);
+        var probs = sv.ComputeBitstringProbabilityMap();
+        return new QuantumMeasurementResult(Circuit.QubitCount, Circuit.CircuitDepth, probs);
+    }
+
+    public string RenderDiagram()
+    {
+        return Circuit.RenderAsciiCircuitDiagram();
+    }
+}
+
+public class GhzStateEngine
+{
+    public QuantumRegisterCircuit Circuit { get; set; }
+
+    public GhzStateEngine(int numQubits)
+    {
+        Circuit = QuantumCircuitFactory.CreateQuantumCircuit(numQubits);
+        Circuit.ApplyHadamardGate(0);
+
+        int i = 0;
+        while (i < numQubits - 1)
+        {
+            Circuit.ApplyControlledNotGate(i, i + 1);
+            i += 1;
+        }
+    }
+
+    public QuantumMeasurementResult Simulate()
+    {
+        var sv = QuantumSimulator.SimulateStatevectorFromCircuit(Circuit);
+        var probs = sv.ComputeBitstringProbabilityMap();
+        return new QuantumMeasurementResult(Circuit.QubitCount, Circuit.CircuitDepth, probs);
+    }
+}
+
+public class QuantumTeleportationProtocol
+{
+    public QuantumRegisterCircuit Circuit { get; set; }
+
+    public QuantumTeleportationProtocol()
+    {
+        // 3 qubits: q0 (state to send), q1 (Alice's half of Bell pair), q2 (Bob's half)
+        Circuit = QuantumCircuitFactory.CreateQuantumCircuit(3);
+
+        // Step 1: Create Bell state on q1, q2
+        Circuit.ApplyHadamardGate(1);
+        Circuit.ApplyControlledNotGate(1, 2);
+
+        // Step 2: Prepare arbitrary initial state on q0 (e.g. Hadamard)
+        Circuit.ApplyHadamardGate(0);
+
+        // Step 3: Alice entangles q0 with q1
+        Circuit.ApplyControlledNotGate(0, 1);
+        Circuit.ApplyHadamardGate(0);
+
+        // Step 4: Bob applies correction gates (simulated via CX and CZ)
+        Circuit.ApplyControlledNotGate(1, 2);
+        Circuit.ApplyControlledZGate(0, 2);
+    }
+
+    public int GetQubitCount()
+    {
+        return Circuit.QubitCount;
+    }
+
+    public int GetDepth()
+    {
+        return Circuit.CircuitDepth;
+    }
+
+    public QuantumMeasurementResult Simulate()
+    {
+        var sv = QuantumSimulator.SimulateStatevectorFromCircuit(Circuit);
+        var probs = sv.ComputeBitstringProbabilityMap();
+        return new QuantumMeasurementResult(Circuit.QubitCount, Circuit.CircuitDepth, probs);
+    }
+}
+
+public class QuantumRotationService
+{
+    public QuantumRegisterCircuit PrepareRotatedQubit(double thetaX, double thetaY, double thetaZ)
+    {
+        var circuit = QuantumCircuitFactory.CreateQuantumCircuit(1);
+        circuit.ApplyRotationXGate(thetaX, 0);
+        circuit.ApplyRotationYGate(thetaY, 0);
+        circuit.ApplyRotationZGate(thetaZ, 0);
+        return circuit;
+    }
+
+    public Dict<string, double> MeasureRotatedProbabilities(double thetaX, double thetaY, double thetaZ)
+    {
+        var circuit = PrepareRotatedQubit(thetaX, thetaY, thetaZ);
+        var sv = QuantumSimulator.SimulateStatevectorFromCircuit(circuit);
+        return sv.ComputeBitstringProbabilityMap();
+    }
+}
+
+public class TriModalQuantumVerification
+{
+    public Dict<string, double> VerifySurface1Enterprise()
+    {
+        var circuit = QuantumCircuitFactory.CreateBellPairEntangledCircuit();
+        var sv = QuantumSimulator.SimulateStatevectorFromCircuit(circuit);
+        return sv.ComputeBitstringProbabilityMap();
+    }
+
+    public Dict<string, double> VerifySurface3CSharpBridge()
+    {
+        var circuit = PyQiskit.CreateCircuit(2);
+        circuit.Hadamard(0);
+        circuit.CNot(0, 1);
+        var sv = PyQiskit.QuantumInfo.FromInstruction(circuit);
+        return sv.ProbabilitiesDict();
+    }
+
+    public Dict<string, double> VerifySurface2RawPythonAbi()
+    {
+        var circuit = RawQk.QuantumCircuit(2);
+        circuit.h(0);
+        circuit.cx(0, 1);
+        var sv = RawQk.quantum_info.from_instruction(circuit);
+        return sv.probabilities_dict();
+    }
+}
+

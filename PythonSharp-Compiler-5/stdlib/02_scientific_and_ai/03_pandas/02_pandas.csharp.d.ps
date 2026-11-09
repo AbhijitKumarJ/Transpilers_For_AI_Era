@@ -1,0 +1,43 @@
+namespace PythonSharp.Pandas;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using PythonSharp.DataScience.Tabular;
+extern using pandas as _pd;
+
+[SurfaceLevel(3)]
+[MapsTo("_pd")]
+public static primitive class pd
+{
+    [CanonicalApi("PythonSharp.DataScience.Tabular.TabularDataReader.ReadCsvFile")]
+    [InlineTemplate("_pd.read_csv({0})")]
+    public static extern DataFrame<TRow> ReadCsv<TRow>(string filePath);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.TabularDataReader.ReadCsvFile")]
+    [InlineTemplate("_pd.read_csv({0})")]
+    public static extern DataFrame<object> ReadCsv(string filePath);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.TabularDataReader.ReadParquetFile")]
+    [InlineTemplate("_pd.read_parquet({0})")]
+    public static extern DataFrame<TRow> ReadParquet<TRow>(string filePath);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.TabularDataReader.ReadJsonFile")]
+    [InlineTemplate("_pd.read_json({0})")]
+    public static extern DataFrame<TRow> ReadJson<TRow>(string filePath);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.TabularDataFactory.CreateDataFrameFromDictionary")]
+    [InlineTemplate("_pd.DataFrame({0})")]
+    public static extern DataFrame<TRow> FromDict<TRow>(object columnDictionary);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.TabularDataFactory.CreateSeriesFromSequence")]
+    [InlineTemplate("_pd.Series({0})")]
+    public static extern Series<T> CreateSeries<T>(IEnumerable<T> values);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.TabularOperations.ConcatenateDataFrames")]
+    [InlineTemplate("_pd.concat({0}, axis={1})")]
+    public static extern DataFrame<TRow> Concat<TRow>(IEnumerable<DataFrame<TRow>> frames, int axis = 0);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.TabularOperations.MergeDataFramesOnKey")]
+    [InlineTemplate("_pd.merge({0}, {1}, on={2}, how={3})")]
+    public static extern DataFrame<object> Merge<TLeft, TRight>(DataFrame<TLeft> left, DataFrame<TRight> right, string onColumn, string joinHow = "inner");
+}

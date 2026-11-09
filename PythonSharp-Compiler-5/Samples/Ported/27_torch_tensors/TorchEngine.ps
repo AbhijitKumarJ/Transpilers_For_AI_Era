@@ -1,0 +1,120 @@
+namespace PythonSharp.Samples.TorchTensors;
+
+using PythonSharp.Core;
+using PythonSharp.DeepLearning;
+using PyTorchBridge = PythonSharp.PyTorch.torch;
+using RawTorch = torch.torch;
+
+public record TrainingHistory(List<double> EpochLosses, double InitialLoss, double FinalLoss);
+
+public class TwoLayerPerceptron
+{
+    public FullyConnectedLinearLayer Layer1 { get; set; }
+    public FullyConnectedLinearLayer Layer2 { get; set; }
+    public MeanSquaredErrorLoss LossCriterion { get; set; }
+    public GradientOptimizer Optimizer { get; set; }
+
+    public TwoLayerPerceptron(int inFeatures, int hiddenFeatures, int outFeatures, double learningRate)
+    {
+        Layer1 = NeuralLayerFactory.CreateFullyConnectedLinearLayer(inFeatures, hiddenFeatures);
+        Layer2 = NeuralLayerFactory.CreateFullyConnectedLinearLayer(hiddenFeatures, outFeatures);
+        LossCriterion = LossCriterionFactory.CreateMeanSquaredErrorLoss();
+        Optimizer = OptimizerFactory.CreateAdamOptimizer(Layer1.GetTrainableParameters(), learningRate);
+    }
+
+    public TorchTensor<double> Forward(TorchTensor<double> x)
+    {
+        var h = Layer1.ExecuteForwardPass(x);
+        var activated = ActivationFunctions.ApplyRectifiedLinearUnit(h);
+        return Layer2.ExecuteForwardPass(activated);
+    }
+
+    public double TrainStep(TorchTensor<double> x, TorchTensor<double> y)
+    {
+        Optimizer.ResetAllGradientsToZero();
+        var predictions = Forward(x);
+        var loss = LossCriterion.ComputeLoss(predictions, y);
+        loss.ComputeBackpropagationGradients();
+        Optimizer.UpdateModelParameters();
+        return loss.ExtractScalarValue();
+    }
+
+    public TrainingHistory Fit(TorchTensor<double> x, TorchTensor<double> y, int epochs)
+    {
+        var losses = new List<double>();
+        int i = 0;
+        while (i < epochs)
+        {
+            var l = TrainStep(x, y);
+            losses.Add(l);
+            i += 1;
+        }
+        var initialLoss = losses[0];
+        var finalLoss = losses[losses.Count - 1];
+        return new TrainingHistory(losses, initialLoss, finalLoss);
+    }
+}
+
+public class TensorAnalyticsService
+{
+    public List<int> GetShape(TorchTensor<double> tensor)
+    {
+        return tensor.TensorShape;
+    }
+
+    public double ComputeMean(TorchTensor<double> tensor)
+    {
+        var meanTensor = tensor.ComputeMean();
+        return meanTensor.ExtractScalarValue();
+    }
+
+    public double ComputeSum(TorchTensor<double> tensor)
+    {
+        var sumTensor = tensor.ComputeSum();
+        return sumTensor.ExtractScalarValue();
+    }
+
+    public string DetectAccelerator()
+    {
+        return AcceleratorRuntime.SelectOptimalDeviceName();
+    }
+}
+
+public class TriModalDeepLearningVerification
+{
+    public double VerifySurface1Enterprise()
+    {
+        TensorFactory.SetRandomSeed(42);
+        var x = TensorFactory.CreateOnesTensor(4, 2);
+        var y = TensorFactory.CreateZeroTensor(4, 1);
+        var layer = NeuralLayerFactory.CreateFullyConnectedLinearLayer(2, 1);
+        var criterion = LossCriterionFactory.CreateMeanSquaredErrorLoss();
+        var pred = layer.ExecuteForwardPass(x);
+        var loss = criterion.ComputeLoss(pred, y);
+        return loss.ExtractScalarValue();
+    }
+
+    public double VerifySurface3CSharpBridge()
+    {
+        PyTorchBridge.ManualSeed(42);
+        var x = PyTorchBridge.Ones(4, 2);
+        var y = PyTorchBridge.Zeros(4, 1);
+        var layer = PyTorchBridge.NN.Linear(2, 1);
+        var criterion = PyTorchBridge.NN.MSELoss();
+        var pred = layer.Forward(x);
+        var loss = criterion.Forward(pred, y);
+        return loss.Item();
+    }
+
+    public double VerifySurface2RawPythonAbi()
+    {
+        RawTorch.manual_seed(42);
+        var x = RawTorch.ones(4, 2);
+        var y = RawTorch.zeros(4, 1);
+        var layer = RawTorch.nn.Linear(2, 1);
+        var criterion = RawTorch.nn.MSELoss();
+        var pred = layer.forward(x);
+        var loss = criterion.forward(pred, y);
+        return loss.item();
+    }
+}

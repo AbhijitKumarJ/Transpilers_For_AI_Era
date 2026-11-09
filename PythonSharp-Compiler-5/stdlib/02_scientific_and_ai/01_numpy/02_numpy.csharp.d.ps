@@ -1,0 +1,160 @@
+namespace PythonSharp.NumPy;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+extern using numpy as _np;
+
+[SurfaceLevel(3)]
+[MapsTo("_np.linalg")]
+public static primitive class NumPyLinearAlgebraModule
+{
+    [CanonicalApi("PythonSharp.Numerics.MatrixOperations.ComputeMultiplicativeInverse")]
+    [InlineTemplate("_np.linalg.inv({0})")]
+    public static extern NDArray<double> Inverse(NDArray<double> matrix);
+
+    [CanonicalApi("PythonSharp.Numerics.MatrixOperations.ComputeDeterminant")]
+    [InlineTemplate("_np.linalg.det({0})")]
+    public static extern double Determinant(NDArray<double> matrix);
+
+    [CanonicalApi("PythonSharp.Numerics.MatrixOperations.SolveLinearEquations")]
+    [InlineTemplate("_np.linalg.solve({0}, {1})")]
+    public static extern NDArray<double> Solve(NDArray<double> matrixA, NDArray<double> vectorB);
+
+    [CanonicalApi("PythonSharp.Numerics.MatrixOperations.ComputeEuclideanNorm")]
+    [InlineTemplate("_np.linalg.norm({0}, axis={1})")]
+    public static extern double Norm(NDArray<double> tensor, int? axis = null);
+
+    [CanonicalApi("PythonSharp.Numerics.MatrixOperations.ComputeEigenDecomposition")]
+    [InlineTemplate("_np.linalg.eig({0})")]
+    public static extern (NDArray<double> Eigenvalues, NDArray<double> Eigenvectors) Eig(NDArray<double> matrix);
+
+    [CanonicalApi("PythonSharp.Numerics.MatrixOperations.ComputeSingularValueDecomposition")]
+    [InlineTemplate("_np.linalg.svd({0})")]
+    public static extern (NDArray<double> U, NDArray<double> SingularValues, NDArray<double> Vh) Svd(NDArray<double> matrix);
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_np.random")]
+public static primitive class NumPyRandomModule
+{
+    [CanonicalApi("PythonSharp.Numerics.RandomTensorGenerator.SetRandomSeed")]
+    [InlineTemplate("_np.random.seed({0})")]
+    public static extern void Seed(int seedValue);
+
+    [CanonicalApi("PythonSharp.Numerics.RandomTensorGenerator.SampleUniformMatrix")]
+    [InlineTemplate("_np.random.rand({0}, {1})")]
+    public static extern NDArray<double> Rand(int rows, int cols);
+
+    [CanonicalApi("PythonSharp.Numerics.RandomTensorGenerator.SampleStandardNormalMatrix")]
+    [InlineTemplate("_np.random.randn({0}, {1})")]
+    public static extern NDArray<double> RandN(int rows, int cols);
+
+    [CanonicalApi("PythonSharp.Numerics.RandomTensorGenerator.SampleGaussianDistribution")]
+    [InlineTemplate("_np.random.normal({0}, {1}, {2})")]
+    public static extern NDArray<double> Normal(double mean = 0.0, double stdDev = 1.0, (int, int)? shape = null);
+
+    [CanonicalApi("PythonSharp.Numerics.RandomTensorGenerator.SampleUniformDistribution")]
+    [InlineTemplate("_np.random.uniform({0}, {1}, {2})")]
+    public static extern NDArray<double> Uniform(double low = 0.0, double high = 1.0, (int, int)? shape = null);
+
+    [CanonicalApi("PythonSharp.Numerics.RandomTensorGenerator.SampleRandomIntegers")]
+    [InlineTemplate("_np.random.randint({0}, {1}, size={2})")]
+    public static extern NDArray<int> RandInt(int lowInclusive, int highExclusive, (int, int) shape);
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_np")]
+public static primitive class np
+{
+    [InlineTemplate("_np.linalg")]
+    public static extern NumPyLinearAlgebraModule LinearAlgebra { get; }
+
+    [InlineTemplate("_np.random")]
+    public static extern NumPyRandomModule Random { get; }
+
+    // --- Creation Overloads ---
+    [CanonicalApi("PythonSharp.Numerics.ArrayFactory.CreateFromSequence")]
+    [InlineTemplate("_np.array({0})")]
+    public static extern NDArray<T> Array<T>(IEnumerable<T> items);
+
+    [CanonicalApi("PythonSharp.Numerics.ArrayFactory.CreateZeroVector")]
+    [InlineTemplate("_np.zeros({0})")]
+    public static extern NDArray<double> Zeros(int length);
+
+    [CanonicalApi("PythonSharp.Numerics.ArrayFactory.CreateZeroMatrix")]
+    [InlineTemplate("_np.zeros(({0}, {1}))")]
+    public static extern NDArray<double> Zeros(int rows, int cols);
+
+    [CanonicalApi("PythonSharp.Numerics.ArrayFactory.CreateZeroMatrix")]
+    [InlineTemplate("_np.zeros({0})")]
+    public static extern NDArray<double> Zeros((int, int) shape);
+
+    [CanonicalApi("PythonSharp.Numerics.ArrayFactory.CreateZero3DTensor")]
+    [InlineTemplate("_np.zeros({0})")]
+    public static extern NDArray<double> Zeros((int, int, int) shape);
+
+    [CanonicalApi("PythonSharp.Numerics.ArrayFactory.CreateOnesVector")]
+    [InlineTemplate("_np.ones({0})")]
+    public static extern NDArray<double> Ones(int length);
+
+    [CanonicalApi("PythonSharp.Numerics.ArrayFactory.CreateOnesMatrix")]
+    [InlineTemplate("_np.ones(({0}, {1}))")]
+    public static extern NDArray<double> Ones(int rows, int cols);
+
+    [CanonicalApi("PythonSharp.Numerics.ArrayFactory.CreateOnesMatrix")]
+    [InlineTemplate("_np.ones({0})")]
+    public static extern NDArray<double> Ones((int, int) shape);
+
+    [CanonicalApi("PythonSharp.Numerics.ArrayFactory.CreateOnes3DTensor")]
+    [InlineTemplate("_np.ones({0})")]
+    public static extern NDArray<double> Ones((int, int, int) shape);
+
+    [CanonicalApi("PythonSharp.Numerics.ArrayFactory.CreateConstantFilledMatrix")]
+    [InlineTemplate("_np.full({0}, {1})")]
+    public static extern NDArray<T> Full<T>((int, int) shape, T fillValue);
+
+    [CanonicalApi("PythonSharp.Numerics.ArrayFactory.CreateIdentityMatrix")]
+    [InlineTemplate("_np.eye({0})")]
+    public static extern NDArray<double> Eye(int dimensionSize);
+
+    [CanonicalApi("PythonSharp.Numerics.ArrayFactory.CreateSteppedRangeVector")]
+    [InlineTemplate("_np.arange({0}, {1}, {2})")]
+    public static extern NDArray<double> Arange(double start, double stop, double step = 1.0);
+
+    [CanonicalApi("PythonSharp.Numerics.ArrayFactory.CreateLinearlySpacedVector")]
+    [InlineTemplate("_np.linspace({0}, {1}, {2})")]
+    public static extern NDArray<double> LinSpace(double start, double stop, int count = 50);
+
+    // --- Element-Wise UFuncs & Joins ---
+    [CanonicalApi("PythonSharp.Numerics.ElementWiseMath.ComputeExponential")]
+    [InlineTemplate("_np.exp({0})")]
+    public static extern NDArray<double> Exp(NDArray<double> tensor);
+
+    [CanonicalApi("PythonSharp.Numerics.ElementWiseMath.ComputeNaturalLogarithm")]
+    [InlineTemplate("_np.log({0})")]
+    public static extern NDArray<double> Log(NDArray<double> tensor);
+
+    [CanonicalApi("PythonSharp.Numerics.ElementWiseMath.ComputeSquareRoot")]
+    [InlineTemplate("_np.sqrt({0})")]
+    public static extern NDArray<double> Sqrt(NDArray<double> tensor);
+
+    [CanonicalApi("PythonSharp.Numerics.ElementWiseMath.ClipTensorValues")]
+    [InlineTemplate("_np.clip({0}, {1}, {2})")]
+    public static extern NDArray<T> Clip<T>(NDArray<T> tensor, T minVal, T maxVal);
+
+    [CanonicalApi("PythonSharp.Numerics.ElementWiseMath.SelectConditionally")]
+    [InlineTemplate("_np.where({0}, {1}, {2})")]
+    public static extern NDArray<T> Where<T>(NDArray<bool> conditionMask, NDArray<T> whenTrue, NDArray<T> whenFalse);
+
+    [CanonicalApi("PythonSharp.Numerics.TensorManipulation.ConcatenateAlongAxis")]
+    [InlineTemplate("_np.concatenate({0}, axis={1})")]
+    public static extern NDArray<T> Concatenate<T>(IEnumerable<NDArray<T>> tensors, int axis = 0);
+
+    [CanonicalApi("PythonSharp.Numerics.TensorManipulation.StackAlongNewAxis")]
+    [InlineTemplate("_np.stack({0}, axis={1})")]
+    public static extern NDArray<T> Stack<T>(IEnumerable<NDArray<T>> tensors, int axis = 0);
+
+    [CanonicalApi("PythonSharp.Numerics.TensorManipulation.ExpandDimensions")]
+    [InlineTemplate("_np.expand_dims({0}, axis={1})")]
+    public static extern NDArray<T> ExpandDims<T>(NDArray<T> tensor, int axis);
+}

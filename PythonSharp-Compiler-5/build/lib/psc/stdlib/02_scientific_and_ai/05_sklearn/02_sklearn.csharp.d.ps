@@ -1,0 +1,91 @@
+namespace PythonSharp.ScikitLearn;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using PythonSharp.MachineLearning.Classical;
+extern using sklearn.model_selection as _ms;
+extern using sklearn.preprocessing as _prep;
+extern using sklearn.ensemble as _ens;
+extern using sklearn.linear_model as _lin;
+extern using sklearn.metrics as _met;
+
+[SurfaceLevel(3)]
+[MapsTo("_ms")]
+public static primitive class SklearnModelSelectionModule
+{
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.DatasetSplitter.SplitTrainAndTestSets")]
+    [InlineTemplate("_ms.train_test_split({0}, {1}, test_size={2}, random_state={3})")]
+    public static extern (NDArray<double> XTrain, NDArray<double> XTest, NDArray<TLabel> YTrain, NDArray<TLabel> YTest) TrainTestSplit<TLabel>(
+        NDArray<double> features, NDArray<TLabel> labels, double testSize = 0.2, int randomState = 42);
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_prep")]
+public static primitive class SklearnPreprocessingModule
+{
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.FeaturePreprocessingFactory.CreateStandardZScoreScaler")]
+    [InlineTemplate("_prep.StandardScaler()")]
+    public static extern StandardFeatureScaler StandardScaler();
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_ens")]
+public static primitive class SklearnEnsembleModule
+{
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.ModelEstimatorFactory.CreateRandomForestClassifier")]
+    [InlineTemplate("_ens.RandomForestClassifier(n_estimators={0}, random_state={1})")]
+    public static extern RandomForestClassifierModel RandomForestClassifier(int nEstimators = 100, int randomState = 42);
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_lin")]
+public static primitive class SklearnLinearModelModule
+{
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.ModelEstimatorFactory.CreateLogisticRegressionClassifier")]
+    [InlineTemplate("_lin.LogisticRegression(max_iter={0}, random_state={1})")]
+    public static extern LogisticRegressionModel LogisticRegression(int maxIter = 200, int randomState = 42);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.ModelEstimatorFactory.CreateRidgeRegressor")]
+    [InlineTemplate("_lin.Ridge(alpha={0})")]
+    public static extern RidgeRegressionModel Ridge(double alpha = 1.0);
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_met")]
+public static primitive class SklearnMetricsModule
+{
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.EvaluationMetrics.ComputeAccuracyScore")]
+    [InlineTemplate("_met.accuracy_score({0}, {1})")]
+    public static extern double AccuracyScore(NDArray<int> trueLabels, NDArray<int> predictedLabels);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.EvaluationMetrics.ComputeF1Score")]
+    [InlineTemplate("_met.f1_score({0}, {1}, average={2})")]
+    public static extern double F1Score(NDArray<int> trueLabels, NDArray<int> predictedLabels, string average = "weighted");
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.EvaluationMetrics.ComputeMeanSquaredError")]
+    [InlineTemplate("_met.mean_squared_error({0}, {1})")]
+    public static extern double MeanSquaredError(NDArray<double> trueValues, NDArray<double> predictedValues);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.EvaluationMetrics.ComputeR2Score")]
+    [InlineTemplate("_met.r2_score({0}, {1})")]
+    public static extern double R2Score(NDArray<double> trueValues, NDArray<double> predictedValues);
+}
+
+[SurfaceLevel(3)]
+public static primitive class sk
+{
+    [InlineTemplate("_ms")]
+    public static extern SklearnModelSelectionModule ModelSelection { get; }
+
+    [InlineTemplate("_prep")]
+    public static extern SklearnPreprocessingModule Preprocessing { get; }
+
+    [InlineTemplate("_ens")]
+    public static extern SklearnEnsembleModule Ensemble { get; }
+
+    [InlineTemplate("_lin")]
+    public static extern SklearnLinearModelModule LinearModel { get; }
+
+    [InlineTemplate("_met")]
+    public static extern SklearnMetricsModule Metrics { get; }
+}

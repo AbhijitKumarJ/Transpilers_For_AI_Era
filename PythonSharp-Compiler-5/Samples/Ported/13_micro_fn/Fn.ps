@@ -1,0 +1,203 @@
+namespace MicroFn;
+
+using PythonSharp.Core;
+
+public record PartitionResult(List<object> Matches, List<object> Rest);
+
+public class Fn
+{
+    [InlineTemplate("{0}({1})")]
+    public static extern object Invoke1(object fn, object a);
+
+    [InlineTemplate("{0}({1}, {2})")]
+    public static extern object Invoke2(object fn, object a, object b);
+
+    [InlineTemplate("{0}({1}, {2}, {3})")]
+    public static extern object Invoke3(object fn, object a, object b, object c);
+
+    [InlineTemplate("bool({0}({1}))")]
+    public static extern bool TestPredicate(object fn, object a);
+
+    [InlineTemplate("isinstance({0}, list)")]
+    public static extern bool IsList(object obj);
+
+    [InlineTemplate("{0}")]
+    public static extern List<object> AsList(object obj);
+
+    [InlineTemplate("(lambda a: (lambda b: {0}(a, b)))")]
+    private static extern object MakeCurry2(object fn);
+
+    [InlineTemplate("(lambda a: (lambda b: (lambda c: {0}(a, b, c))))")]
+    private static extern object MakeCurry3(object fn);
+
+    [InlineTemplate("(lambda *rest: {0}({1}, *rest))")]
+    private static extern object MakePartial(object fn, object arg1);
+
+    [InlineTemplate("(lambda *rest: {0}({1}, {2}, *rest))")]
+    private static extern object MakePartial2(object fn, object arg1, object arg2);
+
+    [InlineTemplate("(lambda x: {0}({1}(x)))")]
+    private static extern object MakeCompose(object f, object g);
+
+    public static object Curry2(object fn)
+    {
+        return MakeCurry2(fn);
+    }
+
+    public static object Curry3(object fn)
+    {
+        return MakeCurry3(fn);
+    }
+
+    public static object Partial(object fn, object arg1)
+    {
+        return MakePartial(fn, arg1);
+    }
+
+    public static object Partial2(object fn, object arg1, object arg2)
+    {
+        return MakePartial2(fn, arg1, arg2);
+    }
+
+    public static object Compose(object f, object g)
+    {
+        return MakeCompose(f, g);
+    }
+
+    public static object Pipe(object initial, List<object> functions)
+    {
+        object current = initial;
+        int i = 0;
+        while (i < functions.Count)
+        {
+            current = Invoke1(functions[i], current);
+            i = i + 1;
+        }
+        return current;
+    }
+
+    public static List<object> TakeWhile(object predicate, List<object> items)
+    {
+        List<object> result = new List<object>();
+        int i = 0;
+        while (i < items.Count)
+        {
+            object item = items[i];
+            if (!TestPredicate(predicate, item))
+            {
+                break;
+            }
+            result.Add(item);
+            i = i + 1;
+        }
+        return result;
+    }
+
+    public static List<object> DropWhile(object predicate, List<object> items)
+    {
+        List<object> result = new List<object>();
+        bool dropping = true;
+        int i = 0;
+        while (i < items.Count)
+        {
+            object item = items[i];
+            if (dropping && !TestPredicate(predicate, item))
+            {
+                dropping = false;
+            }
+            if (!dropping)
+            {
+                result.Add(item);
+            }
+            i = i + 1;
+        }
+        return result;
+    }
+
+    public static PartitionResult Partition(object predicate, List<object> items)
+    {
+        List<object> matches = new List<object>();
+        List<object> rest = new List<object>();
+        int i = 0;
+        while (i < items.Count)
+        {
+            object item = items[i];
+            if (TestPredicate(predicate, item))
+            {
+                matches.Add(item);
+            }
+            else
+            {
+                rest.Add(item);
+            }
+            i = i + 1;
+        }
+        return new PartitionResult(matches, rest);
+    }
+
+    public static List<object> Flatten(List<object> items)
+    {
+        List<object> flat = new List<object>();
+        int i = 0;
+        while (i < items.Count)
+        {
+            object item = items[i];
+            if (IsList(item))
+            {
+                List<object> subList = Flatten(AsList(item));
+                int j = 0;
+                while (j < subList.Count)
+                {
+                    flat.Add(subList[j]);
+                    j = j + 1;
+                }
+            }
+            else
+            {
+                flat.Add(item);
+            }
+            i = i + 1;
+        }
+        return flat;
+    }
+
+    public static List<object> Map(object transform, List<object> items)
+    {
+        List<object> result = new List<object>();
+        int i = 0;
+        while (i < items.Count)
+        {
+            result.Add(Invoke1(transform, items[i]));
+            i = i + 1;
+        }
+        return result;
+    }
+
+    public static List<object> Filter(object predicate, List<object> items)
+    {
+        List<object> result = new List<object>();
+        int i = 0;
+        while (i < items.Count)
+        {
+            object item = items[i];
+            if (TestPredicate(predicate, item))
+            {
+                result.Add(item);
+            }
+            i = i + 1;
+        }
+        return result;
+    }
+
+    public static object Reduce(object reducer, List<object> items, object initial)
+    {
+        object accum = initial;
+        int i = 0;
+        while (i < items.Count)
+        {
+            accum = Invoke2(reducer, accum, items[i]);
+            i = i + 1;
+        }
+        return accum;
+    }
+}

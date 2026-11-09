@@ -1,0 +1,119 @@
+namespace PythonSharp.Scientific;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+extern using scipy.optimize as _scipy_opt;
+extern using scipy.sparse as _scipy_sparse;
+
+[MapsTo("scipy.optimize.OptimizeResult")]
+[RuntimeType("scipy.optimize.OptimizeResult")]
+public primitive class OptimizationResult
+{
+    // --- Surface 1: Self-Documenting Enterprise Properties ---
+    [InlineTemplate("{self}.x")]
+    public extern NDArray<double> OptimalSolutionVector { get; }
+
+    [InlineTemplate("bool({self}.success)")]
+    public extern bool ConvergedSuccessfully { get; }
+
+    [InlineTemplate("float({self}.fun)")]
+    public extern double ObjectiveFunctionValue { get; }
+
+    [InlineTemplate("int({self}.nit)")]
+    public extern int IterationCount { get; }
+
+    [InlineTemplate("str({self}.message)")]
+    public extern string TerminationMessage { get; }
+
+    // --- Surface 3: C#-Standardized Properties ---
+    [CanonicalApi("PythonSharp.Scientific.OptimizationResult.OptimalSolutionVector")]
+    [InlineTemplate("{self}.x")]
+    public extern NDArray<double> X { get; }
+
+    [CanonicalApi("PythonSharp.Scientific.OptimizationResult.ConvergedSuccessfully")]
+    [InlineTemplate("bool({self}.success)")]
+    public extern bool Success { get; }
+
+    [CanonicalApi("PythonSharp.Scientific.OptimizationResult.ObjectiveFunctionValue")]
+    [InlineTemplate("float({self}.fun)")]
+    public extern double Fun { get; }
+
+    [CanonicalApi("PythonSharp.Scientific.OptimizationResult.IterationCount")]
+    [InlineTemplate("int({self}.nit)")]
+    public extern int Nit { get; }
+
+    [CanonicalApi("PythonSharp.Scientific.OptimizationResult.TerminationMessage")]
+    [InlineTemplate("str({self}.message)")]
+    public extern string Message { get; }
+
+    // --- Surface 2: Raw Python snake_case Properties ---
+    [CanonicalApi("PythonSharp.Scientific.OptimizationResult.OptimalSolutionVector", "X")]
+    [InlineTemplate("{self}.x")]
+    public extern NDArray<double> x { get; }
+
+    [CanonicalApi("PythonSharp.Scientific.OptimizationResult.ConvergedSuccessfully", "Success")]
+    [InlineTemplate("bool({self}.success)")]
+    public extern bool success { get; }
+
+    [CanonicalApi("PythonSharp.Scientific.OptimizationResult.ObjectiveFunctionValue", "Fun")]
+    [InlineTemplate("float({self}.fun)")]
+    public extern double fun { get; }
+
+    [CanonicalApi("PythonSharp.Scientific.OptimizationResult.IterationCount", "Nit")]
+    [InlineTemplate("int({self}.nit)")]
+    public extern int nit { get; }
+
+    [CanonicalApi("PythonSharp.Scientific.OptimizationResult.TerminationMessage", "Message")]
+    [InlineTemplate("str({self}.message)")]
+    public extern string message { get; }
+}
+
+[MapsTo("scipy.sparse.csr_matrix")]
+[RuntimeType("scipy.sparse.csr_matrix")]
+public primitive class CompressedSparseRowMatrix<T>
+{
+    [InlineTemplate("{self}.shape")]
+    public extern (int Rows, int Columns) MatrixDimensions { get; }
+
+    [CanonicalApi("PythonSharp.Scientific.CompressedSparseRowMatrix.MatrixDimensions")]
+    [InlineTemplate("{self}.shape")]
+    public extern (int Rows, int Columns) Shape { get; }
+
+    [CanonicalApi("PythonSharp.Scientific.CompressedSparseRowMatrix.MatrixDimensions", "Shape")]
+    [InlineTemplate("{self}.shape")]
+    public extern (int Rows, int Columns) shape { get; }
+
+    [InlineTemplate("int({self}.nnz)")]
+    public extern int NonZeroElementCount { get; }
+
+    [CanonicalApi("PythonSharp.Scientific.CompressedSparseRowMatrix.NonZeroElementCount")]
+    [InlineTemplate("int({self}.nnz)")]
+    public extern int Nnz { get; }
+
+    [CanonicalApi("PythonSharp.Scientific.CompressedSparseRowMatrix.NonZeroElementCount", "Nnz")]
+    [InlineTemplate("int({self}.nnz)")]
+    public extern int nnz { get; }
+
+    // --- Triple-Surface Instance Methods ---
+    [MapsTo("toarray")]
+    public extern NDArray<T> ConvertToDenseArray();
+
+    [CanonicalApi("PythonSharp.Scientific.CompressedSparseRowMatrix.ConvertToDenseArray")]
+    [MapsTo("toarray")]
+    public extern NDArray<T> ToArray();
+
+    [CanonicalApi("PythonSharp.Scientific.CompressedSparseRowMatrix.ConvertToDenseArray", "ToArray")]
+    [MapsTo("toarray")]
+    public extern NDArray<T> toarray();
+
+    [MapsTo("dot")]
+    public extern NDArray<T> MultiplyDense(NDArray<T> other);
+
+    [CanonicalApi("PythonSharp.Scientific.CompressedSparseRowMatrix.MultiplyDense")]
+    [MapsTo("dot")]
+    public extern NDArray<T> Dot(NDArray<T> other);
+
+    [CanonicalApi("PythonSharp.Scientific.CompressedSparseRowMatrix.MultiplyDense", "Dot")]
+    [MapsTo("dot")]
+    public extern NDArray<T> dot(NDArray<T> other);
+}

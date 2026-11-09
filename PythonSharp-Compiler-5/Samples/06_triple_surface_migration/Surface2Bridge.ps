@@ -1,0 +1,31 @@
+namespace TripleSurfaceMigration;
+
+using PythonSharp.Core;
+using PythonSharp.Time;
+using PythonSharp.Json;
+using PythonSharp.NumPy;
+using PythonSharp.Numerics.Tensors;
+
+public class Surface2BridgePipeline
+{
+    public static string RunPipeline()
+    {
+        double startTime = Time.NowEpoch();
+
+        // Surface 2: Idiomatic C# Bridge (PascalCase)
+        NDArray<double> a = np.Ones(2, 2);
+        NDArray<double> b = np.Ones(2, 2);
+
+        // Idiomatic C# matrix dot product
+        NDArray<double> c = a.Dot(b);
+
+        double elapsed = Time.NowEpoch() - startTime;
+
+        Dict<string, object> metrics = new Dict<string, object>();
+        metrics["surface"] = "Surface 2 (Idiomatic C# Bridge)";
+        metrics["elapsed_sec"] = elapsed;
+        metrics["matrix_dims"] = c.Shape;
+
+        return Json.Dumps(metrics);
+    }
+}

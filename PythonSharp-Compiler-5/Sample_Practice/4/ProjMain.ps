@@ -1,0 +1,24 @@
+namespace PS2;
+
+using PythonSharp.Core;
+
+public class ProjMain
+{
+    public static void main(string[] args)
+    {
+        //check for loop, intellisense anf file formatting
+        Console.WriteLine("");
+        Console.WriteLine("PS2.ProjMain.main() - Starting");
+        Console.WriteLine("TestUtil.pat() - Starting");
+        TestUtil.pat("Hello from TestUtil");
+        Console.WriteLine("TestUtil.pat() - Ending");
+
+        Console.WriteLine("");
+        Console.WriteLine("MPLUtil.draw() - Starting");
+        MPLUtil.draw("Hello from MPLUtil");
+        Console.WriteLine("");
+        Console.WriteLine("MPLUtil.draw() - Ending");
+        Console.WriteLine("PS2.ProjMain.main() - Ending");
+        Console.WriteLine("");
+    }
+}

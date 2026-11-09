@@ -1,0 +1,11 @@
+<Project Sdk="PythonSharp.Sdk/0.1.0">
+  <PropertyGroup>
+    <AssemblyName>XGBoostTrees</AssemblyName>
+    <TargetFramework>py3.11</TargetFramework>
+    <EmitPyc>false</EmitPyc>
+  </PropertyGroup>
+  <ItemGroup>
+    <PyPiPackage Include="xgboost" Version=">=2.0.0" />
+  </ItemGroup>
+</Project>
+

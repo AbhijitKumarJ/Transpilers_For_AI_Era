@@ -1,0 +1,120 @@
+{
+  "name": "pythonsharp",
+  "displayName": "PythonSharp",
+  "description": "Rich Language Server, IntelliSense, and Syntax Support for PythonSharp (.ps)",
+  "version": "0.1.0",
+  "repository":"https://github.com/AbhijitKumarJ/Transpilers_For_AI_Era",
+  "publisher": "AbhijitKumarJ",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Snippets"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onLanguage:pythonsharp"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "pythonsharp",
+        "aliases": [
+          "PythonSharp",
+          "pythonsharp"
+        ],
+        "extensions": [
+          ".ps",
+          ".d.ps",
+          ".pysharp",
+          ".d.pysharp",
+          ".pys",
+          ".d.pys"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "pythonsharp",
+        "scopeName": "source.ps",
+        "path": "./syntaxes/pythonsharp.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "pythonsharp.restartServer",
+        "title": "Restart Language Server",
+        "category": "PythonSharp"
+      },
+      {
+        "command": "pythonsharp.build",
+        "title": "Build Project (psc build)",
+        "category": "PythonSharp"
+      },
+      {
+        "command": "pythonsharp.rebuild",
+        "title": "Rebuild Project (psc rebuild)",
+        "category": "PythonSharp"
+      },
+      {
+        "command": "pythonsharp.clean",
+        "title": "Clean Output (psc clean)",
+        "category": "PythonSharp"
+      },
+      {
+        "command": "pythonsharp.check",
+        "title": "Check Diagnostics (psc check)",
+        "category": "PythonSharp"
+      },
+      {
+        "command": "pythonsharp.run",
+        "title": "Run Project / Entrypoint (psc run)",
+        "category": "PythonSharp"
+      },
+      {
+        "command": "pythonsharp.create",
+        "title": "Create New Project (psc create)",
+        "category": "PythonSharp"
+      },
+      {
+        "command": "pythonsharp.addReference",
+        "title": "Add Project Reference (psc add reference)",
+        "category": "PythonSharp"
+      },
+      {
+        "command": "pythonsharp.watch",
+        "title": "Watch Project for Changes (psc watch)",
+        "category": "PythonSharp"
+      },
+      {
+        "command": "pythonsharp.format",
+        "title": "Format Document (psc format)",
+        "category": "PythonSharp"
+      },
+      {
+        "command": "pythonsharp.dumpAst",
+        "title": "Dump Lowered AST (psc dump-ast)",
+        "category": "PythonSharp"
+      },
+      {
+        "command": "pythonsharp.bindgen",
+        "title": "Generate Stubs from Python (psc bindgen)",
+        "category": "PythonSharp"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "PythonSharp",
+      "properties": {
+        "pythonsharp.serverPath": {
+          "type": "string",
+          "default": "",
+          "description": "Custom executable path to `psc` or Python executable running `psc lsp`."
+        }
+      }
+    }
+  }
+}

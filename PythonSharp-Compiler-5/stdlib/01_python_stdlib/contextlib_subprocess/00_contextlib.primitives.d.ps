@@ -1,0 +1,76 @@
+namespace PythonSharp.System.Processes;
+
+using PythonSharp.Core;
+extern using contextlib as _py_ctx;
+extern using subprocess as _py_sub;
+
+[MapsTo("contextlib.ExitStack")]
+[RuntimeType("contextlib.ExitStack")]
+public primitive class DisposableResourceStack : IDisposable
+{
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [MapsTo("enter_context")]
+    public extern T EnterManagedContext<T>(T contextManager);
+
+    [MapsTo("close")]
+    public extern void CloseAllResources();
+
+    [MapsTo("close")]
+    public extern void Dispose();
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.System.Processes.DisposableResourceStack.EnterManagedContext")]
+    [MapsTo("enter_context")]
+    public extern T EnterContext<T>(T cm);
+
+    [CanonicalApi("PythonSharp.System.Processes.DisposableResourceStack.CloseAllResources")]
+    [MapsTo("close")]
+    public extern void Close();
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.System.Processes.DisposableResourceStack.EnterManagedContext", "EnterContext")]
+    [MapsTo("enter_context")]
+    public extern T enter_context<T>(T cm);
+
+    [CanonicalApi("PythonSharp.System.Processes.DisposableResourceStack.CloseAllResources", "Close")]
+    [MapsTo("close")]
+    public extern void close();
+}
+
+[MapsTo("subprocess.CompletedProcess")]
+[RuntimeType("subprocess.CompletedProcess")]
+public primitive class CompletedProcessResult
+{
+    [InlineTemplate("int({self}.returncode)")]
+    public extern int ExitStatusCode { get; }
+
+    [CanonicalApi("PythonSharp.System.Processes.CompletedProcessResult.ExitStatusCode")]
+    [InlineTemplate("int({self}.returncode)")]
+    public extern int ReturnCode { get; }
+
+    [CanonicalApi("PythonSharp.System.Processes.CompletedProcessResult.ExitStatusCode", "ReturnCode")]
+    [InlineTemplate("int({self}.returncode)")]
+    public extern int returncode { get; }
+
+    [InlineTemplate("str({self}.stdout)")]
+    public extern string StandardOutputText { get; }
+
+    [CanonicalApi("PythonSharp.System.Processes.CompletedProcessResult.StandardOutputText")]
+    [InlineTemplate("str({self}.stdout)")]
+    public extern string Stdout { get; }
+
+    [CanonicalApi("PythonSharp.System.Processes.CompletedProcessResult.StandardOutputText", "Stdout")]
+    [InlineTemplate("str({self}.stdout)")]
+    public extern string stdout { get; }
+
+    [InlineTemplate("str({self}.stderr)")]
+    public extern string StandardErrorText { get; }
+
+    [CanonicalApi("PythonSharp.System.Processes.CompletedProcessResult.StandardErrorText")]
+    [InlineTemplate("str({self}.stderr)")]
+    public extern string Stderr { get; }
+
+    [CanonicalApi("PythonSharp.System.Processes.CompletedProcessResult.StandardErrorText", "Stderr")]
+    [InlineTemplate("str({self}.stderr)")]
+    public extern string stderr { get; }
+}

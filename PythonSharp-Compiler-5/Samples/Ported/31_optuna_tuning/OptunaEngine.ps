@@ -1,0 +1,67 @@
+namespace PythonSharp.Samples.OptunaTuning;
+
+using PythonSharp.Core;
+extern using optuna as opt;
+
+public record TrialResult(
+    int TrialNumber,
+    double Value,
+    double LearningRate,
+    int MaxDepth
+);
+
+public record StudySummary(
+    int TotalTrials,
+    double BestValue,
+    double BestLr,
+    int BestDepth
+);
+
+public class OptunaEngine
+{
+    public static object CreateStudy(string direction)
+    {
+        return opt.create_study(direction=direction);
+    }
+
+    public static double EvaluateObjective(double lr, int depth)
+    {
+        double diffLr = lr - 0.05;
+        double diffDepth = depth - 6;
+        return (diffLr * diffLr * 100.0) + (diffDepth * diffDepth * 0.5) + 0.12;
+    }
+
+    public static double SuggestFloat(object trial, string name, double low, double high)
+    {
+        return trial.suggest_float(name, low, high);
+    }
+
+    public static int SuggestInt(object trial, string name, int low, int high)
+    {
+        return trial.suggest_int(name, low, high);
+    }
+
+    public static double ObjectiveCallback(object trial)
+    {
+        double lr = SuggestFloat(trial, "learning_rate", 0.001, 0.2);
+        int depth = SuggestInt(trial, "max_depth", 3, 10);
+        return EvaluateObjective(lr, depth);
+    }
+
+    public static void Optimize(object study, int numTrials)
+    {
+        study.optimize(ObjectiveCallback, n_trials=numTrials);
+    }
+
+    public static TrialResult GetBestTrial(object study)
+    {
+        var best = study.best_trial;
+        var p = best.@params;
+        return new TrialResult(
+            best.number,
+            best.value,
+            p["learning_rate"],
+            p["max_depth"]
+        );
+    }
+}

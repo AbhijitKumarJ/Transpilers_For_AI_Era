@@ -1,0 +1,112 @@
+namespace PythonSharp.OS;
+
+using PythonSharp.Core;
+using PythonSharp.System.IO;
+extern using os as _py_os;
+extern using shutil as _py_shutil;
+
+[SurfaceLevel(3)]
+[MapsTo("_py_os.path")]
+public static primitive class OsPathBridgeModule
+{
+    [CanonicalApi("PythonSharp.System.IO.FilePath.Combine")]
+    [InlineTemplate("_py_os.path.join({0}, {1})")]
+    public static extern string Join(string path1, string path2);
+
+    [CanonicalApi("PythonSharp.System.IO.FilePath.CombineThree")]
+    [InlineTemplate("_py_os.path.join({0}, {1}, {2})")]
+    public static extern string Join(string path1, string path2, string path3);
+
+    [CanonicalApi("PythonSharp.System.IO.FileSystemEntry.ExistsAtPath")]
+    [InlineTemplate("_py_os.path.exists({0})")]
+    public static extern bool Exists(string path);
+
+    [CanonicalApi("PythonSharp.System.IO.FileSystemEntry.IsRegularFile")]
+    [InlineTemplate("_py_os.path.isfile({0})")]
+    public static extern bool IsFile(string path);
+
+    [CanonicalApi("PythonSharp.System.IO.FileSystemEntry.IsDirectory")]
+    [InlineTemplate("_py_os.path.isdir({0})")]
+    public static extern bool IsDir(string path);
+
+    [CanonicalApi("PythonSharp.System.IO.FilePath.GetAbsolutePath")]
+    [InlineTemplate("_py_os.path.abspath({0})")]
+    public static extern string AbsPath(string path);
+
+    [CanonicalApi("PythonSharp.System.IO.FilePath.GetDirectoryName")]
+    [InlineTemplate("_py_os.path.dirname({0})")]
+    public static extern string DirName(string path);
+
+    [CanonicalApi("PythonSharp.System.IO.FilePath.GetFileName")]
+    [InlineTemplate("_py_os.path.basename({0})")]
+    public static extern string BaseName(string path);
+
+    [CanonicalApi("PythonSharp.System.IO.FilePath.SplitExtension")]
+    [InlineTemplate("_py_os.path.splitext({0})")]
+    public static extern (string Root, string Extension) SplitExt(string path);
+
+    [CanonicalApi("PythonSharp.System.IO.FileOperations.GetFileSize")]
+    [InlineTemplate("_py_os.path.getsize({0})")]
+    public static extern long GetSize(string path);
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_py_os")]
+public static primitive class OS
+{
+    [CanonicalApi("PythonSharp.System.IO.EnvironmentVariables.Variables")]
+    [InlineTemplate("_py_os.environ")]
+    public static extern EnvironmentVariableMap Environ { get; }
+
+    [CanonicalApi("PythonSharp.System.IO.FilePath.DirectorySeparator")]
+    [InlineTemplate("_py_os.sep")]
+    public static extern string Sep { get; }
+
+    [InlineTemplate("_py_os.path")]
+    public static extern OsPathBridgeModule Path { get; }
+
+    [CanonicalApi("PythonSharp.System.IO.EnvironmentVariables.GetVariableOrDefault")]
+    [InlineTemplate("_py_os.getenv({0}, {1})")]
+    public static extern string? GetEnv(string key, string? defaultValue = null);
+
+    [CanonicalApi("PythonSharp.System.IO.DirectoryOperations.GetCurrentWorkingDirectory")]
+    [InlineTemplate("_py_os.getcwd()")]
+    public static extern string GetCwd();
+
+    [CanonicalApi("PythonSharp.System.IO.DirectoryOperations.ListEntryNames")]
+    [InlineTemplate("_py_os.listdir({0})")]
+    public static extern List<string> ListDir(string path = ".");
+
+    [CanonicalApi("PythonSharp.System.IO.DirectoryOperations.CreateDirectoryRecursive")]
+    [InlineTemplate("_py_os.makedirs({0}, exist_ok={1})")]
+    public static extern void MakeDirs(string path, bool existOk = true);
+
+    [CanonicalApi("PythonSharp.System.IO.FileOperations.DeleteFile")]
+    [InlineTemplate("_py_os.remove({0})")]
+    public static extern void Remove(string path);
+
+    [CanonicalApi("PythonSharp.System.IO.FileOperations.RenameEntry")]
+    [InlineTemplate("_py_os.rename({0}, {1})")]
+    public static extern void Rename(string sourcePath, string destinationPath);
+}
+
+[SurfaceLevel(3)]
+[MapsTo("_py_shutil")]
+public static primitive class Shutil
+{
+    [CanonicalApi("PythonSharp.System.IO.FileOperations.CopyFileWithMetadata")]
+    [InlineTemplate("_py_shutil.copy2({0}, {1})")]
+    public static extern string Copy2(string sourcePath, string destinationPath);
+
+    [CanonicalApi("PythonSharp.System.IO.DirectoryOperations.CopyDirectoryTreeRecursively")]
+    [InlineTemplate("_py_shutil.copytree({0}, {1}, dirs_exist_ok={2})")]
+    public static extern string CopyTree(string sourceDir, string destinationDir, bool dirsExistOk = true);
+
+    [CanonicalApi("PythonSharp.System.IO.DirectoryOperations.DeleteDirectoryTreeRecursively")]
+    [InlineTemplate("_py_shutil.rmtree({0}, ignore_errors={1})")]
+    public static extern void RmTree(string directoryPath, bool ignoreErrors = false);
+
+    [CanonicalApi("PythonSharp.System.IO.FileOperations.MoveEntry")]
+    [InlineTemplate("_py_shutil.move({0}, {1})")]
+    public static extern string Move(string sourcePath, string destinationPath);
+}

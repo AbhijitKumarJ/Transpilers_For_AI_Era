@@ -1,0 +1,17 @@
+namespace TestMainPrj;
+
+using PythonSharp.Core;
+using TestLibPrj;
+
+public class ProjMain
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("TestMainPrj - Starting");
+        TestUtil.Log("Initialized successfully with PythonSharp!");
+
+        TestLibPrj.TestUtil.Log("Calling TestLibPrj from TestMainPrj!");
+        
+        Console.WriteLine("TestMainPrj - Completed");
+    }
+}
