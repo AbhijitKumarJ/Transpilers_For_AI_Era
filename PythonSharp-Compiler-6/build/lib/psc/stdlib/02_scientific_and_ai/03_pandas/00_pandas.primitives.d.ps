@@ -1,0 +1,301 @@
+namespace PythonSharp.DataScience.Tabular;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+extern using pandas as pd;
+
+[MapsTo("pd.Series")]
+[RuntimeType("pd.Series")]
+public primitive class Series<T> : IEnumerable<T>
+{
+    // --- Surface 1: Self-Documenting Enterprise Properties & Methods ---
+    [InlineTemplate("len({self})")]
+    public extern int RowCount { get; }
+
+    [MapsTo("to_numpy")]
+    public extern NDArray<T> ConvertToNumPyArray();
+
+    [MapsTo("tolist")]
+    public extern List<T> ConvertToList();
+
+    [MapsTo("mean")]
+    public extern double ComputeArithmeticMean();
+
+    [MapsTo("std")]
+    public extern double ComputeStandardDeviation();
+
+    [MapsTo("sum")]
+    public extern T ComputeSum();
+
+    [MapsTo("min")]
+    public extern T FindMinimumValue();
+
+    [MapsTo("max")]
+    public extern T FindMaximumValue();
+
+    [MapsTo("fillna")]
+    public extern Series<T> FillMissingValues(T replacementValue);
+
+    [MapsTo("dropna")]
+    public extern Series<T> DropMissingValues();
+
+    // --- Surface 3: C#-Standardized Properties & Methods ---
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.RowCount")]
+    [InlineTemplate("len({self})")]
+    public extern int Count { get; }
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.ConvertToNumPyArray")]
+    [MapsTo("to_numpy")]
+    public extern NDArray<T> ToNumpy();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.ConvertToList")]
+    [MapsTo("tolist")]
+    public extern List<T> ToList();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.ComputeArithmeticMean")]
+    [MapsTo("mean")]
+    public extern double Mean();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.ComputeStandardDeviation")]
+    [MapsTo("std")]
+    public extern double Std();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.ComputeSum")]
+    [MapsTo("sum")]
+    public extern T Sum();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.FindMinimumValue")]
+    [MapsTo("min")]
+    public extern T Min();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.FindMaximumValue")]
+    [MapsTo("max")]
+    public extern T Max();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.FillMissingValues")]
+    [MapsTo("fillna")]
+    public extern Series<T> FillNa(T value);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.DropMissingValues")]
+    [MapsTo("dropna")]
+    public extern Series<T> DropNa();
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.ConvertToNumPyArray", "ToNumpy")]
+    [MapsTo("to_numpy")]
+    public extern NDArray<T> to_numpy();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.ConvertToList", "ToList")]
+    [MapsTo("tolist")]
+    public extern List<T> tolist();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.ComputeArithmeticMean", "Mean")]
+    [MapsTo("mean")]
+    public extern double mean();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.ComputeStandardDeviation", "Std")]
+    [MapsTo("std")]
+    public extern double std();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.ComputeSum", "Sum")]
+    [MapsTo("sum")]
+    public extern T sum();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.FindMinimumValue", "Min")]
+    [MapsTo("min")]
+    public extern T min();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.FindMaximumValue", "Max")]
+    [MapsTo("max")]
+    public extern T max();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.FillMissingValues", "FillNa")]
+    [MapsTo("fillna")]
+    public extern Series<T> fillna(T value);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.Series.DropMissingValues", "DropNa")]
+    [MapsTo("dropna")]
+    public extern Series<T> dropna();
+
+    [InlineTemplate("{self}[{0}]")]
+    public extern T this[int index] { get; set; }
+}
+
+[MapsTo("pd.core.groupby.DataFrameGroupBy")]
+[RuntimeType("object")]
+public primitive class GroupByClause<TRow>
+{
+    [MapsTo("mean")]
+    public extern DataFrame<TRow> AggregateByMean();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.GroupByClause.AggregateByMean")]
+    [MapsTo("mean")]
+    public extern DataFrame<TRow> Mean();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.GroupByClause.AggregateByMean", "Mean")]
+    [MapsTo("mean")]
+    public extern DataFrame<TRow> mean();
+
+    [MapsTo("sum")]
+    public extern DataFrame<TRow> AggregateBySum();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.GroupByClause.AggregateBySum")]
+    [MapsTo("sum")]
+    public extern DataFrame<TRow> Sum();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.GroupByClause.AggregateBySum", "Sum")]
+    [MapsTo("sum")]
+    public extern DataFrame<TRow> sum();
+
+    [MapsTo("count")]
+    public extern DataFrame<TRow> AggregateByCount();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.GroupByClause.AggregateByCount")]
+    [MapsTo("count")]
+    public extern DataFrame<TRow> Count();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.GroupByClause.AggregateByCount", "Count")]
+    [MapsTo("count")]
+    public extern DataFrame<TRow> count();
+}
+
+[MapsTo("pd.DataFrame")]
+[RuntimeType("pd.DataFrame")]
+public primitive class DataFrame<TRow>
+{
+    // --- Triple-Surface Properties ---
+    [InlineTemplate("{self}.shape")]
+    public extern (int Rows, int Columns) TableDimensions { get; }
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.TableDimensions")]
+    [InlineTemplate("{self}.shape")]
+    public extern (int Rows, int Columns) Shape { get; }
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.TableDimensions", "Shape")]
+    [InlineTemplate("{self}.shape")]
+    public extern (int Rows, int Columns) shape { get; }
+
+    [InlineTemplate("list({self}.columns)")]
+    public extern List<string> ColumnNames { get; }
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.ColumnNames")]
+    [InlineTemplate("list({self}.columns)")]
+    public extern List<string> Columns { get; }
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.ColumnNames", "Columns")]
+    [InlineTemplate("list({self}.columns)")]
+    public extern List<string> columns { get; }
+
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [MapsTo("dropna")]
+    public extern DataFrame<TRow> DropRowsWithMissingValues();
+
+    [MapsTo("fillna")]
+    public extern DataFrame<TRow> FillMissingValuesWith(object replacementValue);
+
+    [MapsTo("head")]
+    public extern DataFrame<TRow> TakeFirstRows(int rowCount = 5);
+
+    [MapsTo("tail")]
+    public extern DataFrame<TRow> TakeLastRows(int rowCount = 5);
+
+    [MapsTo("groupby")]
+    public extern GroupByClause<TRow> GroupRowsByColumn(string columnName);
+
+    [MapsTo("sort_values")]
+    public extern DataFrame<TRow> SortRowsByColumn(string byColumn, bool ascending = true);
+
+    [MapsTo("to_numpy")]
+    public extern NDArray<double> ConvertToFeatureMatrix();
+
+    [MapsTo("to_csv")]
+    public extern void ExportToCsvFile(string filePath, bool includeIndex = false);
+
+    [MapsTo("describe")]
+    public extern DataFrame<object> ComputeSummaryStatistics();
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.DropRowsWithMissingValues")]
+    [MapsTo("dropna")]
+    public extern DataFrame<TRow> DropNa();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.FillMissingValuesWith")]
+    [MapsTo("fillna")]
+    public extern DataFrame<TRow> FillNa(object value);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.TakeFirstRows")]
+    [MapsTo("head")]
+    public extern DataFrame<TRow> Head(int n = 5);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.TakeLastRows")]
+    [MapsTo("tail")]
+    public extern DataFrame<TRow> Tail(int n = 5);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.GroupRowsByColumn")]
+    [MapsTo("groupby")]
+    public extern GroupByClause<TRow> GroupBy(string by);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.SortRowsByColumn")]
+    [MapsTo("sort_values")]
+    public extern DataFrame<TRow> SortValues(string by, bool ascending = true);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.ConvertToFeatureMatrix")]
+    [MapsTo("to_numpy")]
+    public extern NDArray<double> ToNumpy();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.ExportToCsvFile")]
+    [InlineTemplate("{self}.to_csv({0}, index={1})")]
+    public extern void ToCsv(string path, bool index = false);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.ComputeSummaryStatistics")]
+    [MapsTo("describe")]
+    public extern DataFrame<object> Describe();
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.DropRowsWithMissingValues", "DropNa")]
+    [MapsTo("dropna")]
+    public extern DataFrame<TRow> dropna();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.FillMissingValuesWith", "FillNa")]
+    [MapsTo("fillna")]
+    public extern DataFrame<TRow> fillna(object value);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.TakeFirstRows", "Head")]
+    [MapsTo("head")]
+    public extern DataFrame<TRow> head(int n = 5);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.TakeLastRows", "Tail")]
+    [MapsTo("tail")]
+    public extern DataFrame<TRow> tail(int n = 5);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.GroupRowsByColumn", "GroupBy")]
+    [MapsTo("groupby")]
+    public extern GroupByClause<TRow> groupby(string by);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.SortRowsByColumn", "SortValues")]
+    [MapsTo("sort_values")]
+    public extern DataFrame<TRow> sort_values(string by, bool ascending = true);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.ConvertToFeatureMatrix", "ToNumpy")]
+    [MapsTo("to_numpy")]
+    public extern NDArray<double> to_numpy();
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.ExportToCsvFile", "ToCsv")]
+    [InlineTemplate("{self}.to_csv({0}, index={1})")]
+    public extern void to_csv(string path, bool index = false);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.DataFrame.ComputeSummaryStatistics", "Describe")]
+    [MapsTo("describe")]
+    public extern DataFrame<object> describe();
+
+    // --- Column Indexing ---
+    [InlineTemplate("{self}[{0}]")]
+    public extern Series<double> this[string columnName]
+    {
+        get;
+        [InlineTemplate("{self}[{0}] = {value}")] set;
+    }
+
+    [InlineTemplate("{self}[{0}]")]
+    public extern DataFrame<TRow> this[List<string> columnNames] { get; }
+}

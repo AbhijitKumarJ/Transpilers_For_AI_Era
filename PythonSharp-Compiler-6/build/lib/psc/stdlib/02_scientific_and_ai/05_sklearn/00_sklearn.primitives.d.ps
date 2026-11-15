@@ -1,0 +1,268 @@
+namespace PythonSharp.MachineLearning.Classical;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+extern using sklearn.preprocessing as _prep;
+extern using sklearn.ensemble as _ens;
+extern using sklearn.linear_model as _lin;
+
+public primitive interface IFeatureTransformer<T>
+{
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [MapsTo("fit")]
+    void FitToFeatures(NDArray<T> featureMatrix);
+
+    [MapsTo("transform")]
+    NDArray<T> TransformFeatures(NDArray<T> featureMatrix);
+
+    [MapsTo("fit_transform")]
+    NDArray<T> FitAndTransformFeatures(NDArray<T> featureMatrix);
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.IFeatureTransformer.FitToFeatures")]
+    [MapsTo("fit")]
+    void Fit(NDArray<T> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.IFeatureTransformer.TransformFeatures")]
+    [MapsTo("transform")]
+    NDArray<T> Transform(NDArray<T> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.IFeatureTransformer.FitAndTransformFeatures")]
+    [MapsTo("fit_transform")]
+    NDArray<T> FitTransform(NDArray<T> X);
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.IFeatureTransformer.FitToFeatures", "Fit")]
+    [MapsTo("fit")]
+    void fit(NDArray<T> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.IFeatureTransformer.TransformFeatures", "Transform")]
+    [MapsTo("transform")]
+    NDArray<T> transform(NDArray<T> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.IFeatureTransformer.FitAndTransformFeatures", "FitTransform")]
+    [MapsTo("fit_transform")]
+    NDArray<T> fit_transform(NDArray<T> X);
+}
+
+public primitive interface ISupervisedEstimator<TFeature, TLabel>
+{
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [MapsTo("fit")]
+    void TrainOnLabeledDataset(NDArray<TFeature> featureMatrix, NDArray<TLabel> targetLabels);
+
+    [MapsTo("predict")]
+    NDArray<TLabel> PredictLabels(NDArray<TFeature> featureMatrix);
+
+    [MapsTo("score")]
+    double EvaluateModelScore(NDArray<TFeature> featureMatrix, NDArray<TLabel> groundTruthLabels);
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.ISupervisedEstimator.TrainOnLabeledDataset")]
+    [MapsTo("fit")]
+    void Fit(NDArray<TFeature> X, NDArray<TLabel> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.ISupervisedEstimator.PredictLabels")]
+    [MapsTo("predict")]
+    NDArray<TLabel> Predict(NDArray<TFeature> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.ISupervisedEstimator.EvaluateModelScore")]
+    [MapsTo("score")]
+    double Score(NDArray<TFeature> X, NDArray<TLabel> y);
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.ISupervisedEstimator.TrainOnLabeledDataset", "Fit")]
+    [MapsTo("fit")]
+    void fit(NDArray<TFeature> X, NDArray<TLabel> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.ISupervisedEstimator.PredictLabels", "Predict")]
+    [MapsTo("predict")]
+    NDArray<TLabel> predict(NDArray<TFeature> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.ISupervisedEstimator.EvaluateModelScore", "Score")]
+    [MapsTo("score")]
+    double score(NDArray<TFeature> X, NDArray<TLabel> y);
+}
+
+[MapsTo("_prep.StandardScaler")]
+[RuntimeType("object")]
+public primitive class StandardFeatureScaler : IFeatureTransformer<double>
+{
+    [InlineTemplate("{self}.mean_")]
+    public extern NDArray<double> FeatureMeans { get; }
+
+    [InlineTemplate("{self}.scale_")]
+    public extern NDArray<double> FeatureStandardDeviations { get; }
+
+    [MapsTo("fit")]
+    public extern void FitToFeatures(NDArray<double> featureMatrix);
+
+    [MapsTo("transform")]
+    public extern NDArray<double> TransformFeatures(NDArray<double> featureMatrix);
+
+    [MapsTo("fit_transform")]
+    public extern NDArray<double> FitAndTransformFeatures(NDArray<double> featureMatrix);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.StandardFeatureScaler.FitToFeatures")]
+    [MapsTo("fit")]
+    public extern void Fit(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.StandardFeatureScaler.TransformFeatures")]
+    [MapsTo("transform")]
+    public extern NDArray<double> Transform(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.StandardFeatureScaler.FitAndTransformFeatures")]
+    [MapsTo("fit_transform")]
+    public extern NDArray<double> FitTransform(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.StandardFeatureScaler.FitToFeatures", "Fit")]
+    [MapsTo("fit")]
+    public extern void fit(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.StandardFeatureScaler.TransformFeatures", "Transform")]
+    [MapsTo("transform")]
+    public extern NDArray<double> transform(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.StandardFeatureScaler.FitAndTransformFeatures", "FitTransform")]
+    [MapsTo("fit_transform")]
+    public extern NDArray<double> fit_transform(NDArray<double> X);
+}
+
+[MapsTo("_ens.RandomForestClassifier")]
+[RuntimeType("object")]
+public primitive class RandomForestClassifierModel : ISupervisedEstimator<double, int>
+{
+    [InlineTemplate("{self}.feature_importances_")]
+    public extern NDArray<double> FeatureImportanceScores { get; }
+
+    [MapsTo("fit")]
+    public extern void TrainOnLabeledDataset(NDArray<double> featureMatrix, NDArray<int> targetLabels);
+
+    [MapsTo("predict")]
+    public extern NDArray<int> PredictLabels(NDArray<double> featureMatrix);
+
+    [MapsTo("predict_proba")]
+    public extern NDArray<double> PredictClassProbabilities(NDArray<double> featureMatrix);
+
+    [MapsTo("score")]
+    public extern double EvaluateModelScore(NDArray<double> featureMatrix, NDArray<int> groundTruthLabels);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.RandomForestClassifierModel.TrainOnLabeledDataset")]
+    [MapsTo("fit")]
+    public extern void Fit(NDArray<double> X, NDArray<int> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.RandomForestClassifierModel.PredictLabels")]
+    [MapsTo("predict")]
+    public extern NDArray<int> Predict(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.RandomForestClassifierModel.PredictClassProbabilities")]
+    [MapsTo("predict_proba")]
+    public extern NDArray<double> PredictProba(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.RandomForestClassifierModel.EvaluateModelScore")]
+    [MapsTo("score")]
+    public extern double Score(NDArray<double> X, NDArray<int> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.RandomForestClassifierModel.TrainOnLabeledDataset", "Fit")]
+    [MapsTo("fit")]
+    public extern void fit(NDArray<double> X, NDArray<int> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.RandomForestClassifierModel.PredictLabels", "Predict")]
+    [MapsTo("predict")]
+    public extern NDArray<int> predict(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.RandomForestClassifierModel.PredictClassProbabilities", "PredictProba")]
+    [MapsTo("predict_proba")]
+    public extern NDArray<double> predict_proba(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.RandomForestClassifierModel.EvaluateModelScore", "Score")]
+    [MapsTo("score")]
+    public extern double score(NDArray<double> X, NDArray<int> y);
+}
+
+[MapsTo("_lin.LogisticRegression")]
+[RuntimeType("object")]
+public primitive class LogisticRegressionModel : ISupervisedEstimator<double, int>
+{
+    [MapsTo("fit")]
+    public extern void TrainOnLabeledDataset(NDArray<double> featureMatrix, NDArray<int> targetLabels);
+
+    [MapsTo("predict")]
+    public extern NDArray<int> PredictLabels(NDArray<double> featureMatrix);
+
+    [MapsTo("predict_proba")]
+    public extern NDArray<double> PredictClassProbabilities(NDArray<double> featureMatrix);
+
+    [MapsTo("score")]
+    public extern double EvaluateModelScore(NDArray<double> featureMatrix, NDArray<int> groundTruthLabels);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.LogisticRegressionModel.TrainOnLabeledDataset")]
+    [MapsTo("fit")]
+    public extern void Fit(NDArray<double> X, NDArray<int> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.LogisticRegressionModel.PredictLabels")]
+    [MapsTo("predict")]
+    public extern NDArray<int> Predict(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.LogisticRegressionModel.PredictClassProbabilities")]
+    [MapsTo("predict_proba")]
+    public extern NDArray<double> PredictProba(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.LogisticRegressionModel.EvaluateModelScore")]
+    [MapsTo("score")]
+    public extern double Score(NDArray<double> X, NDArray<int> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.LogisticRegressionModel.TrainOnLabeledDataset", "Fit")]
+    [MapsTo("fit")]
+    public extern void fit(NDArray<double> X, NDArray<int> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.LogisticRegressionModel.PredictLabels", "Predict")]
+    [MapsTo("predict")]
+    public extern NDArray<int> predict(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.LogisticRegressionModel.PredictClassProbabilities", "PredictProba")]
+    [MapsTo("predict_proba")]
+    public extern NDArray<double> predict_proba(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.LogisticRegressionModel.EvaluateModelScore", "Score")]
+    [MapsTo("score")]
+    public extern double score(NDArray<double> X, NDArray<int> y);
+}
+
+[MapsTo("_lin.Ridge")]
+[RuntimeType("object")]
+public primitive class RidgeRegressionModel : ISupervisedEstimator<double, double>
+{
+    [MapsTo("fit")]
+    public extern void TrainOnLabeledDataset(NDArray<double> featureMatrix, NDArray<double> targetValues);
+
+    [MapsTo("predict")]
+    public extern NDArray<double> PredictLabels(NDArray<double> featureMatrix);
+
+    [MapsTo("score")]
+    public extern double EvaluateModelScore(NDArray<double> featureMatrix, NDArray<double> groundTruthValues);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.RidgeRegressionModel.TrainOnLabeledDataset")]
+    [MapsTo("fit")]
+    public extern void Fit(NDArray<double> X, NDArray<double> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.RidgeRegressionModel.PredictLabels")]
+    [MapsTo("predict")]
+    public extern NDArray<double> Predict(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.RidgeRegressionModel.EvaluateModelScore")]
+    [MapsTo("score")]
+    public extern double Score(NDArray<double> X, NDArray<double> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.RidgeRegressionModel.TrainOnLabeledDataset", "Fit")]
+    [MapsTo("fit")]
+    public extern void fit(NDArray<double> X, NDArray<double> y);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.RidgeRegressionModel.PredictLabels", "Predict")]
+    [MapsTo("predict")]
+    public extern NDArray<double> predict(NDArray<double> X);
+
+    [CanonicalApi("PythonSharp.MachineLearning.Classical.RidgeRegressionModel.EvaluateModelScore", "Score")]
+    [MapsTo("score")]
+    public extern double score(NDArray<double> X, NDArray<double> y);
+}

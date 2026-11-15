@@ -1,0 +1,54 @@
+namespace PythonSharp.SymbolicMath;
+
+using PythonSharp.Core;
+extern using sympy as _sp;
+
+[SurfaceLevel(1)]
+[MapsTo("_sp")]
+public static primitive class SymbolFactory
+{
+    [InlineTemplate("_sp.symbols({0})")]
+    public static extern SymbolicVariable DeclareSymbol(string symbolIdentifier);
+
+    [InlineTemplate("_sp.sympify({0})")]
+    public static extern SymbolicExpression ParseSymbolicExpression(string mathematicalExpression);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_sp")]
+public static primitive class SymbolicCalculus
+{
+    [InlineTemplate("_sp.diff({0}, {1}, {2})")]
+    public static extern SymbolicExpression DifferentiateWithRespectTo(SymbolicExpression expression, SymbolicVariable variable, int derivativeOrder = 1);
+
+    [InlineTemplate("_sp.integrate({0}, {1})")]
+    public static extern SymbolicExpression IntegrateIndefinite(SymbolicExpression integrand, SymbolicVariable integrationVariable);
+
+    [InlineTemplate("_sp.integrate({0}, ({1}, {2}, {3}))")]
+    public static extern SymbolicExpression IntegrateDefinite(SymbolicExpression integrand, SymbolicVariable integrationVariable, double lowerLimit, double upperLimit);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_sp")]
+public static primitive class SymbolicAlgebra
+{
+    [InlineTemplate("_sp.simplify({0})")]
+    public static extern SymbolicExpression SimplifyExpression(SymbolicExpression expression);
+
+    [InlineTemplate("_sp.solve({0}, {1})")]
+    public static extern List<SymbolicExpression> SolveAlgebraicEquation(SymbolicExpression equationEqualsZero, SymbolicVariable targetVariable);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_sp")]
+public static primitive class SymbolicTrigonometry
+{
+    [InlineTemplate("_sp.sin({0})")]
+    public static extern SymbolicExpression Sine(SymbolicExpression angleExpression);
+
+    [InlineTemplate("_sp.cos({0})")]
+    public static extern SymbolicExpression Cosine(SymbolicExpression angleExpression);
+
+    [InlineTemplate("_sp.exp({0})")]
+    public static extern SymbolicExpression Exponential(SymbolicExpression exponentExpression);
+}

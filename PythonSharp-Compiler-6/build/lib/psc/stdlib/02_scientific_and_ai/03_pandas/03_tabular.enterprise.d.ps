@@ -1,0 +1,47 @@
+namespace PythonSharp.DataScience.Tabular;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+extern using pandas as _pd;
+
+[SurfaceLevel(1)]
+[MapsTo("_pd")]
+public static primitive class TabularDataReader
+{
+    [InlineTemplate("_pd.read_csv({0})")]
+    public static extern DataFrame<TRow> ReadCsvFile<TRow>(string csvFilePath);
+
+    [InlineTemplate("_pd.read_csv({0})")]
+    public static extern DataFrame<object> ReadUntypedCsvFile(string csvFilePath);
+
+    [InlineTemplate("_pd.read_parquet({0})")]
+    public static extern DataFrame<TRow> ReadParquetFile<TRow>(string parquetFilePath);
+
+    [InlineTemplate("_pd.read_json({0})")]
+    public static extern DataFrame<TRow> ReadJsonFile<TRow>(string jsonFilePath);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_pd")]
+public static primitive class TabularDataFactory
+{
+    [InlineTemplate("_pd.DataFrame({0})")]
+    public static extern DataFrame<TRow> CreateDataFrameFromDictionary<TRow>(object columnDictionary);
+
+    [InlineTemplate("_pd.DataFrame({0}, columns={1})")]
+    public static extern DataFrame<TRow> CreateDataFrameFromMatrix<TRow>(NDArray<double> featureMatrix, List<string> columnNames);
+
+    [InlineTemplate("_pd.Series({0})")]
+    public static extern Series<T> CreateSeriesFromSequence<T>(IEnumerable<T> items);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_pd")]
+public static primitive class TabularOperations
+{
+    [InlineTemplate("_pd.concat({0}, axis={1})")]
+    public static extern DataFrame<TRow> ConcatenateDataFrames<TRow>(IEnumerable<DataFrame<TRow>> tables, int concatenationAxis = 0);
+
+    [InlineTemplate("_pd.merge({0}, {1}, on={2}, how={3})")]
+    public static extern DataFrame<object> MergeDataFramesOnKey<TLeft, TRight>(DataFrame<TLeft> leftTable, DataFrame<TRight> rightTable, string keyColumnName, string joinStrategy = "inner");
+}

@@ -1,0 +1,817 @@
+namespace PythonSharp.Core;
+
+extern using builtins;
+extern using asyncio;
+extern using math as py_math;
+extern using datetime as dt;
+
+// ----------------------------------------------------------------------------
+// 1. STRINGS, BYTES & COMPLEX NUMBERS
+// ----------------------------------------------------------------------------
+
+[MapsTo("str")]
+[RuntimeType("str")]
+public primitive class String : IEnumerable<string>
+{
+    [InlineTemplate("len({self})")]
+    public extern int Length { get; }
+
+    [InlineTemplate("(len({self}) == 0)")]
+    public extern bool IsEmpty { get; }
+
+    [InlineTemplate("({0} in {self})")]
+    public extern bool Contains(string value);
+
+    // --- Surface 1 & 3 (C# / Enterprise) ---
+    [MapsTo("startswith")]
+    public extern bool StartsWith(string prefix);
+
+    [MapsTo("endswith")]
+    public extern bool EndsWith(string suffix);
+
+    [MapsTo("lower")]
+    public extern string ToLower();
+
+    [MapsTo("upper")]
+    public extern string ToUpper();
+
+    [MapsTo("strip")]
+    public extern string Trim();
+
+    [MapsTo("lstrip")]
+    public extern string TrimStart();
+
+    [MapsTo("rstrip")]
+    public extern string TrimEnd();
+
+    [MapsTo("replace")]
+    public extern string Replace(string oldValue, string newValue);
+
+    [MapsTo("split")]
+    public extern List<string> Split(string? separator = null, int maxSplit = -1);
+
+    [MapsTo("encode")]
+    public extern Bytes Encode(string encoding = "utf-8");
+
+    // --- Surface 2 (Raw Python snake_case aliases) ---
+    [CanonicalApi("PythonSharp.Core.String.StartsWith")]
+    [MapsTo("startswith")]
+    public extern bool startswith(string prefix);
+
+    [CanonicalApi("PythonSharp.Core.String.EndsWith")]
+    [MapsTo("endswith")]
+    public extern bool endswith(string suffix);
+
+    [CanonicalApi("PythonSharp.Core.String.ToLower")]
+    [MapsTo("lower")]
+    public extern string lower();
+
+    [CanonicalApi("PythonSharp.Core.String.ToUpper")]
+    [MapsTo("upper")]
+    public extern string upper();
+
+    [CanonicalApi("PythonSharp.Core.String.Trim")]
+    [MapsTo("strip")]
+    public extern string strip();
+
+    [CanonicalApi("PythonSharp.Core.String.Replace")]
+    [MapsTo("replace")]
+    public extern string replace(string old, string @new);
+
+    [CanonicalApi("PythonSharp.Core.String.Split")]
+    [MapsTo("split")]
+    public extern List<string> split(string? sep = null, int maxsplit = -1);
+
+    [CanonicalApi("PythonSharp.Core.String.Encode")]
+    [MapsTo("encode")]
+    public extern Bytes encode(string encoding = "utf-8");
+
+    [InlineTemplate("{0}.join({1})")]
+    public static extern string Join(string separator, IEnumerable<string> values);
+
+    [InlineTemplate("(not {0} or {0}.isspace())")]
+    public static extern bool IsNullOrWhiteSpace(string? value);
+
+    [InlineTemplate("(not {0})")]
+    public static extern bool IsNullOrEmpty(string? value);
+
+[InlineTemplate("{self}[{0}:]")]
+    public extern string Substring(int startIndex);
+
+    [InlineTemplate("{self}[{0}:{0} + {1}]")]
+    public extern string Substring(int startIndex, int length);
+
+    [MapsTo("find")]
+    public extern int IndexOf(string value);
+
+    [MapsTo("rfind")]
+    public extern int LastIndexOf(string value);
+
+    [InlineTemplate("str({self})")]
+    public extern string ToString();
+
+    [MapsTo("rjust")]
+    public extern string PadLeft(int totalWidth, string paddingChar = " ");
+
+    [MapsTo("ljust")]
+    public extern string PadRight(int totalWidth, string paddingChar = " ");
+
+    [InlineTemplate("{self}[{0}]")]
+    public extern string this[int index] { get; }
+}
+
+[MapsTo("bytes")]
+[RuntimeType("bytes")]
+public primitive class Bytes : IEnumerable<int>
+{
+    [InlineTemplate("len({self})")]
+    public extern int Length { get; }
+
+    [MapsTo("decode")]
+    public extern string DecodeUtf8(string encoding = "utf-8");
+
+    [CanonicalApi("PythonSharp.Core.Bytes.DecodeUtf8")]
+    [MapsTo("decode")]
+    public extern string Decode(string encoding = "utf-8");
+
+    [CanonicalApi("PythonSharp.Core.Bytes.DecodeUtf8", "Decode")]
+    [MapsTo("decode")]
+    public extern string decode(string encoding = "utf-8");
+
+    [MapsTo("hex")]
+    public extern string ToHexString();
+
+    [CanonicalApi("PythonSharp.Core.Bytes.ToHexString")]
+    [MapsTo("hex")]
+    public extern string hex();
+
+    [InlineTemplate("{self}[{0}]")]
+    public extern int this[int index] { get; }
+
+    [InlineTemplate("{self}[{0}:{1}]")]
+    public extern Bytes Slice(int start, int end);
+
+    [InlineTemplate("({self} + {0})")]
+    public extern Bytes Concat(Bytes other);
+
+    [InlineTemplate("bytes({0})")]
+    public static extern Bytes FromBytes(IEnumerable<int> byteValues);
+
+    [InlineTemplate("bytes({0})")]
+    public static extern Bytes AllocateZeros(int count);
+
+    [InlineTemplate("{self}.find({0})")]
+    public extern int IndexOf(int byteVal);
+}
+
+[MapsTo("complex")]
+[RuntimeType("complex")]
+public primitive struct Complex
+{
+    [InlineTemplate("complex({0}, {1})")]
+    public extern Complex(double real, double imag = 0.0);
+
+    [InlineTemplate("float({self}.real)")]
+    public extern double Real { get; }
+
+    [CanonicalApi("PythonSharp.Core.Complex.Real")]
+    [InlineTemplate("float({self}.real)")]
+    public extern double real { get; }
+
+    [InlineTemplate("float({self}.imag)")]
+    public extern double Imaginary { get; }
+
+    [CanonicalApi("PythonSharp.Core.Complex.Imaginary")]
+    [InlineTemplate("float({self}.imag)")]
+    public extern double imag { get; }
+
+    [MapsTo("conjugate")]
+    public extern Complex Conjugate();
+
+    [CanonicalApi("PythonSharp.Core.Complex.Conjugate")]
+    [MapsTo("conjugate")]
+    public extern Complex conjugate();
+}
+
+// ----------------------------------------------------------------------------
+// 2. COLLECTIONS: List<T>, Dict<TKey, TValue>, HashSet<T>, KeyValuePair<K, V>
+// ----------------------------------------------------------------------------
+
+[MapsTo("list")]
+[RuntimeType("list")]
+public primitive class List<T> : IEnumerable<T>
+{
+    [InlineTemplate("[]")]
+    public extern List();
+
+    [InlineTemplate("list({0})")]
+    public extern List(IEnumerable<T> collection);
+
+    [InlineTemplate("len({self})")]
+    public extern int Count { get; }
+
+    [InlineTemplate("(len({self}) == 0)")]
+    public extern bool IsEmpty { get; }
+
+    // --- Surface 1 & 3 (C# / Enterprise) ---
+    [MapsTo("append")]
+    public extern void Add(T item);
+
+    [MapsTo("extend")]
+    public extern void AddRange(IEnumerable<T> collection);
+
+    [MapsTo("insert")]
+    public extern void Insert(int index, T item);
+
+    [MapsTo("remove")]
+    public extern void Remove(T item);
+
+    [InlineTemplate("{self}.pop({0})")]
+    public extern T RemoveAt(int index);
+
+    [MapsTo("pop")]
+    public extern T Pop();
+
+    [MapsTo("clear")]
+    public extern void Clear();
+
+    [InlineTemplate("({0} in {self})")]
+    public extern bool Contains(T item);
+
+    [MapsTo("index")]
+    public extern int IndexOf(T item);
+
+    [MapsTo("sort")]
+    public extern void Sort();
+
+    [MapsTo("reverse")]
+    public extern void Reverse();
+
+    [MapsTo("copy")]
+    public extern List<T> Clone();
+
+    // --- Surface 2 (Raw Python snake_case aliases) ---
+    [CanonicalApi("PythonSharp.Core.List.Add")]
+    [MapsTo("append")]
+    public extern void append(T item);
+
+    [CanonicalApi("PythonSharp.Core.List.AddRange")]
+    [MapsTo("extend")]
+    public extern void extend(IEnumerable<T> iterable);
+
+    [CanonicalApi("PythonSharp.Core.List.Pop")]
+    [MapsTo("pop")]
+    public extern T pop(int index = -1);
+
+    [CanonicalApi("PythonSharp.Core.List.Clear")]
+    [MapsTo("clear")]
+    public extern void clear();
+
+    [InlineTemplate("{self}[{0}]")]
+    public extern T this[int index]
+    {
+        get;
+        [InlineTemplate("{self}[{0}] = {value}")] set;
+    }
+}
+
+[MapsTo("dict")]
+[RuntimeType("dict")]
+public primitive class Dict<TKey, TValue> : IEnumerable<KeyValuePair<TKey, TValue>>
+{
+    [InlineTemplate("{}")]
+    public extern Dict();
+
+    [InlineTemplate("len({self})")]
+    public extern int Count { get; }
+
+    [InlineTemplate("(len({self}) == 0)")]
+    public extern bool IsEmpty { get; }
+
+    [InlineTemplate("{self}[{0}] = {1}")]
+    public extern void Add(TKey key, TValue value);
+
+    [MapsTo("get")]
+    public extern TValue? GetOrDefault(TKey key, TValue? defaultValue = default);
+
+    [CanonicalApi("PythonSharp.Core.Dict.GetOrDefault")]
+    [MapsTo("get")]
+    public extern TValue? get(TKey key, TValue? defaultValue = default);
+
+    [InlineTemplate("({0} in {self})")]
+    public extern bool ContainsKey(TKey key);
+
+    [InlineTemplate("({self}.pop({0}, None) is not None)")]
+    public extern bool Remove(TKey key);
+
+    [MapsTo("pop")]
+    public extern TValue Pop(TKey key, TValue defaultValue);
+
+    [MapsTo("update")]
+    public extern void Merge(Dict<TKey, TValue> other);
+
+    [CanonicalApi("PythonSharp.Core.Dict.Merge")]
+    [MapsTo("update")]
+    public extern void update(Dict<TKey, TValue> other);
+
+    [MapsTo("clear")]
+    public extern void Clear();
+
+    [CanonicalApi("PythonSharp.Core.Dict.Clear")]
+    [MapsTo("clear")]
+    public extern void clear();
+
+    [MapsTo("keys")]
+    public extern IEnumerable<TKey> Keys();
+
+    [CanonicalApi("PythonSharp.Core.Dict.Keys")]
+    [MapsTo("keys")]
+    public extern IEnumerable<TKey> keys();
+
+    [MapsTo("values")]
+    public extern IEnumerable<TValue> Values();
+
+    [CanonicalApi("PythonSharp.Core.Dict.Values")]
+    [MapsTo("values")]
+    public extern IEnumerable<TValue> values();
+
+    [MapsTo("items")]
+    public extern IEnumerable<KeyValuePair<TKey, TValue>> Items();
+
+    [CanonicalApi("PythonSharp.Core.Dict.Items")]
+    [MapsTo("items")]
+    public extern IEnumerable<KeyValuePair<TKey, TValue>> items();
+
+    [InlineTemplate("({0} in {self}.values())")]
+    public extern bool ContainsValue(TValue value);
+
+    [InlineTemplate("{self}[{0}]")]
+    public extern TValue this[TKey key]
+    {
+        get;
+        [InlineTemplate("{self}[{0}] = {value}")] set;
+    }
+}
+
+[MapsTo("set")]
+[RuntimeType("set")]
+public primitive class HashSet<T> : IEnumerable<T>
+{
+[InlineTemplate("{self}.update({0})")]
+    public extern void UnionWith(IEnumerable<T> other);
+
+    [InlineTemplate("{self}.intersection_update({0})")]
+    public extern void IntersectWith(IEnumerable<T> other);
+
+    [InlineTemplate("{self}.difference_update({0})")]
+    public extern void ExceptWith(IEnumerable<T> other);
+
+    [InlineTemplate("{self}.symmetric_difference_update({0})")]
+    public extern void SymmetricExceptWith(IEnumerable<T> other);
+
+    [InlineTemplate("{self}.issubset({0})")]
+    public extern bool IsSubsetOf(IEnumerable<T> other);
+
+    [InlineTemplate("{self}.issuperset({0})")]
+    public extern bool IsSupersetOf(IEnumerable<T> other);
+
+    [InlineTemplate("(not {self}.isdisjoint({0}))")]
+    public extern bool Overlaps(IEnumerable<T> other);
+
+    [InlineTemplate("({self} == set({0}))")]
+    public extern bool SetEquals(IEnumerable<T> other);
+    [InlineTemplate("set()")]
+    public extern HashSet();
+
+    [InlineTemplate("set({0})")]
+    public extern HashSet(IEnumerable<T> collection);
+
+    [InlineTemplate("len({self})")]
+    public extern int Count { get; }
+
+    [MapsTo("add")]
+    public extern void Add(T item);
+
+    [CanonicalApi("PythonSharp.Core.HashSet.Add")]
+    [MapsTo("add")]
+    public extern void add(T item);
+
+    [MapsTo("discard")]
+    public extern void Remove(T item);
+
+    [CanonicalApi("PythonSharp.Core.HashSet.Remove")]
+    [MapsTo("discard")]
+    public extern void discard(T item);
+
+    [InlineTemplate("({0} in {self})")]
+    public extern bool Contains(T item);
+
+    [MapsTo("clear")]
+    public extern void Clear();
+
+    [MapsTo("union")]
+    public extern HashSet<T> Union(IEnumerable<T> other);
+
+    [MapsTo("intersection")]
+    public extern HashSet<T> Intersect(IEnumerable<T> other);
+
+    [MapsTo("difference")]
+    public extern HashSet<T> Except(IEnumerable<T> other);
+
+    [MapsTo("issubset")]
+    public extern bool IsSubsetOf(IEnumerable<T> other);
+}
+
+[MapsTo("tuple")]
+[RuntimeType("tuple")]
+public primitive struct KeyValuePair<TKey, TValue>
+{
+    [InlineTemplate("({0}, {1})")]
+    public extern KeyValuePair(TKey key, TValue value);
+
+    [InlineTemplate("{self}[0]")]
+    public extern TKey Key { get; }
+
+    [InlineTemplate("{self}[1]")]
+    public extern TValue Value { get; }
+}
+
+// ----------------------------------------------------------------------------
+// 3. FILE STREAMS, ASYNC TASKS, CONSOLE, MATH & DATETIME
+// ----------------------------------------------------------------------------
+
+[MapsTo("typing.TextIO")]
+[RuntimeType("object")]
+public primitive class TextFileStream : IDisposable
+{
+    [MapsTo("read")]
+    public extern string ReadAllText();
+
+    [CanonicalApi("PythonSharp.Core.TextFileStream.ReadAllText")]
+    [MapsTo("read")]
+    public extern string Read();
+
+    [CanonicalApi("PythonSharp.Core.TextFileStream.ReadAllText", "Read")]
+    [MapsTo("read")]
+    public extern string read();
+
+    [MapsTo("readlines")]
+    public extern List<string> ReadAllLines();
+
+    [CanonicalApi("PythonSharp.Core.TextFileStream.ReadAllLines")]
+    [MapsTo("readlines")]
+    public extern List<string> ReadLines();
+
+    [CanonicalApi("PythonSharp.Core.TextFileStream.ReadAllLines", "ReadLines")]
+    [MapsTo("readlines")]
+    public extern List<string> readlines();
+
+    [MapsTo("write")]
+    public extern int WriteText(string content);
+
+    [CanonicalApi("PythonSharp.Core.TextFileStream.WriteText")]
+    [MapsTo("write")]
+    public extern int Write(string content);
+
+    [CanonicalApi("PythonSharp.Core.TextFileStream.WriteText", "Write")]
+    [MapsTo("write")]
+    public extern int write(string s);
+
+    [MapsTo("close")]
+    public extern void Dispose();
+}
+
+[MapsTo("collections.abc.Awaitable")]
+public primitive class Task
+{
+    [InlineTemplate("asyncio.sleep({0} / 1000.0)")]
+    public static extern Task Delay(int milliseconds);
+
+    [InlineTemplate("asyncio.gather(*{0})")]
+    public static extern Task WhenAll(params Task[] tasks);
+}
+
+[MapsTo("collections.abc.Awaitable")]
+public primitive class Task<TResult>
+{
+    [InlineTemplate("asyncio.gather(*{0})")]
+    public static extern Task<List<TResult>> WhenAll(params Task<TResult>[] tasks);
+
+    [InlineTemplate("asyncio.create_task({0})")]
+    public static extern Task<TResult> Run(Task<TResult> coroutine);
+}
+
+public static primitive class Console
+{
+    [InlineTemplate("print()")]
+    public static extern void WriteLine();
+
+    [InlineTemplate("print({0})")]
+    public static extern void WriteLine(object? value);
+
+    [InlineTemplate("print({0}, end='')")]
+    public static extern void Write(object? value);
+
+    [InlineTemplate("input()")]
+    public static extern string ReadLine();
+
+    [InlineTemplate("input({0})")]
+    public static extern string ReadLine(string prompt);
+}
+
+[MapsTo("math")]
+public static primitive class Math
+{
+    [InlineTemplate("math.pi")]
+    public static extern double PI { get; }
+
+    [InlineTemplate("math.e")]
+    public static extern double E { get; }
+
+    [InlineTemplate("math.inf")]
+    public static extern double Infinity { get; }
+
+    [MapsTo("math.sqrt")]
+    public static extern double Sqrt(double value);
+
+    [MapsTo("math.pow")]
+    public static extern double Pow(double x, double y);
+
+    [MapsTo("math.exp")]
+    public static extern double Exp(double value);
+
+    [MapsTo("math.log")]
+    public static extern double Log(double value);
+
+    [MapsTo("math.sin")]
+    public static extern double Sin(double value);
+
+    [MapsTo("math.cos")]
+    public static extern double Cos(double value);
+
+    [MapsTo("math.tan")]
+    public static extern double Tan(double value);
+
+    [InlineTemplate("abs({0})")]
+    public static extern double Abs(double value);
+
+    [InlineTemplate("({0} if {0} >= {1} else {1})")]
+    public static extern double Max(double a, double b);
+
+    [InlineTemplate("({0} if {0} <= {1} else {1})")]
+    public static extern double Min(double a, double b);
+
+    [InlineTemplate("({1} if {0} < {1} else ({2} if {0} > {2} else {0}))")]
+    public static extern double Clamp(double value, double min, double max);
+
+    [InlineTemplate("float(math.ceil({0}))")]
+    public static extern double Ceiling(double value);
+
+    [InlineTemplate("float(math.floor({0}))")]
+    public static extern double Floor(double value);
+
+    [InlineTemplate("float(round({0}))")]
+    public static extern double Round(double value);
+
+    [InlineTemplate("float(math.trunc({0}))")]
+    public static extern double Truncate(double value);
+
+    [InlineTemplate("(0 if {0} == 0 else (1 if {0} > 0 else -1))")]
+    public static extern int Sign(double value);
+}
+
+[MapsTo("datetime.datetime")]
+[RuntimeType("datetime.datetime")]
+public primitive struct DateTime
+{
+    [InlineTemplate("datetime.datetime.now(datetime.timezone.utc)")]
+    public static extern DateTime UtcNow { get; }
+
+    [InlineTemplate("datetime.datetime.now()")]
+    public static extern DateTime Now { get; }
+
+    [MapsTo("isoformat")]
+    public extern string ToIsoString();
+
+    [MapsTo("datetime.datetime.fromisoformat")]
+    public static extern DateTime ParseIso(string isoString);
+}
+
+[MapsTo("datetime.timedelta")]
+[RuntimeType("datetime.timedelta")]
+public primitive struct TimeSpan
+{
+    [InlineTemplate("datetime.timedelta(milliseconds={0})")]
+    public static extern TimeSpan FromMilliseconds(double ms);
+
+    [InlineTemplate("datetime.timedelta(seconds={0})")]
+    public static extern TimeSpan FromSeconds(double seconds);
+
+    [InlineTemplate("datetime.timedelta(minutes={0})")]
+    public static extern TimeSpan FromMinutes(double minutes);
+
+    [InlineTemplate("datetime.timedelta(days={0})")]
+    public static extern TimeSpan FromDays(double days);
+
+    [MapsTo("total_seconds")]
+    public extern double TotalSeconds();
+}
+// ----------------------------------------------------------------------------
+// 4. CORE SYSTEM EXCEPTIONS
+// ----------------------------------------------------------------------------
+
+[MapsTo("Exception")]
+public class Exception
+{
+    public extern Exception(string? message = null);
+
+    [InlineTemplate("str({self})")]
+    public extern string Message { get; }
+}
+
+[MapsTo("Exception")]
+public class SystemException : Exception
+{
+    public extern SystemException(string? message = null);
+}
+
+[MapsTo("ValueError")]
+public class ArgumentException : Exception
+{
+    public extern ArgumentException(string? message = null);
+}
+
+[MapsTo("ValueError")]
+public class ArgumentNullException : ArgumentException
+{
+    public extern ArgumentNullException(string? message = null);
+}
+
+[MapsTo("ValueError")]
+public class ArgumentOutOfRangeException : ArgumentException
+{
+    public extern ArgumentOutOfRangeException(string? message = null);
+}
+
+[MapsTo("RuntimeError")]
+public class InvalidOperationException : Exception
+{
+    public extern InvalidOperationException(string? message = null);
+}
+
+[MapsTo("NotImplementedError")]
+public class NotSupportedException : SystemException
+{
+    public extern NotSupportedException(string? message = null);
+}
+
+[MapsTo("NotImplementedError")]
+public class NotImplementedException : SystemException
+{
+    public extern NotImplementedException(string? message = null);
+}
+
+[MapsTo("IndexError")]
+public class IndexOutOfRangeException : SystemException
+{
+    public extern IndexOutOfRangeException(string? message = null);
+}
+
+[MapsTo("KeyError")]
+public class KeyNotFoundException : SystemException
+{
+    public extern KeyNotFoundException(string? message = null);
+}
+
+[MapsTo("ZeroDivisionError")]
+public class DivideByZeroException : SystemException
+{
+    public extern DivideByZeroException(string? message = null);
+}
+
+[MapsTo("OverflowError")]
+public class OverflowException : SystemException
+{
+    public extern OverflowException(string? message = null);
+}
+
+[MapsTo("OSError")]
+public class IOException : SystemException
+{
+    public extern IOException(string? message = null);
+}
+
+[MapsTo("FileNotFoundError")]
+public class FileNotFoundException : IOException
+{
+    public extern FileNotFoundException(string? message = null);
+}
+
+[MapsTo("EOFError")]
+public class EndOfStreamException : IOException
+{
+    public extern EndOfStreamException(string? message = null);
+}
+
+[MapsTo("ValueError")]
+public class InvalidDataException : IOException
+{
+    public extern InvalidDataException(string? message = null);
+}
+
+[MapsTo("ValueError")]
+public class FormatException : SystemException
+{
+    public extern FormatException(string? message = null);
+}
+
+[MapsTo("AttributeError")]
+public class NullReferenceException : SystemException
+{
+    public extern NullReferenceException(string? message = null);
+}
+
+[MapsTo("PermissionError")]
+public class UnauthorizedAccessException : SystemException
+{
+    public extern UnauthorizedAccessException(string? message = null);
+}
+
+[MapsTo("ArithmeticError")]
+public class ArithmeticException : SystemException
+{
+    public extern ArithmeticException(string? message = null);
+}
+
+[MapsTo("ValueError")]
+public class ObjectDisposedException : SystemException
+{
+    public extern ObjectDisposedException(string? message = null);
+}
+
+[MapsTo("TypeError")]
+public class InvalidCastException : SystemException
+{
+    public extern InvalidCastException(string? message = null);
+}
+
+[MapsTo("TimeoutError")]
+public class TimeoutException : SystemException
+{
+    public extern TimeoutException(string? message = null);
+}
+
+// ----------------------------------------------------------------------------
+// 5. PRIMITIVE RUNTIME TYPE ANNOTATIONS & FACTORIES
+// ----------------------------------------------------------------------------
+
+[MapsTo("int")]
+[RuntimeType("int")]
+public primitive class Int32
+{
+    [InlineTemplate("int({0})")]
+    public static extern int Parse(string s);
+
+    [InlineTemplate("int({0})")]
+    public static extern int parse(string s);
+
+    [InlineTemplate("int({0})")]
+    public static extern int From(object x);
+
+    [InlineTemplate("int({0})")]
+    public static extern int from_(object x);
+}
+
+[MapsTo("float")]
+[RuntimeType("float")]
+public primitive class Double
+{
+    [InlineTemplate("float({0})")]
+    public static extern double Parse(string s);
+
+    [InlineTemplate("float({0})")]
+    public static extern double parse(string s);
+
+    [InlineTemplate("float({0})")]
+    public static extern double From(object x);
+
+    [InlineTemplate("float({0})")]
+    public static extern double from_(object x);
+}
+
+[MapsTo("bool")]
+[RuntimeType("bool")]
+public primitive class Boolean
+{
+    [InlineTemplate("({0}.lower() == 'true' if isinstance({0}, str) else bool({0}))")]
+    public static extern bool Parse(string s);
+
+    [InlineTemplate("({0}.lower() == 'true' if isinstance({0}, str) else bool({0}))")]
+    public static extern bool parse(string s);
+
+    [InlineTemplate("bool({0})")]
+    public static extern bool From(object x);
+
+    [InlineTemplate("bool({0})")]
+    public static extern bool from_(object x);
+}

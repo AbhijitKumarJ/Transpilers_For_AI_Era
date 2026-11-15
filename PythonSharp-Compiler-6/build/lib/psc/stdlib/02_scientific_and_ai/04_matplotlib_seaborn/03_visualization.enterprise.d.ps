@@ -1,0 +1,65 @@
+namespace PythonSharp.Visualization;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using PythonSharp.DataScience.Tabular;
+extern using matplotlib.pyplot as _plt;
+extern using seaborn as _sns;
+
+[SurfaceLevel(1)]
+[MapsTo("_plt")]
+public static primitive class FigureCanvas
+{
+    [InlineTemplate("_plt.subplots(figsize=({0}, {1}))")]
+    public static extern (PlotFigure Figure, PlotAxes Axes) CreateFigureAndAxes(int widthInches = 8, int heightInches = 6);
+
+    [InlineTemplate("_plt.plot({0}, {1}, label={2})")]
+    public static extern void PlotLineSeries(NDArray<double> xCoordinates, NDArray<double> yCoordinates, string? seriesLabel = null);
+
+    [InlineTemplate("_plt.scatter({0}, {1}, label={2})")]
+    public static extern void PlotScatterSeries(NDArray<double> xCoordinates, NDArray<double> yCoordinates, string? seriesLabel = null);
+
+    [InlineTemplate("_plt.hist({0}, bins={1})")]
+    public static extern void PlotHistogram(NDArray<double> sampleValues, int binCount = 20);
+
+    [InlineTemplate("_plt.title({0})")]
+    public static extern void SetChartTitle(string titleText);
+
+    [InlineTemplate("_plt.xlabel({0})")]
+    public static extern void SetHorizontalAxisLabel(string axisLabelText);
+
+    [InlineTemplate("_plt.ylabel({0})")]
+    public static extern void SetVerticalAxisLabel(string axisLabelText);
+
+    [InlineTemplate("_plt.legend()")]
+    public static extern void ShowLegend();
+
+    [InlineTemplate("_plt.savefig({0}, dpi={1})")]
+    public static extern void SaveChartToFile(string outputFilePath, int dotsPerInch = 150);
+
+    [InlineTemplate("_plt.show()")]
+    public static extern void DisplayInteractiveChart();
+
+    [InlineTemplate("_plt.close()")]
+    public static extern void CloseCurrentFigure();
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_sns")]
+public static primitive class StatisticalPlotter
+{
+    [InlineTemplate("_sns.set_theme(style={0})")]
+    public static extern void SetVisualTheme(string themeStyle = "whitegrid");
+
+    [InlineTemplate("_sns.heatmap({0}, annot={1}, cmap={2})")]
+    public static extern PlotAxes RenderCorrelationHeatmap(NDArray<double> correlationMatrix, bool annotateCells = true, string colorPalette = "viridis");
+
+    [InlineTemplate("_sns.heatmap({0}, annot={1}, cmap={2})")]
+    public static extern PlotAxes RenderDataFrameHeatmap<TRow>(DataFrame<TRow> table, bool annotateCells = true, string colorPalette = "viridis");
+
+    [InlineTemplate("_sns.histplot({0}, kde={1})")]
+    public static extern PlotAxes RenderDistributionHistogram(NDArray<double> sampleValues, bool overlayKernelDensityEstimate = true);
+
+    [InlineTemplate("_sns.boxplot(data={0}, x={1}, y={2})")]
+    public static extern PlotAxes RenderBoxPlot<TRow>(DataFrame<TRow> table, string categoryColumnName, string valueColumnName);
+}

@@ -1,0 +1,33 @@
+namespace PythonSharp.Serialization.Json;
+
+using PythonSharp.Core;
+extern using json as _py_json;
+
+[MapsTo("dict")]
+[RuntimeType("dict")]
+public primitive class JsonDocumentObject : IEnumerable<KeyValuePair<string, object>>
+{
+    [InlineTemplate("{self}[{0}]")]
+    public extern object this[string propertyName]
+    {
+        get;
+        [InlineTemplate("{self}[{0}] = {value}")] set;
+    }
+
+    [MapsTo("get")]
+    public extern object? GetPropertyOrDefault(string propertyName, object? defaultValue = null);
+
+    [CanonicalApi("PythonSharp.Serialization.Json.JsonDocumentObject.GetPropertyOrDefault")]
+    [MapsTo("get")]
+    public extern object? Get(string key, object? defaultValue = null);
+
+    [CanonicalApi("PythonSharp.Serialization.Json.JsonDocumentObject.GetPropertyOrDefault", "Get")]
+    [MapsTo("get")]
+    public extern object? get(string key, object? defaultValue = null);
+
+    [InlineTemplate("({0} in {self})")]
+    public extern bool HasProperty(string propertyName);
+
+    [MapsTo("keys")]
+    public extern IEnumerable<string> PropertyNames();
+}

@@ -1,0 +1,82 @@
+namespace PythonSharp.System.IO;
+
+using PythonSharp.Core;
+extern using os as _py_os;
+
+[MapsTo("os._Environ")]
+[RuntimeType("dict")]
+public primitive class EnvironmentVariableMap : IEnumerable<KeyValuePair<string, string>>
+{
+    [InlineTemplate("{self}[{0}]")]
+    public extern string this[string variableName]
+    {
+        get;
+        [InlineTemplate("{self}[{0}] = {value}")] set;
+    }
+
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [MapsTo("get")]
+    public extern string? GetVariableOrDefault(string variableName, string? defaultValue = null);
+
+    [InlineTemplate("({0} in {self})")]
+    public extern bool ContainsVariable(string variableName);
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.System.IO.EnvironmentVariableMap.GetVariableOrDefault")]
+    [MapsTo("get")]
+    public extern string? Get(string key, string? defaultValue = null);
+
+    [CanonicalApi("PythonSharp.System.IO.EnvironmentVariableMap.ContainsVariable")]
+    [InlineTemplate("({0} in {self})")]
+    public extern bool ContainsKey(string key);
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.System.IO.EnvironmentVariableMap.GetVariableOrDefault", "Get")]
+    [MapsTo("get")]
+    public extern string? get(string key, string? defaultValue = null);
+}
+
+[MapsTo("os.DirEntry")]
+[RuntimeType("os.DirEntry")]
+public primitive class DirectoryEntry
+{
+    [InlineTemplate("{self}.name")]
+    public extern string EntryName { get; }
+
+    [CanonicalApi("PythonSharp.System.IO.DirectoryEntry.EntryName")]
+    [InlineTemplate("{self}.name")]
+    public extern string Name { get; }
+
+    [CanonicalApi("PythonSharp.System.IO.DirectoryEntry.EntryName", "Name")]
+    [InlineTemplate("{self}.name")]
+    public extern string name { get; }
+
+    [InlineTemplate("{self}.path")]
+    public extern string FullPath { get; }
+
+    [CanonicalApi("PythonSharp.System.IO.DirectoryEntry.FullPath")]
+    [InlineTemplate("{self}.path")]
+    public extern string Path { get; }
+
+    [CanonicalApi("PythonSharp.System.IO.DirectoryEntry.FullPath", "Path")]
+    [InlineTemplate("{self}.path")]
+    public extern string path { get; }
+
+    [MapsTo("is_dir")]
+    public extern bool IsDirectory();
+
+    [CanonicalApi("PythonSharp.System.IO.DirectoryEntry.IsDirectory")]
+    [MapsTo("is_dir")]
+    public extern bool is_dir();
+
+    [MapsTo("is_file")]
+    public extern bool IsRegularFile();
+
+    [CanonicalApi("PythonSharp.System.IO.DirectoryEntry.IsRegularFile")]
+    [MapsTo("is_file")]
+    public extern bool IsFile();
+
+    [CanonicalApi("PythonSharp.System.IO.DirectoryEntry.IsRegularFile", "IsFile")]
+    [MapsTo("is_file")]
+    public extern bool is_file();
+}

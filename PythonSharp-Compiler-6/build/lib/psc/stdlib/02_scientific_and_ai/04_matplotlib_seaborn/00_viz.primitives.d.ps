@@ -1,0 +1,120 @@
+namespace PythonSharp.Visualization;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+extern using matplotlib.pyplot as _plt;
+
+[MapsTo("matplotlib.figure.Figure")]
+[RuntimeType("object")]
+public primitive class PlotFigure
+{
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [MapsTo("savefig")]
+    public extern void SaveFigureToFile(string outputFilePath, int dotsPerInch = 150);
+
+    [MapsTo("tight_layout")]
+    public extern void ApplyTightLayout();
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.Visualization.PlotFigure.SaveFigureToFile")]
+    [InlineTemplate("{self}.savefig({0}, dpi={1})")]
+    public extern void SaveFig(string path, int dpi = 150);
+
+    [CanonicalApi("PythonSharp.Visualization.PlotFigure.ApplyTightLayout")]
+    [MapsTo("tight_layout")]
+    public extern void TightLayout();
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.Visualization.PlotFigure.SaveFigureToFile", "SaveFig")]
+    [InlineTemplate("{self}.savefig({0}, dpi={1})")]
+    public extern void savefig(string fname, int dpi = 150);
+
+    [CanonicalApi("PythonSharp.Visualization.PlotFigure.ApplyTightLayout", "TightLayout")]
+    [MapsTo("tight_layout")]
+    public extern void tight_layout();
+}
+
+[MapsTo("matplotlib.axes.Axes")]
+[RuntimeType("object")]
+public primitive class PlotAxes
+{
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [MapsTo("plot")]
+    public extern void PlotLineSeries(NDArray<double> xCoordinates, NDArray<double> yCoordinates, string? seriesLabel = null);
+
+    [MapsTo("scatter")]
+    public extern void PlotScatterPoints(NDArray<double> xCoordinates, NDArray<double> yCoordinates, string? seriesLabel = null);
+
+    [MapsTo("set_title")]
+    public extern void SetAxesTitle(string titleText);
+
+    [MapsTo("set_xlabel")]
+    public extern void SetHorizontalAxisLabel(string labelText);
+
+    [MapsTo("set_ylabel")]
+    public extern void SetVerticalAxisLabel(string labelText);
+
+    [MapsTo("legend")]
+    public extern void EnableLegend();
+
+    [InlineTemplate("{self}.grid({0})")]
+    public extern void SetGridVisibility(bool visible = true);
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.Visualization.PlotAxes.PlotLineSeries")]
+    [InlineTemplate("{self}.plot({0}, {1}, label={2})")]
+    public extern void Plot(NDArray<double> x, NDArray<double> y, string? label = null);
+
+    [CanonicalApi("PythonSharp.Visualization.PlotAxes.PlotScatterPoints")]
+    [InlineTemplate("{self}.scatter({0}, {1}, label={2})")]
+    public extern void Scatter(NDArray<double> x, NDArray<double> y, string? label = null);
+
+    [CanonicalApi("PythonSharp.Visualization.PlotAxes.SetAxesTitle")]
+    [MapsTo("set_title")]
+    public extern void SetTitle(string title);
+
+    [CanonicalApi("PythonSharp.Visualization.PlotAxes.SetHorizontalAxisLabel")]
+    [MapsTo("set_xlabel")]
+    public extern void SetXLabel(string label);
+
+    [CanonicalApi("PythonSharp.Visualization.PlotAxes.SetVerticalAxisLabel")]
+    [MapsTo("set_ylabel")]
+    public extern void SetYLabel(string label);
+
+    [CanonicalApi("PythonSharp.Visualization.PlotAxes.EnableLegend")]
+    [MapsTo("legend")]
+    public extern void Legend();
+
+    [CanonicalApi("PythonSharp.Visualization.PlotAxes.SetGridVisibility")]
+    [InlineTemplate("{self}.grid({0})")]
+    public extern void Grid(bool visible = true);
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.Visualization.PlotAxes.PlotLineSeries", "Plot")]
+    [InlineTemplate("{self}.plot({0}, {1}, label={2})")]
+    public extern void plot(NDArray<double> x, NDArray<double> y, string? label = null);
+
+    [CanonicalApi("PythonSharp.Visualization.PlotAxes.PlotScatterPoints", "Scatter")]
+    [InlineTemplate("{self}.scatter({0}, {1}, label={2})")]
+    public extern void scatter(NDArray<double> x, NDArray<double> y, string? label = null);
+
+    [CanonicalApi("PythonSharp.Visualization.PlotAxes.SetAxesTitle", "SetTitle")]
+    [MapsTo("set_title")]
+    public extern void set_title(string label);
+
+    [CanonicalApi("PythonSharp.Visualization.PlotAxes.SetHorizontalAxisLabel", "SetXLabel")]
+    [MapsTo("set_xlabel")]
+    public extern void set_xlabel(string xlabel);
+
+    [CanonicalApi("PythonSharp.Visualization.PlotAxes.SetVerticalAxisLabel", "SetYLabel")]
+    [MapsTo("set_ylabel")]
+    public extern void set_ylabel(string ylabel);
+
+    [CanonicalApi("PythonSharp.Visualization.PlotAxes.EnableLegend", "Legend")]
+    [MapsTo("legend")]
+    public extern void legend();
+
+    [CanonicalApi("PythonSharp.Visualization.PlotAxes.SetGridVisibility", "Grid")]
+    [InlineTemplate("{self}.grid({0})")]
+    public extern void grid(bool visible = true);
+}

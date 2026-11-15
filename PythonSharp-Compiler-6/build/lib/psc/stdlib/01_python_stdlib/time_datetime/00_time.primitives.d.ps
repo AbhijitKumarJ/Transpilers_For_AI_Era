@@ -1,0 +1,66 @@
+namespace PythonSharp.System.Diagnostics;
+
+using PythonSharp.Core;
+extern using datetime as _py_dt;
+
+[MapsTo("datetime.datetime")]
+[RuntimeType("datetime.datetime")]
+public primitive struct TimestampInstant
+{
+    [InlineTemplate("int({self}.year)")]
+    public extern int Year { get; }
+
+    [InlineTemplate("int({self}.month)")]
+    public extern int Month { get; }
+
+    [InlineTemplate("int({self}.day)")]
+    public extern int Day { get; }
+
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [MapsTo("isoformat")]
+    public extern string FormatAsIso8601();
+
+    [MapsTo("timestamp")]
+    public extern double ToUnixEpochSeconds();
+
+    [MapsTo("strftime")]
+    public extern string FormatWithPattern(string formatPattern);
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.System.Diagnostics.TimestampInstant.FormatAsIso8601")]
+    [MapsTo("isoformat")]
+    public extern string IsoFormat();
+
+    [CanonicalApi("PythonSharp.System.Diagnostics.TimestampInstant.ToUnixEpochSeconds")]
+    [MapsTo("timestamp")]
+    public extern double Timestamp();
+
+    [CanonicalApi("PythonSharp.System.Diagnostics.TimestampInstant.FormatWithPattern")]
+    [MapsTo("strftime")]
+    public extern string StrfTime(string format);
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.System.Diagnostics.TimestampInstant.FormatAsIso8601", "IsoFormat")]
+    [MapsTo("isoformat")]
+    public extern string isoformat();
+
+    [CanonicalApi("PythonSharp.System.Diagnostics.TimestampInstant.ToUnixEpochSeconds", "Timestamp")]
+    [MapsTo("timestamp")]
+    public extern double timestamp();
+
+    [CanonicalApi("PythonSharp.System.Diagnostics.TimestampInstant.FormatWithPattern", "StrfTime")]
+    [MapsTo("strftime")]
+    public extern string strftime(string format);
+}
+
+[MapsTo("datetime.timedelta")]
+[RuntimeType("datetime.timedelta")]
+public primitive struct DurationDelta
+{
+    [MapsTo("total_seconds")]
+    public extern double TotalSeconds();
+
+    [CanonicalApi("PythonSharp.System.Diagnostics.DurationDelta.TotalSeconds", "TotalSeconds")]
+    [MapsTo("total_seconds")]
+    public extern double total_seconds();
+}

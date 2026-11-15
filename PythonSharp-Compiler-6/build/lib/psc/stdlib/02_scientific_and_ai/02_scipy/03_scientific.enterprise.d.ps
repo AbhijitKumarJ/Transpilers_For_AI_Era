@@ -1,0 +1,76 @@
+namespace PythonSharp.Scientific;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+extern using scipy.optimize as _scipy_opt;
+extern using scipy.linalg as _scipy_linalg;
+extern using scipy.fft as _scipy_fft;
+extern using scipy.sparse as _scipy_sparse;
+extern using scipy.stats as _scipy_stats;
+
+[SurfaceLevel(1)]
+[MapsTo("_scipy_opt")]
+public static primitive class FunctionMinimizer
+{
+    [InlineTemplate("_scipy_opt.minimize({0}, {1})")]
+    public static extern OptimizationResult MinimizeScalarFunction(object objectiveFunction, NDArray<double> initialGuessVector);
+
+    [InlineTemplate("_scipy_opt.minimize({0}, {1}, method={2})")]
+    public static extern OptimizationResult MinimizeScalarFunctionWithMethod(object objectiveFunction, NDArray<double> initialGuessVector, string solverAlgorithm);
+
+    [InlineTemplate("_scipy_opt.root({0}, {1})")]
+    public static extern OptimizationResult FindScalarRoot(object systemFunction, NDArray<double> initialGuessVector);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_scipy_linalg")]
+public static primitive class MatrixDecompositions
+{
+    [InlineTemplate("_scipy_linalg.lu({0})")]
+    public static extern (NDArray<double> PermutationMatrix, NDArray<double> LowerTriangular, NDArray<double> UpperTriangular) ComputeLuDecomposition(NDArray<double> squareMatrix);
+
+    [InlineTemplate("_scipy_linalg.cholesky({0})")]
+    public static extern NDArray<double> ComputeCholeskyDecomposition(NDArray<double> symmetricPositiveDefiniteMatrix);
+
+    [InlineTemplate("_scipy_linalg.svd({0})")]
+    public static extern (NDArray<double> LeftSingularVectors, NDArray<double> SingularValues, NDArray<double> RightSingularVectorsTransposed) ComputeSingularValueDecomposition(NDArray<double> matrix);
+
+    [InlineTemplate("_scipy_linalg.solve({0}, {1})")]
+    public static extern NDArray<double> SolveLinearSystem(NDArray<double> coefficientMatrixA, NDArray<double> dependentVectorB);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_scipy_fft")]
+public static primitive class FourierTransform
+{
+    [InlineTemplate("_scipy_fft.fft({0})")]
+    public static extern NDArray<double> ComputeFastFourierTransform(NDArray<double> timeDomainSignal);
+
+    [InlineTemplate("_scipy_fft.ifft({0})")]
+    public static extern NDArray<double> ComputeInverseFastFourierTransform(NDArray<double> frequencySpectrum);
+
+    [InlineTemplate("_scipy_fft.rfft({0})")]
+    public static extern NDArray<double> ComputeRealFastFourierTransform(NDArray<double> realTimeDomainSignal);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_scipy_sparse")]
+public static primitive class SparseMatrixFactory
+{
+    [InlineTemplate("_scipy_sparse.csr_matrix({0})")]
+    public static extern CompressedSparseRowMatrix<double> CreateCompressedSparseRowMatrix(NDArray<double> denseMatrix);
+
+    [InlineTemplate("_scipy_sparse.eye({0}, format='csr')")]
+    public static extern CompressedSparseRowMatrix<double> CreateSparseIdentityMatrix(int dimensionSize);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_scipy_stats")]
+public static primitive class StatisticalAnalysis
+{
+    [InlineTemplate("_scipy_stats.pearsonr({0}, {1})")]
+    public static extern (double CorrelationCoefficient, double TwoTailedPValue) ComputePearsonCorrelation(NDArray<double> sampleX, NDArray<double> sampleY);
+
+    [InlineTemplate("_scipy_stats.zscore({0})")]
+    public static extern NDArray<double> ComputeZScoreNormalized(NDArray<double> sampleValues);
+}

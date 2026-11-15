@@ -1,0 +1,129 @@
+namespace PythonSharp.Numerics;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+extern using numpy as _np;
+
+[SurfaceLevel(1)]
+[MapsTo("_np")]
+public static primitive class ArrayFactory
+{
+    [InlineTemplate("_np.array({0})")]
+    public static extern NDArray<T> CreateFromSequence<T>(IEnumerable<T> items);
+
+    [InlineTemplate("_np.zeros({0})")]
+    public static extern NDArray<double> CreateZeroVector(int elementCount);
+
+    [InlineTemplate("_np.zeros(({0}, {1}))")]
+    public static extern NDArray<double> CreateZeroMatrix(int rows, int columns);
+
+    [InlineTemplate("_np.zeros({0})")]
+    public static extern NDArray<double> CreateZeroMatrix((int Rows, int Columns) shape);
+
+    [InlineTemplate("_np.zeros({0})")]
+    public static extern NDArray<double> CreateZero3DTensor((int Depth, int Rows, int Columns) shape);
+
+    [InlineTemplate("_np.ones({0})")]
+    public static extern NDArray<double> CreateOnesVector(int elementCount);
+
+    [InlineTemplate("_np.ones(({0}, {1}))")]
+    public static extern NDArray<double> CreateOnesMatrix(int rows, int columns);
+
+    [InlineTemplate("_np.ones({0})")]
+    public static extern NDArray<double> CreateOnesMatrix((int Rows, int Columns) shape);
+
+    [InlineTemplate("_np.ones({0})")]
+    public static extern NDArray<double> CreateOnes3DTensor((int Depth, int Rows, int Columns) shape);
+
+    [InlineTemplate("_np.full({0}, {1})")]
+    public static extern NDArray<T> CreateConstantFilledMatrix<T>((int Rows, int Columns) shape, T constantValue);
+
+    [InlineTemplate("_np.eye({0})")]
+    public static extern NDArray<double> CreateIdentityMatrix(int dimensionSize);
+
+    [InlineTemplate("_np.arange({0}, {1}, {2})")]
+    public static extern NDArray<double> CreateSteppedRangeVector(double startInclusive, double stopExclusive, double stepIncrement = 1.0);
+
+    [InlineTemplate("_np.linspace({0}, {1}, {2})")]
+    public static extern NDArray<double> CreateLinearlySpacedVector(double startValue, double stopValue, int sampleCount = 50);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_np.linalg")]
+public static primitive class MatrixOperations
+{
+    [InlineTemplate("_np.linalg.inv({0})")]
+    public static extern NDArray<double> ComputeMultiplicativeInverse(NDArray<double> squareMatrix);
+
+    [InlineTemplate("_np.linalg.det({0})")]
+    public static extern double ComputeDeterminant(NDArray<double> squareMatrix);
+
+    [InlineTemplate("_np.linalg.solve({0}, {1})")]
+    public static extern NDArray<double> SolveLinearEquations(NDArray<double> coefficientMatrixA, NDArray<double> dependentVectorB);
+
+    [InlineTemplate("_np.linalg.norm({0}, axis={1})")]
+    public static extern double ComputeEuclideanNorm(NDArray<double> tensor, int? axis = null);
+
+    [InlineTemplate("_np.linalg.eig({0})")]
+    public static extern (NDArray<double> Eigenvalues, NDArray<double> Eigenvectors) ComputeEigenDecomposition(NDArray<double> squareMatrix);
+
+    [InlineTemplate("_np.linalg.svd({0})")]
+    public static extern (NDArray<double> LeftSingularVectors, NDArray<double> SingularValues, NDArray<double> RightSingularVectorsTransposed) ComputeSingularValueDecomposition(NDArray<double> matrix);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_np.random")]
+public static primitive class RandomTensorGenerator
+{
+    [InlineTemplate("_np.random.seed({0})")]
+    public static extern void SetRandomSeed(int seedValue);
+
+    [InlineTemplate("_np.random.rand({0}, {1})")]
+    public static extern NDArray<double> SampleUniformMatrix(int rows, int columns);
+
+    [InlineTemplate("_np.random.randn({0}, {1})")]
+    public static extern NDArray<double> SampleStandardNormalMatrix(int rows, int columns);
+
+    [InlineTemplate("_np.random.normal({0}, {1}, {2})")]
+    public static extern NDArray<double> SampleGaussianDistribution(double mean = 0.0, double standardDeviation = 1.0, (int Rows, int Columns)? matrixShape = null);
+
+    [InlineTemplate("_np.random.uniform({0}, {1}, {2})")]
+    public static extern NDArray<double> SampleUniformDistribution(double lowerBound = 0.0, double upperBound = 1.0, (int Rows, int Columns)? matrixShape = null);
+
+    [InlineTemplate("_np.random.randint({0}, {1}, size={2})")]
+    public static extern NDArray<int> SampleRandomIntegers(int lowInclusive, int highExclusive, (int Rows, int Columns) matrixShape);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_np")]
+public static primitive class ElementWiseMath
+{
+    [InlineTemplate("_np.exp({0})")]
+    public static extern NDArray<double> ComputeExponential(NDArray<double> inputTensor);
+
+    [InlineTemplate("_np.log({0})")]
+    public static extern NDArray<double> ComputeNaturalLogarithm(NDArray<double> inputTensor);
+
+    [InlineTemplate("_np.sqrt({0})")]
+    public static extern NDArray<double> ComputeSquareRoot(NDArray<double> inputTensor);
+
+    [InlineTemplate("_np.clip({0}, {1}, {2})")]
+    public static extern NDArray<T> ClipTensorValues<T>(NDArray<T> inputTensor, T minimumBound, T maximumBound);
+
+    [InlineTemplate("_np.where({0}, {1}, {2})")]
+    public static extern NDArray<T> SelectConditionally<T>(NDArray<bool> conditionMask, NDArray<T> valueWhenTrue, NDArray<T> valueWhenFalse);
+}
+
+[SurfaceLevel(1)]
+[MapsTo("_np")]
+public static primitive class TensorManipulation
+{
+    [InlineTemplate("_np.concatenate({0}, axis={1})")]
+    public static extern NDArray<T> ConcatenateAlongAxis<T>(IEnumerable<NDArray<T>> tensors, int concatenationAxis = 0);
+
+    [InlineTemplate("_np.stack({0}, axis={1})")]
+    public static extern NDArray<T> StackAlongNewAxis<T>(IEnumerable<NDArray<T>> tensors, int newAxisIndex = 0);
+
+    [InlineTemplate("_np.expand_dims({0}, axis={1})")]
+    public static extern NDArray<T> ExpandDimensions<T>(NDArray<T> tensor, int insertedAxisIndex);
+}

@@ -1,0 +1,33 @@
+namespace PythonSharp.System.Diagnostics;
+
+using PythonSharp.Core;
+extern using time as _py_time;
+extern using datetime as _py_dt;
+
+[SurfaceLevel(1)]
+public static primitive class SystemClock
+{
+    [InlineTemplate("_py_time.time()")]
+    public static extern double GetUnixTimestampSeconds();
+
+    [InlineTemplate("_py_time.perf_counter()")]
+    public static extern double GetHighResolutionSeconds();
+
+    [InlineTemplate("_py_time.monotonic()")]
+    public static extern double GetMonotonicSeconds();
+
+    [InlineTemplate("_py_time.sleep({0})")]
+    public static extern void SleepCurrentThreadSeconds(double durationSeconds);
+
+    [InlineTemplate("_py_dt.datetime.now()")]
+    public static extern TimestampInstant GetCurrentLocalTimestamp();
+
+    [InlineTemplate("_py_dt.datetime.now(_py_dt.timezone.utc)")]
+    public static extern TimestampInstant GetCurrentUtcTimestamp();
+
+    [InlineTemplate("_py_dt.datetime.fromisoformat({0})")]
+    public static extern TimestampInstant ParseIso8601Timestamp(string isoTimestampString);
+
+    [InlineTemplate("_py_dt.timedelta(seconds={0})")]
+    public static extern DurationDelta CreateDurationFromSeconds(double seconds);
+}
