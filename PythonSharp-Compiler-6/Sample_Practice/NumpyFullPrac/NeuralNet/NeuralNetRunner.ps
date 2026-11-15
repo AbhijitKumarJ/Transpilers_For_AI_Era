@@ -1,0 +1,31 @@
+namespace NumpyFullPrac.NeuralNet;
+
+using PythonSharp.Core;
+using NumpyFullPrac.NeuralNet.Pipelines;
+
+public class NeuralNetRunner
+{
+    public static void Run()
+    {
+        Console.WriteLine("###############################################################");
+        Console.WriteLine("##  NUMPY DEEP LEARNING & NEURAL NETWORK PIPELINES           ##");
+        Console.WriteLine("##  From-Scratch Mathematical Calculus & Matrix Operations   ##");
+        Console.WriteLine("###############################################################");
+
+        // Phase 1: XOR Non-Linear Benchmark Verification
+        XORBenchmarkPipeline.Run();
+
+        // Phase 2: 3-Class Cluster Classification & Adam Optimizer
+        MultiClassClassificationPipeline.Run();
+
+        // Phase 3: Mini-Batch Training with L2, Dropout, BatchNorm & Scheduling
+        MiniBatchRegularizationPipeline.Run();
+
+        // Phase 4: Scaled Dot-Product & Multi-Head Self-Attention Blocks
+        AttentionDemonstrationPipeline.Run();
+
+        Console.WriteLine("\n=======================================================");
+        Console.WriteLine(" ALL 4 NEURAL NETWORK PIPELINES EXECUTED SUCCESSFULLY! ");
+        Console.WriteLine("=======================================================");
+    }
+}

@@ -1,0 +1,87 @@
+namespace MatplotlibDemo;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Matplotlib.Pyplot;
+
+public class ProjMain
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("MatplotlibDemo - Initializing Multi-Subplot Dashboard");
+        TestUtil.Log("Configuring figure canvas and layout settings");
+
+        // Canvas Setup
+        Pyplot.Figure(1);
+        Pyplot.Suptitle("Compiler Performance & Telemetry Analytics");
+
+        // -------------------------------------------------------------
+        // Subplot 1: Multi-Line Plot (Compilation Pipeline Throughput)
+        // -------------------------------------------------------------
+        Pyplot.Subplot(2, 2, 1);
+        var epochs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        var parserThroughput = [120, 135, 142, 150, 168, 175, 190, 205, 210, 225];
+        var semanticThroughput = [80, 92, 105, 115, 122, 138, 145, 155, 160, 172];
+        var codegenThroughput = [45, 52, 60, 71, 85, 95, 102, 118, 125, 134];
+
+        Pyplot.Plot(epochs, parserThroughput, "-o");
+        Pyplot.Plot(epochs, semanticThroughput, "--s");
+        Pyplot.Plot(epochs, codegenThroughput, ":^");
+        Pyplot.Title("Stage Throughput Across Optimization Passes");
+        Pyplot.Xlabel("Pass Iteration");
+        Pyplot.Ylabel("Throughput (kLOC/s)");
+        Pyplot.Grid(true);
+        Pyplot.Legend(["Frontend Parser", "Semantic Analyzer", "Code Generation"]);
+
+        // -------------------------------------------------------------
+        // Subplot 2: Scatter Plot (Memory Allocation vs GC Pause Latency)
+        // -------------------------------------------------------------
+        Pyplot.Subplot(2, 2, 2);
+        var memFootprint = [15.2, 22.4, 31.8, 45.0, 58.6, 64.2, 79.5, 88.1, 97.4, 110.0];
+        var gcPauseTime = [1.1, 1.8, 2.4, 3.7, 4.9, 5.2, 7.8, 8.9, 10.5, 12.4];
+
+        Pyplot.Scatter(memFootprint, gcPauseTime, 45.0);
+        Pyplot.Title("Heap Memory vs Garbage Collection Latency");
+        Pyplot.Xlabel("Allocated Heap (MB)");
+        Pyplot.Ylabel("GC Pause (ms)");
+        Pyplot.Grid(true);
+
+        // -------------------------------------------------------------
+        // Subplot 3: Categorical Bar Chart (Subsystem Wall-Clock Time)
+        // -------------------------------------------------------------
+        Pyplot.Subplot(2, 2, 3);
+        var subsystems = ["Lexer", "Parser", "Resolver", "Overloads", "TypeCheck", "Emitter"];
+        var stageDurations = [12.4, 28.5, 45.1, 38.2, 34.0, 19.8];
+
+        Pyplot.Bar(subsystems, stageDurations, 0.55);
+        Pyplot.Title("Subsystem Wall-Clock Duration");
+        Pyplot.Xlabel("Subsystem");
+        Pyplot.Ylabel("Execution Time (ms)");
+        Pyplot.Grid(true);
+
+        // -------------------------------------------------------------
+        // Subplot 4: Distribution Histogram (Async Task Queue Latency)
+        // -------------------------------------------------------------
+        Pyplot.Subplot(2, 2, 4);
+        var queueDurations = [
+            5.2, 5.8, 6.1, 6.4, 6.9, 7.1, 7.2, 7.5,
+            8.0, 8.2, 8.4, 8.5, 8.8, 9.1, 9.4, 9.8,
+            10.2, 10.5, 11.0, 11.8, 12.5, 13.1, 14.0
+        ];
+
+        Pyplot.Hist(queueDurations, 7);
+        Pyplot.Title("Async Task Queue Latency Distribution");
+        Pyplot.Xlabel("Latency Window (ms)");
+        Pyplot.Ylabel("Frequency Count");
+        Pyplot.Grid(true);
+
+        // -------------------------------------------------------------
+        // Figure-Level Layout & Export Settings
+        // -------------------------------------------------------------
+        TestUtil.Log("Applying layout spacing and saving figure");
+        Pyplot.SubplotsAdjust(0.08, 0.08, 0.95, 0.92, 0.35, 0.40);
+        Pyplot.Savefig("compiler_dashboard_analytics2.png");
+        Pyplot.Close();
+
+        Console.WriteLine("MatplotlibDemo - Dashboard generated and compiled successfully!");
+    }
+}

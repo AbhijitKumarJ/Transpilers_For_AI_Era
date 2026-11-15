@@ -1,0 +1,99 @@
+namespace NumpyFullPrac.NeuralNet.Layers;
+
+extern using numpy as _np;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+
+public class BatchNormalizationLayer
+{
+    public NDArray<double> Gamma;
+    public NDArray<double> Beta;
+    public NDArray<double> DGamma;
+    public NDArray<double> DBeta;
+    public NDArray<double> RunningMean;
+    public NDArray<double> RunningVar;
+    public NDArray<double> XHat;
+    public NDArray<double> Inputs;
+    public NDArray<double> Mean;
+    public NDArray<double> Var;
+    public double Momentum;
+    public double Epsilon;
+    public bool IsTraining;
+
+    public BatchNormalizationLayer(int dim, double momentum = 0.9, double epsilon = 1e-5)
+    {
+        this.Gamma = _np.ones([1, dim]);
+        this.Beta = _np.zeros([1, dim]);
+        this.RunningMean = _np.zeros([1, dim]);
+        this.RunningVar = _np.ones([1, dim]);
+        this.Momentum = momentum;
+        this.Epsilon = epsilon;
+        this.IsTraining = true;
+    }
+
+    public void SetTraining(bool mode)
+    {
+        this.IsTraining = mode;
+    }
+
+    public NDArray<double> Forward(NDArray<double> inputs)
+    {
+        this.Inputs = inputs;
+        dynamic dynIn = inputs;
+        dynamic dynGamma = this.Gamma;
+        dynamic dynBeta = this.Beta;
+
+        if (this.IsTraining)
+        {
+            dynamic mean = _np.mean(dynIn, axis: 0, keepdims: true);
+            dynamic variance = _np.var(dynIn, axis: 0, keepdims: true);
+            this.Mean = mean;
+            this.Var = variance;
+
+            dynamic xHat = (dynIn - mean) / _np.sqrt(variance + this.Epsilon);
+            this.XHat = xHat;
+
+            dynamic curRunMean = this.RunningMean;
+            dynamic curRunVar = this.RunningVar;
+            dynamic runMean = (this.Momentum * curRunMean) + ((1.0 - this.Momentum) * mean);
+            dynamic runVar = (this.Momentum * curRunVar) + ((1.0 - this.Momentum) * variance);
+            this.RunningMean = runMean;
+            this.RunningVar = runVar;
+
+            dynamic outVal = (dynGamma * xHat) + dynBeta;
+            return outVal;
+        }
+        else
+        {
+            dynamic curRunMean = this.RunningMean;
+            dynamic curRunVar = this.RunningVar;
+            dynamic xHat = (dynIn - curRunMean) / _np.sqrt(curRunVar + this.Epsilon);
+            dynamic outVal = (dynGamma * xHat) + dynBeta;
+            return outVal;
+        }
+    }
+
+    public NDArray<double> Backward(NDArray<double> dOut)
+    {
+        dynamic dynDOut = dOut;
+        dynamic dynIn = this.Inputs;
+        dynamic dynXHat = this.XHat;
+        dynamic dynGamma = this.Gamma;
+        dynamic mean = this.Mean;
+        dynamic variance = this.Var;
+
+        double n = 1.0 * dynIn.shape[0];
+        dynamic stdInv = 1.0 / _np.sqrt(variance + this.Epsilon);
+
+        this.DGamma = _np.sum(dynDOut * dynXHat, axis: 0, keepdims: true);
+        this.DBeta = _np.sum(dynDOut, axis: 0, keepdims: true);
+
+        dynamic dxHat = dynDOut * dynGamma;
+        dynamic xMu = dynIn - mean;
+        dynamic dvar = _np.sum(dxHat * xMu * -0.5 * _np.power(variance + this.Epsilon, -1.5), axis: 0, keepdims: true);
+        dynamic dmean = _np.sum(dxHat * -stdInv, axis: 0, keepdims: true) + (dvar * _np.mean(-2.0 * xMu, axis: 0, keepdims: true));
+
+        dynamic dx = (dxHat * stdInv) + (dvar * 2.0 * xMu / n) + (dmean / n);
+        return dx;
+    }
+}

@@ -1,0 +1,148 @@
+{
+  "compiler_version": "0.2.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "d_ps": "numpy_full_prac/__init__.d.ps",
+      "module": "numpy_full_prac/__init__.py",
+      "namespace": [
+        "NumpyFullPrac"
+      ],
+      "primary_ps": "ProjMain.ps",
+      "py": "numpy_full_prac/__init__.py",
+      "pyc": "numpy_full_prac/__init__.pyc"
+    },
+    {
+      "d_ps": "numpy_full_prac/neural_net/__init__.d.ps",
+      "module": "numpy_full_prac/neural_net/__init__.py",
+      "namespace": [
+        "NumpyFullPrac",
+        "NeuralNet"
+      ],
+      "primary_ps": "NeuralNet/NeuralNetRunner.ps",
+      "py": "numpy_full_prac/neural_net/__init__.py",
+      "pyc": "numpy_full_prac/neural_net/__init__.pyc"
+    },
+    {
+      "d_ps": "numpy_full_prac/neural_net/activations.d.ps",
+      "module": "numpy_full_prac/neural_net/activations.py",
+      "namespace": [
+        "NumpyFullPrac",
+        "NeuralNet",
+        "Activations"
+      ],
+      "primary_ps": "NeuralNet/Activations/LeakyReluActivation.ps",
+      "py": "numpy_full_prac/neural_net/activations.py",
+      "pyc": "numpy_full_prac/neural_net/activations.pyc"
+    },
+    {
+      "d_ps": "numpy_full_prac/neural_net/attention.d.ps",
+      "module": "numpy_full_prac/neural_net/attention.py",
+      "namespace": [
+        "NumpyFullPrac",
+        "NeuralNet",
+        "Attention"
+      ],
+      "primary_ps": "NeuralNet/Attention/MultiHeadAttention.ps",
+      "py": "numpy_full_prac/neural_net/attention.py",
+      "pyc": "numpy_full_prac/neural_net/attention.pyc"
+    },
+    {
+      "d_ps": "numpy_full_prac/neural_net/data.d.ps",
+      "module": "numpy_full_prac/neural_net/data.py",
+      "namespace": [
+        "NumpyFullPrac",
+        "NeuralNet",
+        "Data"
+      ],
+      "primary_ps": "NeuralNet/Data/BatchPair.ps",
+      "py": "numpy_full_prac/neural_net/data.py",
+      "pyc": "numpy_full_prac/neural_net/data.pyc"
+    },
+    {
+      "d_ps": "numpy_full_prac/neural_net/layers.d.ps",
+      "module": "numpy_full_prac/neural_net/layers.py",
+      "namespace": [
+        "NumpyFullPrac",
+        "NeuralNet",
+        "Layers"
+      ],
+      "primary_ps": "NeuralNet/Layers/BatchNormalizationLayer.ps",
+      "py": "numpy_full_prac/neural_net/layers.py",
+      "pyc": "numpy_full_prac/neural_net/layers.pyc"
+    },
+    {
+      "d_ps": "numpy_full_prac/neural_net/losses.d.ps",
+      "module": "numpy_full_prac/neural_net/losses.py",
+      "namespace": [
+        "NumpyFullPrac",
+        "NeuralNet",
+        "Losses"
+      ],
+      "primary_ps": "NeuralNet/Losses/CrossEntropyLoss.ps",
+      "py": "numpy_full_prac/neural_net/losses.py",
+      "pyc": "numpy_full_prac/neural_net/losses.pyc"
+    },
+    {
+      "d_ps": "numpy_full_prac/neural_net/metrics.d.ps",
+      "module": "numpy_full_prac/neural_net/metrics.py",
+      "namespace": [
+        "NumpyFullPrac",
+        "NeuralNet",
+        "Metrics"
+      ],
+      "primary_ps": "NeuralNet/Metrics/ModelEvaluator.ps",
+      "py": "numpy_full_prac/neural_net/metrics.py",
+      "pyc": "numpy_full_prac/neural_net/metrics.pyc"
+    },
+    {
+      "d_ps": "numpy_full_prac/neural_net/models.d.ps",
+      "module": "numpy_full_prac/neural_net/models.py",
+      "namespace": [
+        "NumpyFullPrac",
+        "NeuralNet",
+        "Models"
+      ],
+      "primary_ps": "NeuralNet/Models/SequentialMLP.ps",
+      "py": "numpy_full_prac/neural_net/models.py",
+      "pyc": "numpy_full_prac/neural_net/models.pyc"
+    },
+    {
+      "d_ps": "numpy_full_prac/neural_net/optimizers.d.ps",
+      "module": "numpy_full_prac/neural_net/optimizers.py",
+      "namespace": [
+        "NumpyFullPrac",
+        "NeuralNet",
+        "Optimizers"
+      ],
+      "primary_ps": "NeuralNet/Optimizers/AdamOptimizer.ps",
+      "py": "numpy_full_prac/neural_net/optimizers.py",
+      "pyc": "numpy_full_prac/neural_net/optimizers.pyc"
+    },
+    {
+      "d_ps": "numpy_full_prac/neural_net/pipelines.d.ps",
+      "module": "numpy_full_prac/neural_net/pipelines.py",
+      "namespace": [
+        "NumpyFullPrac",
+        "NeuralNet",
+        "Pipelines"
+      ],
+      "primary_ps": "NeuralNet/Pipelines/AttentionDemonstrationPipeline.ps",
+      "py": "numpy_full_prac/neural_net/pipelines.py",
+      "pyc": "numpy_full_prac/neural_net/pipelines.pyc"
+    },
+    {
+      "d_ps": "numpy_full_prac/neural_net/regularization.d.ps",
+      "module": "numpy_full_prac/neural_net/regularization.py",
+      "namespace": [
+        "NumpyFullPrac",
+        "NeuralNet",
+        "Regularization"
+      ],
+      "primary_ps": "NeuralNet/Regularization/EarlyStoppingHandler.ps",
+      "py": "numpy_full_prac/neural_net/regularization.py",
+      "pyc": "numpy_full_prac/neural_net/regularization.pyc"
+    }
+  ],
+  "schema_version": 1
+}

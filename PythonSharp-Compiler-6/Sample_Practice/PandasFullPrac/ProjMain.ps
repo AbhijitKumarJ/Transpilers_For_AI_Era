@@ -1,0 +1,20 @@
+namespace PandasDemo;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Pandas;
+using PythonSharp.Bridge.Pandas.Core.Frame;
+using PandasDemo.CalHousing;
+using PandasDemo.Titanic;
+
+public class ProjMain
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("PandasDemo - Initializing Data Analysis Pipeline");
+       
+        CalHousing.pp1.Main(args);
+        Titanic.pp2.Main(args);
+
+        Console.WriteLine("\nPandasDemo - Completed Successfully!");
+    }
+}

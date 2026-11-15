@@ -1,0 +1,103 @@
+namespace NumpyFullPrac.NeuralNet.Layers;
+
+extern using numpy as _np;
+extern using numpy.random as _nprand;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using NumpyFullPrac.NeuralNet.Activations;
+
+public class DenseLayer
+{
+    public NDArray<double> Weights;
+    public NDArray<double> Biases;
+    public NDArray<double> Inputs;
+    public NDArray<double> Z;
+    public NDArray<double> A;
+    public NDArray<double> DWeights;
+    public NDArray<double> DBiases;
+    public double L2Lambda;
+    public string ActivationType;
+
+    public DenseLayer(int inputDim, int outputDim, string activationType = "sigmoid", double l2Lambda = 0.0)
+    {
+        this.ActivationType = activationType;
+        this.L2Lambda = l2Lambda;
+
+        dynamic randn = _nprand.randn(inputDim, outputDim);
+        double fanInScale = 2.0 / (1.0 * inputDim);
+        dynamic scale = _np.sqrt(fanInScale);
+        this.Weights = randn * scale;
+        this.Biases = _np.zeros([1, outputDim]);
+    }
+
+    public NDArray<double> Forward(NDArray<double> inputs)
+    {
+        this.Inputs = inputs;
+        dynamic dynIn = inputs;
+        dynamic dynW = this.Weights;
+        dynamic dynB = this.Biases;
+
+        dynamic z = _np.dot(dynIn, dynW) + dynB;
+        this.Z = z;
+
+        if (this.ActivationType == "relu")
+        {
+            this.A = ReluActivation.Forward(this.Z);
+        }
+        else if (this.ActivationType == "tanh")
+        {
+            this.A = TanhActivation.Forward(this.Z);
+        }
+        else if (this.ActivationType == "none")
+        {
+            this.A = this.Z;
+        }
+        else
+        {
+            this.A = SigmoidActivation.Forward(this.Z);
+        }
+
+        return this.A;
+    }
+
+    public NDArray<double> Backward(NDArray<double> dOut, bool isDeltaZ = false)
+    {
+        dynamic dynDOut = dOut;
+        dynamic dZ = null;
+        if (isDeltaZ || this.ActivationType == "none")
+        {
+            dZ = dynDOut;
+        }
+        else if (this.ActivationType == "relu")
+        {
+            dynamic reluGrad = ReluActivation.Backward(this.A);
+            dZ = dynDOut * reluGrad;
+        }
+        else if (this.ActivationType == "tanh")
+        {
+            dynamic tanhGrad = TanhActivation.Backward(this.A);
+            dZ = dynDOut * tanhGrad;
+        }
+        else
+        {
+            dynamic sigGrad = SigmoidActivation.Backward(this.A);
+            dZ = dynDOut * sigGrad;
+        }
+
+        dynamic dynIn = this.Inputs;
+        dynamic dynW = this.Weights;
+
+        dynamic inT = _np.transpose(dynIn);
+        dynamic dW = _np.dot(inT, dZ);
+        if (this.L2Lambda > 0.0)
+        {
+            dW = dW + (this.L2Lambda * dynW);
+        }
+        this.DWeights = dW;
+        this.DBiases = _np.sum(dZ, axis: 0, keepdims: true);
+
+        dynamic wT = _np.transpose(dynW);
+        dynamic dInputs = _np.dot(dZ, wT);
+        return dInputs;
+    }
+}

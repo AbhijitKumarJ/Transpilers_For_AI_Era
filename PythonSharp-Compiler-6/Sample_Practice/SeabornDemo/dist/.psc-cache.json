@@ -1,0 +1,1791 @@
+{
+  "version": "0.2.0",
+  "emit_pyc": true,
+  "target_python": "3.11",
+  "inputs": {
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/00_matplotlib.primitives.d.ps": {
+      "sha256": "684f2e115a153b93fc49167652217466bdb6f2e4abe08cc9755ceefbfb05cd64",
+      "mtime": 1794251886.0270495,
+      "size": 1829
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/02_matplotlib.csharp.d.ps": {
+      "sha256": "baa1e83bb9f842eb58bf6b32de6b245a9db5cd372270de45198645549dccb44c",
+      "mtime": 1794251886.0273244,
+      "size": 11136
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_afm/00__afm.primitives.d.ps": {
+      "sha256": "82d106b53d52c5ee272a25235b31c17375e5a466cf38e11ff915285377c74042",
+      "mtime": 1794251886.0305848,
+      "size": 4139
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_afm/02__afm.csharp.d.ps": {
+      "sha256": "15aef4d04bf8a6c72cd6cf73b2d89bca29696a8777d84edc7f278d1c46d47b46",
+      "mtime": 1794251886.030891,
+      "size": 9832
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_animation_data/00__animation_data.primitives.d.ps": {
+      "sha256": "1172b1cba7d14392c1b1b153551a6d050b3a187748e33cb21676afb0f0891a23",
+      "mtime": 1794251886.031612,
+      "size": 551
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_animation_data/02__animation_data.csharp.d.ps": {
+      "sha256": "70d8d3f841da3b8d8b523df5df022dc3dff480a4418b376571c9e08b864b785b",
+      "mtime": 1794251886.0318897,
+      "size": 426
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_api/00__api.primitives.d.ps": {
+      "sha256": "568cfb91e5b9da76b41c334235300f378e13d5377b89d7074f930e11e8b5bd73",
+      "mtime": 1794251886.0375054,
+      "size": 966
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_api/02__api.csharp.d.ps": {
+      "sha256": "bc7e7c0eb41c96b108c0430cfdfe293983587cf882dde69ac4556165c17b519a",
+      "mtime": 1794251886.0378377,
+      "size": 9796
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_api/deprecation/00_deprecation.primitives.d.ps": {
+      "sha256": "246f62238f661702856c1ae8bf390d93557e60c2b456052df60ae7df0c52ff77",
+      "mtime": 1794251886.040891,
+      "size": 1870
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_api/deprecation/02_deprecation.csharp.d.ps": {
+      "sha256": "bd27ce5805383b118f341de4adbef6f34fe7f7dc4903a5fa6e4ec39b2bf72a2d",
+      "mtime": 1794251886.0412283,
+      "size": 8038
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_blocking_input/00__blocking_input.primitives.d.ps": {
+      "sha256": "018214ea294f34869312e99699aa4b9f291263717e1111ab4c72b1499a6f94dc",
+      "mtime": 1794251886.0421643,
+      "size": 551
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_blocking_input/02__blocking_input.csharp.d.ps": {
+      "sha256": "40f04e697e9998a1deb9c5a38ff1179fc00a956636e541dc6588c4a27bb90260",
+      "mtime": 1794251886.0423748,
+      "size": 824
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_c_internal_utils/00__c_internal_utils.primitives.d.ps": {
+      "sha256": "5d93c5080b307d1c47ff96edf9ee79de3846206cb23fbd0afc420f8225cbb3c9",
+      "mtime": 1794251886.0432673,
+      "size": 561
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_c_internal_utils/02__c_internal_utils.csharp.d.ps": {
+      "sha256": "0bd05076a421c4051202d60079c78c386141a3e15b2ffa57c62c64f4b8a6c5a0",
+      "mtime": 1794251886.0434763,
+      "size": 2239
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_cm/00__cm.primitives.d.ps": {
+      "sha256": "8853d5685e96059807725df397ee92163f01653f955b050c4980aea3d2011800",
+      "mtime": 1794251886.0446546,
+      "size": 481
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_cm/02__cm.csharp.d.ps": {
+      "sha256": "f869efbe3ff51db0e3433c5da643e6ed4bf5760454997c4307a568701f044b50",
+      "mtime": 1794251886.0449111,
+      "size": 702
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_cm_bivar/00__cm_bivar.primitives.d.ps": {
+      "sha256": "3b6778753ee852d7ca1e87872f0582426de62dfcc4581956de995cbcedcdc1ce",
+      "mtime": 1794251886.0454352,
+      "size": 515
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_cm_bivar/02__cm_bivar.csharp.d.ps": {
+      "sha256": "89418e80cd7a4f22830a89ffe4c2db2a20aae5069286eaa11c777bb411d1eb64",
+      "mtime": 1794251886.0456285,
+      "size": 402
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_cm_listed/00__cm_listed.primitives.d.ps": {
+      "sha256": "1cf18221d8370f4977c02e3cb662b3715e9e489ca207edabae2ca45f6f671fe9",
+      "mtime": 1794251886.0461476,
+      "size": 521
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_cm_listed/02__cm_listed.csharp.d.ps": {
+      "sha256": "d68a8cf11e543ad00924a1d98c45f482361d97b1598fe0b9d9cb5159d9168053",
+      "mtime": 1794251886.0463433,
+      "size": 406
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_cm_multivar/00__cm_multivar.primitives.d.ps": {
+      "sha256": "b6412ccb5b33d7af994d817474b4ae79e0c0f1d966a200f1978c155e475bb65d",
+      "mtime": 1794251886.0469542,
+      "size": 533
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_cm_multivar/02__cm_multivar.csharp.d.ps": {
+      "sha256": "099027cb018db007d7201114ac34e078f1720eed75a24d3e6f41efba7b62804e",
+      "mtime": 1794251886.0471585,
+      "size": 739
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_color_data/00__color_data.primitives.d.ps": {
+      "sha256": "7d86876e938bbef1b1b99c620de4469612dadbe9c03c32e2b17273b9618fd5e3",
+      "mtime": 1794251886.0478406,
+      "size": 527
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_color_data/02__color_data.csharp.d.ps": {
+      "sha256": "f9caaa58e22cb830537b4dbbe81cebec2f027f8cfc4bd22a688181afa4512c2f",
+      "mtime": 1794251886.0480483,
+      "size": 1533
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_constrained_layout/00__constrained_layout.primitives.d.ps": {
+      "sha256": "0c402269c404a0ffc4f49da8a6d75634944fdb81c7353a9990c92255dae3450c",
+      "mtime": 1794251886.051446,
+      "size": 575
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_constrained_layout/02__constrained_layout.csharp.d.ps": {
+      "sha256": "7676f25522d51ae24f759f7d49a2a3cde142cd35dc271a2a637836ec7dbc7f4a",
+      "mtime": 1794251886.0517652,
+      "size": 4351
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_docstring/00__docstring.primitives.d.ps": {
+      "sha256": "4608d9f39e49e9ed246c11c2c91f1bf8462cfb7de5e74877011597ffe5b197ce",
+      "mtime": 1794251886.0536613,
+      "size": 1249
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_docstring/02__docstring.csharp.d.ps": {
+      "sha256": "bbe17a04f97130107825f8ab10dea0358b74823de143c247749439f85bdaf4f9",
+      "mtime": 1794251886.053974,
+      "size": 3442
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_enums/00__enums.primitives.d.ps": {
+      "sha256": "72098927dc1d1e5cb676fdff8c9907833e9bb54e9acbc52188d2d24e1e59de0b",
+      "mtime": 1794251886.055019,
+      "size": 747
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_enums/02__enums.csharp.d.ps": {
+      "sha256": "4b49d5a09d022cfe8e214d1bd64a26e2d2f392207eae3b30e6749d82cd9b77ab",
+      "mtime": 1794251886.0553143,
+      "size": 1228
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_fontconfig_pattern/00__fontconfig_pattern.primitives.d.ps": {
+      "sha256": "01c354c0d7f72df7883ab192836fb018ab8486347b44743ef8bf1abb1233a610",
+      "mtime": 1794251886.0562963,
+      "size": 575
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_fontconfig_pattern/02__fontconfig_pattern.csharp.d.ps": {
+      "sha256": "86ccb8a0f6471f8bb6c42be0e12cb9e72002894cce61b920bb46d22a44551b5b",
+      "mtime": 1794251886.056598,
+      "size": 1303
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_image/00__image.primitives.d.ps": {
+      "sha256": "77bdfa4000cf7a14ffd70a5bed8995b73279413c2923f749ec04fa7d8f2fa097",
+      "mtime": 1794251886.0572271,
+      "size": 499
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_image/02__image.csharp.d.ps": {
+      "sha256": "1cbd3db94d0436450c553f0b8994c19ca3b8fef1ee1091290133b31a105857bd",
+      "mtime": 1794251886.0575097,
+      "size": 392
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_internal_utils/00__internal_utils.primitives.d.ps": {
+      "sha256": "28b94e90bfd57837a904f0625a54f0d4b7f2259310c17b12664c606c76e89daa",
+      "mtime": 1794251886.0583313,
+      "size": 551
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_internal_utils/02__internal_utils.csharp.d.ps": {
+      "sha256": "82bf83c085ab731383c826a8967a4ebe86f893d629b44d025d9d2c6b4fb52f6d",
+      "mtime": 1794251886.0586314,
+      "size": 800
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_layoutgrid/00__layoutgrid.primitives.d.ps": {
+      "sha256": "73477c00f186e43c9f3195953963a801b393762db8ac0c3eda2a48c7b4ed76ec",
+      "mtime": 1794251886.0623047,
+      "size": 2882
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_layoutgrid/02__layoutgrid.csharp.d.ps": {
+      "sha256": "a93d4e45a4209e51ef955f7f6939f48ff095e5399d595a10d4451926c893e7ab",
+      "mtime": 1794251886.0626044,
+      "size": 5622
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_mathtext/00__mathtext.primitives.d.ps": {
+      "sha256": "c80b3127809cbc7e16bec4a2781af4e90c4962669b1e67d14413b04d04abadca",
+      "mtime": 1794251886.0856671,
+      "size": 19019
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_mathtext/02__mathtext.csharp.d.ps": {
+      "sha256": "693621e1c93554982e510a39aca1302f5be73ee5033c24f0e727a0f4870788d5",
+      "mtime": 1794251886.086075,
+      "size": 37605
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_mathtext_data/00__mathtext_data.primitives.d.ps": {
+      "sha256": "00bfa89ca27741ae35b4f1247bdb8c073c2b3b2d7b45810a4d8fda7de0ec92ac",
+      "mtime": 1794251886.088446,
+      "size": 545
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_mathtext_data/02__mathtext_data.csharp.d.ps": {
+      "sha256": "9200ee798d8c937c4ad8bead5ee43de0374604f6cc3884f370b94e08bd031cc8",
+      "mtime": 1794251886.0887616,
+      "size": 2785
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_path/00__path.primitives.d.ps": {
+      "sha256": "eba8e7f00db9d166795392fd3351ac5375f14d204385b26113f5e4ae6dd40e5d",
+      "mtime": 1794251886.089726,
+      "size": 493
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_path/02__path.csharp.d.ps": {
+      "sha256": "a8b4d75647da8b9cd76d881b441e6aa29dccb8451bead327b1ba68bf724b46aa",
+      "mtime": 1794251886.0900502,
+      "size": 1609
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_pylab_helpers/00__pylab_helpers.primitives.d.ps": {
+      "sha256": "be3bb4b41f78bfd98776705c345188cfbc6af35f81a1c2851b67ad1a659ce4c3",
+      "mtime": 1794251886.0925565,
+      "size": 1658
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_pylab_helpers/02__pylab_helpers.csharp.d.ps": {
+      "sha256": "eb4e4be41a8e3d89443e2d28f365137c2f7d9df1b80d55048049ed99c67c96a8",
+      "mtime": 1794251886.0928802,
+      "size": 3755
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_qhull/00__qhull.primitives.d.ps": {
+      "sha256": "dd860579421828a15a323b5c0ccfcb5286496b11f595c1b566314f0b59b64aae",
+      "mtime": 1794251886.0934958,
+      "size": 499
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_qhull/02__qhull.csharp.d.ps": {
+      "sha256": "4946269145ccdf8488f5ca9c23ed95e158ed2e6431a6c3cb80edd66791836d4b",
+      "mtime": 1794251886.0938036,
+      "size": 392
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_style_helpers/00__style_helpers.primitives.d.ps": {
+      "sha256": "16bff187e8ee4937f382ac9f089bfde2602786ef850134bb5677da826c44d81a",
+      "mtime": 1794251886.0946915,
+      "size": 545
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_style_helpers/02__style_helpers.csharp.d.ps": {
+      "sha256": "9369b7252a888bd569b5ca00f3867d8e5b36116f32ffec0fd637f6e1656194eb",
+      "mtime": 1794251886.0949996,
+      "size": 963
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_text_helpers/00__text_helpers.primitives.d.ps": {
+      "sha256": "9837e6954b2d8032f3219cd4163a75bb8f93414158c57bc4cc751a5fb308867f",
+      "mtime": 1794251886.096342,
+      "size": 539
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_text_helpers/02__text_helpers.csharp.d.ps": {
+      "sha256": "b6459e14940977f084d745e7f21100dde02a067f8d4fd64db98cb493ac60ba06",
+      "mtime": 1794251886.0966647,
+      "size": 1968
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_tight_bbox/00__tight_bbox.primitives.d.ps": {
+      "sha256": "5da16618866ddf24dd1812c8fa27d88be10cd2dae55b592edc47ca3a16c26045",
+      "mtime": 1794251886.0978794,
+      "size": 527
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_tight_bbox/02__tight_bbox.csharp.d.ps": {
+      "sha256": "d8bb77971e1b4700b4ebdb0d7d7f5df118c5677b5f59415f59f8b2b53d51acc3",
+      "mtime": 1794251886.0981839,
+      "size": 1080
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_tight_layout/00__tight_layout.primitives.d.ps": {
+      "sha256": "cbb97b8e0972a5fa48c6d2e47bad318a7a40cee47b7190e53ed05735e69b0be9",
+      "mtime": 1794251886.0997014,
+      "size": 539
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_tight_layout/02__tight_layout.csharp.d.ps": {
+      "sha256": "108610f94bca24bf4b2eebc0d222481a2578ef4a67d2005f454a23ead479f7d8",
+      "mtime": 1794251886.1000688,
+      "size": 1146
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_tri/00__tri.primitives.d.ps": {
+      "sha256": "89dda42e785d88601f1ebfa7a6f5316589f211d7876f8cdebc3c54db731c1af3",
+      "mtime": 1794251886.1038916,
+      "size": 3407
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_tri/02__tri.csharp.d.ps": {
+      "sha256": "868435ff78481c3b44d010de0ee3a87750d511786cdc43731a20bacc09f3fbcd",
+      "mtime": 1794251886.104119,
+      "size": 5405
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_type1font/00__type1font.primitives.d.ps": {
+      "sha256": "88ec0bafd7789469f8bf618b4b481ef687f6563b65abfb2cb6ab81d3d6d726ac",
+      "mtime": 1794251886.106937,
+      "size": 3491
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_type1font/02__type1font.csharp.d.ps": {
+      "sha256": "66307378768e58644384cb0574fd7e7ca176d0be95c3914a581aa1c2afb4b0fa",
+      "mtime": 1794251886.107157,
+      "size": 5546
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_version/00__version.primitives.d.ps": {
+      "sha256": "2d947c24de1cae7f51fc1480badc025a3bf3f278f4fadc61f21512f375d1dc31",
+      "mtime": 1794251886.1077445,
+      "size": 511
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/_version/02__version.csharp.d.ps": {
+      "sha256": "c2940c7c7b404022dd6bcad77fb90aa205f86f5fc4303430b027c96ace26ea1d",
+      "mtime": 1794251886.1079583,
+      "size": 400
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/animation/00_animation.primitives.d.ps": {
+      "sha256": "d1400ac179e18f197f1da00488247a998a70b368eddd8102317fad8fa71002fd",
+      "mtime": 1794251886.1207309,
+      "size": 10450
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/animation/02_animation.csharp.d.ps": {
+      "sha256": "d99cbdeafdd180ad392e03bebed9f18e870dea9bfbe2480982415c5870f1b42e",
+      "mtime": 1794251886.1209962,
+      "size": 21220
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/artist/00_artist.primitives.d.ps": {
+      "sha256": "a32e2bd76aefbdcdcd70dd07ffeab061868a8e6594c4e84c6f08c5cc3e8e42e9",
+      "mtime": 1794251886.1322165,
+      "size": 8774
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/artist/02_artist.csharp.d.ps": {
+      "sha256": "4cde7bf43cb4d5666e5ad766647ced876539db37bf80a9dba9e5cf381c81dffe",
+      "mtime": 1794251886.132581,
+      "size": 24213
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/axes/00_axes.primitives.d.ps": {
+      "sha256": "b10b2fffa6ef2de83e5cbc8c644898ff0108bdca890c381aa24c6fcdb60dd3bc",
+      "mtime": 1794251886.1346369,
+      "size": 712
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/axes/02_axes.csharp.d.ps": {
+      "sha256": "5dd38a4639a85e38565d071b3e3d82d6814580fea83a9a0b2d660276c38da6e5",
+      "mtime": 1794251886.1348734,
+      "size": 1554
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/axes/_axes/00__axes.primitives.d.ps": {
+      "sha256": "4ad31d7e7dde7c6bc938fb5b57cc8b8280bdee0808df58d37decf04c545b6b2e",
+      "mtime": 1794251886.1588461,
+      "size": 17012
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/axes/_axes/02__axes.csharp.d.ps": {
+      "sha256": "6365ead6d436e2e93f387e4257b8b3e04d0f0c470471a95a4d27be3b5600e7f0",
+      "mtime": 1794251886.159107,
+      "size": 39516
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/axes/_base/00__base.primitives.d.ps": {
+      "sha256": "d3c8ddcbe39465faa1db6b4461f2313d32feaea20f34da181d0042cb2a03256f",
+      "mtime": 1794251886.182157,
+      "size": 17086
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/axes/_base/02__base.csharp.d.ps": {
+      "sha256": "af5a273f8260b9a722b6d6d07e780128b77cb8a8dd1649380dfa8c069721baad",
+      "mtime": 1794251886.1825628,
+      "size": 45475
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/axes/_secondary_axes/00__secondary_axes.primitives.d.ps": {
+      "sha256": "a1fd9d2906d224f1f5fa2926f76ea32afa321e7f5220ce7ea910e095a08b3152",
+      "mtime": 1794251886.1873133,
+      "size": 2460
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/axes/_secondary_axes/02__secondary_axes.csharp.d.ps": {
+      "sha256": "1d069b29ae6d80d3fe2034cca1bfa9dbd7655b185e4009cccfb57f9adfc76f9c",
+      "mtime": 1794251886.1875556,
+      "size": 5514
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/axis/00_axis.primitives.d.ps": {
+      "sha256": "b06a56d1fe941bc78aa032bbbac2a86f9b8abc5763064f5381110e98fd0aa7e6",
+      "mtime": 1794251886.1998963,
+      "size": 12545
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/axis/02_axis.csharp.d.ps": {
+      "sha256": "84c7ff3f43c75bed0c141bb46dda026e3cc6285fe9dc6812ddb3a7bb11bbbbec",
+      "mtime": 1794251886.2002761,
+      "size": 30164
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/backend_bases/00_backend_bases.primitives.d.ps": {
+      "sha256": "1ea036a18880abf2fa4ae81639d6a9b487a7a29cc9a7d8639183c01ebf00d9d5",
+      "mtime": 1794251886.2395968,
+      "size": 75269
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/backend_bases/02_backend_bases.csharp.d.ps": {
+      "sha256": "9c8784bcc7714290069587fbc31216cdd12661b4096dd10b564333f8d416f5ff",
+      "mtime": 1794251886.239929,
+      "size": 122269
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/backend_managers/00_backend_managers.primitives.d.ps": {
+      "sha256": "a39e84758879f370c386996ee7a3b74d813dea07602e46796de081347e281855",
+      "mtime": 1794251886.246824,
+      "size": 3645
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/backend_managers/02_backend_managers.csharp.d.ps": {
+      "sha256": "345ca3b5199da3a49227ea03fcb0f5203fa9acb515bcb7678726387d08509a9a",
+      "mtime": 1794251886.2470713,
+      "size": 8656
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/backend_tools/00_backend_tools.primitives.d.ps": {
+      "sha256": "87f0f2d23407423e2194cca46b3fd19619004ce4a4701f9e697bec524ac1a259",
+      "mtime": 1794251886.2549946,
+      "size": 7393
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/backend_tools/02_backend_tools.csharp.d.ps": {
+      "sha256": "e4d8e0c74f700db2a5144587ed66f9f6410723eab4fbfd84a910c7305ac09ac9",
+      "mtime": 1794251886.2552354,
+      "size": 15161
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/backends/00_backends.primitives.d.ps": {
+      "sha256": "57bb9fc2bd9997af9190b5585e0aefc075daa38c9558fa82dd2f36d4f4a4fe61",
+      "mtime": 1794251886.256153,
+      "size": 511
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/backends/02_backends.csharp.d.ps": {
+      "sha256": "0600befe9fc1b4336564cfc24bd1bbb673b8674907219c023e799d30896cbe66",
+      "mtime": 1794251886.256362,
+      "size": 1038
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/backends/registry/00_registry.primitives.d.ps": {
+      "sha256": "29d35ade9d6c3f325b4e381942ebcd972727d1cb9402b89b86935e88c115b193",
+      "mtime": 1794251886.2577338,
+      "size": 1454
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/backends/registry/02_registry.csharp.d.ps": {
+      "sha256": "c3db17a5ccd39a2305ae0fb246f36383b07161fb7d1333ffa7b186a00a3c57b3",
+      "mtime": 1794251886.2579782,
+      "size": 2745
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/bezier/00_bezier.primitives.d.ps": {
+      "sha256": "5a0d76c166da584807609416e9d473cae92351d98b7e394f7011dc53a72565c3",
+      "mtime": 1794251886.2611957,
+      "size": 1294
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/bezier/02_bezier.csharp.d.ps": {
+      "sha256": "e26ff3f48b7afb7b937d8d4abffaa0bafdeda3a0eb3256278445178be204b0b8",
+      "mtime": 1794251886.2614162,
+      "size": 6448
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/category/00_category.primitives.d.ps": {
+      "sha256": "8da114f24505f568f3aadb9b263136b79990d01563bba966d7929eff3bfd0400",
+      "mtime": 1794251886.2634606,
+      "size": 1821
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/category/02_category.csharp.d.ps": {
+      "sha256": "dcfc516d0e4cbd14c3c23b8f0f8037304c21bd22a3181f320a1801a7edc5ddf9",
+      "mtime": 1794251886.2636776,
+      "size": 3219
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/cbook/00_cbook.primitives.d.ps": {
+      "sha256": "89d8545d09bc79dc35b6752b28168cf4114bafbaef0974c48c5eb3efa7cc9cda",
+      "mtime": 1794251886.2731254,
+      "size": 3585
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/cbook/02_cbook.csharp.d.ps": {
+      "sha256": "4912fe1aea635e419f04c6dedb52637bf9b76188e83503341cea1a1058eba364",
+      "mtime": 1794251886.2733662,
+      "size": 15733
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/cm/00_cm.primitives.d.ps": {
+      "sha256": "bd1cc1c8ef3fb0f19524da062926a4531ee16df5f34740780af2245b5853f577",
+      "mtime": 1794251886.2781057,
+      "size": 1144
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/cm/02_cm.csharp.d.ps": {
+      "sha256": "9ce3e86db89dca686c1d3e1eb6fda9563a15f86bd3f926e8a65d4da571fc4303",
+      "mtime": 1794251886.2783482,
+      "size": 31251
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/collections/00_collections.primitives.d.ps": {
+      "sha256": "f7d21912a325971c5c2792ccbcdb1023055a1ea4615be36ce3c770399dbac249",
+      "mtime": 1794251886.2938747,
+      "size": 13008
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/collections/02_collections.csharp.d.ps": {
+      "sha256": "892e5f591b7491f0f62afef81d9f2c541558e893991d04f4470f40587f9d8711",
+      "mtime": 1794251886.294136,
+      "size": 29879
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/colorbar/00_colorbar.primitives.d.ps": {
+      "sha256": "7974722e036051ceb58721ba293dd921e1b478ad0efa34a56395be643c077ef0",
+      "mtime": 1794251886.302133,
+      "size": 4406
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/colorbar/02_colorbar.csharp.d.ps": {
+      "sha256": "2b5e6f62cc557ab508d769320a2b87837a8d2b44edbd5254522d33ae4809af99",
+      "mtime": 1794251886.3023782,
+      "size": 14912
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/colorizer/00_colorizer.primitives.d.ps": {
+      "sha256": "0483404d00b0fba107faf7931c629feeb1c8c2ab3b9c4d09e3e0447aadfbf23b",
+      "mtime": 1794251886.307665,
+      "size": 3793
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/colorizer/02_colorizer.csharp.d.ps": {
+      "sha256": "db302530b74ffcbe14aa148409979bc4607c9c5f13e83cf2a35cc3404c94ffa6",
+      "mtime": 1794251886.3079014,
+      "size": 8982
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/colors/00_colors.primitives.d.ps": {
+      "sha256": "dc33bcd3569f68a5b4367f9e768000c094646ae0e8c7c31c05e3db2fd4622198",
+      "mtime": 1794251886.3320336,
+      "size": 16719
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/colors/02_colors.csharp.d.ps": {
+      "sha256": "69cc2569162684fb796b132143f2ee2391dc832dcf540d47898afa0e559b49bc",
+      "mtime": 1794251886.3324327,
+      "size": 37121
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/container/00_container.primitives.d.ps": {
+      "sha256": "7ce2b7ef34d21d1e8b3aec573ec344b4b48cbf272eec56bb242251fe67ec3494",
+      "mtime": 1794251886.3375807,
+      "size": 3478
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/container/02_container.csharp.d.ps": {
+      "sha256": "910da907438aa2303543ed6839a147e826563fb0e197ea173dca6d6d54f55fd9",
+      "mtime": 1794251886.3378243,
+      "size": 8913
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/contour/00_contour.primitives.d.ps": {
+      "sha256": "d013097bf79b1bfc9389769caf7f91af915fa26c23ba42f5e158d639af1bf52d",
+      "mtime": 1794251886.343195,
+      "size": 4365
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/contour/02_contour.csharp.d.ps": {
+      "sha256": "4389f9ce1c73e15f836a67d05f10067fc225216ebdd9c627cc0af412f2e1a664",
+      "mtime": 1794251886.3434312,
+      "size": 14084
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/dates/00_dates.primitives.d.ps": {
+      "sha256": "863fc294c221b67b07d0c3c5cd3945e2ab34bafa50ab0abdf1ab6636c58c7edb",
+      "mtime": 1794251886.3538535,
+      "size": 7109
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/dates/02_dates.csharp.d.ps": {
+      "sha256": "6d26beaf255be15b2f02a120ae8d87dda5b554575ea6e76eb84feea3cea2925e",
+      "mtime": 1794251886.3540902,
+      "size": 15646
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/dviread/00_dviread.primitives.d.ps": {
+      "sha256": "bc363cbd6d292468f7936c696f486a42b39391e3fb0e8acc8b7efb86e0e49252",
+      "mtime": 1794251886.3593771,
+      "size": 5654
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/dviread/02_dviread.csharp.d.ps": {
+      "sha256": "b868c19f35573b608a7715a3235021a24cf967ac8dbd17f76164c9f3f9caaaf9",
+      "mtime": 1794251886.3596122,
+      "size": 12546
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/figure/00_figure.primitives.d.ps": {
+      "sha256": "178a285c692ae44abba189eecde1312147a38855f7242881c41da543a4582e2c",
+      "mtime": 1794251886.3770173,
+      "size": 12076
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/figure/02_figure.csharp.d.ps": {
+      "sha256": "c1db609541c334ee8501d788b5af686994044adbc100ff7dc73eb1f1270d2d27",
+      "mtime": 1794251886.3772755,
+      "size": 33729
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/font_manager/00_font_manager.primitives.d.ps": {
+      "sha256": "436b0360ef520571c417c175c7a4e722f78397ee7262974c87e8f57a4563df32",
+      "mtime": 1794251886.388344,
+      "size": 7187
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/font_manager/02_font_manager.csharp.d.ps": {
+      "sha256": "bc7cb2bc33d1e27ea29bfa8f2127bc8a894717e70b752f463dceee216e484bc6",
+      "mtime": 1794251886.3885975,
+      "size": 22238
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/ft2font/00_ft2font.primitives.d.ps": {
+      "sha256": "f20579154a91e56caa128ac89e0ba7de79d9a018e324bb83c26de3b605a01855",
+      "mtime": 1794251886.3986158,
+      "size": 15298
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/ft2font/02_ft2font.csharp.d.ps": {
+      "sha256": "99dca0e9fe026bd91e28a348e7e016faa0ca7aab42bc987a851765db33207158",
+      "mtime": 1794251886.3989787,
+      "size": 36869
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/gridspec/00_gridspec.primitives.d.ps": {
+      "sha256": "ca849a958260d09f1d939de5fb19e97f7a7a8d817f9f7a9b900bca54894c4e2b",
+      "mtime": 1794251886.4074183,
+      "size": 5603
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/gridspec/02_gridspec.csharp.d.ps": {
+      "sha256": "b4029e41e0cf479468357297751e00a509a76bf3e3f1eb63c40a6850c7b473d7",
+      "mtime": 1794251886.4077013,
+      "size": 12501
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/hatch/00_hatch.primitives.d.ps": {
+      "sha256": "bad9d64ddf07d9cef7c5cd9cacd588634835ebfaf817daeb7f63f26f6bcfc930",
+      "mtime": 1794251886.411246,
+      "size": 4407
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/hatch/02_hatch.csharp.d.ps": {
+      "sha256": "53dd9752deaa46d1e25a83cc89516455b9b32c2597e25cfca1bef2e28368c23c",
+      "mtime": 1794251886.4115064,
+      "size": 8397
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/image/00_image.primitives.d.ps": {
+      "sha256": "7d5a0c8930077ce088627e8aa52d803c9356023abab7258e820fb60b3c353557",
+      "mtime": 1794251886.423021,
+      "size": 5214
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/image/02_image.csharp.d.ps": {
+      "sha256": "815943b22f7c972a7e1f67a2a3883461acda194c46cb1e5c90547b28b920d7de",
+      "mtime": 1794251886.423352,
+      "size": 22264
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/inset/00_inset.primitives.d.ps": {
+      "sha256": "1ffda0bc2f1cfa794b50f2adac948266564823a72bfaab3cd2217833f976f1ea",
+      "mtime": 1794251886.426013,
+      "size": 1339
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/inset/02_inset.csharp.d.ps": {
+      "sha256": "60616aa78426c0bd4d4a5cd5efab821e7cbeedc50467ae474f43b465c53316cd",
+      "mtime": 1794251886.4262614,
+      "size": 3896
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/layout_engine/00_layout_engine.primitives.d.ps": {
+      "sha256": "d862b331d2b1fc38282dc881b24d811b70e30dddda69de56e2c3347826865503",
+      "mtime": 1794251886.4285388,
+      "size": 2003
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/layout_engine/02_layout_engine.csharp.d.ps": {
+      "sha256": "5eaaeef8f028a1b50c4b56f96b0be48dd081e302b0da6327f1041f9ae336664e",
+      "mtime": 1794251886.42883,
+      "size": 3721
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/legend/00_legend.primitives.d.ps": {
+      "sha256": "99f72403d23b4f656d06e449ccea58e0f208aad7fdc40589d494486042f44ee1",
+      "mtime": 1794251886.4350526,
+      "size": 4721
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/legend/02_legend.csharp.d.ps": {
+      "sha256": "a3b61e8e51ee848f3154d0ddd05cf1144a82555e074edf31da5927dac03a8e56",
+      "mtime": 1794251886.4353304,
+      "size": 14195
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/legend_handler/00_legend_handler.primitives.d.ps": {
+      "sha256": "7b69848c36b38b314654ff0d98b78630577c041cf7f4365df33f6576792fa9c3",
+      "mtime": 1794251886.4444387,
+      "size": 8274
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/legend_handler/02_legend_handler.csharp.d.ps": {
+      "sha256": "1932faee15f32d62d3734882c04c059354f159d174029389d5f3f01ae9dd8e4f",
+      "mtime": 1794251886.4450655,
+      "size": 13579
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/lines/00_lines.primitives.d.ps": {
+      "sha256": "436a1bd701628d4233f424d41f6fbc9015be7b58bf583ff97692dcc965e1e343",
+      "mtime": 1794251886.4593947,
+      "size": 7170
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/lines/02_lines.csharp.d.ps": {
+      "sha256": "5d49bb06458c6ad68bd12101d3858e71d7fbbc2f76c4efcf9499cc6e50f6e6c3",
+      "mtime": 1794251886.459674,
+      "size": 20261
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/markers/00_markers.primitives.d.ps": {
+      "sha256": "f415f7bcdb6ceeab3d7d7133dd832a64844353d17e57c0eefb749c39f2355742",
+      "mtime": 1794251886.4632823,
+      "size": 2531
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/markers/02_markers.csharp.d.ps": {
+      "sha256": "fc903d8528635714bf9b474c9401e0cb6fde8686a541a68a53657c014855f582",
+      "mtime": 1794251886.4635408,
+      "size": 8354
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/mathtext/00_mathtext.primitives.d.ps": {
+      "sha256": "2a76650b5023362ad1fa546fd2baac4532345cd2495c97af80de734cd3278432",
+      "mtime": 1794251886.4660616,
+      "size": 704
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/mathtext/02_mathtext.csharp.d.ps": {
+      "sha256": "97c678e58c92c7f9e00d061f852aa9adbeb211699e9eea5c282d6444d2cef89c",
+      "mtime": 1794251886.466434,
+      "size": 3532
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/mlab/00_mlab.primitives.d.ps": {
+      "sha256": "7964128329a50040ed1868601efe60cac2a76a33820dbda3ca9c0eca6223c446",
+      "mtime": 1794251886.4752042,
+      "size": 1478
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/mlab/02_mlab.csharp.d.ps": {
+      "sha256": "69de79f8efa365b44a10cb55ada9bae50c8b90f5749020969df3d3d253176ec6",
+      "mtime": 1794251886.475435,
+      "size": 6286
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/offsetbox/00_offsetbox.primitives.d.ps": {
+      "sha256": "e6c3a0a8c72ac65fcfa120e4bf87caccc0e599f1ddd3cc2f62f4744a6e8e63a0",
+      "mtime": 1794251886.4921386,
+      "size": 11408
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/offsetbox/02_offsetbox.csharp.d.ps": {
+      "sha256": "7511f3d44fb306d528846336805932c698a4aad71c105fd1f0a3770f14fa066e",
+      "mtime": 1794251886.492396,
+      "size": 28057
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/patches/00_patches.primitives.d.ps": {
+      "sha256": "6fdc008af71a88f9375300ecece3ebe3c4de193ae36bac2ac66553a321d1ea6c",
+      "mtime": 1794251886.5195591,
+      "size": 16349
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/patches/02_patches.csharp.d.ps": {
+      "sha256": "43950d9a6929ba26bff047c44a41fa264ffdbfd47a6e2b1656edd921636b61e3",
+      "mtime": 1794251886.5199468,
+      "size": 35495
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/path/00_path.primitives.d.ps": {
+      "sha256": "f2c67294d2c44fa6ec60d9e58d2f8e55dcddba03f30ba5589a49c95950b1f1e2",
+      "mtime": 1794251886.5286846,
+      "size": 4976
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/path/02_path.csharp.d.ps": {
+      "sha256": "0f79d504aeb5d6a71bd779ab8136315fc52515dbb85f67a93aa6530506e88eb8",
+      "mtime": 1794251886.5290067,
+      "size": 11672
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/patheffects/00_patheffects.primitives.d.ps": {
+      "sha256": "470e195fdad64b1f8073e10baf9754a522bbe7e2347ad9cbd7d9075d15b4bc75",
+      "mtime": 1794251886.5374842,
+      "size": 4558
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/patheffects/02_patheffects.csharp.d.ps": {
+      "sha256": "1550d0f85b7e8fe1a1ef73992d103bae6ead587a11e08eb78a5acff5d115b188",
+      "mtime": 1794251886.5379484,
+      "size": 8342
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/projections/00_projections.primitives.d.ps": {
+      "sha256": "db4d2446448573f102812f49393b76b31b65b2bec94153eef49f15baa389c96b",
+      "mtime": 1794251886.5411549,
+      "size": 862
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/projections/02_projections.csharp.d.ps": {
+      "sha256": "d47ca60528d55e69073da777c2e9b92e69bbd27299d036a7dce362493ebf4120",
+      "mtime": 1794251886.5415223,
+      "size": 3733
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/projections/geo/00_geo.primitives.d.ps": {
+      "sha256": "01ac084b17062051cd4cb2646ebbe050a407c7ef7ded10a1323c8c3fcdcffb42",
+      "mtime": 1794251886.5450697,
+      "size": 3467
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/projections/geo/02_geo.csharp.d.ps": {
+      "sha256": "990e74d7a984e426ffe9dc6ff7079faaf4f5b2112d5bb9ae3d465185e537939c",
+      "mtime": 1794251886.5453055,
+      "size": 7431
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/projections/polar/00_polar.primitives.d.ps": {
+      "sha256": "e7f121ecea3cf0c0aad9d36d163bca61f8eb539ebb6222fe5ea9706191606521",
+      "mtime": 1794251886.554437,
+      "size": 8195
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/projections/polar/02_polar.csharp.d.ps": {
+      "sha256": "d270387a39fa5a8fd7d49022463c87a542316ccba290dbf340c65e8ac8f0ea1a",
+      "mtime": 1794251886.5550761,
+      "size": 18257
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/pylab/00_pylab.primitives.d.ps": {
+      "sha256": "8332ae355358f6ef86bb435decd17273936905a799cc6015e86d142ab396d5ef",
+      "mtime": 1794251886.5560906,
+      "size": 493
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/pylab/02_pylab.csharp.d.ps": {
+      "sha256": "242c37ff5a8fa248942646c22a36af04e87bde6730b53c50f987fd66d1785d3b",
+      "mtime": 1794251886.5563004,
+      "size": 388
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/pyplot/00_pyplot.primitives.d.ps": {
+      "sha256": "99475cb4e1615228931329775927af9031039801722dec964c2e58f43f103cf7",
+      "mtime": 1794251886.630395,
+      "size": 499
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/pyplot/02_pyplot.csharp.d.ps": {
+      "sha256": "9ea000700bba3b08e032a037d8bc404603624f37777617e9ec87f2bc10f7f028",
+      "mtime": 1794251886.630672,
+      "size": 74382
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/quiver/00_quiver.primitives.d.ps": {
+      "sha256": "f1b7a3b1a4229818bb4ec61a1deb8338f1b1dfc9b77d5bd26c8de8165a6610cb",
+      "mtime": 1794251886.63831,
+      "size": 4556
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/quiver/02_quiver.csharp.d.ps": {
+      "sha256": "28b80463458923ddf2dc5c01d9622e77053494507b2cd382a6af1b809c6df388",
+      "mtime": 1794251886.6385608,
+      "size": 12942
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/rcsetup/00_rcsetup.primitives.d.ps": {
+      "sha256": "fc50ac9c855b67a5e3c4a0b3bed4f0da3051e94271e11331abf531eea8b4fadd",
+      "mtime": 1794251886.6430085,
+      "size": 873
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/rcsetup/02_rcsetup.csharp.d.ps": {
+      "sha256": "3bf50a71c15bd6a635ad90cc485e44e1c4a23b5251b3983d988f04306145d8da",
+      "mtime": 1794251886.6432421,
+      "size": 11422
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/sankey/00_sankey.primitives.d.ps": {
+      "sha256": "d29b1f0487a7868105185234311ffc2df88f171c53d9d75a165fa39f701fc710",
+      "mtime": 1794251886.6462383,
+      "size": 1879
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/sankey/02_sankey.csharp.d.ps": {
+      "sha256": "8440a941148220ad4bcb46647f57b1637f4417527bb6ae1ff3a89d63f68835b8",
+      "mtime": 1794251886.6464622,
+      "size": 5808
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/scale/00_scale.primitives.d.ps": {
+      "sha256": "d1a1864b8c3049f8f25eb1620602de5e3cf4041049bba443ac74dff2ee5db986",
+      "mtime": 1794251886.654313,
+      "size": 7996
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/scale/02_scale.csharp.d.ps": {
+      "sha256": "bbc38a182bff274a722a5e3ae402c122664fd99e491bb91c92e25c6377d04409",
+      "mtime": 1794251886.654563,
+      "size": 16534
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/sphinxext/00_sphinxext.primitives.d.ps": {
+      "sha256": "24929033f4ca6733172147e3090ae63de1d32eae550d527ac4754e08f4c1cad6",
+      "mtime": 1794251886.6554048,
+      "size": 517
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/sphinxext/02_sphinxext.csharp.d.ps": {
+      "sha256": "dd56aba9b1eceac56e06484464b6b525009a94e97af9104b616ef7f9ec6d6baa",
+      "mtime": 1794251886.6556048,
+      "size": 404
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/spines/00_spines.primitives.d.ps": {
+      "sha256": "c702e99ecf70f49e740d4a162b8339b7c96d2c216178ed8e20f08bb606036160",
+      "mtime": 1794251886.660036,
+      "size": 3485
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/spines/02_spines.csharp.d.ps": {
+      "sha256": "a36292ee364939b7630a7dd686d359cf63846d49f34d8754dc8bf235699aa275",
+      "mtime": 1794251886.660268,
+      "size": 8893
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/stackplot/00_stackplot.primitives.d.ps": {
+      "sha256": "27edc9c1f8da686a18a3a452e9badbd7a2af987f062eeb706ad766119c6cc8dc",
+      "mtime": 1794251886.6614158,
+      "size": 517
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/stackplot/02_stackplot.csharp.d.ps": {
+      "sha256": "78ad7693af862947a5e10d1f8a76edae7818dc78c0380e73e4d4f391362c3b6a",
+      "mtime": 1794251886.6616325,
+      "size": 2180
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/streamplot/00_streamplot.primitives.d.ps": {
+      "sha256": "e37cdd174661eed29566652178b7fb7c88e2e57aa832f76946c2776169b1af79",
+      "mtime": 1794251886.6675115,
+      "size": 3693
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/streamplot/02_streamplot.csharp.d.ps": {
+      "sha256": "929ace46fbcc7160ef055b0a7d3553f64f63cfd0687aeb005296cfa9ec8b953a",
+      "mtime": 1794251886.6678822,
+      "size": 9921
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/style/00_style.primitives.d.ps": {
+      "sha256": "5bc7dbca7e46fa1bdb511b8d12762497be5fc204c984547d3639f99165854681",
+      "mtime": 1794251886.6693223,
+      "size": 493
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/style/02_style.csharp.d.ps": {
+      "sha256": "44e39e6de47c804578db22ecadefa05efb50503203b2a547b36e49071c2213ce",
+      "mtime": 1794251886.6696074,
+      "size": 2246
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/table/00_table.primitives.d.ps": {
+      "sha256": "7d99fd475e642925871711ea806062ed836b0d944778b2f76eb249342ebba357",
+      "mtime": 1794251886.6750324,
+      "size": 2779
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/table/02_table.csharp.d.ps": {
+      "sha256": "61d5f3e051df63d681d05e69961b9116f8f40c0d5756cb444061928e6582ea8f",
+      "mtime": 1794251886.6753316,
+      "size": 8557
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/testing/00_testing.primitives.d.ps": {
+      "sha256": "e1bc9bb54a73b6bb6d949a2a0cd0573c897e9b083704e94622df91829dadb20c",
+      "mtime": 1794251886.6778643,
+      "size": 505
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/testing/02_testing.csharp.d.ps": {
+      "sha256": "380bf7a41630f4dd80a72319e975d94fb52b538c5862907a3c2abdb27e1c922a",
+      "mtime": 1794251886.6781511,
+      "size": 3220
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tests/00_tests.primitives.d.ps": {
+      "sha256": "2799f2f7373b23cc33d44e95f2efea2f70b20730bf94a86b817a859a1f858d45",
+      "mtime": 1794251886.6789842,
+      "size": 493
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tests/02_tests.csharp.d.ps": {
+      "sha256": "0d6316693ff845296944b3cb35d5119675f91282dbf8e6f9fd1d1dab3aa9634d",
+      "mtime": 1794251886.6792803,
+      "size": 726
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/texmanager/00_texmanager.primitives.d.ps": {
+      "sha256": "e83da07a52e4907f78478ffa0ac53b21ad38921e50fb8ffddfc3748afbfde59b",
+      "mtime": 1794251886.6816258,
+      "size": 1703
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/texmanager/02_texmanager.csharp.d.ps": {
+      "sha256": "edf511c26a6f56309d859c2e4ac1d5fe126f10d48d7f51b87203e5737c343aa0",
+      "mtime": 1794251886.682025,
+      "size": 3542
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/text/00_text.primitives.d.ps": {
+      "sha256": "7ca506d086070cea40beb811ddc17366a52b0c5a4d11e52871d8728c1ce79629",
+      "mtime": 1794251886.6974344,
+      "size": 8563
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/text/02_text.csharp.d.ps": {
+      "sha256": "3183b78acef54f3a2d818d1d056f206f3cf4af33044815bcbd84d881490c33cc",
+      "mtime": 1794251886.69813,
+      "size": 20444
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/textpath/00_textpath.primitives.d.ps": {
+      "sha256": "72f455e55545b5c1aebeceab62e7d8ce1fe3fc17dd5be070a461f8279ee25e64",
+      "mtime": 1794251886.7059162,
+      "size": 2617
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/textpath/02_textpath.csharp.d.ps": {
+      "sha256": "2df19c20d5ece52a104f92c7d1bc933408d31687f0a41a26f605ab76b6962122",
+      "mtime": 1794251886.7062984,
+      "size": 6007
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/ticker/00_ticker.primitives.d.ps": {
+      "sha256": "b33b6d5fa3f2cd07c71131576e5a79676cffc2cc47fa219c9a52523c56f3b685",
+      "mtime": 1794251886.722026,
+      "size": 14471
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/ticker/02_ticker.csharp.d.ps": {
+      "sha256": "cd61b2650861e0f13cd6adeaecb278bb82423974bdf10afc3b579712f9c37728",
+      "mtime": 1794251886.7222853,
+      "size": 27207
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/transforms/00_transforms.primitives.d.ps": {
+      "sha256": "63265eb14e4f6277029fce2e24d3d6c0cb08315a204b270e0699d93655f9a896",
+      "mtime": 1794251886.739397,
+      "size": 16148
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/transforms/02_transforms.csharp.d.ps": {
+      "sha256": "0166dddd0ca40d88de55cdfd8e0234576a0cba8a79fa8355a1e64bfce299c0c0",
+      "mtime": 1794251886.7396517,
+      "size": 33447
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/00_tri.primitives.d.ps": {
+      "sha256": "b2646ae1742303fa103366aff6371b8a2278bac9d62d398919b9c5639e61d0fb",
+      "mtime": 1794251886.741661,
+      "size": 481
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/02_tri.csharp.d.ps": {
+      "sha256": "f46019a34dd994ded54ce3e07c2b19c98f564c56148c6f6e5498dcd05c1bee10",
+      "mtime": 1794251886.7418888,
+      "size": 3998
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/_triangulation/00__triangulation.primitives.d.ps": {
+      "sha256": "14054ae2619bf18973b51284fa129a417123045d8d55079249c3cd8e41db646f",
+      "mtime": 1794251886.7434337,
+      "size": 1695
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/_triangulation/02__triangulation.csharp.d.ps": {
+      "sha256": "c862ec45cd188c7b2c4dc86d5a22bdd1ce8ac35e57e3164efcb87c12c2a77c92",
+      "mtime": 1794251886.744051,
+      "size": 4261
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/_tricontour/00__tricontour.primitives.d.ps": {
+      "sha256": "27f7cdc504fccdc1f8ca26ad9d1b800f5d3e90e6cc13d4b5e1cc416d0c2022c6",
+      "mtime": 1794251886.7458315,
+      "size": 651
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/_tricontour/02__tricontour.csharp.d.ps": {
+      "sha256": "9e5da9df271f244a7ffb6222d21132568d8327659a513357bc76f818edcafb07",
+      "mtime": 1794251886.746072,
+      "size": 3195
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/_trifinder/00__trifinder.primitives.d.ps": {
+      "sha256": "09924c7e632d55a3976f5a72c70c9919ec9356e865984db123cdd7de7edd290a",
+      "mtime": 1794251886.7474015,
+      "size": 976
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/_trifinder/02__trifinder.csharp.d.ps": {
+      "sha256": "3a4a9422e494d7caab5f38e5725206f28d75b30857b223b5b8f2b9113b03ffe3",
+      "mtime": 1794251886.7476475,
+      "size": 1862
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/_triinterpolate/00__triinterpolate.primitives.d.ps": {
+      "sha256": "6b8069cfb88182e5c08b687753f3ac9736050dbf20df4dd5ccb389c5bd7bc70e",
+      "mtime": 1794251886.750916,
+      "size": 1351
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/_triinterpolate/02__triinterpolate.csharp.d.ps": {
+      "sha256": "1b3a80fa7d284e71706982434276e2ff2e0572782da3d0f79aacdbc3a6d6bf33",
+      "mtime": 1794251886.7513025,
+      "size": 3002
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/_tripcolor/00__tripcolor.primitives.d.ps": {
+      "sha256": "18568444cda43e59b0416ad7be37ac8f963071c672180c92af1d25fb22632a2c",
+      "mtime": 1794251886.7542276,
+      "size": 543
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/_tripcolor/02__tripcolor.csharp.d.ps": {
+      "sha256": "8f0e01ca00a712aba71a3a4ec6c29a259882621334eba4e35ee99f660e8d9f0d",
+      "mtime": 1794251886.7545738,
+      "size": 3289
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/_triplot/00__triplot.primitives.d.ps": {
+      "sha256": "7c6a08c8443a1a9e89125e3b728ee17d1006f5a3019c06289f0b90aa92456b07",
+      "mtime": 1794251886.7564619,
+      "size": 531
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/_triplot/02__triplot.csharp.d.ps": {
+      "sha256": "4126cb3d206c89cb5165f6209bb73b12a852c18f4cb847ff94c82e0ef7d6c751",
+      "mtime": 1794251886.756696,
+      "size": 2301
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/_trirefine/00__trirefine.primitives.d.ps": {
+      "sha256": "3d6d126c5578c3d3303292911a90e6973d4f61e162b56bd830b1a74769482ee6",
+      "mtime": 1794251886.7584841,
+      "size": 1063
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/_trirefine/02__trirefine.csharp.d.ps": {
+      "sha256": "e5e4006709d2ebda54bbbb98e8d083791fba9bdc333a6798eba32184f7ae55f2",
+      "mtime": 1794251886.758706,
+      "size": 2924
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/_tritools/00__tritools.primitives.d.ps": {
+      "sha256": "b0b3d5692110b059c4813facbfd9531e9115740eac6bd5a269e102a404103baf",
+      "mtime": 1794251886.7598882,
+      "size": 893
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/tri/_tritools/02__tritools.csharp.d.ps": {
+      "sha256": "e6b24aa9c5291c635ba6f95eea177736e8774ea9873b210845a68d93bfd4d058",
+      "mtime": 1794251886.7601104,
+      "size": 1845
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/typing/00_typing.primitives.d.ps": {
+      "sha256": "35d74df86ad2598d8cb2f1e6fdd5d9e1aeaaddc3219acbc5936ee862a26a87da",
+      "mtime": 1794251886.7630389,
+      "size": 499
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/typing/02_typing.csharp.d.ps": {
+      "sha256": "00771a4da1937e0400e54a875f622ab8759426c5fcfc6b866a1dfec8395db6cd",
+      "mtime": 1794251886.76327,
+      "size": 9313
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/units/00_units.primitives.d.ps": {
+      "sha256": "3f26a9adb8589a09d907d545bc4f5a92a8a98a3998ae9a9466a2e4511f6e2313",
+      "mtime": 1794251886.7654762,
+      "size": 1673
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/units/02_units.csharp.d.ps": {
+      "sha256": "c4c468f58f20a2f5777ea8712dd64673d63c80f9a25c4ad183f0d54946932583",
+      "mtime": 1794251886.7658546,
+      "size": 2172
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/widgets/00_widgets.primitives.d.ps": {
+      "sha256": "06b4ee71ae4f9353fc98ed32a54643abecaa2beab288931b1267b68201f6c6cc",
+      "mtime": 1794251886.7883751,
+      "size": 18123
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/matplotlib/matplotlib/widgets/02_widgets.csharp.d.ps": {
+      "sha256": "8c6db1f933abb018f61a7e1d041d15565a95646375cd3e812783ff7a5ec0e049",
+      "mtime": 1794251886.7886407,
+      "size": 41171
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/00_seaborn.primitives.d.ps": {
+      "sha256": "45a2222ac183442e0328eff38665d94370ff2439baf4fa350424ebe8e8aedb23",
+      "mtime": 1794263009.4844766,
+      "size": 450
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/02_seaborn.csharp.d.ps": {
+      "sha256": "e84602b14aa013f3a2f5f8fb97f52dcc5b8cc2746eea6989dbd906c5e404eb43",
+      "mtime": 1794263009.484959,
+      "size": 1029
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/00__core.primitives.d.ps": {
+      "sha256": "3ab65a799be7cbc840f228bfdadd1d24cb3b4179b3509ca7468737464bb5ca38",
+      "mtime": 1794263009.4874487,
+      "size": 478
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/02__core.csharp.d.ps": {
+      "sha256": "bbd1cfc3b5bcff4d07c4083aff73cf7938b7321cb08fed1d686a5334c37445a4",
+      "mtime": 1794263009.4898968,
+      "size": 376
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/data/00_data.primitives.d.ps": {
+      "sha256": "288689bdb8fa6f30ee5df80eabaed97cf6d0929b1c716ebe3fc0a017488b2c2c",
+      "mtime": 1794263009.4946957,
+      "size": 1194
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/data/02_data.csharp.d.ps": {
+      "sha256": "0cb7ec251cc48aa4607aaeb8aa8b8f1c1bdc9a04980ca69e93b6d980aefeeb9f",
+      "mtime": 1794263009.4967957,
+      "size": 4453
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/exceptions/00_exceptions.primitives.d.ps": {
+      "sha256": "418fbc2fcead2b974536de23bf381586df825535a2943167d73ab4b828b41eab",
+      "mtime": 1794263009.4984486,
+      "size": 550
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/exceptions/02_exceptions.csharp.d.ps": {
+      "sha256": "cdba3c05aff125cf25d890798ef35fb35c6ca5c18a82a7a01f40dd3a36332885",
+      "mtime": 1794263009.4997938,
+      "size": 554
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/groupby/00_groupby.primitives.d.ps": {
+      "sha256": "b212560863b3b781836a4e2e56af1583c78ec916ed5d6ba7cd791c452062b22b",
+      "mtime": 1794263009.5029736,
+      "size": 988
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/groupby/02_groupby.csharp.d.ps": {
+      "sha256": "8e64f29fb4726b39b8c59a9b424032cf64a3861d248c0a35a6e3a20382d2b8f9",
+      "mtime": 1794263009.5035236,
+      "size": 3980
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/moves/00_moves.primitives.d.ps": {
+      "sha256": "f68336befbb3df063f381a57db8225ed32d914ac3830164abb33089e542c1f37",
+      "mtime": 1794263009.5071933,
+      "size": 1882
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/moves/02_moves.csharp.d.ps": {
+      "sha256": "cd0fe16febf10eb6ceeac285254785e55b32587f978663fc083eff59b4e0c0b8",
+      "mtime": 1794263009.5080204,
+      "size": 5307
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/plot/00_plot.primitives.d.ps": {
+      "sha256": "8de73549f016cc416e766f27c9296d790e6c9396c75fddd02c085371420d7a00",
+      "mtime": 1794263009.5213263,
+      "size": 5026
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/plot/02_plot.csharp.d.ps": {
+      "sha256": "d986ce91d88a79f74cc8dad71d80369392a1c443409f27c89301b9cba8ee0dd6",
+      "mtime": 1794263009.5218194,
+      "size": 16676
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/properties/00_properties.primitives.d.ps": {
+      "sha256": "c9b0fd6821fc3d37169bf9b4e4a050ce776f1f09539560010c9edb75a5fae206",
+      "mtime": 1794263009.5364065,
+      "size": 5908
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/properties/02_properties.csharp.d.ps": {
+      "sha256": "53b6daa2c64e678a426be4e0c89a1557041cdee7e954a8dfbc1b909e5908d4d2",
+      "mtime": 1794263009.5369978,
+      "size": 13875
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/rules/00_rules.primitives.d.ps": {
+      "sha256": "46193a87d84769efea7d5d521714b7a418d8aeac4961312a539893386224ff67",
+      "mtime": 1794263009.5407052,
+      "size": 689
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/rules/02_rules.csharp.d.ps": {
+      "sha256": "ad22cd27f3a51d14d5f538068cea7ccec5067e9b72ed9e87fd0f5df3b3a32625",
+      "mtime": 1794263009.541286,
+      "size": 2321
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/scales/00_scales.primitives.d.ps": {
+      "sha256": "ef1584063fba9f61cb1c35c80cd0921c12bac261581e10617c0b2725aebe78e7",
+      "mtime": 1794263009.5549765,
+      "size": 4543
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/scales/02_scales.csharp.d.ps": {
+      "sha256": "50f00411036ac9884dceac450524b5f478b8c5ea3e6125672fee2c3ed0f4a17d",
+      "mtime": 1794263009.5554903,
+      "size": 12645
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/subplots/00_subplots.primitives.d.ps": {
+      "sha256": "e393360a0b5e7300131ab7ad9ae6d9c9dcd6fd8cb2860b6a1ae2d27cb6906280",
+      "mtime": 1794263009.564897,
+      "size": 1011
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/subplots/02_subplots.csharp.d.ps": {
+      "sha256": "cae4d281daaeed7372ddbad59c4d37ac9231e4552ee734a9067e7dd0be9653ca",
+      "mtime": 1794263009.5657806,
+      "size": 3142
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/typing/00_typing.primitives.d.ps": {
+      "sha256": "0c85021ae9933c356c8f573e8eac9a2f692a761f893eeea9172e40a583161a8a",
+      "mtime": 1794263009.5710993,
+      "size": 874
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_core/typing/02_typing.csharp.d.ps": {
+      "sha256": "4e86c27bf97b821538d33f72b00bb41a768acd34ec94c509d1f4f14632cb4dba",
+      "mtime": 1794263009.5720403,
+      "size": 6865
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_marks/00__marks.primitives.d.ps": {
+      "sha256": "4bd2368d0b999f0ef485d9616239e1ca56da5f0a3c75e8b6adeb43e2f1673251",
+      "mtime": 1794263009.5737576,
+      "size": 484
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_marks/02__marks.csharp.d.ps": {
+      "sha256": "d9cc88e0ab754211650e484ee2f14177a1838a1bc7a634a43965b16be64e708a",
+      "mtime": 1794263009.574194,
+      "size": 380
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_marks/area/00_area.primitives.d.ps": {
+      "sha256": "d77e9e66c04e4a0589226322bdb7cf30a5089528633ee887ac77cfaef7d35cc4",
+      "mtime": 1794263009.5781322,
+      "size": 1697
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_marks/area/02_area.csharp.d.ps": {
+      "sha256": "2d28df040fe7bef32f822b4dcef55c9f75ce27976dd5292bdd98be3f5f7071c4",
+      "mtime": 1794263009.5791056,
+      "size": 4757
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_marks/bar/00_bar.primitives.d.ps": {
+      "sha256": "1f7bf25378ca5248afbf789eb447f890ff495d9ae874a7747475175398473651",
+      "mtime": 1794263009.5829637,
+      "size": 1867
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_marks/bar/02_bar.csharp.d.ps": {
+      "sha256": "3b51755f19abddb0aa17ca2a4e38071b85a7e4ae88e940e90000c010c3021948",
+      "mtime": 1794263009.5835292,
+      "size": 5148
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_marks/base/00_base.primitives.d.ps": {
+      "sha256": "790fb092ff8a6d824630889b596c901de885b30ed3ce24a75ddb70ac662a6bd7",
+      "mtime": 1794263009.5924513,
+      "size": 994
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_marks/base/02_base.csharp.d.ps": {
+      "sha256": "73082afdc1d238095ce225f9d546c4ffba96751728b4bad2928740f8f6848407",
+      "mtime": 1794263009.5938177,
+      "size": 5780
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_marks/dot/00_dot.primitives.d.ps": {
+      "sha256": "e0dd977ad46176278bce67cc5c3eabd3656557ed21257d88fe0fd27ebe6a6f61",
+      "mtime": 1794263009.5977094,
+      "size": 1865
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_marks/dot/02_dot.csharp.d.ps": {
+      "sha256": "2a65803c12fe8de1ec9514bda4479c20d354d2cb6c06dbcaf55312714ba0f4e2",
+      "mtime": 1794263009.598255,
+      "size": 5375
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_marks/line/00_line.primitives.d.ps": {
+      "sha256": "a343ece2ddbb34b6d622235d073ecd364ceac57365749db2df607b779e344df5",
+      "mtime": 1794263009.6019113,
+      "size": 1995
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_marks/line/02_line.csharp.d.ps": {
+      "sha256": "856edada386ac7576c64373251fc99bf5d5cc121420b9612d38c01c88dbd1526",
+      "mtime": 1794263009.6024318,
+      "size": 4856
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_marks/text/00_text.primitives.d.ps": {
+      "sha256": "32155b5781497c642a6f55ce57b26f0ebfc19323139ddb7aa6844752883ed7fe",
+      "mtime": 1794263009.6079218,
+      "size": 935
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_marks/text/02_text.csharp.d.ps": {
+      "sha256": "1d32d11bce5b45915ab38eb21d29fe8956137d84d6c794dfb80f11b3ecb4fa2a",
+      "mtime": 1794263009.6090388,
+      "size": 3042
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_stats/00__stats.primitives.d.ps": {
+      "sha256": "643fafd46d6ca1c896505d662b03eff4431ce96505116f2ad01c7d822ed75bd2",
+      "mtime": 1794263009.6107395,
+      "size": 484
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_stats/02__stats.csharp.d.ps": {
+      "sha256": "2cc08ad9179b5216105dbd7f7a1b045dff3b8d2b722ba1e0e282e685115af5da",
+      "mtime": 1794263009.612034,
+      "size": 380
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_stats/aggregation/00_aggregation.primitives.d.ps": {
+      "sha256": "aeaffbb3bfa41f0b98a5e84ce077a33dfbd11919ee312a8da25d9782a90eb80c",
+      "mtime": 1794263009.615431,
+      "size": 1004
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_stats/aggregation/02_aggregation.csharp.d.ps": {
+      "sha256": "30995ff389ffacfaa898e625eea28554035a0c1c0543acc49514aa05fc885efe",
+      "mtime": 1794263009.6159368,
+      "size": 2540
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_stats/base/00_base.primitives.d.ps": {
+      "sha256": "aa5a470a5617cdb2e9cffc5a02bea29d8c3dc31f8c6f8d2fea4b51f2f38d17ad",
+      "mtime": 1794263009.6188827,
+      "size": 707
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_stats/base/02_base.csharp.d.ps": {
+      "sha256": "20b26fbb0b0b892ff667cefa0fc5c63a9bb123c13a9667028708465c372e91f9",
+      "mtime": 1794263009.6193914,
+      "size": 2142
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_stats/counting/00_counting.primitives.d.ps": {
+      "sha256": "be474660ca273140da65226f3193cf35a50d01f6eae39a5ea2006a989e97ae96",
+      "mtime": 1794263009.6225843,
+      "size": 1166
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_stats/counting/02_counting.csharp.d.ps": {
+      "sha256": "b7f8ba9ce61c78d5b65e318908a4cb01ca522165812b9368a3e9604a02bfb3ee",
+      "mtime": 1794263009.6231053,
+      "size": 2837
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_stats/density/00_density.primitives.d.ps": {
+      "sha256": "442014ba72b2ee69bfaa003241388c02c48113f3e0954b83eb2f3d8a15c2ef43",
+      "mtime": 1794263009.6258209,
+      "size": 997
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_stats/density/02_density.csharp.d.ps": {
+      "sha256": "26bd60d3e4d86c4c5e515b33cdd682114c3efa6f6dff02a2acbbf16b3f4a3dba",
+      "mtime": 1794263009.6262789,
+      "size": 2346
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_stats/order/00_order.primitives.d.ps": {
+      "sha256": "0feb89158dce347ecaf82f946c238e3e7c6bdd6d6303a576fa4bd09b1d04de95",
+      "mtime": 1794263009.6281836,
+      "size": 598
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_stats/order/02_order.csharp.d.ps": {
+      "sha256": "6e8f00a73e80b8881524dbedb110a6f5eb5e91cc2198a1c069911df62687e89b",
+      "mtime": 1794263009.628651,
+      "size": 1345
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_stats/regression/00_regression.primitives.d.ps": {
+      "sha256": "878d35d6213a99f2a80c24dd7e02710da925797995c463cde093305a3441021f",
+      "mtime": 1794263009.6305404,
+      "size": 747
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/_stats/regression/02_regression.csharp.d.ps": {
+      "sha256": "ca4675a1d6e9c03d464ea13eb60bf4a4c96f2c8bd00b99edd82e20348410900e",
+      "mtime": 1794263009.6310546,
+      "size": 1555
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/algorithms/00_algorithms.primitives.d.ps": {
+      "sha256": "675288b6233e4d153079cb9ca2d07b0fa17f25bacdf037083d06b653b2951cf7",
+      "mtime": 1794263009.6405501,
+      "size": 508
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/algorithms/02_algorithms.csharp.d.ps": {
+      "sha256": "84fcb25ad58d95eea71f268b39e4472d651283f1273e199041ea22879d283096",
+      "mtime": 1794263009.641064,
+      "size": 1987
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/axisgrid/00_axisgrid.primitives.d.ps": {
+      "sha256": "15211899fd56aba7406d1b900a990c268d5aa8e7c94ca477f9bdd921d019d66f",
+      "mtime": 1794263009.695416,
+      "size": 6807
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/axisgrid/02_axisgrid.csharp.d.ps": {
+      "sha256": "adc4c76e4e122d6358c7c3cc5e4bc18f7694c1b5483f50572effb6f11d10595b",
+      "mtime": 1794263009.6958833,
+      "size": 22503
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/categorical/00_categorical.primitives.d.ps": {
+      "sha256": "78e7881825b98952f82729fe5b019f7ca7643a52a650f24abdb6ef494477593f",
+      "mtime": 1794263009.7097218,
+      "size": 514
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/categorical/02_categorical.csharp.d.ps": {
+      "sha256": "821d6d1adbc502026bae19d57a7580ae27a7b63e4e8b0b930306a8b66a0a1992",
+      "mtime": 1794263009.710995,
+      "size": 5417
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/cm/00_cm.primitives.d.ps": {
+      "sha256": "a93b9a392eeca4975047f7aea81754065464002a768fad6be93968d2db80856b",
+      "mtime": 1794263009.7140446,
+      "size": 460
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/cm/02_cm.csharp.d.ps": {
+      "sha256": "7170deae5dd0a958c8378c5e1a13fe0d16381a31aa03bb7879ba9e35448d6276",
+      "mtime": 1794263009.7148852,
+      "size": 2537
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/colors/00_colors.primitives.d.ps": {
+      "sha256": "7a5325e8ce3c1d8a51594c28feb5ed00ca4fdff85937ec2579889f45bcebe0c3",
+      "mtime": 1794263009.7167997,
+      "size": 484
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/colors/02_colors.csharp.d.ps": {
+      "sha256": "5e413c9516afd0fff9d9eb3db01de47db7fe5b6ebfa46a8e2161938df1637f12",
+      "mtime": 1794263009.71747,
+      "size": 891
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/colors/crayons/00_crayons.primitives.d.ps": {
+      "sha256": "933c56972dc2a576a7249fb4af890035751bbd595fc57679a68c6c7f8d5886e4",
+      "mtime": 1794263009.7196121,
+      "size": 525
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/colors/crayons/02_crayons.csharp.d.ps": {
+      "sha256": "3f7142deb4ebf1a8cad08862ae6ac423ccddb51d0491266bf28abb7ab1767ae9",
+      "mtime": 1794263009.720472,
+      "size": 706
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/colors/xkcd_rgb/00_xkcd_rgb.primitives.d.ps": {
+      "sha256": "56c964b16bc0b1c99866734bb20840e547a1df570cff08a7e8a086dc9867036b",
+      "mtime": 1794263009.7226539,
+      "size": 529
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/colors/xkcd_rgb/02_xkcd_rgb.csharp.d.ps": {
+      "sha256": "fc2d4fa5ea1d612e80a1deec6a23e9edf0147c7695367249dc23f26342ea588c",
+      "mtime": 1794263009.7237306,
+      "size": 709
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/distributions/00_distributions.primitives.d.ps": {
+      "sha256": "7705eeb0bad24e3630e8a1e79e2e5065cfcb8cbbea8b3682b617dd9e5ebb7337",
+      "mtime": 1794263009.7410357,
+      "size": 665
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/distributions/02_distributions.csharp.d.ps": {
+      "sha256": "1ab21e5a236e2b757a5789161a547e104e1803693f38d13d70c539e7f952b817",
+      "mtime": 1794263009.7417853,
+      "size": 6435
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/external/00_external.primitives.d.ps": {
+      "sha256": "405eeffc83c4cb2141f1f87984ea7c1c1d819443e597480def4366073be4fddb",
+      "mtime": 1794263009.7505696,
+      "size": 496
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/external/02_external.csharp.d.ps": {
+      "sha256": "b74efdcd2c36834336574a23062898ce48a9d5dfc1b6f554e2d8fc58596d95dc",
+      "mtime": 1794263009.7510033,
+      "size": 388
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/external/appdirs/00_appdirs.primitives.d.ps": {
+      "sha256": "067a2acad28e12fa4b66eced932bd28f86c807c60cb2216a012f03d7f90dac88",
+      "mtime": 1794263009.7564447,
+      "size": 535
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/external/appdirs/02_appdirs.csharp.d.ps": {
+      "sha256": "9305033cef268db042d39ec280a0ce9060c05c81d2540c4f04d19433df9886b4",
+      "mtime": 1794263009.7569199,
+      "size": 1576
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/external/docscrape/00_docscrape.primitives.d.ps": {
+      "sha256": "817b4e5e3910fca3209670d0f7b76e33babbfd90a4aedf479e4a4ffe218ca407",
+      "mtime": 1794263009.7851312,
+      "size": 3464
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/external/docscrape/02_docscrape.csharp.d.ps": {
+      "sha256": "281b66541f3a06939b8faae9ac36d31d3198c6594cc3fae6c8bb7923403eb8a2",
+      "mtime": 1794263009.79045,
+      "size": 9601
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/external/husl/00_husl.primitives.d.ps": {
+      "sha256": "99214ae201129eefe2e9a859a3e63bc352cd5af1f20ddbfed221cdaeacc0ca9a",
+      "mtime": 1794263009.8188846,
+      "size": 517
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/external/husl/02_husl.csharp.d.ps": {
+      "sha256": "622fe60d2b361a95d5118c50584d181522b0d0863ba56c5501e2446a3daa1fe1",
+      "mtime": 1794263009.8201878,
+      "size": 7788
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/external/kde/00_kde.primitives.d.ps": {
+      "sha256": "78ec09b770e9fa021eb7712448b9b0f8ef4da9ac98677047a6691e2eb6cd1e48",
+      "mtime": 1794263009.8366683,
+      "size": 2240
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/external/kde/02_kde.csharp.d.ps": {
+      "sha256": "5a74cc40c2712250d4a1694fed11b2033bddaba077f786276b3fce0e344cfaab",
+      "mtime": 1794263009.8371606,
+      "size": 6455
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/external/version/00_version.primitives.d.ps": {
+      "sha256": "3c5f9be0629433cf88da52283199f15c117f194b65cd5ba76167d30ace423d82",
+      "mtime": 1794263009.843898,
+      "size": 2248
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/external/version/02_version.csharp.d.ps": {
+      "sha256": "8c102d6837284bc7ea6921daa9aa9cb9f6e97cfb2480cfb1df066e781368da9b",
+      "mtime": 1794263009.845666,
+      "size": 4659
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/matrix/00_matrix.primitives.d.ps": {
+      "sha256": "bed6f9e481c8bf048083480210d9d56f4a7721c82fcb054f87f4bde59bafe864",
+      "mtime": 1794263009.8986309,
+      "size": 6015
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/matrix/02_matrix.csharp.d.ps": {
+      "sha256": "c68f665e692850001831e2cd839445fe36a2f8e4f0767a5f621692a75b0a8467",
+      "mtime": 1794263009.8991218,
+      "size": 17185
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/miscplot/00_miscplot.primitives.d.ps": {
+      "sha256": "e2c9befdae2b4afd6d3c328972c99c13b8b68b90ee4fb5795d2432a8d36acbbd",
+      "mtime": 1794263009.9019265,
+      "size": 496
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/miscplot/02_miscplot.csharp.d.ps": {
+      "sha256": "1acf321f19986c35510d77ca6994e0d2c877775f5dfbed4f3ddf640654ea26b0",
+      "mtime": 1794263009.902413,
+      "size": 1520
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/objects/00_objects.primitives.d.ps": {
+      "sha256": "02d0ba1b6dd3f13008c1f62b647c517bc78edc9014c7910ad2037e31babc997e",
+      "mtime": 1794263009.9084609,
+      "size": 490
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/objects/02_objects.csharp.d.ps": {
+      "sha256": "c504b01bc8df78428cef00c13d7b885191b877e92d9ca8ef0e4e4be62c62643a",
+      "mtime": 1794263009.9089763,
+      "size": 384
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/palettes/00_palettes.primitives.d.ps": {
+      "sha256": "e8455d32de5b0ee7b5939f855f5184c5df9962bb485b0172ddba2d2d1e4e6848",
+      "mtime": 1794263009.9491327,
+      "size": 742
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/palettes/02_palettes.csharp.d.ps": {
+      "sha256": "4b534c1ca31659d5edac2d0e849a830cb4033056b96877a1cfb2cdf6a63773fa",
+      "mtime": 1794263009.964034,
+      "size": 8114
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/rcmod/00_rcmod.primitives.d.ps": {
+      "sha256": "0f2f51be6f690dbdddd35139bf62f40583705e6ecf28d5d13bca400aa2876b27",
+      "mtime": 1794263010.0020025,
+      "size": 1021
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/rcmod/02_rcmod.csharp.d.ps": {
+      "sha256": "94334fdf34fb332dff8601164e9426ac5a3f88fdc0aa45943b4baed359f9b4f9",
+      "mtime": 1794263010.0024872,
+      "size": 5412
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/regression/00_regression.primitives.d.ps": {
+      "sha256": "2e1f50c5ac74c057b5bafe5f46ac52d6a6a54b35fb70307fcccd53f017b46c7f",
+      "mtime": 1794263010.03301,
+      "size": 508
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/regression/02_regression.csharp.d.ps": {
+      "sha256": "6ab5c17d3ab39952ffc79dedfa10e917560152d44cfbcb891a1c0229e95ddb1b",
+      "mtime": 1794263010.0334747,
+      "size": 4159
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/relational/00_relational.primitives.d.ps": {
+      "sha256": "246e27b4f50ec96e03d7472ac73877182b699c4c9d24932f67fc23bddb3415dc",
+      "mtime": 1794263010.0580451,
+      "size": 508
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/relational/02_relational.csharp.d.ps": {
+      "sha256": "7d74f76a1e28261b515f7599b8942a51a758536cb35a79b2a0394b74cac32692",
+      "mtime": 1794263010.058533,
+      "size": 4687
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/utils/00_utils.primitives.d.ps": {
+      "sha256": "ce321ef03402c4c2d6855a52ef00e3f50149b1b42099dc9ac989e6986c3b85fa",
+      "mtime": 1794263010.1069732,
+      "size": 478
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/utils/02_utils.csharp.d.ps": {
+      "sha256": "f653b82a3045ccde60ccce82672d5f4d835953fb6b762054c9291250c80c7805",
+      "mtime": 1794263010.1075199,
+      "size": 13089
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/widgets/00_widgets.primitives.d.ps": {
+      "sha256": "e2f1547e5c17ffa1b5ac1c71fece0fc0b55df253e59011951666d02e7fb72374",
+      "mtime": 1794263010.1186264,
+      "size": 490
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/seaborn/seaborn/widgets/02_widgets.csharp.d.ps": {
+      "sha256": "7b94ab3dcc850c9fd412bfb3989b8bf3ae476a54e961e00855a769315a3f6e31",
+      "mtime": 1794263010.119123,
+      "size": 2324
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/00_attributes.d.ps": {
+      "sha256": "36b64cd04420d389ed84dfdd4db65aace410ad442ec3a6d9965646a4055ad821",
+      "mtime": 1793464080.8828561,
+      "size": 2305
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/01_contracts.d.ps": {
+      "sha256": "0bcfb2e78e4384e495e6b02caffbcf28fe5e31e8fc7ee388bea3ef7eeb330acb",
+      "mtime": 1793464573.6832237,
+      "size": 4013
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/02_primitives.d.ps": {
+      "sha256": "fb193d96bb0674eaf174424a05c75e70f230d740e93398b4d3ed08aa5446add9",
+      "mtime": 1794158334.4086375,
+      "size": 23077
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/03_builtins.raw.d.ps": {
+      "sha256": "c7af5f14ddf1a59d135de55bc2b0b02ae72dc5b671052965b98962ec6f1e9bf5",
+      "mtime": 1793464080.883746,
+      "size": 4021
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/04_builtins.csharp.d.ps": {
+      "sha256": "fe57dd2b1012ea4b40fdf8cb23c0ec399490fdae5c7b042c7d46f7d03f4983bc",
+      "mtime": 1793464080.8840315,
+      "size": 3393
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/05_core.enterprise.d.ps": {
+      "sha256": "66caaacf57e04d4d4b961ea20c70dcf089f4ae6006799f41f6704dbedb02f217",
+      "mtime": 1793464080.8843095,
+      "size": 3302
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/contextlib_subprocess/00_contextlib.primitives.d.ps": {
+      "sha256": "e94102482c9e3e58a9f0efa85ca840b9951cf6fa7e9e8157d01135e3cb1a02f1",
+      "mtime": 1793464080.8971665,
+      "size": 2842
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/contextlib_subprocess/01_contextlib.raw.d.ps": {
+      "sha256": "6671a67e545b7740e598941d994c82cb1c6b25405ed214264b81b7fff689f9ab",
+      "mtime": 1793468315.1744256,
+      "size": 1314
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/contextlib_subprocess/02_contextlib.csharp.d.ps": {
+      "sha256": "b05f9bf997d07cb373ecb0795adb22d2df282ec11df8d4f35bd2b024d6bd168a",
+      "mtime": 1793468327.8042042,
+      "size": 1194
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/contextlib_subprocess/03_processes.enterprise.d.ps": {
+      "sha256": "a2b1a1a651cf4bab206437081a6afa9751a448615f898d233482723466666edd",
+      "mtime": 1793468341.286606,
+      "size": 1119
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/json/00_json.primitives.d.ps": {
+      "sha256": "7a87922da4004af89d60c9fd8b0ae1167ccac5919cdb4e2a348714021a75adbb",
+      "mtime": 1793464080.8870032,
+      "size": 1068
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/json/01_json.raw.d.ps": {
+      "sha256": "7056e82d8b2e4b5729a755ff31439078adbb7b4ae49a91fbc853e64c5c818265",
+      "mtime": 1793464080.8872252,
+      "size": 1123
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/json/02_json.csharp.d.ps": {
+      "sha256": "70fe6a4927907dc8aa5a47a55f56f3c345515690c32c77cd2c0b695c5a33402b",
+      "mtime": 1793464080.8874395,
+      "size": 1026
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/json/03_serialization.enterprise.d.ps": {
+      "sha256": "8f9b5f0dde02401bcf7b11dba99b5674dae26c0f70d8e3ad6e6558057e1655ce",
+      "mtime": 1793466419.9061885,
+      "size": 955
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/logging/00_logging.primitives.d.ps": {
+      "sha256": "12c80ec9e9fb4b4b342b4e8616cae10c672132cf6f08603a501264f493c637e8",
+      "mtime": 1793464080.892265,
+      "size": 3125
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/logging/01_logging.raw.d.ps": {
+      "sha256": "4e632115536938487d8a26f46f7b58aa4e96dea820f01b966685bef8cd820c3d",
+      "mtime": 1793464080.893275,
+      "size": 1409
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/logging/02_logging.csharp.d.ps": {
+      "sha256": "c0dbdc24d903f8f4f05b89fd1c35acdefff85232e2bc6831d91fb68e1433b9d4",
+      "mtime": 1793464080.8935652,
+      "size": 1313
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/logging/03_logging.enterprise.d.ps": {
+      "sha256": "58bcab63e2d48c610c42a82214bb72d0d55c0698c3001d2750987f6b9e0500c2",
+      "mtime": 1793464080.893919,
+      "size": 713
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/os_shutil/00_os.primitives.d.ps": {
+      "sha256": "d341b77a895b3b550d07b5489dc4a706c63fdac6725e9c59da21967295751bff",
+      "mtime": 1793464080.8850002,
+      "size": 2703
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/os_shutil/01_os.raw.d.ps": {
+      "sha256": "94a5a208bfcdd69230964303e473877f7b4d98ad6f3c53dbf6020678dddbdd90",
+      "mtime": 1793467356.9960291,
+      "size": 5270
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/os_shutil/02_os.csharp.d.ps": {
+      "sha256": "e2ad163325418ba30404277e06e26d5bb4df89c9276d1097c0a0ec58649686f7",
+      "mtime": 1793467363.782007,
+      "size": 4719
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/os_shutil/03_io.enterprise.d.ps": {
+      "sha256": "dc990dce5c994cd4c66414ae3986b3c73cc132a10403741700fd157a42c00e67",
+      "mtime": 1793467368.4799914,
+      "size": 3542
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/pathlib_hashlib_uuid/00_pathlib.primitives.d.ps": {
+      "sha256": "7c4783c5deae4a3d41deb6b4d74762970a66727087d7cd6ab1004a034c4a505f",
+      "mtime": 1793464080.898241,
+      "size": 3771
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/pathlib_hashlib_uuid/01_pathlib.raw.d.ps": {
+      "sha256": "d33d02da1ff42538fff06ece9f4f06b060557f62f010158988621365a39095c1",
+      "mtime": 1793464080.898502,
+      "size": 1148
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/pathlib_hashlib_uuid/02_pathlib.csharp.d.ps": {
+      "sha256": "7595120f431bbc97a6eee82215aadebed6fb4c3699ef6e5e4c64b852a59a232d",
+      "mtime": 1793464080.8987525,
+      "size": 1051
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/pathlib_hashlib_uuid/03_security.enterprise.d.ps": {
+      "sha256": "10d54743eb7372f612045cc1d8f9b4548efd0fb9c9c00ea8ff5c53721c836f82",
+      "mtime": 1793464080.8989737,
+      "size": 991
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/re/00_re.primitives.d.ps": {
+      "sha256": "9ebdee71dc3651f15016d555ec6c451b03486ec7d8ada0317a42333c67d08ea9",
+      "mtime": 1793464080.8879056,
+      "size": 3024
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/re/01_re.raw.d.ps": {
+      "sha256": "8f9ac6a5ead5e33c06220496abdcbd340d8da7a05e5875297ae096991a2b4f3e",
+      "mtime": 1793464080.8881066,
+      "size": 1616
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/re/02_re.csharp.d.ps": {
+      "sha256": "c17f7bc49fe7985f651949dbfb5ef328564419c2b1ae68b6cf25fe481915da96",
+      "mtime": 1793464080.8882985,
+      "size": 1455
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/re/03_regex.enterprise.d.ps": {
+      "sha256": "a247983be3f82078c13693dc8552f85c77abf2ab14eaffe167a30557fbb78817",
+      "mtime": 1793464080.888532,
+      "size": 1042
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/sys/00_sys.primitives.d.ps": {
+      "sha256": "398e9819cbc4243e6cab2e1548a06da32d11e5c2d21e7167a50c33329288ea68",
+      "mtime": 1793464080.8861191,
+      "size": 2480
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/sys/01_sys.raw.d.ps": {
+      "sha256": "7c17c4bc81a09fda735d0b8ba4eb15d3b85312f1ac0126b07724d54b3dbb3e6d",
+      "mtime": 1793464080.8863328,
+      "size": 1646
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/sys/02_sys.csharp.d.ps": {
+      "sha256": "93b756735f6146a6a84419d8231c3476d2a06ac884b4093e99e3bbe4c37e1ef6",
+      "mtime": 1793464080.8865335,
+      "size": 1448
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/sys/03_runtime.enterprise.d.ps": {
+      "sha256": "51233b6f6fc8f1dbbee388c287d140b8d3ff48c145333559553c62b537cc9e89",
+      "mtime": 1793464080.8867545,
+      "size": 990
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/time_datetime/00_time.primitives.d.ps": {
+      "sha256": "aa367000a98835556ef7f12867946c6af62f0cc3c4270e71ed703ff2b384a948",
+      "mtime": 1793464080.8888724,
+      "size": 2175
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/time_datetime/01_time.raw.d.ps": {
+      "sha256": "2ec1a2371df0dd0bb50812bbdf530855347da43f881391b0b14aab80f0bc7267",
+      "mtime": 1793464080.88956,
+      "size": 1917
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/time_datetime/02_time.csharp.d.ps": {
+      "sha256": "f1e976b183cb682e74ea098b81b1ec4c87a28c9621b653c8f66972417927c41e",
+      "mtime": 1793464080.8905241,
+      "size": 1666
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/time_datetime/03_clock.enterprise.d.ps": {
+      "sha256": "f0110024967630513e902c9665838d7c18d88eb2d4df4a7186144dd74b2f20b4",
+      "mtime": 1793464080.8912392,
+      "size": 1171
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/urllib_http/00_urllib.primitives.d.ps": {
+      "sha256": "2679effe312e788477c9777a55328beb9240b5b04230a1bbc83f4dc5d66245e7",
+      "mtime": 1793464080.8943167,
+      "size": 1478
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/urllib_http/01_urllib.raw.d.ps": {
+      "sha256": "0fe98b2c5dc5ad90330cac25cf702e25b2ed0405e24bce7128a4af91ee6b3d04",
+      "mtime": 1793464080.8946865,
+      "size": 1335
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/urllib_http/02_urllib.csharp.d.ps": {
+      "sha256": "ed80307fac087e025fcd8865690936cf63a492173dbd26b9b46d9e49764edc18",
+      "mtime": 1793464080.8953054,
+      "size": 1265
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/urllib_http/03_http.enterprise.d.ps": {
+      "sha256": "2bf3ddabbd0f49c545d1f6cbe814ff501e4291ad80de1ecda70ceff14443987f",
+      "mtime": 1793464080.8964922,
+      "size": 786
+    },
+    "ProjMain.ps": {
+      "sha256": "986ea4301a24bae4a3215b87eec37897f4e66faccfb54f8c5c4a889b29c28b6f",
+      "mtime": 1794264314.480203,
+      "size": 2250
+    },
+    "TestUtil.ps": {
+      "sha256": "951c92a13f42db90f6276d4a81ca17034ed673fc3ad3d2f5f8d1dfd7953223d7",
+      "mtime": 1794263551.0277507,
+      "size": 194
+    }
+  },
+  "outputs": [
+    "seaborn_demo.py",
+    "seaborn_demo.pyc"
+  ]
+}

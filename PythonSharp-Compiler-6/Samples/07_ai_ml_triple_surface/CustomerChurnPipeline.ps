@@ -1,0 +1,84 @@
+namespace EnterpriseAI.ChurnPrediction;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using PythonSharp.DataScience.Tabular;
+using PythonSharp.MachineLearning.Classical;
+using PythonSharp.DeepLearning.Tensors;
+
+// Surface 2 (Raw Python imports for quick migration)
+using pandas;
+using sklearn;
+using torch;
+
+// Surface 3 (C#-Standardized bridge imports)
+using PythonSharp.ScikitLearn;
+
+// Surface 1 (Self-Documenting Enterprise FQN imports)
+using PythonSharp.MachineLearning.Classical.Validation;
+using PythonSharp.MachineLearning.Classical.Evaluation;
+using PythonSharp.DeepLearning.Hardware;
+
+public record CustomerChurnRow(int CustomerId, double MonthlySpend, double TenureMonths, int Churned);
+
+public class ChurnTrainingService
+{
+    // ------------------------------------------------------------------------
+    // 1. SURFACE 2 (Raw Python Syntax): Easy copy-paste from Jupyter Notebook
+    // ------------------------------------------------------------------------
+    public static double RunMigratedNotebookStyle(string csvPath)
+    {
+        var df = pd.read_csv(csvPath).dropna();
+        var X = df.to_numpy();
+        var y = df["Churned"].to_numpy().astype<int>("int64");
+
+        var scaler = preprocessing.StandardScaler();
+        var X_scaled = scaler.fit_transform(X);
+
+        var split = model_selection.train_test_split(X_scaled, y, 0.2, 42);
+        var clf = ensemble.RandomForestClassifier(100, 42);
+        clf.fit(split.TrainFeatures, split.TrainLabels);
+
+        var preds = clf.predict(split.TestFeatures);
+        return metrics.accuracy_score(split.TestLabels, preds);
+    }
+
+    // ------------------------------------------------------------------------
+    // 2. SURFACE 3 (C# Bridge Syntax): Clean PascalCase & Familiar Names
+    // ------------------------------------------------------------------------
+    public static double RunCSharpStandardizedStyle(string csvPath)
+    {
+        var df = PythonSharp.Pandas.pd.ReadCsv<CustomerChurnRow>(csvPath).DropNa();
+        var features = df.ToNumpy();
+        var labels = df["Churned"].ToNumpy().AsType<int>("int64");
+
+        var scaler = sk.Preprocessing.StandardScaler();
+        var scaledFeatures = scaler.FitTransform(features);
+
+        var split = sk.ModelSelection.TrainTestSplit(scaledFeatures, labels, 0.2, 42);
+        var model = sk.Ensemble.RandomForestClassifier(100, 42);
+        model.Fit(split.TrainFeatures, split.TrainLabels);
+
+        var predictions = model.Predict(split.TestFeatures);
+        return sk.Metrics.AccuracyScore(split.TestLabels, predictions);
+    }
+
+    // ------------------------------------------------------------------------
+    // 3. SURFACE 1 (Enterprise Domain FQN): 100% Self-Documenting Architecture
+    // ------------------------------------------------------------------------
+    [DisableGradientTracking]
+    public static TorchTensor<double> ConvertCleanFeaturesToGpuTensor(string csvFilePath)
+    {
+        DataFrame<CustomerChurnRow> cleanTable = TabularDataReader
+            .ReadCsvFile<CustomerChurnRow>(csvFilePath)
+            .DropRowsWithMissingValues();
+
+        NDArray<double> rawFeatureMatrix = cleanTable.ConvertToFeatureMatrix();
+        string targetDevice = AcceleratorRuntime.SelectOptimalDeviceName();
+
+        return TensorFactory
+            .FromNumPyArray(rawFeatureMatrix)
+            .MoveToDevice(targetDevice);
+    }
+}
+

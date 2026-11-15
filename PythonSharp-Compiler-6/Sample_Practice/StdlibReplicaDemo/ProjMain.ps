@@ -1,0 +1,23 @@
+namespace StdlibReplicaDemo;
+
+using PythonSharp.Core;
+using Extern.Csv;
+
+public class ProjMain
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("StdlibReplicaDemo - Starting");
+        TestUtil.Log("Using Layer 2 Typeshed Replica Stubs (Extern.Csv)!");
+        
+        var sniffer = new Sniffer();
+        var sampleData = "name,age,city\nAlice,30,Seattle\nBob,25,Boston";
+        var hasHdr = sniffer.HasHeader(sampleData);
+        Console.WriteLine($"Has Header: {hasHdr}");
+        
+        var excel = new Excel();
+        Console.WriteLine($"Excel Delimiter: '{excel.Delimiter}'");
+        
+        Console.WriteLine("StdlibReplicaDemo - Completed Successfully!");
+    }
+}

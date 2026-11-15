@@ -1,0 +1,17 @@
+{
+  "compiler_version": "0.2.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "d_ps": "seaborn_demo.d.ps",
+      "module": "seaborn_demo.py",
+      "namespace": [
+        "SeabornDemo"
+      ],
+      "primary_ps": "ProjMain.ps",
+      "py": "seaborn_demo.py",
+      "pyc": "seaborn_demo.pyc"
+    }
+  ],
+  "schema_version": 1
+}

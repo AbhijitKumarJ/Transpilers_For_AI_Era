@@ -1,0 +1,16 @@
+namespace PS2;
+
+using PythonSharp.Core;
+using PythonSharp.NumPy;
+using PythonSharp.Matplotlib;
+
+
+public class MPLUtil
+{
+    public static void draw(string message)
+    {
+        Console.WriteLine(message);
+        plt.Plot(np.Arange(0, 10), np.Arange(0, 20,2));
+        plt.Show();
+    }
+}

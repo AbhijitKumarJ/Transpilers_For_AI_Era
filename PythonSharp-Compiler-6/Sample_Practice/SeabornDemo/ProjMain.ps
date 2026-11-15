@@ -1,0 +1,60 @@
+namespace SeabornDemo;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Seaborn.Rcmod;
+using PythonSharp.Bridge.Seaborn.Relational;
+using PythonSharp.Bridge.Seaborn.Matrix;
+using PythonSharp.Bridge.Matplotlib.Pyplot;
+
+public class ProjMain
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("SeabornDemo - Initializing Statistical Visualization Suite");
+        TestUtil.Log("Applying aesthetic darkgrid theme via Rcmod");
+
+        // 1. Configure Seaborn theme
+        Rcmod.SetTheme("notebook", "darkgrid");
+
+        // 2. Setup figure canvas
+        Pyplot.Figure(1);
+        Pyplot.Suptitle("Model Training & Performance Telemetry (Seaborn)");
+
+        // ---------------------------------------------------------
+        // Subplot 1: Convergence Curves (Lineplot)
+        // ---------------------------------------------------------
+        Pyplot.Subplot(1, 2, 1);
+        var epochs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        var trainLoss = [2.45, 1.82, 1.35, 0.98, 0.74, 0.58, 0.44, 0.36, 0.29, 0.23];
+        var valLoss = [2.52, 1.95, 1.48, 1.15, 0.89, 0.76, 0.67, 0.61, 0.58, 0.55];
+
+        Pyplot.Plot(epochs, trainLoss, "-o");
+        Pyplot.Plot(epochs, valLoss, "--s");
+        Pyplot.Title("Training vs Validation Loss");
+        Pyplot.Xlabel("Epoch");
+        Pyplot.Ylabel("Cross-Entropy Loss");
+        Pyplot.Legend(["Train Loss", "Validation Loss"]);
+
+        // ---------------------------------------------------------
+        // Subplot 2: Multi-Feature Correlation Matrix (Heatmap)
+        // ---------------------------------------------------------
+        Pyplot.Subplot(1, 2, 2);
+        var correlationMatrix = [
+            [1.00, 0.82, -0.45, 0.12],
+            [0.82, 1.00, -0.38, 0.05],
+            [-0.45, -0.38, 1.00, 0.65],
+            [0.12, 0.05, 0.65, 1.00]
+        ];
+
+        Matrix.Heatmap(correlationMatrix);
+        Pyplot.Title("Feature Correlation Matrix");
+
+        // Save figure
+        string outputImagePath = "seaborn_analytics_report.png";
+        TestUtil.Log($"Saving generated statistical report to {outputImagePath}");
+        Pyplot.Savefig(outputImagePath);
+        Pyplot.Close();
+
+        Console.WriteLine("SeabornDemo - Completed Successfully!");
+    }
+}

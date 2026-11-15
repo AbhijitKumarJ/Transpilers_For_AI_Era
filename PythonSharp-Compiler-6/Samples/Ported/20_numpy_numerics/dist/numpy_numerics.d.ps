@@ -1,0 +1,15 @@
+// Auto-generated ambient declarations by PythonSharp (psc)
+namespace NumpyNumerics;
+
+using PythonSharp.Core;
+
+public class TensorEngine
+{
+    public static extern NDArray<double> CreateIdentity(int size);
+    public static extern NDArray<double> CreateOnes(int rows, int cols);
+    public static extern NDArray<double> CreateZeros(int rows, int cols);
+    public static extern NDArray<double> Multiply(NDArray<double> a, NDArray<double> b);
+    public static extern NDArray<double> Transpose(NDArray<double> matrix);
+    public static extern List<int> GetDimensions(NDArray<double> matrix);
+    public static extern NDArray<double> SliceSubMatrix(NDArray<double> matrix);
+}

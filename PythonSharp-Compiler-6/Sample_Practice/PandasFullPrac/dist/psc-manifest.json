@@ -1,0 +1,159 @@
+{
+  "compiler_version": "0.2.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "d_ps": "pandas_demo/__init__.d.ps",
+      "module": "pandas_demo/__init__.py",
+      "namespace": [
+        "PandasDemo"
+      ],
+      "primary_ps": "ProjMain.ps",
+      "py": "pandas_demo/__init__.py",
+      "pyc": "pandas_demo/__init__.pyc"
+    },
+    {
+      "d_ps": "pandas_demo/cal_housing/__init__.d.ps",
+      "module": "pandas_demo/cal_housing/__init__.py",
+      "namespace": [
+        "PandasDemo",
+        "CalHousing"
+      ],
+      "primary_ps": "CalHousing/pp1.ps",
+      "py": "pandas_demo/cal_housing/__init__.py",
+      "pyc": "pandas_demo/cal_housing/__init__.pyc"
+    },
+    {
+      "d_ps": "pandas_demo/cal_housing/analytics.d.ps",
+      "module": "pandas_demo/cal_housing/analytics.py",
+      "namespace": [
+        "PandasDemo",
+        "CalHousing",
+        "Analytics"
+      ],
+      "primary_ps": "CalHousing/Analytics/InsightAggregator.ps",
+      "py": "pandas_demo/cal_housing/analytics.py",
+      "pyc": "pandas_demo/cal_housing/analytics.pyc"
+    },
+    {
+      "d_ps": "pandas_demo/cal_housing/cleaning.d.ps",
+      "module": "pandas_demo/cal_housing/cleaning.py",
+      "namespace": [
+        "PandasDemo",
+        "CalHousing",
+        "Cleaning"
+      ],
+      "primary_ps": "CalHousing/Cleaning/DataCleaner.ps",
+      "py": "pandas_demo/cal_housing/cleaning.py",
+      "pyc": "pandas_demo/cal_housing/cleaning.pyc"
+    },
+    {
+      "d_ps": "pandas_demo/cal_housing/encoding.d.ps",
+      "module": "pandas_demo/cal_housing/encoding.py",
+      "namespace": [
+        "PandasDemo",
+        "CalHousing",
+        "Encoding"
+      ],
+      "primary_ps": "CalHousing/Encoding/CategoricalEncoder.ps",
+      "py": "pandas_demo/cal_housing/encoding.py",
+      "pyc": "pandas_demo/cal_housing/encoding.pyc"
+    },
+    {
+      "d_ps": "pandas_demo/cal_housing/engineering.d.ps",
+      "module": "pandas_demo/cal_housing/engineering.py",
+      "namespace": [
+        "PandasDemo",
+        "CalHousing",
+        "Engineering"
+      ],
+      "primary_ps": "CalHousing/Engineering/FeatureTransformer.ps",
+      "py": "pandas_demo/cal_housing/engineering.py",
+      "pyc": "pandas_demo/cal_housing/engineering.pyc"
+    },
+    {
+      "d_ps": "pandas_demo/cal_housing/export.d.ps",
+      "module": "pandas_demo/cal_housing/export.py",
+      "namespace": [
+        "PandasDemo",
+        "CalHousing",
+        "Export"
+      ],
+      "primary_ps": "CalHousing/Export/DataExporter.ps",
+      "py": "pandas_demo/cal_housing/export.py",
+      "pyc": "pandas_demo/cal_housing/export.pyc"
+    },
+    {
+      "d_ps": "pandas_demo/cal_housing/inspection.d.ps",
+      "module": "pandas_demo/cal_housing/inspection.py",
+      "namespace": [
+        "PandasDemo",
+        "CalHousing",
+        "Inspection"
+      ],
+      "primary_ps": "CalHousing/Inspection/DataInspector.ps",
+      "py": "pandas_demo/cal_housing/inspection.py",
+      "pyc": "pandas_demo/cal_housing/inspection.pyc"
+    },
+    {
+      "d_ps": "pandas_demo/cal_housing/outliers.d.ps",
+      "module": "pandas_demo/cal_housing/outliers.py",
+      "namespace": [
+        "PandasDemo",
+        "CalHousing",
+        "Outliers"
+      ],
+      "primary_ps": "CalHousing/Outliers/OutlierHandler.ps",
+      "py": "pandas_demo/cal_housing/outliers.py",
+      "pyc": "pandas_demo/cal_housing/outliers.pyc"
+    },
+    {
+      "d_ps": "pandas_demo/cal_housing/pipeline.d.ps",
+      "module": "pandas_demo/cal_housing/pipeline.py",
+      "namespace": [
+        "PandasDemo",
+        "CalHousing",
+        "Pipeline"
+      ],
+      "primary_ps": "CalHousing/Pipeline/CaliforniaHousingPipeline.ps",
+      "py": "pandas_demo/cal_housing/pipeline.py",
+      "pyc": "pandas_demo/cal_housing/pipeline.pyc"
+    },
+    {
+      "d_ps": "pandas_demo/cal_housing/scaling.d.ps",
+      "module": "pandas_demo/cal_housing/scaling.py",
+      "namespace": [
+        "PandasDemo",
+        "CalHousing",
+        "Scaling"
+      ],
+      "primary_ps": "CalHousing/Scaling/FeatureScaler.ps",
+      "py": "pandas_demo/cal_housing/scaling.py",
+      "pyc": "pandas_demo/cal_housing/scaling.pyc"
+    },
+    {
+      "d_ps": "pandas_demo/cal_housing/splitting.d.ps",
+      "module": "pandas_demo/cal_housing/splitting.py",
+      "namespace": [
+        "PandasDemo",
+        "CalHousing",
+        "Splitting"
+      ],
+      "primary_ps": "CalHousing/Splitting/DatasetSplitter.ps",
+      "py": "pandas_demo/cal_housing/splitting.py",
+      "pyc": "pandas_demo/cal_housing/splitting.pyc"
+    },
+    {
+      "d_ps": "pandas_demo/titanic.d.ps",
+      "module": "pandas_demo/titanic.py",
+      "namespace": [
+        "PandasDemo",
+        "Titanic"
+      ],
+      "primary_ps": "Titanic/pp2.ps",
+      "py": "pandas_demo/titanic.py",
+      "pyc": "pandas_demo/titanic.pyc"
+    }
+  ],
+  "schema_version": 1
+}

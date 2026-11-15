@@ -1,0 +1,33 @@
+namespace NumpyFullPrac.NeuralNet.Layers;
+
+extern using numpy as _np;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+
+public class LayerNormLayer
+{
+    public NDArray<double> Gamma;
+    public NDArray<double> Beta;
+    public double Epsilon;
+
+    public LayerNormLayer(int featureDim, double epsilon = 1e-5)
+    {
+        this.Gamma = _np.ones([1, featureDim]);
+        this.Beta = _np.zeros([1, featureDim]);
+        this.Epsilon = epsilon;
+    }
+
+    public NDArray<double> Forward(NDArray<double> x)
+    {
+        dynamic dynX = x;
+        dynamic dynGamma = this.Gamma;
+        dynamic dynBeta = this.Beta;
+
+        dynamic mean = _np.mean(dynX, axis: -1, keepdims: true);
+        dynamic variance = _np.var(dynX, axis: -1, keepdims: true);
+        dynamic xHat = (dynX - mean) / _np.sqrt(variance + this.Epsilon);
+
+        dynamic result = (dynGamma * xHat) + dynBeta;
+        return result;
+    }
+}

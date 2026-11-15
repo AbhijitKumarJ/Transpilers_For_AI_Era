@@ -1,0 +1,16 @@
+// Auto-generated ambient declarations by PythonSharp (psc)
+namespace NumpyFullPrac.NeuralNet.Losses;
+
+using PythonSharp.Core;
+
+public class CrossEntropyLoss
+{
+    public static extern double Compute(NDArray<double> probabilities, NDArray<double> targets);
+    public static extern NDArray<double> Gradient(NDArray<double> probabilities, NDArray<double> targets);
+}
+
+public class MSELoss
+{
+    public static extern double Compute(NDArray<double> predictions, NDArray<double> targets);
+    public static extern NDArray<double> Gradient(NDArray<double> predictions, NDArray<double> targets);
+}

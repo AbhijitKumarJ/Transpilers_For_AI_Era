@@ -1,0 +1,39 @@
+namespace NumpyDemo;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Numpy;
+
+public class ProjMain
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("====================================================================");
+        Console.WriteLine("PythonSharp NumPy Showcase — Zero-Overhead Scientific Computing");
+        Console.WriteLine("====================================================================");
+
+        TestUtil.Log("1. Creating arrays with Numpy factory methods");
+        var zeroVec = Numpy.Zeros(5);
+        Console.WriteLine($"[NumPy] Zeros(5) initialized: {zeroVec}");
+
+        var linGrid = Numpy.Linspace(0.0, 10.0, 5);
+        Console.WriteLine($"[NumPy] Linspace(0, 10, 5) grid: {linGrid}");
+
+        var rangeArr = Numpy.Arange(8);
+        Console.WriteLine($"[NumPy] Arange(8) vector: {rangeArr}");
+
+        TestUtil.Log("2. Array operations & Linear Algebra");
+        var vecA = Numpy.Arange(4);
+        var vecB = Numpy.Arange(4);
+        var dotProd = Numpy.Dot(vecA, vecB);
+        Console.WriteLine($"[NumPy] Dot Product vecA . vecB = {dotProd}");
+
+        TestUtil.Log("3. Statistical aggregations");
+        var dataSamples = Numpy.Linspace(1.0, 100.0, 10);
+        var meanVal = Numpy.Mean(dataSamples);
+        Console.WriteLine($"[NumPy] Mean of 10 samples in [1, 100]: {meanVal}");
+
+        Console.WriteLine("====================================================================");
+        Console.WriteLine("NumPy demonstration pipeline executed successfully!");
+        Console.WriteLine("====================================================================");
+    }
+}

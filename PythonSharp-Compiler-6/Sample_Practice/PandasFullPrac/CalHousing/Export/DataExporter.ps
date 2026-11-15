@@ -1,0 +1,51 @@
+namespace PandasDemo.CalHousing.Export;
+
+using PythonSharp.Core;
+using PythonSharp.OS;
+using PythonSharp.Bridge.Pandas;
+using PythonSharp.Bridge.Pandas.Core.Frame;
+using PythonSharp.Bridge.Pandas.Core.Series;
+
+public class DataExporter
+{
+    public static void Export(DataFrame xTrain, DataFrame xTest, Series yTrain, Series yTest, DataFrame summary, string outDir)
+    {
+        Console.WriteLine("\n=======================================================");
+        Console.WriteLine(" PHASE 9: AUTOMATED STRUCTURAL ARTIFACT EXPORT");
+        Console.WriteLine("=======================================================");
+
+        OS.MakeDirs(outDir, true);
+
+        string xTrainPath = $"{outDir}/X_train.csv";
+        string xTestPath = $"{outDir}/X_test.csv";
+        string yTrainPath = $"{outDir}/y_train.csv";
+        string yTestPath = $"{outDir}/y_test.csv";
+        string summaryPath = $"{outDir}/cal_housing_summary_report.csv";
+
+        Console.WriteLine($"[Export] Exporting partitioned datasets and analytical summaries to '{outDir}'...");
+
+        // Localized dynamic dispatch for keyword argument `index: false`
+        dynamic dxTrain = xTrain;
+        dxTrain.ToCsv(xTrainPath, index: false);
+
+        dynamic dxTest = xTest;
+        dxTest.ToCsv(xTestPath, index: false);
+
+        dynamic dyTrain = yTrain;
+        dyTrain.ToCsv(yTrainPath, index: false);
+
+        dynamic dyTest = yTest;
+        dyTest.ToCsv(yTestPath, index: false);
+
+        summary.ToCsv(summaryPath);
+
+        Console.WriteLine("\n================ EXPORT LOGS ================");
+        Console.WriteLine($"[Export] Created: {xTrainPath} ({xTrain.Shape})");
+        Console.WriteLine($"[Export] Created: {xTestPath}  ({xTest.Shape})");
+        Console.WriteLine($"[Export] Created: {yTrainPath} ({yTrain.Shape})");
+        Console.WriteLine($"[Export] Created: {yTestPath}  ({yTest.Shape})");
+        Console.WriteLine($"[Export] Created: {summaryPath}");
+        Console.WriteLine("=============================================");
+        Console.WriteLine("[Export] Phase 9 Completed Successfully.");
+    }
+}

@@ -1,0 +1,40 @@
+namespace PandasDemo.CalHousing.Engineering;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Pandas;
+using PythonSharp.Bridge.Pandas.Core.Frame;
+
+public class FeatureTransformer
+{
+    public static DataFrame Transform(DataFrame df)
+    {
+        Console.WriteLine("\n=======================================================");
+        Console.WriteLine(" PHASE 4: FEATURE TRANSFORMATION & DISCRETIZATION");
+        Console.WriteLine("=======================================================");
+
+        dynamic dynDf = df;
+
+        // 1. Engineering Domain Ratios
+        Console.WriteLine("[Engineering] Creating BedroomRatio (AveBedrms / AveRooms)...");
+        dynDf["BedroomRatio"] = dynDf["AveBedrms"] / dynDf["AveRooms"];
+
+        Console.WriteLine("[Engineering] Creating RoomsPerOccupant (AveRooms / AveOccup)...");
+        dynDf["RoomsPerOccupant"] = dynDf["AveRooms"] / dynDf["AveOccup"];
+
+        // 2. Discretization / Binning of HouseAge into 3 Tiers
+        Console.WriteLine("[Engineering] Binning 'HouseAge' into categories (New, Moderate, Historical)...");
+        var ageBins = [0.0f, 15.0f, 35.0f, 100.0f];
+        var ageLabels = ["New", "Moderate", "Historical"];
+        dynDf["AgeGroup"] = Pandas.Cut(dynDf["HouseAge"], bins: ageBins, labels: ageLabels);
+
+        // 3. Log Transformation on right-skewed Population (log1p handles 0 safely)
+        Console.WriteLine("[Engineering] Transforming skewed population via Log1p...");
+        dynDf["LogPopulation"] = dynDf["Population"].Apply((x) => Math.Log(x));
+
+        Console.WriteLine("\n--- Preview of Engineered & Discretized Features ---");
+        Console.WriteLine(dynDf[["HouseAge", "AgeGroup", "BedroomRatio", "RoomsPerOccupant", "LogPopulation"]].Head(5));
+        Console.WriteLine("[Engineering] Phase 4 Completed Successfully.");
+
+        return df;
+    }
+}

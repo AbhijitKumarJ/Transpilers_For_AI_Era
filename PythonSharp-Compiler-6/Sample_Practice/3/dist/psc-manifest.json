@@ -1,0 +1,26 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "ps_2/__init__.py",
+      "namespace": [
+        "PS2"
+      ],
+      "primary_ps": "ProjMain.ps",
+      "py": "ps_2/__init__.py",
+      "pyc": "ps_2/__init__.pyc"
+    },
+    {
+      "module": "ps_2/utils.py",
+      "namespace": [
+        "PS2",
+        "Utils"
+      ],
+      "primary_ps": "Utils/PadUtil.ps",
+      "py": "ps_2/utils.py",
+      "pyc": "ps_2/utils.pyc"
+    }
+  ],
+  "schema_version": 1
+}

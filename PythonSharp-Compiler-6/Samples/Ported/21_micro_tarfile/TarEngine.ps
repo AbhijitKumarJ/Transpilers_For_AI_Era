@@ -1,0 +1,245 @@
+namespace MicroTarFile;
+
+using PythonSharp.Core;
+
+public record TarEntry(string Name, long Size, int Mode, Bytes Content);
+
+public class TarHeader
+{
+    [InlineTemplate("int({0}.strip(' \\x00'), 8) if {0}.strip(' \\x00') else 0")]
+    public static extern long ParseOctal(string octalStr);
+
+    [InlineTemplate("oct({0})[2:].rjust({1} - 1, '0') + '\\0'")]
+    public static extern string ToOctalString(long value, int fieldLength);
+
+    [InlineTemplate("oct({0})[2:].rjust(6, '0') + '\\0 '")]
+    public static extern string ToChecksumString(int chksum);
+
+    public static string DecodeAsciiString(Bytes data, int offset, int length)
+    {
+        int end = offset;
+        int max = offset + length;
+        while (end < max && data[end] != 0)
+        {
+            end = end + 1;
+        }
+        if (end == offset)
+        {
+            return "";
+        }
+        Bytes slice = data.Slice(offset, end);
+        return slice.Decode("ascii");
+    }
+
+    public static int CalculateChecksum(Bytes headerBlock)
+    {
+        int sum = 0;
+        int i = 0;
+        while (i < 512)
+        {
+            if (i >= 148 && i < 156)
+            {
+                sum = sum + 32;
+            }
+            else
+            {
+                sum = sum + headerBlock[i];
+            }
+            i = i + 1;
+        }
+        return sum;
+    }
+
+    public static Bytes CreateHeader(string name, long size, int mode = 420)
+    {
+        List<int> buf = new List<int>();
+        int i = 0;
+        while (i < 512)
+        {
+            buf.Add(0);
+            i = i + 1;
+        }
+
+        Bytes nameBytes = name.Encode("ascii");
+        int nameLen = nameBytes.Length;
+        if (nameLen > 99)
+        {
+            nameLen = 99;
+        }
+        int k = 0;
+        while (k < nameLen)
+        {
+            buf[k] = nameBytes[k];
+            k = k + 1;
+        }
+
+        string modeStr = ToOctalString(mode, 8);
+        Bytes modeBytes = modeStr.Encode("ascii");
+        k = 0;
+        while (k < 8)
+        {
+            buf[100 + k] = modeBytes[k];
+            k = k + 1;
+        }
+
+        string defaultId = "0000000\0";
+        Bytes idBytes = defaultId.Encode("ascii");
+        k = 0;
+        while (k < 8)
+        {
+            buf[108 + k] = idBytes[k];
+            buf[116 + k] = idBytes[k];
+            k = k + 1;
+        }
+
+        string sizeStr = ToOctalString(size, 12);
+        Bytes sizeBytes = sizeStr.Encode("ascii");
+        k = 0;
+        while (k < 12)
+        {
+            buf[124 + k] = sizeBytes[k];
+            k = k + 1;
+        }
+
+        string mtimeStr = "00000000000\0";
+        Bytes mtimeBytes = mtimeStr.Encode("ascii");
+        k = 0;
+        while (k < 12)
+        {
+            buf[136 + k] = mtimeBytes[k];
+            k = k + 1;
+        }
+
+        buf[156] = 48;
+
+        string magic = "ustar\0";
+        Bytes magicBytes = magic.Encode("ascii");
+        k = 0;
+        while (k < 6)
+        {
+            buf[257 + k] = magicBytes[k];
+            k = k + 1;
+        }
+
+        buf[263] = 48;
+        buf[264] = 48;
+
+        k = 0;
+        while (k < 8)
+        {
+            buf[148 + k] = 32;
+            k = k + 1;
+        }
+
+        Bytes preBlock = Bytes.FromBytes(buf);
+        int chksum = CalculateChecksum(preBlock);
+        string chksumStr = ToChecksumString(chksum);
+        Bytes chksumBytes = chksumStr.Encode("ascii");
+        k = 0;
+        while (k < 8)
+        {
+            buf[148 + k] = chksumBytes[k];
+            k = k + 1;
+        }
+
+        return Bytes.FromBytes(buf);
+    }
+}
+
+public class MicroTarArchive
+{
+    public static Bytes CreateArchive(List<TarEntry> entries)
+    {
+        Bytes result = Bytes.AllocateZeros(0);
+        int i = 0;
+        while (i < entries.Count)
+        {
+            TarEntry entry = entries[i];
+            i = i + 1;
+
+            Bytes header = TarHeader.CreateHeader(entry.Name, entry.Size, entry.Mode);
+            result = result.Concat(header);
+            result = result.Concat(entry.Content);
+
+            int remainder = Int32.From(entry.Size % 512);
+            if (remainder > 0)
+            {
+                int padLen = 512 - remainder;
+                Bytes padding = Bytes.AllocateZeros(padLen);
+                result = result.Concat(padding);
+            }
+        }
+
+        Bytes eofBlocks = Bytes.AllocateZeros(1024);
+        result = result.Concat(eofBlocks);
+        return result;
+    }
+
+    public static List<TarEntry> ReadArchive(Bytes archiveData)
+    {
+        List<TarEntry> entries = new List<TarEntry>();
+        int offset = 0;
+        int totalLen = archiveData.Length;
+
+        while (offset + 512 <= totalLen)
+        {
+            Bytes headerBlock = archiveData.Slice(offset, offset + 512);
+
+            bool isZeroBlock = true;
+            int z = 0;
+            while (z < 512)
+            {
+                if (headerBlock[z] != 0)
+                {
+                    isZeroBlock = false;
+                    break;
+                }
+                z = z + 1;
+            }
+
+            if (isZeroBlock)
+            {
+                break;
+            }
+
+            string name = TarHeader.DecodeAsciiString(headerBlock, 0, 100);
+            string modeStr = TarHeader.DecodeAsciiString(headerBlock, 100, 8);
+            int mode = Int32.From(TarHeader.ParseOctal(modeStr));
+
+            string sizeStr = TarHeader.DecodeAsciiString(headerBlock, 124, 12);
+            long size = TarHeader.ParseOctal(sizeStr);
+            int sizeInt = Int32.From(size);
+
+            int contentStart = offset + 512;
+            int contentEnd = contentStart + sizeInt;
+            Bytes content = archiveData.Slice(contentStart, contentEnd);
+
+            entries.Add(new TarEntry(name, size, mode, content));
+
+            int remainder = sizeInt % 512;
+            int padLen = 0;
+            if (remainder > 0)
+            {
+                padLen = 512 - remainder;
+            }
+
+            offset = contentEnd + padLen;
+        }
+
+        return entries;
+    }
+
+    public static TarEntry? FindEntry(List<TarEntry> entries, string name)
+    {
+        int i = 0;
+        while (i < entries.Count)
+        {
+            if (entries[i].Name == name)
+            {
+                return entries[i];
+            }
+            i = i + 1;
+        }
+        return null;
+    }
+}

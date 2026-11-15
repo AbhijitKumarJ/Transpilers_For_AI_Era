@@ -1,0 +1,43 @@
+namespace PandasDemo.CalHousing.Encoding;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Pandas;
+using PythonSharp.Bridge.Pandas.Core.Frame;
+
+public class CategoricalEncoder
+{
+    public static DataFrame Encode(DataFrame df)
+    {
+        Console.WriteLine("\n=======================================================");
+        Console.WriteLine(" PHASE 5: FEATURE ENCODING STRATEGIES");
+        Console.WriteLine("=======================================================");
+
+        dynamic dynDf = df;
+
+        // Strategy 1: Ordinal Encoding (Mapped Integers)
+        Console.WriteLine("[Encoding] Strategy 1: Ordinal encoding (New=0, Moderate=1, Historical=2)...");
+        var ordinalMap = new Dict<string, int>();
+        ordinalMap.Add("New", 0);
+        ordinalMap.Add("Moderate", 1);
+        ordinalMap.Add("Historical", 2);
+        dynDf["AgeGroupOrdinal"] = dynDf["AgeGroup"].Map(ordinalMap).Astype("float");
+
+        // Strategy 2: Target Encoding (Mean Target per Category)
+        Console.WriteLine("[Encoding] Strategy 2: Target Encoding on 'AgeGroup' via Groupby Mean...");
+        var targetMeans = dynDf.Groupby("AgeGroup")["MedHouseVal"].Mean();
+        Console.WriteLine($"[Encoding] Computed Target Means per Age Tier:\n{targetMeans}");
+        dynDf["AgeGroupTargetEncoded"] = dynDf["AgeGroup"].Map(targetMeans).Astype("float");
+
+        // Strategy 3: One-Hot Encoding with Dummy Variable Trap Avoidance (drop_first=True)
+        Console.WriteLine("[Encoding] Strategy 3: One-Hot Encoding via Pandas.GetDummies(drop_first=true)...");
+        var dummyCols = ["AgeGroup"];
+        DataFrame dfEncoded = Pandas.GetDummies(df, columns: dummyCols, drop_first: true, dtype: "int");
+
+        Console.WriteLine($"[Encoding] Transformed DataFrame Shape: {dfEncoded.Shape}");
+        dynamic dynEncoded = dfEncoded;
+        Console.WriteLine(dynEncoded[["MedHouseVal", "AgeGroupOrdinal", "AgeGroupTargetEncoded"]].Head(3));
+        Console.WriteLine("[Encoding] Phase 5 Completed Successfully.");
+
+        return dfEncoded;
+    }
+}

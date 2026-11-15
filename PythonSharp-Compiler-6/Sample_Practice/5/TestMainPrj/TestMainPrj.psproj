@@ -1,0 +1,9 @@
+<Project Sdk="PythonSharp.Sdk/0.1.0">
+  <PropertyGroup>
+    <AssemblyName>TestMainPrj</AssemblyName>
+    <TargetFramework>py3.11</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../TestLibPrj/TestLibPrj.psproj" />
+  </ItemGroup>
+</Project>

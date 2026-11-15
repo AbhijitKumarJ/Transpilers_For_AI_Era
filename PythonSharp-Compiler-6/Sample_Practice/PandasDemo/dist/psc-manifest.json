@@ -1,0 +1,17 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "d_ps": "pandas_demo.d.ps",
+      "module": "pandas_demo.py",
+      "namespace": [
+        "PandasDemo"
+      ],
+      "primary_ps": "ProjMain.ps",
+      "py": "pandas_demo.py",
+      "pyc": "pandas_demo.pyc"
+    }
+  ],
+  "schema_version": 1
+}

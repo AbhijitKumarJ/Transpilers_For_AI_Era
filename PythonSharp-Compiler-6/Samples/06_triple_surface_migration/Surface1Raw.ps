@@ -1,0 +1,31 @@
+namespace TripleSurfaceMigration;
+
+using PythonSharp.Core;
+using time;
+using json;
+using numpy;
+using PythonSharp.Numerics.Tensors;
+
+public class Surface1RawPipeline
+{
+    public static string RunPipeline()
+    {
+        double startTime = time.time();
+
+        // Surface 1: Raw ABI (Python-native snake_case)
+        NDArray<double> a = np.ones(2, 2);
+        NDArray<double> b = np.ones(2, 2);
+
+        // Raw matrix dot product
+        NDArray<double> c = a.dot(b);
+
+        double elapsed = time.time() - startTime;
+
+        Dict<string, object> metrics = new Dict<string, object>();
+        metrics["surface"] = "Surface 1 (Raw Python ABI)";
+        metrics["elapsed_sec"] = elapsed;
+        metrics["matrix_dims"] = c.shape;
+
+        return json.dumps(metrics);
+    }
+}

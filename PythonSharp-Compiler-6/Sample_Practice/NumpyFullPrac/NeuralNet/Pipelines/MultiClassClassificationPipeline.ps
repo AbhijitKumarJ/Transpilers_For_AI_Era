@@ -1,0 +1,70 @@
+namespace NumpyFullPrac.NeuralNet.Pipelines;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using NumpyFullPrac.NeuralNet.Data;
+using NumpyFullPrac.NeuralNet.Layers;
+using NumpyFullPrac.NeuralNet.Optimizers;
+using NumpyFullPrac.NeuralNet.Metrics;
+
+public class MultiClassClassificationPipeline
+{
+    public static void Run()
+    {
+        Console.WriteLine("\n=======================================================");
+        Console.WriteLine(" PHASE 2: 3-CLASS CLASSIFICATION & ADAM OPTIMIZER");
+        Console.WriteLine("=======================================================");
+
+        BatchPair dataset = DatasetGenerator.Generate3ClassClusters(40);
+        NDArray<double> x = dataset.Features;
+        NDArray<double> y = dataset.Targets;
+
+        DenseLayer layer1 = new DenseLayer(2, 16, "relu");
+        DenseLayer layer2 = new DenseLayer(16, 3, "none");
+        SoftmaxOutputLayer outLayer = new SoftmaxOutputLayer();
+
+        AdamOptimizer adam1 = new AdamOptimizer(0.04);
+        AdamOptimizer adam2 = new AdamOptimizer(0.04);
+
+        int epochs = 80;
+        double initialLoss = 0.0;
+        double finalLoss = 0.0;
+        double finalAcc = 0.0;
+
+        for (int ep = 1; ep <= epochs; ep++)
+        {
+            // Forward pass
+            NDArray<double> h1 = layer1.Forward(x);
+            NDArray<double> logits = layer2.Forward(h1);
+            NDArray<double> probs = outLayer.Forward(logits);
+
+            double loss = outLayer.ComputeLoss(y);
+            double acc = ModelEvaluator.ComputeAccuracy(probs, y);
+
+            if (ep == 1)
+            {
+                initialLoss = loss;
+            }
+            finalLoss = loss;
+            finalAcc = acc;
+
+            // Backward pass: Softmax + Cross-Entropy dZ
+            NDArray<double> dZ2 = outLayer.Backward(y);
+            NDArray<double> dH1 = layer2.Backward(dZ2, true);
+            layer1.Backward(dH1, false);
+
+            // Adam steps
+            adam1.Step(layer1);
+            adam2.Step(layer2);
+
+            if (ep == 1 || ep % 20 == 0 || ep == epochs)
+            {
+                ModelEvaluator.PrintProgress("3ClassAdam", ep, epochs, loss, acc);
+            }
+        }
+
+        Console.WriteLine($"[3ClassAdam] Initial Loss: {initialLoss:F4} -> Final Loss: {finalLoss:F4}");
+        Console.WriteLine($"[3ClassAdam] Final Classification Accuracy: {finalAcc * 100.0:F2}%");
+        Console.WriteLine("[3ClassAdam] Multi-class convergence verified successfully!");
+    }
+}

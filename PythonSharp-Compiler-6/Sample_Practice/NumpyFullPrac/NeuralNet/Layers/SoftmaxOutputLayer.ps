@@ -1,0 +1,43 @@
+namespace NumpyFullPrac.NeuralNet.Layers;
+
+extern using numpy as _np;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using NumpyFullPrac.NeuralNet.Activations;
+
+public class SoftmaxOutputLayer
+{
+    public NDArray<double> Probabilities;
+
+    public SoftmaxOutputLayer()
+    {
+    }
+
+    public NDArray<double> Forward(NDArray<double> z)
+    {
+        this.Probabilities = SoftmaxActivation.Forward(z);
+        return this.Probabilities;
+    }
+
+    public double ComputeLoss(NDArray<double> targets)
+    {
+        dynamic dynP = this.Probabilities;
+        dynamic dynY = targets;
+        double n = 1.0 * dynP.shape[0];
+        dynamic clipped = _np.clip(dynP, 1e-15, 1.0 - 1e-15);
+        dynamic logP = _np.log(clipped);
+        dynamic sumLoss = -_np.sum(dynY * logP);
+        double lossVal = sumLoss / n;
+        return lossVal;
+    }
+
+    public NDArray<double> Backward(NDArray<double> targets)
+    {
+        // Combined Softmax + Cross-Entropy derivative: dZ = (P - Y) / N
+        dynamic dynP = this.Probabilities;
+        dynamic dynY = targets;
+        double n = 1.0 * dynP.shape[0];
+        dynamic dZ = (dynP - dynY) / n;
+        return dZ;
+    }
+}

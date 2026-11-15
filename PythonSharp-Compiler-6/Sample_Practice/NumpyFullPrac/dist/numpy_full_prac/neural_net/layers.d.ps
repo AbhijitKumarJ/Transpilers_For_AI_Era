@@ -1,0 +1,70 @@
+// Auto-generated ambient declarations by PythonSharp (psc)
+namespace NumpyFullPrac.NeuralNet.Layers;
+
+using PythonSharp.Core;
+
+public class BatchNormalizationLayer
+{
+    public NDArray<double> Gamma;
+    public NDArray<double> Beta;
+    public NDArray<double> DGamma;
+    public NDArray<double> DBeta;
+    public NDArray<double> RunningMean;
+    public NDArray<double> RunningVar;
+    public NDArray<double> XHat;
+    public NDArray<double> Inputs;
+    public NDArray<double> Mean;
+    public NDArray<double> Var;
+    public double Momentum;
+    public double Epsilon;
+    public bool IsTraining;
+    public extern BatchNormalizationLayer(int dim, double momentum = 0.9, double epsilon = 1e-05);
+    public extern void SetTraining(bool mode);
+    public extern NDArray<double> Forward(NDArray<double> inputs);
+    public extern NDArray<double> Backward(NDArray<double> dOut);
+}
+
+public class DenseLayer
+{
+    public NDArray<double> Weights;
+    public NDArray<double> Biases;
+    public NDArray<double> Inputs;
+    public NDArray<double> Z;
+    public NDArray<double> A;
+    public NDArray<double> DWeights;
+    public NDArray<double> DBiases;
+    public double L2Lambda;
+    public string ActivationType;
+    public extern DenseLayer(int inputDim, int outputDim, string activationType = "sigmoid", double l2Lambda = 0.0);
+    public extern NDArray<double> Forward(NDArray<double> inputs);
+    public extern NDArray<double> Backward(NDArray<double> dOut, bool isDeltaZ = false);
+}
+
+public class DropoutLayer
+{
+    public double DropRate;
+    public bool IsTraining;
+    public NDArray<double> Mask;
+    public extern DropoutLayer(double dropRate = 0.2);
+    public extern void SetTraining(bool mode);
+    public extern NDArray<double> Forward(NDArray<double> inputs);
+    public extern NDArray<double> Backward(NDArray<double> dOutputs);
+}
+
+public class LayerNormLayer
+{
+    public NDArray<double> Gamma;
+    public NDArray<double> Beta;
+    public double Epsilon;
+    public extern LayerNormLayer(int featureDim, double epsilon = 1e-05);
+    public extern NDArray<double> Forward(NDArray<double> x);
+}
+
+public class SoftmaxOutputLayer
+{
+    public NDArray<double> Probabilities;
+    public extern SoftmaxOutputLayer();
+    public extern NDArray<double> Forward(NDArray<double> z);
+    public extern double ComputeLoss(NDArray<double> targets);
+    public extern NDArray<double> Backward(NDArray<double> targets);
+}

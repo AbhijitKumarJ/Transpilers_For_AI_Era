@@ -1,0 +1,39 @@
+namespace PandasDemo.CalHousing.Analytics;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Pandas;
+using PythonSharp.Bridge.Pandas.Core.Frame;
+
+public class InsightAggregator
+{
+    public static void ExtractInsights(DataFrame df)
+    {
+        Console.WriteLine("\n=======================================================");
+        Console.WriteLine(" PHASE 6: GROUPING, AGGREGATION & CORRELATION");
+        Console.WriteLine("=======================================================");
+
+        dynamic dynDf = df;
+
+        // 1. Grouped Mean Analysis
+        Console.WriteLine("--- Average House Price by Age Tier ---");
+        var priceByAge = dynDf.Groupby("AgeGroup")["MedHouseVal"].Mean();
+        Console.WriteLine(priceByAge);
+
+        // 2. Multi-column aggregation
+        Console.WriteLine("\n--- Multi-Column Aggregation (Mean MedInc, Median Value, Sum Population) ---");
+        var multiAgg = new Dict<string, string>();
+        multiAgg.Add("MedInc", "mean");
+        multiAgg.Add("MedHouseVal", "median");
+        multiAgg.Add("Population", "sum");
+        var aggSummary = dynDf.Groupby("AgeGroup").Agg(multiAgg);
+        Console.WriteLine(aggSummary);
+
+        // 3. Correlation Matrix with target pricing
+        Console.WriteLine("\n--- Pearson Correlation Matrix (Target Pricing Dependencies) ---");
+        dynamic corrMatrix = df.Corr(numeric_only: true);
+        var targetCorr = corrMatrix["MedHouseVal"].SortValues(ascending: false);
+        Console.WriteLine(targetCorr);
+
+        Console.WriteLine("[Analytics] Phase 6 Completed Successfully.");
+    }
+}

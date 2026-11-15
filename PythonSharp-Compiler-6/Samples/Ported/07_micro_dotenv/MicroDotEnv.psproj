@@ -1,0 +1,7 @@
+<Project Sdk="PythonSharp.Sdk/0.1.0">
+  <PropertyGroup>
+    <AssemblyName>MicroDotEnv</AssemblyName>
+    <TargetFramework>py3.11</TargetFramework>
+  </PropertyGroup>
+</Project>
+

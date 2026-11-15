@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../PythonAnalysis2"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.ps": "pythonsharp",
+			"*.d.ps": "pythonsharp",
+			"*.pysharp": "pythonsharp",
+			"*.d.pysharp": "pythonsharp",
+			"*.pys": "pythonsharp",
+			"*.d.pys": "pythonsharp",
+			"*.psproj": "xml",
+			"*.pysharpproj": "xml"
+		}
+	}
+}

@@ -1,0 +1,28 @@
+namespace NumpyFullPrac.NeuralNet.Optimizers;
+
+extern using numpy as _np;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+
+public class GradientClipper
+{
+    public static NDArray<double> ClipByValue(NDArray<double> grad, double minVal, double maxVal)
+    {
+        dynamic dynGrad = grad;
+        dynamic clipped = _np.clip(dynGrad, minVal, maxVal);
+        return clipped;
+    }
+
+    public static NDArray<double> ClipByNorm(NDArray<double> grad, double maxNorm)
+    {
+        dynamic dynGrad = grad;
+        dynamic sumSquares = _np.sum(dynGrad * dynGrad);
+        dynamic norm = _np.sqrt(sumSquares);
+        if (norm > maxNorm)
+        {
+            dynamic scaled = dynGrad * (maxNorm / (norm + 1e-8));
+            return scaled;
+        }
+        return grad;
+    }
+}

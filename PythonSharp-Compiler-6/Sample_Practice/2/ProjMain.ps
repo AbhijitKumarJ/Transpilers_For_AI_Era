@@ -1,0 +1,40 @@
+namespace PS2;
+
+using PythonSharp.Core;
+
+public class ProjMain
+{
+    public static void main(string[] args)
+    {
+        //check for loop, intellisense anf file formatting
+        Console.WriteLine("");
+        Console.WriteLine("PS2.ProjMain.main() - Starting");
+        Console.WriteLine("");
+        TestUtil.pat("TestUtil.pat() - Starting");
+        Console.WriteLine("");
+        Console.WriteLine("PS2.ProjMain.main() - Calling PadUtil.LeftPad()");
+        string leftPadded = PadUtil.LeftPad("Hello", 10, "*");
+        Console.WriteLine("PS2.ProjMain.main() - LeftPadded: " + leftPadded);
+        Console.WriteLine("");
+        Console.WriteLine("PS2.ProjMain.main() - Calling PadUtil.RightPad()");
+        string rightPadded = PadUtil.RightPad("Hello", 10, "*");
+        Console.WriteLine("PS2.ProjMain.main() - RightPadded: " + rightPadded);
+        Console.WriteLine("");
+        Console.WriteLine("PS2.ProjMain.main() - Calling PadUtil.Center()");
+        string centered = PadUtil.Center("Hello", 10, "*");
+        Console.WriteLine("PS2.ProjMain.main() - Centered: " + centered);
+        Console.WriteLine("");
+        Console.WriteLine("PS2.ProjMain.main() - Calling PadUtil.Repeat() with odd length");
+        string repeatedOdd = PadUtil.Repeat("Hello", 11);
+        Console.WriteLine("PS2.ProjMain.main() - Repeated (odd length): " + repeatedOdd);
+        Console.WriteLine("");
+        Console.WriteLine("PS2.ProjMain.main() - Calling PadUtil.Repeat() with even length");
+        string repeatedEven = PadUtil.Repeat("Hello", 10, "*");
+        Console.WriteLine("PS2.ProjMain.main() - Repeated (even length): " + repeatedEven);
+        Console.WriteLine("");
+        TestUtil.pat("TestUtil.pat() - Ending");
+        Console.WriteLine("");
+        Console.WriteLine("PS2.ProjMain.main() - Ending");
+        Console.WriteLine("");
+    }
+}

@@ -1,0 +1,15 @@
+// Auto-generated ambient declarations by PythonSharp (psc)
+namespace PandasDemo.CalHousing.Scaling;
+
+using PythonSharp.Core;
+
+public class ScaledResult
+{
+    public DataFrame XTrainScaled;
+    public DataFrame XTestScaled;
+}
+
+public class FeatureScaler
+{
+    public static extern ScaledResult Standardize(DataFrame xTrain, DataFrame xTest);
+}

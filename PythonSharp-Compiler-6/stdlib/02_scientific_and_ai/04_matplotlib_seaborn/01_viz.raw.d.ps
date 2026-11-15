@@ -1,0 +1,82 @@
+namespace matplotlib;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using PythonSharp.DataScience.Tabular;
+using PythonSharp.Visualization;
+extern using matplotlib.pyplot as _plt;
+extern using seaborn as _sns;
+
+[SurfaceLevel(2)]
+[MapsTo("_plt")]
+public static primitive class plt
+{
+    [CanonicalApi("PythonSharp.Visualization.FigureCanvas.CreateFigureAndAxes", "PythonSharp.Matplotlib.plt.Subplots")]
+    [InlineTemplate("_plt.subplots(figsize={0})")]
+    public static extern (PlotFigure fig, PlotAxes ax) subplots((int, int)? figsize = null);
+
+    [CanonicalApi("PythonSharp.Visualization.FigureCanvas.PlotLineSeries", "PythonSharp.Matplotlib.plt.Plot")]
+    [InlineTemplate("_plt.plot({0}, {1}, label={2})")]
+    public static extern void plot(NDArray<double> x, NDArray<double> y, string? label = null);
+
+    [CanonicalApi("PythonSharp.Visualization.FigureCanvas.PlotScatterSeries", "PythonSharp.Matplotlib.plt.Scatter")]
+    [InlineTemplate("_plt.scatter({0}, {1}, label={2})")]
+    public static extern void scatter(NDArray<double> x, NDArray<double> y, string? label = null);
+
+    [CanonicalApi("PythonSharp.Visualization.FigureCanvas.PlotHistogram", "PythonSharp.Matplotlib.plt.Hist")]
+    [InlineTemplate("_plt.hist({0}, bins={1})")]
+    public static extern void hist(NDArray<double> x, int bins = 20);
+
+    [CanonicalApi("PythonSharp.Visualization.FigureCanvas.SetChartTitle", "PythonSharp.Matplotlib.plt.Title")]
+    [InlineTemplate("_plt.title({0})")]
+    public static extern void title(string label);
+
+    [CanonicalApi("PythonSharp.Visualization.FigureCanvas.SetHorizontalAxisLabel", "PythonSharp.Matplotlib.plt.XLabel")]
+    [InlineTemplate("_plt.xlabel({0})")]
+    public static extern void xlabel(string xlabel);
+
+    [CanonicalApi("PythonSharp.Visualization.FigureCanvas.SetVerticalAxisLabel", "PythonSharp.Matplotlib.plt.YLabel")]
+    [InlineTemplate("_plt.ylabel({0})")]
+    public static extern void ylabel(string ylabel);
+
+    [CanonicalApi("PythonSharp.Visualization.FigureCanvas.ShowLegend", "PythonSharp.Matplotlib.plt.Legend")]
+    [InlineTemplate("_plt.legend()")]
+    public static extern void legend();
+
+    [CanonicalApi("PythonSharp.Visualization.FigureCanvas.SaveChartToFile", "PythonSharp.Matplotlib.plt.SaveFig")]
+    [InlineTemplate("_plt.savefig({0}, dpi={1})")]
+    public static extern void savefig(string fname, int dpi = 150);
+
+    [CanonicalApi("PythonSharp.Visualization.FigureCanvas.DisplayInteractiveChart", "PythonSharp.Matplotlib.plt.Show")]
+    [InlineTemplate("_plt.show()")]
+    public static extern void show();
+
+    [CanonicalApi("PythonSharp.Visualization.FigureCanvas.CloseCurrentFigure", "PythonSharp.Matplotlib.plt.Close")]
+    [InlineTemplate("_plt.close()")]
+    public static extern void close();
+}
+
+[SurfaceLevel(2)]
+[MapsTo("_sns")]
+public static primitive class sns
+{
+    [CanonicalApi("PythonSharp.Visualization.StatisticalPlotter.SetVisualTheme", "PythonSharp.Matplotlib.sns.SetTheme")]
+    [InlineTemplate("_sns.set_theme(style={0})")]
+    public static extern void set_theme(string style = "whitegrid");
+
+    [CanonicalApi("PythonSharp.Visualization.StatisticalPlotter.RenderCorrelationHeatmap", "PythonSharp.Matplotlib.sns.Heatmap")]
+    [InlineTemplate("_sns.heatmap({0}, annot={1}, cmap={2})")]
+    public static extern PlotAxes heatmap(NDArray<double> data, bool annot = true, string cmap = "viridis");
+
+    [CanonicalApi("PythonSharp.Visualization.StatisticalPlotter.RenderDataFrameHeatmap", "PythonSharp.Matplotlib.sns.Heatmap")]
+    [InlineTemplate("_sns.heatmap({0}, annot={1}, cmap={2})")]
+    public static extern PlotAxes heatmap<TRow>(DataFrame<TRow> data, bool annot = true, string cmap = "viridis");
+
+    [CanonicalApi("PythonSharp.Visualization.StatisticalPlotter.RenderDistributionHistogram", "PythonSharp.Matplotlib.sns.HistPlot")]
+    [InlineTemplate("_sns.histplot({0}, kde={1})")]
+    public static extern PlotAxes histplot(NDArray<double> data, bool kde = true);
+
+    [CanonicalApi("PythonSharp.Visualization.StatisticalPlotter.RenderBoxPlot", "PythonSharp.Matplotlib.sns.BoxPlot")]
+    [InlineTemplate("_sns.boxplot(data={0}, x={1}, y={2})")]
+    public static extern PlotAxes boxplot<TRow>(DataFrame<TRow> data, string x, string y);
+}

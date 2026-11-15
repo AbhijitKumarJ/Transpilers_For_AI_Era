@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "slugify_util.py",
+      "namespace": [
+        "SlugifyUtil"
+      ],
+      "primary_ps": "Slugifier.ps",
+      "py": "slugify_util.py",
+      "pyc": "slugify_util.pyc"
+    }
+  ],
+  "schema_version": 1
+}

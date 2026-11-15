@@ -1,0 +1,279 @@
+namespace MicroCroniter;
+
+using PythonSharp.Core;
+
+public record CronDateTime(int Year, int Month, int Day, int Hour, int Minute)
+{
+    public int DayOfWeek
+    {
+        get { return CronCalendar.GetDayOfWeek(this.Year, this.Month, this.Day); }
+    }
+
+    public string ToIsoString()
+    {
+        string y = $"{this.Year}";
+        string m = this.Month < 10 ? $"0{this.Month}" : $"{this.Month}";
+        string d = this.Day < 10 ? $"0{this.Day}" : $"{this.Day}";
+        string h = this.Hour < 10 ? $"0{this.Hour}" : $"{this.Hour}";
+        string min = this.Minute < 10 ? $"0{this.Minute}" : $"{this.Minute}";
+        return $"{y}-{m}-{d} {h}:{min}";
+    }
+}
+
+public class CronCalendar
+{
+    public static bool IsLeapYear(int year)
+    {
+        if (year % 400 == 0) return true;
+        if (year % 100 == 0) return false;
+        return year % 4 == 0;
+    }
+
+    public static int DaysInMonth(int year, int month)
+    {
+        if (month == 2)
+        {
+            return IsLeapYear(year) ? 29 : 28;
+        }
+        if (month == 4 || month == 6 || month == 9 || month == 11)
+        {
+            return 30;
+        }
+        return 31;
+    }
+
+    public static int GetDayOfWeek(int y, int m, int d)
+    {
+        List<int> t = new List<int>();
+        t.Add(0); t.Add(3); t.Add(2); t.Add(5); t.Add(0); t.Add(3);
+        t.Add(5); t.Add(1); t.Add(4); t.Add(6); t.Add(2); t.Add(4);
+        int adjY = m < 3 ? y - 1 : y;
+        return (adjY + adjY / 4 - adjY / 100 + adjY / 400 + t[m - 1] + d) % 7;
+    }
+
+    public static CronDateTime AddMinute(CronDateTime dt)
+    {
+        int y = dt.Year;
+        int m = dt.Month;
+        int d = dt.Day;
+        int h = dt.Hour;
+        int min = dt.Minute + 1;
+
+        if (min >= 60)
+        {
+            min = 0;
+            h = h + 1;
+            if (h >= 24)
+            {
+                h = 0;
+                d = d + 1;
+                int maxDays = DaysInMonth(y, m);
+                if (d > maxDays)
+                {
+                    d = 1;
+                    m = m + 1;
+                    if (m > 12)
+                    {
+                        m = 1;
+                        y = y + 1;
+                    }
+                }
+            }
+        }
+        return new CronDateTime(y, m, d, h, min);
+    }
+}
+
+public class CronIterator
+{
+    private List<int> _minutes;
+    private List<int> _hours;
+    private List<int> _doms;
+    private List<int> _months;
+    private List<int> _dows;
+    private CronDateTime _current;
+
+    public CronIterator(string expression, CronDateTime startTime)
+    {
+        this._current = startTime;
+        this._minutes = new List<int>();
+        this._hours = new List<int>();
+        this._doms = new List<int>();
+        this._months = new List<int>();
+        this._dows = new List<int>();
+
+        List<string> parts = expression.Trim().Split(" ");
+        if (parts.Count != 5)
+        {
+            throw new ArgumentException("Cron expression must have exactly 5 fields");
+        }
+
+        this._minutes = ParseField(parts[0], 0, 59);
+        this._hours = ParseField(parts[1], 0, 23);
+        this._doms = ParseField(parts[2], 1, 31);
+        this._months = ParseField(parts[3], 1, 12);
+        this._dows = ParseField(parts[4], 0, 6);
+    }
+
+    public static bool IsValid(string expression)
+    {
+        try
+        {
+            CronDateTime dummy = new CronDateTime(2026, 1, 1, 0, 0);
+            CronIterator it = new CronIterator(expression, dummy);
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+    }
+
+    public static List<int> ParseField(string raw, int minVal, int maxVal)
+    {
+        List<int> result = new List<int>();
+        string field = raw.Trim();
+
+        List<string> subTokens = field.Split(",");
+        int s = 0;
+        while (s < subTokens.Count)
+        {
+            string token = subTokens[s].Trim();
+            s = s + 1;
+
+            if (token.Length == 0)
+            {
+                continue;
+            }
+
+            // Step interval
+            if (token.Contains("/"))
+            {
+                List<string> stepParts = token.Split("/");
+                string rangePart = stepParts[0].Trim();
+                int step = Int32.Parse(stepParts[1].Trim());
+                if (step <= 0)
+                {
+                    throw new ArgumentException("Cron step must be positive");
+                }
+
+                int rangeStart = minVal;
+                int rangeEnd = maxVal;
+                if (rangePart != "*")
+                {
+                    if (rangePart.Contains("-"))
+                    {
+                        List<string> r = rangePart.Split("-");
+                        rangeStart = Int32.Parse(r[0].Trim());
+                        rangeEnd = Int32.Parse(r[1].Trim());
+                    }
+                    else
+                    {
+                        rangeStart = Int32.Parse(rangePart);
+                    }
+                }
+
+                int val = rangeStart;
+                while (val <= rangeEnd)
+                {
+                    if (!result.Contains(val))
+                    {
+                        result.Add(val);
+                    }
+                    val = val + step;
+                }
+            }
+            // Range
+            else if (token.Contains("-"))
+            {
+                List<string> r = token.Split("-");
+                int start = Int32.Parse(r[0].Trim());
+                int end = Int32.Parse(r[1].Trim());
+                int val = start;
+                while (val <= end)
+                {
+                    if (!result.Contains(val))
+                    {
+                        result.Add(val);
+                    }
+                    val = val + 1;
+                }
+            }
+            // Wildcard
+            else if (token == "*")
+            {
+                int val = minVal;
+                while (val <= maxVal)
+                {
+                    if (!result.Contains(val))
+                    {
+                        result.Add(val);
+                    }
+                    val = val + 1;
+                }
+            }
+            // Exact number
+            else
+            {
+                int val = Int32.Parse(token);
+                if (val == 7 && maxVal == 6)
+                {
+                    // Allow 7 for Sunday (0)
+                    val = 0;
+                }
+                if (!result.Contains(val))
+                {
+                    result.Add(val);
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public bool Matches(CronDateTime dt)
+    {
+        if (!this._months.Contains(dt.Month))
+        {
+            return false;
+        }
+        if (!this._doms.Contains(dt.Day))
+        {
+            return false;
+        }
+        if (!this._dows.Contains(dt.DayOfWeek))
+        {
+            return false;
+        }
+        if (!this._hours.Contains(dt.Hour))
+        {
+            return false;
+        }
+        if (!this._minutes.Contains(dt.Minute))
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public CronDateTime GetNext()
+    {
+        CronDateTime dt = CronCalendar.AddMinute(this._current);
+        int maxIter = 5 * 366 * 24 * 60; // 5 years max search
+        int iter = 0;
+
+        while (iter < maxIter)
+        {
+            if (this.Matches(dt))
+            {
+                this._current = dt;
+                return dt;
+            }
+            dt = CronCalendar.AddMinute(dt);
+            iter = iter + 1;
+        }
+
+        throw new SystemException("No cron match found within 5 years");
+    }
+}
+

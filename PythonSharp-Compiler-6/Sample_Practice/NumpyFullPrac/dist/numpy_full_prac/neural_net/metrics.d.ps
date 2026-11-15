@@ -1,0 +1,11 @@
+// Auto-generated ambient declarations by PythonSharp (psc)
+namespace NumpyFullPrac.NeuralNet.Metrics;
+
+using PythonSharp.Core;
+
+public class ModelEvaluator
+{
+    public static extern double ComputeAccuracy(NDArray<double> probabilities, NDArray<double> targets);
+    public static extern NDArray<int> ArgMax(NDArray<double> arr, int axis = 1);
+    public static extern void PrintProgress(string pipelineName, int epoch, int maxEpochs, double loss, double accuracy = null);
+}

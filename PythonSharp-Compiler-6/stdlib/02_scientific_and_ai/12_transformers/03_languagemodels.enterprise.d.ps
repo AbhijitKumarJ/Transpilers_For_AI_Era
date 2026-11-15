@@ -1,0 +1,18 @@
+namespace PythonSharp.ArtificialIntelligence.LanguageModels;
+
+using PythonSharp.Core;
+extern using transformers as _hf;
+
+[SurfaceLevel(1)]
+[MapsTo("_hf")]
+public static primitive class HuggingFaceHubLoader
+{
+    [InlineTemplate("_hf.AutoTokenizer.from_pretrained({0})")]
+    public static extern PretrainedTextTokenizer LoadPretrainedTokenizer(string repositoryModelIdentifier);
+
+    [InlineTemplate("_hf.AutoModel.from_pretrained({0})")]
+    public static extern PretrainedTransformerModel LoadPretrainedTransformerModel(string repositoryModelIdentifier);
+
+    [InlineTemplate("_hf.pipeline({0}, model={1})")]
+    public static extern InferenceTaskPipeline CreateInferenceTaskPipeline(string taskCategory, string? repositoryModelIdentifier = null);
+}

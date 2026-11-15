@@ -1,0 +1,38 @@
+namespace PythonSharp.Sys;
+
+using PythonSharp.Core;
+using PythonSharp.System.Runtime;
+extern using sys as _py_sys;
+
+[SurfaceLevel(3)]
+[MapsTo("_py_sys")]
+public static primitive class Sys
+{
+    [CanonicalApi("PythonSharp.System.Runtime.ProcessContext.CommandLineArguments")]
+    [InlineTemplate("_py_sys.argv")]
+    public static extern List<string> Argv { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.ProcessContext.ModuleSearchPaths")]
+    [InlineTemplate("_py_sys.path")]
+    public static extern List<string> Path { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.ProcessContext.OperatingSystemPlatform")]
+    [InlineTemplate("_py_sys.platform")]
+    public static extern string Platform { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.ProcessContext.InterpreterVersionInfo")]
+    [InlineTemplate("_py_sys.version_info")]
+    public static extern PythonVersionInfo VersionInfo { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.StandardStreams.StandardOutput")]
+    [InlineTemplate("_py_sys.stdout")]
+    public static extern TextOutputStream Stdout { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.StandardStreams.StandardError")]
+    [InlineTemplate("_py_sys.stderr")]
+    public static extern TextOutputStream Stderr { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.ProcessContext.TerminateProcess")]
+    [InlineTemplate("_py_sys.exit({0})")]
+    public static extern void Exit(int exitCode = 0);
+}

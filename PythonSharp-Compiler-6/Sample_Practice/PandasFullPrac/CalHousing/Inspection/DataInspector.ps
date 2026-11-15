@@ -1,0 +1,41 @@
+namespace PandasDemo.CalHousing.Inspection;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Pandas;
+using PythonSharp.Bridge.Pandas.Core.Frame;
+
+public class DataInspector
+{
+    public static DataFrame Inspect(DataFrame df)
+    {
+        Console.WriteLine("\n=======================================================");
+        Console.WriteLine(" PHASE 1: HIGH-LEVEL DATA INSPECTION");
+        Console.WriteLine("=======================================================");
+
+        // 1. Inspect Dataset Dimensions
+        Console.WriteLine($"[Inspection] Dataset Dimensions (Shape): {df.Shape}");
+        Console.WriteLine($"[Inspection] Total Elements (Size):      {df.Size}");
+
+        // 2. View First 5 Rows (Head Preview)
+        Console.WriteLine("\n--- First 5 Observations (Head Preview) ---");
+        Console.WriteLine(df.Head(5));
+
+        // 3. Statistical Summary (Describe)
+        Console.WriteLine("\n--- Numerical Statistical Summary (Describe) ---");
+        var summary = df.Describe();
+        Console.WriteLine(summary);
+
+        // 4. Target Column Inspection
+        Console.WriteLine("\n--- Target Column Preview ('MedHouseVal') ---");
+        dynamic targetCol = df["MedHouseVal"];
+        Console.WriteLine(targetCol.Head(5));
+
+        // 5. Initial Missing Value Profile
+        Console.WriteLine("\n--- Initial Missing Value Audit (Isna.Sum) ---");
+        dynamic isnaSummary = df.Isna();
+        Console.WriteLine(isnaSummary.Sum());
+
+        Console.WriteLine("[Inspection] Phase 1 Completed Successfully.");
+        return summary;
+    }
+}

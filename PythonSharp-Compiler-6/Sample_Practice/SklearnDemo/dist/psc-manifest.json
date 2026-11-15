@@ -1,0 +1,17 @@
+{
+  "compiler_version": "0.2.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "d_ps": "sklearn_demo.d.ps",
+      "module": "sklearn_demo.py",
+      "namespace": [
+        "SklearnDemo"
+      ],
+      "primary_ps": "ProjMain.ps",
+      "py": "sklearn_demo.py",
+      "pyc": "sklearn_demo.pyc"
+    }
+  ],
+  "schema_version": 1
+}

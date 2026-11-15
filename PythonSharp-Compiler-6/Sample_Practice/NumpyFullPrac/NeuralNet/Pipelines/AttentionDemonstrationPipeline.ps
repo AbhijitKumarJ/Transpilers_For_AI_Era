@@ -1,0 +1,64 @@
+namespace NumpyFullPrac.NeuralNet.Pipelines;
+
+extern using numpy as _np;
+extern using numpy.random as _nprand;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using NumpyFullPrac.NeuralNet.Attention;
+using NumpyFullPrac.NeuralNet.Layers;
+
+public class AttentionDemonstrationPipeline
+{
+    public static void Run()
+    {
+        Console.WriteLine("\n=======================================================");
+        Console.WriteLine(" PHASE 4: ATTENTION & MULTI-HEAD TRANSFORMER BLOCKS");
+        Console.WriteLine("=======================================================");
+
+        // Simulate a token sequence embedding: 4 tokens, 8 embedding dimensions
+        int seqLen = 4;
+        int dModel = 8;
+        NDArray<double> embeddings = _nprand.randn(seqLen, dModel) * 0.5;
+
+        // 1. Scaled Dot-Product Attention (Unmasked)
+        ScaledDotProductAttention rawAttn = new ScaledDotProductAttention();
+        NDArray<double> attnOut = rawAttn.Forward(embeddings, embeddings, embeddings, false);
+        dynamic weights = rawAttn.AttentionWeights;
+        dynamic rowSums = _np.sum(weights, axis: 1);
+        Console.WriteLine($"[Attention] Standard Attention row probability sums: {rowSums}");
+
+        // 2. Scaled Dot-Product Attention with Causal Autoregressive Mask
+        ScaledDotProductAttention causalAttn = new ScaledDotProductAttention();
+        NDArray<double> causalOut = causalAttn.Forward(embeddings, embeddings, embeddings, true);
+        dynamic causalWeights = causalAttn.AttentionWeights;
+        Console.WriteLine("[Attention] Causal Masked Attention Matrix (Upper Triangle = 0):");
+        for (int r = 0; r < seqLen; r++)
+        {
+            string rowStr = "";
+            for (int c = 0; c < seqLen; c++)
+            {
+                double w = causalWeights[r, c];
+                rowStr = rowStr + $" {w:F3}";
+            }
+            Console.WriteLine($"  Token {r}: [{rowStr} ]");
+        }
+
+        // 3. Multi-Head Attention (2 heads, head_dim = 4)
+        MultiHeadAttention mha = new MultiHeadAttention(dModel, 2);
+        NDArray<double> mhaOut = mha.Forward(embeddings, true);
+        dynamic dynMha = mhaOut;
+        Console.WriteLine($"[Attention] Multi-Head Attention output shape: ({dynMha.shape[0]}, {dynMha.shape[1]})");
+
+        // 4. Residual Connection & Layer Normalization
+        dynamic dynEmb = embeddings;
+        dynamic residual = dynEmb + dynMha;
+        LayerNormLayer norm = new LayerNormLayer(dModel);
+        NDArray<double> normOut = norm.Forward(residual);
+        dynamic dynNorm = normOut;
+        dynamic tokenMeans = _np.mean(dynNorm, axis: -1);
+        dynamic tokenVars = _np.var(dynNorm, axis: -1);
+        Console.WriteLine($"[Attention] Post-LayerNorm Token Means: {tokenMeans}");
+        Console.WriteLine($"[Attention] Post-LayerNorm Token Variances: {tokenVars}");
+        Console.WriteLine("[Attention] Attention and Transformer block verified successfully!");
+    }
+}

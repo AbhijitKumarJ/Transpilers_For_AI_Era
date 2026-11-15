@@ -1,0 +1,33 @@
+namespace DataPipeline.Services;
+
+using PythonSharp.Core;
+using DataPipeline.Models;
+
+public class InventoryAnalytics
+{
+    private readonly List<Product> _products;
+
+    public InventoryAnalytics(List<Product> products)
+    {
+        _products = products;
+    }
+
+    public List<string> GetTopStockedNames(string category, int limit)
+    {
+        return _products
+            .Where(p => p.Category == category && p.Stock > 0)
+            .OrderByDescending(p => p.Stock)
+            .Take(limit)
+            .Select(p => $"{p.Name} ({p.Stock} in stock @ ${p.Price})")
+            .ToList();
+    }
+
+    public double CalculateTotalValue(string category)
+    {
+        return _products
+            .Where(p => p.Category == category)
+            .Select(p => p.Price * p.Stock)
+            .Sum();
+    }
+}
+

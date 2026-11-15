@@ -1,0 +1,56 @@
+namespace NumpyFullPrac.NeuralNet.Layers;
+
+extern using numpy as _np;
+extern using numpy.random as _nprand;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+
+public class DropoutLayer
+{
+    public double DropRate;
+    public bool IsTraining;
+    public NDArray<double> Mask;
+
+    public DropoutLayer(double dropRate = 0.2)
+    {
+        this.DropRate = dropRate;
+        this.IsTraining = true;
+    }
+
+    public void SetTraining(bool mode)
+    {
+        this.IsTraining = mode;
+    }
+
+    public NDArray<double> Forward(NDArray<double> inputs)
+    {
+        if (!this.IsTraining || this.DropRate <= 0.0)
+        {
+            return inputs;
+        }
+
+        dynamic dynIn = inputs;
+        // Inverted dropout mask scaled by 1 / (1 - dropRate)
+        dynamic randVals = _nprand.rand(dynIn.shape[0], dynIn.shape[1]);
+        dynamic keepMask = randVals >= this.DropRate;
+        dynamic scale = 1.0 / (1.0 - this.DropRate);
+        dynamic mask = keepMask.astype("float64") * scale;
+
+        this.Mask = mask;
+        dynamic result = dynIn * mask;
+        return result;
+    }
+
+    public NDArray<double> Backward(NDArray<double> dOutputs)
+    {
+        if (!this.IsTraining || this.DropRate <= 0.0)
+        {
+            return dOutputs;
+        }
+
+        dynamic dynDOut = dOutputs;
+        dynamic dynMask = this.Mask;
+        dynamic result = dynDOut * dynMask;
+        return result;
+    }
+}

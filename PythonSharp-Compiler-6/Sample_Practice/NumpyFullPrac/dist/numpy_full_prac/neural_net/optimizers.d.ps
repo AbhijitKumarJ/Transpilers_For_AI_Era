@@ -1,0 +1,48 @@
+// Auto-generated ambient declarations by PythonSharp (psc)
+namespace NumpyFullPrac.NeuralNet.Optimizers;
+
+using PythonSharp.Core;
+
+public class AdamOptimizer
+{
+    public double LearningRate;
+    public double Beta1;
+    public double Beta2;
+    public double Epsilon;
+    public int T;
+    public bool Initialized;
+    public NDArray<double> Mw;
+    public NDArray<double> Vw;
+    public NDArray<double> Mb;
+    public NDArray<double> Vb;
+    public extern AdamOptimizer(double lr = 0.001, double beta1 = 0.9, double beta2 = 0.999, double epsilon = 1e-08);
+    public extern void Step(DenseLayer layer);
+}
+
+public class CosineScheduler
+{
+    public double BaseLr;
+    public double MinLr;
+    public int TotalSteps;
+    public int CurrentStep;
+    public extern CosineScheduler(double baseLr, double minLr, int totalSteps);
+    public extern double GetLearningRate();
+    public extern void Step();
+}
+
+public class GradientClipper
+{
+    public static extern NDArray<double> ClipByValue(NDArray<double> grad, double minVal, double maxVal);
+    public static extern NDArray<double> ClipByNorm(NDArray<double> grad, double maxNorm);
+}
+
+public class SGDOptimizer
+{
+    public double LearningRate;
+    public double Momentum;
+    public bool Initialized;
+    public NDArray<double> Vw;
+    public NDArray<double> Vb;
+    public extern SGDOptimizer(double learningRate = 0.1, double momentum = 0.9);
+    public extern void Step(DenseLayer layer);
+}

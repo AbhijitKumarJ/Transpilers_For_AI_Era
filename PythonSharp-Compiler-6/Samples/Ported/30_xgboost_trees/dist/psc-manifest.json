@@ -1,0 +1,18 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "python_sharp/samples/xg_boost_trees.py",
+      "namespace": [
+        "PythonSharp",
+        "Samples",
+        "XGBoostTrees"
+      ],
+      "primary_ps": "XGBoostEngine.ps",
+      "py": "python_sharp/samples/xg_boost_trees.py",
+      "pyc": null
+    }
+  ],
+  "schema_version": 1
+}

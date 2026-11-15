@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "micro_subprocess.py",
+      "namespace": [
+        "MicroSubprocess"
+      ],
+      "primary_ps": "ProcessEngine.ps",
+      "py": "micro_subprocess.py",
+      "pyc": "micro_subprocess.pyc"
+    }
+  ],
+  "schema_version": 1
+}

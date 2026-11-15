@@ -1,0 +1,43 @@
+namespace PandasDemo;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Pandas;
+using PythonSharp.Bridge.Pandas.Core.Frame;
+
+public class ProjMain
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("PandasDemo - Initializing Data Analysis Pipeline");
+        TestUtil.Log("Loading dataset from Data/titanic.csv");
+
+        // 1. Load CSV dataset using Pandas.ReadCsv
+        var csvPath = "../../Data/titanic.csv";
+        var df = Pandas.ReadCsv(csvPath);
+
+        // 2. Inspect Dataset Dimensions
+        Console.WriteLine($"Dataset Loaded Successfully!");
+        Console.WriteLine($"Dimensions: {df.Shape}");
+        Console.WriteLine($"Total Cells: {df.Size}");
+
+        // 3. Inspect First 5 Rows (Head)
+        Console.WriteLine("\n--- Dataset Preview (Head: 5 rows) ---");
+        Console.WriteLine(df.Head(5));
+
+        // 4. Statistical Summary
+        Console.WriteLine("\n--- Numerical Summary (Describe) ---");
+        var summary = df.Describe();
+        Console.WriteLine(summary);
+
+        // 5. Inspect Specific Column Series
+        Console.WriteLine("\n--- Column Preview: 'age' ---");
+        Console.WriteLine(df["age"]);
+
+        // 6. Export Statistical Summary to CSV
+        TestUtil.Log("Exporting analytical summary report to CSV");
+        summary.ToCsv("titanic_summary_report.csv");
+        Console.WriteLine("Generated 'titanic_summary_report.csv' successfully!");
+
+        Console.WriteLine("\nPandasDemo - Completed Successfully!");
+    }
+}

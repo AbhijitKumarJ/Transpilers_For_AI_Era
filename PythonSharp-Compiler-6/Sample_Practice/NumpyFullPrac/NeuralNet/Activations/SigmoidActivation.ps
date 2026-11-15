@@ -1,0 +1,25 @@
+namespace NumpyFullPrac.NeuralNet.Activations;
+
+extern using numpy as _np;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+
+public class SigmoidActivation
+{
+    public static NDArray<double> Forward(NDArray<double> z)
+    {
+        dynamic dynZ = z;
+        dynamic clipped = _np.clip(dynZ, -500.0, 500.0);
+        dynamic expVal = _np.exp(-clipped);
+        dynamic result = 1.0 / (1.0 + expVal);
+        return result;
+    }
+
+    public static NDArray<double> Backward(NDArray<double> a)
+    {
+        // Derivative: a * (1 - a) where a is the activated output
+        dynamic dynA = a;
+        dynamic result = dynA * (1.0 - dynA);
+        return result;
+    }
+}

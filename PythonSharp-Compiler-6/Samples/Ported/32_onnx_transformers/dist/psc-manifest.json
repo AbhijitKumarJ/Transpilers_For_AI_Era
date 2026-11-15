@@ -1,0 +1,18 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "python_sharp/samples/onnx_transformers.py",
+      "namespace": [
+        "PythonSharp",
+        "Samples",
+        "OnnxTransformers"
+      ],
+      "primary_ps": "OnnxEmbeddingEngine.ps",
+      "py": "python_sharp/samples/onnx_transformers.py",
+      "pyc": null
+    }
+  ],
+  "schema_version": 1
+}

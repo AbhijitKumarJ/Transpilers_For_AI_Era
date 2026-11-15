@@ -1,0 +1,11 @@
+<Project Sdk="PythonSharp.Sdk">
+  <PropertyGroup>
+    <AssemblyName>QiskitQuantum</AssemblyName>
+    <OutputType>Library</OutputType>
+    <TargetFramework>py3.11</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="qiskit" />
+  </ItemGroup>
+</Project>
+

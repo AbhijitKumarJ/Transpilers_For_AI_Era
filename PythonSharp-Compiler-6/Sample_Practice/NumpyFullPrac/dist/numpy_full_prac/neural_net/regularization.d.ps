@@ -1,0 +1,15 @@
+// Auto-generated ambient declarations by PythonSharp (psc)
+namespace NumpyFullPrac.NeuralNet.Regularization;
+
+using PythonSharp.Core;
+
+public class EarlyStoppingHandler
+{
+    public int Patience;
+    public double MinDelta;
+    public double BestLoss;
+    public int WaitCount;
+    public bool ShouldStop;
+    public extern EarlyStoppingHandler(int patience = 5, double minDelta = 0.0001);
+    public extern bool Check(double currentLoss);
+}

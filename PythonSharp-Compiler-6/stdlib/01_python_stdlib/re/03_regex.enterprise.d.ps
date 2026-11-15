@@ -1,0 +1,27 @@
+namespace PythonSharp.Text.RegularExpressions;
+
+using PythonSharp.Core;
+extern using re as _py_re;
+
+[SurfaceLevel(1)]
+[MapsTo("_py_re")]
+public static primitive class RegexEngine
+{
+    [InlineTemplate("_py_re.compile({0})")]
+    public static extern CompiledRegexPattern CompilePattern(string regexPattern);
+
+    [InlineTemplate("_py_re.match({0}, {1})")]
+    public static extern RegexMatch? MatchAtBeginning(string regexPattern, string inputText);
+
+    [InlineTemplate("_py_re.search({0}, {1})")]
+    public static extern RegexMatch? SearchAnywhere(string regexPattern, string inputText);
+
+    [InlineTemplate("_py_re.findall({0}, {1})")]
+    public static extern List<string> FindAllMatches(string regexPattern, string inputText);
+
+    [InlineTemplate("_py_re.sub({0}, {1}, {2})")]
+    public static extern string ReplaceAllMatches(string regexPattern, string replacementText, string inputText);
+
+    [InlineTemplate("_py_re.split({0}, {1})")]
+    public static extern List<string> SplitByPattern(string regexPattern, string inputText);
+}

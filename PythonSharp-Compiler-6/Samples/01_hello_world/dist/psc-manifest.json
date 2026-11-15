@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "hello_app.py",
+      "namespace": [
+        "HelloApp"
+      ],
+      "primary_ps": "Program.ps",
+      "py": "hello_app.py",
+      "pyc": "hello_app.pyc"
+    }
+  ],
+  "schema_version": 1
+}

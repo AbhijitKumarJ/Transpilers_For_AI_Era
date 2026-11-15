@@ -1,0 +1,41 @@
+namespace NumpyFullPrac.NeuralNet.Metrics;
+
+extern using numpy as _np;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+
+public class ModelEvaluator
+{
+    public static double ComputeAccuracy(NDArray<double> probabilities, NDArray<double> targets)
+    {
+        dynamic dynP = probabilities;
+        dynamic dynY = targets;
+
+        dynamic predLabels = _np.argmax(dynP, axis: 1);
+        dynamic trueLabels = _np.argmax(dynY, axis: 1);
+
+        dynamic correct = predLabels == trueLabels;
+        dynamic accVal = _np.mean(correct.astype("float64"));
+        double accuracy = accVal;
+        return accuracy;
+    }
+
+    public static NDArray<int> ArgMax(NDArray<double> arr, int axis = 1)
+    {
+        dynamic dynArr = arr;
+        dynamic result = _np.argmax(dynArr, axis: axis);
+        return result;
+    }
+
+    public static void PrintProgress(string pipelineName, int epoch, int maxEpochs, double loss, double accuracy = -1.0)
+    {
+        if (accuracy >= 0.0)
+        {
+            Console.WriteLine($"[{pipelineName}] Epoch {epoch}/{maxEpochs} - Loss: {loss:F5} | Accuracy: {accuracy * 100.0:F2}%");
+        }
+        else
+        {
+            Console.WriteLine($"[{pipelineName}] Epoch {epoch}/{maxEpochs} - Loss: {loss:F5}");
+        }
+    }
+}

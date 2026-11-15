@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "micro_multi_method.py",
+      "namespace": [
+        "MicroMultiMethod"
+      ],
+      "primary_ps": "MultiMethod.ps",
+      "py": "micro_multi_method.py",
+      "pyc": "micro_multi_method.pyc"
+    }
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,44 @@
+namespace NumpyFullPrac.NeuralNet.Attention;
+
+extern using numpy as _np;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using NumpyFullPrac.NeuralNet.Activations;
+
+public class ScaledDotProductAttention
+{
+    public NDArray<double> AttentionWeights;
+
+    public ScaledDotProductAttention()
+    {
+    }
+
+    public NDArray<double> Forward(NDArray<double> q, NDArray<double> k, NDArray<double> v, bool useCausalMask = false)
+    {
+        dynamic dynQ = q;
+        dynamic dynK = k;
+        dynamic dynV = v;
+
+        int dK = dynQ.shape[-1];
+        double scale = 1.0 / _np.sqrt(1.0 * dK);
+
+        // Scores = Q @ K.T * scale
+        dynamic kT = _np.transpose(dynK);
+        dynamic scores = _np.dot(dynQ, kT) * scale;
+
+        if (useCausalMask)
+        {
+            int seqLen = dynQ.shape[0];
+            dynamic causalMask = _np.triu(_np.ones([seqLen, seqLen]), 1);
+            scores = scores + (causalMask * -1e9);
+        }
+
+        // Apply softmax across rows
+        dynamic weights = SoftmaxActivation.Forward(scores);
+        this.AttentionWeights = weights;
+
+        // Output = weights @ V
+        dynamic output = _np.dot(weights, dynV);
+        return output;
+    }
+}

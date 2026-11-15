@@ -1,0 +1,11 @@
+<Project Sdk="PythonSharp.Sdk">
+  <PropertyGroup>
+    <AssemblyName>TorchTensors</AssemblyName>
+    <OutputType>Library</OutputType>
+    <TargetFramework>py3.11</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="torch" />
+  </ItemGroup>
+</Project>
+

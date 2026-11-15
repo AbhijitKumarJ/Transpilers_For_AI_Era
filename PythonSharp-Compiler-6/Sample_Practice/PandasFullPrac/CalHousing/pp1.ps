@@ -1,0 +1,63 @@
+namespace PandasDemo.CalHousing;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Pandas;
+using PythonSharp.Bridge.Pandas.Core.Frame;
+using PandasDemo.CalHousing.Inspection;
+using PandasDemo.CalHousing.Cleaning;
+using PandasDemo.CalHousing.Outliers;
+using PandasDemo.CalHousing.Engineering;
+using PandasDemo.CalHousing.Encoding;
+using PandasDemo.CalHousing.Analytics;
+using PandasDemo.CalHousing.Splitting;
+using PandasDemo.CalHousing.Scaling;
+using PandasDemo.CalHousing.Export;
+using PandasDemo.CalHousing.Pipeline;
+
+public class pp1
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("###############################################################");
+        Console.WriteLine("##  CALIFORNIA HOUSING FULL DATA PREPROCESSING PIPELINE      ##");
+        Console.WriteLine("###############################################################");
+
+        var csvPath = "../../Data/california_housing.csv";
+        var df = Pandas.ReadCsv(csvPath);
+
+        // Phase 1: High-Level Inspection (Understanding the Data)
+        var summary = DataInspector.Inspect(df);
+
+        // Phase 2: Data Cleaning & Integrity Checks (Imputation & Deduplication)
+        df = DataCleaner.Clean(df);
+
+        // Phase 3: Outlier Handling & Filtering (Ceiling & IQR)
+        df = OutlierHandler.HandleOutliers(df);
+
+        // Phase 4: Feature Transformation & Discretization (Domain Ratios, Cut, Log)
+        df = FeatureTransformer.Transform(df);
+
+        // Phase 5: Grouping, Aggregation & Correlations
+        InsightAggregator.ExtractInsights(df);
+
+        // Phase 6: Categorical Encoding (Ordinal, Target, One-Hot)
+        df = CategoricalEncoder.Encode(df);
+
+        // Phase 7: Pure-Pandas Shuffled Train/Test Split
+        var split = DatasetSplitter.Split(df, 0.2f);
+
+        // Phase 8: Zero-Leakage Feature Scaling (Z-score Standardization)
+        var scaled = FeatureScaler.Standardize(split.XTrain, split.XTest);
+
+        // Phase 9: Automated Structural Artifact Export
+        DataExporter.Export(scaled.XTrainScaled, scaled.XTestScaled, split.YTrain, split.YTest, summary, "data/processed");
+
+        // Phase 10: Reusable Pipeline Engine Verification
+        var pipeline = new CaliforniaHousingPipeline();
+        var xTrainProc = pipeline.FitTransform(df);
+        var xTestProc = pipeline.Transform(df.Head(10));
+        Console.WriteLine($"[Pipeline Engine] Verified reusability on test batch: {xTestProc.Shape}");
+
+        Console.WriteLine("\nCalHousing Full Preprocessing Pipeline Completed Successfully!");
+    }
+}

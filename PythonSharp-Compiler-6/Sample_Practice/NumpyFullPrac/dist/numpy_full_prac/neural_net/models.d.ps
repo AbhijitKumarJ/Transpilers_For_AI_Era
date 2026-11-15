@@ -1,0 +1,16 @@
+// Auto-generated ambient declarations by PythonSharp (psc)
+namespace NumpyFullPrac.NeuralNet.Models;
+
+using PythonSharp.Core;
+
+public class SequentialMLP
+{
+    public List<DenseLayer> Layers;
+    public bool IsTraining;
+    public extern SequentialMLP();
+    public extern void Add(DenseLayer layer);
+    public extern void SetTraining(bool mode);
+    public extern double ComputeL2Loss();
+    public extern NDArray<double> Forward(NDArray<double> x);
+    public extern void Backward(NDArray<double> dOut, bool isDeltaZ = false);
+}

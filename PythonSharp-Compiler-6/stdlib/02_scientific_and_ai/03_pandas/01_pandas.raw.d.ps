@@ -1,0 +1,39 @@
+namespace pandas;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using PythonSharp.DataScience.Tabular;
+extern using pandas as pd;
+
+[SurfaceLevel(2)]
+[MapsTo("pd")]
+public static primitive class pd
+{
+    [CanonicalApi("PythonSharp.DataScience.Tabular.TabularDataReader.ReadCsvFile", "PythonSharp.Pandas.pd.ReadCsv")]
+    [InlineTemplate("pd.read_csv({0})")]
+    public static extern DataFrame<object> read_csv(string filepath_or_buffer);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.TabularDataReader.ReadParquetFile", "PythonSharp.Pandas.pd.ReadParquet")]
+    [InlineTemplate("pd.read_parquet({0})")]
+    public static extern DataFrame<object> read_parquet(string path);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.TabularDataReader.ReadJsonFile", "PythonSharp.Pandas.pd.ReadJson")]
+    [InlineTemplate("pd.read_json({0})")]
+    public static extern DataFrame<object> read_json(string path_or_buf);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.TabularDataFactory.CreateDataFrameFromDictionary", "PythonSharp.Pandas.pd.FromDict")]
+    [InlineTemplate("pd.DataFrame({0})")]
+    public static extern DataFrame<object> DataFrame(object data);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.TabularDataFactory.CreateSeriesFromSequence", "PythonSharp.Pandas.pd.CreateSeries")]
+    [InlineTemplate("pd.Series({0})")]
+    public static extern Series<T> Series<T>(IEnumerable<T> data);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.TabularOperations.ConcatenateDataFrames", "PythonSharp.Pandas.pd.Concat")]
+    [InlineTemplate("pd.concat({0}, axis={1})")]
+    public static extern DataFrame<TRow> concat<TRow>(IEnumerable<DataFrame<TRow>> objs, int axis = 0);
+
+    [CanonicalApi("PythonSharp.DataScience.Tabular.TabularOperations.MergeDataFramesOnKey", "PythonSharp.Pandas.pd.Merge")]
+    [InlineTemplate("pd.merge({0}, {1}, on={2}, how={3})")]
+    public static extern DataFrame<object> merge<TLeft, TRight>(DataFrame<TLeft> left, DataFrame<TRight> right, string on, string how = "inner");
+}

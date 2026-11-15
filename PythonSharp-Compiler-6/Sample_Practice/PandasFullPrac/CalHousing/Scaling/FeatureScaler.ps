@@ -1,0 +1,46 @@
+namespace PandasDemo.CalHousing.Scaling;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Pandas;
+using PythonSharp.Bridge.Pandas.Core.Frame;
+
+public class ScaledResult
+{
+    public DataFrame XTrainScaled;
+    public DataFrame XTestScaled;
+}
+
+public class FeatureScaler
+{
+    public static ScaledResult Standardize(DataFrame xTrain, DataFrame xTest)
+    {
+        Console.WriteLine("\n=======================================================");
+        Console.WriteLine(" PHASE 8: FEATURE SCALING (LEAKAGE PREVENTION)");
+        Console.WriteLine("=======================================================");
+
+        dynamic dTrain = xTrain;
+        dynamic dTest = xTest;
+
+        // 1. Calculate scaling metrics ONLY on training subset to avoid leakage
+        Console.WriteLine("[Scaler] Calculating training Mean and Standard Deviation...");
+        var trainMean = dTrain.Mean(numeric_only: true);
+        var trainStd = dTrain.Std(numeric_only: true);
+
+        // 2. Apply formula: X_scaled = (X - mu) / sigma
+        Console.WriteLine("[Scaler] Applying Z-Score Standardization strictly with train statistics...");
+        dynamic xTrainScaled = (dTrain - trainMean) / trainStd;
+        dynamic xTestScaled = (dTest - trainMean) / trainStd;
+
+        Console.WriteLine("[Scaler] Scaling Verification Check (Zero-Leakage):");
+        Console.WriteLine($"  X_train Mean (Sample 'MedInc'): {xTrainScaled["MedInc"].Mean():F4}");
+        Console.WriteLine($"  X_train Std  (Sample 'MedInc'): {xTrainScaled["MedInc"].Std():F4}");
+        Console.WriteLine($"  X_test  Mean (Sample 'MedInc'): {xTestScaled["MedInc"].Mean():F4}");
+        Console.WriteLine($"  X_test  Std  (Sample 'MedInc'): {xTestScaled["MedInc"].Std():F4}");
+        Console.WriteLine("[Scaler] Phase 8 Completed Successfully.");
+
+        var res = new ScaledResult();
+        res.XTrainScaled = xTrainScaled;
+        res.XTestScaled = xTestScaled;
+        return res;
+    }
+}

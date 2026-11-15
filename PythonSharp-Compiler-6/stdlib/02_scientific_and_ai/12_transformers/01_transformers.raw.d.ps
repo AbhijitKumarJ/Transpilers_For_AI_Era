@@ -1,0 +1,32 @@
+namespace transformers;
+
+using PythonSharp.Core;
+using PythonSharp.ArtificialIntelligence.LanguageModels;
+extern using transformers as _hf;
+
+[SurfaceLevel(2)]
+[MapsTo("_hf.AutoTokenizer")]
+public static primitive class AutoTokenizer
+{
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.LanguageModels.HuggingFaceHubLoader.LoadPretrainedTokenizer", "PythonSharp.Transformers.hf.AutoTokenizer.FromPretrained")]
+    [InlineTemplate("_hf.AutoTokenizer.from_pretrained({0})")]
+    public static extern PretrainedTextTokenizer from_pretrained(string pretrained_model_name_or_path);
+}
+
+[SurfaceLevel(2)]
+[MapsTo("_hf.AutoModel")]
+public static primitive class AutoModel
+{
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.LanguageModels.HuggingFaceHubLoader.LoadPretrainedTransformerModel", "PythonSharp.Transformers.hf.AutoModel.FromPretrained")]
+    [InlineTemplate("_hf.AutoModel.from_pretrained({0})")]
+    public static extern PretrainedTransformerModel from_pretrained(string pretrained_model_name_or_path);
+}
+
+[SurfaceLevel(2)]
+[MapsTo("_hf")]
+public static primitive class transformers
+{
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.LanguageModels.HuggingFaceHubLoader.CreateInferenceTaskPipeline", "PythonSharp.Transformers.hf.Pipeline")]
+    [InlineTemplate("_hf.pipeline({0}, model={1})")]
+    public static extern InferenceTaskPipeline pipeline(string task, string? model = null);
+}

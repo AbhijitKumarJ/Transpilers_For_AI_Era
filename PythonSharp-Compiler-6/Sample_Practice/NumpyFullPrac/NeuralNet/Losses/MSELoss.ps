@@ -1,0 +1,29 @@
+namespace NumpyFullPrac.NeuralNet.Losses;
+
+extern using numpy as _np;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+
+public class MSELoss
+{
+    public static double Compute(NDArray<double> predictions, NDArray<double> targets)
+    {
+        dynamic dynP = predictions;
+        dynamic dynY = targets;
+        double n = 1.0 * dynP.shape[0];
+        dynamic diff = dynP - dynY;
+        dynamic squared = diff * diff;
+        dynamic sumVal = _np.sum(squared);
+        double lossVal = sumVal / n;
+        return lossVal;
+    }
+
+    public static NDArray<double> Gradient(NDArray<double> predictions, NDArray<double> targets)
+    {
+        dynamic dynP = predictions;
+        dynamic dynY = targets;
+        double n = 1.0 * dynP.shape[0];
+        dynamic grad = (2.0 / n) * (dynP - dynY);
+        return grad;
+    }
+}

@@ -1,0 +1,18 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "python_sharp/samples/sympy_math.py",
+      "namespace": [
+        "PythonSharp",
+        "Samples",
+        "SympyMath"
+      ],
+      "primary_ps": "SymbolicMathEngine.ps",
+      "py": "python_sharp/samples/sympy_math.py",
+      "pyc": "python_sharp/samples/sympy_math.pyc"
+    }
+  ],
+  "schema_version": 1
+}

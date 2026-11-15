@@ -1,0 +1,13 @@
+<Project Sdk="PythonSharp.Sdk/0.1.0">
+  <PropertyGroup>
+    <AssemblyName>PlottingBuilders</AssemblyName>
+    <TargetFramework>py3.11</TargetFramework>
+    <EmitPyc>false</EmitPyc>
+  </PropertyGroup>
+  <ItemGroup>
+    <PyPiPackage Include="matplotlib" Version=">=3.7.0" />
+    <PyPiPackage Include="seaborn" Version=">=0.12.0" />
+    <PyPiPackage Include="numpy" Version=">=1.24.0" />
+  </ItemGroup>
+</Project>
+

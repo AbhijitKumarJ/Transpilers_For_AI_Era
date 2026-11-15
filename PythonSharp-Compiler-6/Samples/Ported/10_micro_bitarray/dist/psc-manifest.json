@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "micro_bit_array.py",
+      "namespace": [
+        "MicroBitArray"
+      ],
+      "primary_ps": "BitArray.ps",
+      "py": "micro_bit_array.py",
+      "pyc": "micro_bit_array.pyc"
+    }
+  ],
+  "schema_version": 1
+}

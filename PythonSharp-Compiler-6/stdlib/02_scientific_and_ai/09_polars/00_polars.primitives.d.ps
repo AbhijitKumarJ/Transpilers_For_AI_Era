@@ -1,0 +1,186 @@
+namespace PythonSharp.DataScience.Columnar;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+extern using polars as _pl;
+
+[MapsTo("polars.Expr")]
+[RuntimeType("polars.Expr")]
+public primitive class PolarsColumnExpression
+{
+    // --- Surface 1: Enterprise Self-Documenting Methods ---
+    [MapsTo("alias")]
+    public extern PolarsColumnExpression WithColumnAlias(string newColumnName);
+
+    [MapsTo("mean")]
+    public extern PolarsColumnExpression AggregateMean();
+
+    [MapsTo("sum")]
+    public extern PolarsColumnExpression AggregateSum();
+
+    [MapsTo("fill_null")]
+    public extern PolarsColumnExpression FillNullValuesWith(object replacementValue);
+
+    [InlineTemplate("({self} > {0})")]
+    public extern PolarsColumnExpression IsGreaterThan(double thresholdValue);
+
+    [InlineTemplate("({self} == {0})")]
+    public extern PolarsColumnExpression IsEqualTo(object targetValue);
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsColumnExpression.WithColumnAlias")]
+    [MapsTo("alias")]
+    public extern PolarsColumnExpression Alias(string name);
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsColumnExpression.AggregateMean")]
+    [MapsTo("mean")]
+    public extern PolarsColumnExpression Mean();
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsColumnExpression.AggregateSum")]
+    [MapsTo("sum")]
+    public extern PolarsColumnExpression Sum();
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsColumnExpression.FillNullValuesWith")]
+    [MapsTo("fill_null")]
+    public extern PolarsColumnExpression FillNull(object value);
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsColumnExpression.WithColumnAlias", "Alias")]
+    [MapsTo("alias")]
+    public extern PolarsColumnExpression alias(string name);
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsColumnExpression.AggregateMean", "Mean")]
+    [MapsTo("mean")]
+    public extern PolarsColumnExpression mean();
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsColumnExpression.AggregateSum", "Sum")]
+    [MapsTo("sum")]
+    public extern PolarsColumnExpression sum();
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsColumnExpression.FillNullValuesWith", "FillNull")]
+    [MapsTo("fill_null")]
+    public extern PolarsColumnExpression fill_null(object value);
+}
+
+[MapsTo("polars.DataFrame")]
+[RuntimeType("polars.DataFrame")]
+public primitive class PolarsDataFrame<TRow>
+{
+    [InlineTemplate("{self}.shape")]
+    public extern (int Rows, int Columns) TableDimensions { get; }
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsDataFrame.TableDimensions")]
+    [InlineTemplate("{self}.shape")]
+    public extern (int Rows, int Columns) Shape { get; }
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsDataFrame.TableDimensions", "Shape")]
+    [InlineTemplate("{self}.shape")]
+    public extern (int Rows, int Columns) shape { get; }
+
+    // --- Surface 1: Enterprise Self-Documenting Methods ---
+    [MapsTo("select")]
+    public extern PolarsDataFrame<TRow> SelectColumns(params PolarsColumnExpression[] expressions);
+
+    [MapsTo("filter")]
+    public extern PolarsDataFrame<TRow> FilterRows(PolarsColumnExpression predicateExpression);
+
+    [MapsTo("with_columns")]
+    public extern PolarsDataFrame<TRow> WithComputedColumns(params PolarsColumnExpression[] expressions);
+
+    [MapsTo("drop_nulls")]
+    public extern PolarsDataFrame<TRow> DropRowsWithNullValues();
+
+    [MapsTo("to_numpy")]
+    public extern NDArray<double> ConvertToNumPyMatrix();
+
+    [MapsTo("write_parquet")]
+    public extern void WriteToParquetFile(string outputFilePath);
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsDataFrame.SelectColumns")]
+    [MapsTo("select")]
+    public extern PolarsDataFrame<TRow> Select(params PolarsColumnExpression[] exprs);
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsDataFrame.FilterRows")]
+    [MapsTo("filter")]
+    public extern PolarsDataFrame<TRow> Filter(PolarsColumnExpression predicate);
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsDataFrame.WithComputedColumns")]
+    [MapsTo("with_columns")]
+    public extern PolarsDataFrame<TRow> WithColumns(params PolarsColumnExpression[] exprs);
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsDataFrame.DropRowsWithNullValues")]
+    [MapsTo("drop_nulls")]
+    public extern PolarsDataFrame<TRow> DropNulls();
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsDataFrame.ConvertToNumPyMatrix")]
+    [MapsTo("to_numpy")]
+    public extern NDArray<double> ToNumpy();
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsDataFrame.WriteToParquetFile")]
+    [MapsTo("write_parquet")]
+    public extern void WriteParquet(string path);
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsDataFrame.SelectColumns", "Select")]
+    [MapsTo("select")]
+    public extern PolarsDataFrame<TRow> select(params PolarsColumnExpression[] exprs);
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsDataFrame.FilterRows", "Filter")]
+    [MapsTo("filter")]
+    public extern PolarsDataFrame<TRow> filter(PolarsColumnExpression predicate);
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsDataFrame.WithComputedColumns", "WithColumns")]
+    [MapsTo("with_columns")]
+    public extern PolarsDataFrame<TRow> with_columns(params PolarsColumnExpression[] exprs);
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsDataFrame.DropRowsWithNullValues", "DropNulls")]
+    [MapsTo("drop_nulls")]
+    public extern PolarsDataFrame<TRow> drop_nulls();
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsDataFrame.ConvertToNumPyMatrix", "ToNumpy")]
+    [MapsTo("to_numpy")]
+    public extern NDArray<double> to_numpy();
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsDataFrame.WriteToParquetFile", "WriteParquet")]
+    [MapsTo("write_parquet")]
+    public extern void write_parquet(string file);
+}
+
+[MapsTo("polars.LazyFrame")]
+[RuntimeType("polars.LazyFrame")]
+public primitive class PolarsLazyFrame<TRow>
+{
+    [MapsTo("select")]
+    public extern PolarsLazyFrame<TRow> SelectColumnsLazy(params PolarsColumnExpression[] expressions);
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsLazyFrame.SelectColumnsLazy")]
+    [MapsTo("select")]
+    public extern PolarsLazyFrame<TRow> Select(params PolarsColumnExpression[] exprs);
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsLazyFrame.SelectColumnsLazy", "Select")]
+    [MapsTo("select")]
+    public extern PolarsLazyFrame<TRow> select(params PolarsColumnExpression[] exprs);
+
+    [MapsTo("filter")]
+    public extern PolarsLazyFrame<TRow> FilterRowsLazy(PolarsColumnExpression predicateExpression);
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsLazyFrame.FilterRowsLazy")]
+    [MapsTo("filter")]
+    public extern PolarsLazyFrame<TRow> Filter(PolarsColumnExpression predicate);
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsLazyFrame.FilterRowsLazy", "Filter")]
+    [MapsTo("filter")]
+    public extern PolarsLazyFrame<TRow> filter(PolarsColumnExpression predicate);
+
+    [MapsTo("collect")]
+    public extern PolarsDataFrame<TRow> ExecuteAndMaterialize();
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsLazyFrame.ExecuteAndMaterialize")]
+    [MapsTo("collect")]
+    public extern PolarsDataFrame<TRow> Collect();
+
+    [CanonicalApi("PythonSharp.DataScience.Columnar.PolarsLazyFrame.ExecuteAndMaterialize", "Collect")]
+    [MapsTo("collect")]
+    public extern PolarsDataFrame<TRow> collect();
+}

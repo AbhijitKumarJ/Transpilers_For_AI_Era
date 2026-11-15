@@ -1,0 +1,49 @@
+namespace PandasDemo.CalHousing.Pipeline;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Pandas;
+using PythonSharp.Bridge.Pandas.Core.Frame;
+using PythonSharp.Bridge.Pandas.Core.Series;
+
+public class CaliforniaHousingPipeline
+{
+    public Series TrainMean;
+    public Series TrainStd;
+
+    public CaliforniaHousingPipeline()
+    {
+        this.TrainMean = null;
+        this.TrainStd = null;
+    }
+
+    public DataFrame FitTransform(DataFrame dfTrain)
+    {
+        Console.WriteLine("\n=======================================================");
+        Console.WriteLine(" PHASE 10: OBJECT-ORIENTED REUSABLE PIPELINE ENGINE");
+        Console.WriteLine("=======================================================");
+        Console.WriteLine("[Pipeline] Fitting training set and calculating scaling parameters...");
+
+        var dropCols = ["MedHouseVal"];
+        dynamic dTrain = dfTrain;
+        dynamic xTrain = dTrain.Drop(columns: dropCols);
+
+        this.TrainMean = xTrain.Mean(numeric_only: true);
+        this.TrainStd = xTrain.Std(numeric_only: true);
+
+        dynamic xTrainScaled = (xTrain - this.TrainMean) / this.TrainStd;
+        Console.WriteLine($"[Pipeline] FitTransform complete. Features: {xTrainScaled.Shape[1]}");
+        return xTrainScaled;
+    }
+
+    public DataFrame Transform(DataFrame dfTest)
+    {
+        Console.WriteLine("[Pipeline] Transforming inference/test data using fitted parameters...");
+        var dropCols = ["MedHouseVal"];
+        dynamic dTest = dfTest;
+        dynamic xTest = dTest.Drop(columns: dropCols);
+
+        dynamic xTestScaled = (xTest - this.TrainMean) / this.TrainStd;
+        Console.WriteLine($"[Pipeline] Transform complete without data leakage! Features: {xTestScaled.Shape[1]}");
+        return xTestScaled;
+    }
+}

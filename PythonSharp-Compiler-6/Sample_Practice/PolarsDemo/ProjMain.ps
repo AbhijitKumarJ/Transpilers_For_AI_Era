@@ -1,0 +1,39 @@
+namespace PolarsDemo;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Polars;
+
+public class ProjMain
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("PolarsDemo - High-Performance DataFrame Processing Engine");
+        TestUtil.Log("Loading dataset from Data/titanic.csv with Polars.ReadCsv");
+
+        string csvPath = "../../Data/titanic.csv";
+        var df = Polars.ReadCsv(csvPath);
+
+        Console.WriteLine($"Polars DataFrame Ingestion Complete!");
+        Console.WriteLine($"Total Rows (Height): {df.Height}");
+        Console.WriteLine($"Total Columns (Width): {df.Width}");
+        Console.WriteLine($"Schema Columns: {string.Join(", ", df.Columns)}");
+
+        // 1. Preview Top 5 Rows
+        TestUtil.Log("Displaying Head preview:");
+        var headDf = df.Head(5);
+        Console.WriteLine(headDf);
+
+        // 2. Compute Summary Statistics
+        TestUtil.Log("Generating Polars descriptive analytics summary:");
+        var summary = df.Describe();
+        Console.WriteLine(summary);
+
+        // 3. Export Filtered Analytical Report
+        string outputPath = "polars_titanic_summary.csv";
+        TestUtil.Log($"Writing processed analytical results to {outputPath}");
+        df.WriteCsv(outputPath);
+
+        Console.WriteLine($"Generated '{outputPath}' successfully!");
+        Console.WriteLine("PolarsDemo - Completed Successfully!");
+    }
+}

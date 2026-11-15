@@ -1,0 +1,12 @@
+# GitHub Linguist language overrides
+# Prevents *.ps files from being misclassified as Adobe PostScript
+
+*.ps linguist-language=C#
+*.d.ps linguist-language=C#
+*.pysharp linguist-language=C#
+*.d.pysharp linguist-language=C#
+*.pys linguist-language=C#
+*.d.pys linguist-language=C#
+*.psproj linguist-language=XML
+*.pysharpproj linguist-language=XML
+

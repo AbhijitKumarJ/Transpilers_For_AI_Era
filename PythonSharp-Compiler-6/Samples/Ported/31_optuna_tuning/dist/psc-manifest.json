@@ -1,0 +1,18 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "python_sharp/samples/optuna_tuning.py",
+      "namespace": [
+        "PythonSharp",
+        "Samples",
+        "OptunaTuning"
+      ],
+      "primary_ps": "OptunaEngine.ps",
+      "py": "python_sharp/samples/optuna_tuning.py",
+      "pyc": null
+    }
+  ],
+  "schema_version": 1
+}

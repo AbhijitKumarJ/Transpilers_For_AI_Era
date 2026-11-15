@@ -1,0 +1,39 @@
+namespace NumpyFullPrac.NeuralNet.Regularization;
+
+using PythonSharp.Core;
+
+public class EarlyStoppingHandler
+{
+    public int Patience;
+    public double MinDelta;
+    public double BestLoss;
+    public int WaitCount;
+    public bool ShouldStop;
+
+    public EarlyStoppingHandler(int patience = 5, double minDelta = 1e-4)
+    {
+        this.Patience = patience;
+        this.MinDelta = minDelta;
+        this.BestLoss = 1e9;
+        this.WaitCount = 0;
+        this.ShouldStop = false;
+    }
+
+    public bool Check(double currentLoss)
+    {
+        if (currentLoss < (this.BestLoss - this.MinDelta))
+        {
+            this.BestLoss = currentLoss;
+            this.WaitCount = 0;
+        }
+        else
+        {
+            this.WaitCount = this.WaitCount + 1;
+            if (this.WaitCount >= this.Patience)
+            {
+                this.ShouldStop = true;
+            }
+        }
+        return this.ShouldStop;
+    }
+}

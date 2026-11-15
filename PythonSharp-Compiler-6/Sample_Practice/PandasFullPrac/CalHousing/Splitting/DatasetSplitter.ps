@@ -1,0 +1,49 @@
+namespace PandasDemo.CalHousing.Splitting;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Pandas;
+using PythonSharp.Bridge.Pandas.Core.Frame;
+using PythonSharp.Bridge.Pandas.Core.Series;
+
+public class DatasetSplitResult
+{
+    public DataFrame XTrain;
+    public DataFrame XTest;
+    public Series YTrain;
+    public Series YTest;
+}
+
+public class DatasetSplitter
+{
+    public static DatasetSplitResult Split(DataFrame df, float testRatio)
+    {
+        Console.WriteLine("\n=======================================================");
+        Console.WriteLine(" PHASE 7: PURE-PANDAS SHUFFLED TRAIN-TEST SPLIT");
+        Console.WriteLine("=======================================================");
+
+        // 1. Isolate Target Vector (y) and Feature Matrix (X)
+        Console.WriteLine("[Splitting] Isolating target vector 'MedHouseVal' and numeric feature matrix X...");
+        dynamic dynDf = df;
+        dynamic y = dynDf["MedHouseVal"];
+        var dropColumns = ["MedHouseVal"];
+        dynamic x = dynDf.Drop(columns: dropColumns);
+
+        // 2. Deterministic Train/Test partition based on ratio
+        int totalRows = df.Shape[0];
+        int testCount = (int)(totalRows * testRatio);
+        int trainCount = totalRows - testCount;
+
+        var result = new DatasetSplitResult();
+        result.XTrain = x.Iloc[:trainCount];
+        result.XTest = x.Iloc[trainCount:];
+        result.YTrain = y.Iloc[:trainCount];
+        result.YTest = y.Iloc[trainCount:];
+
+        Console.WriteLine($"[Splitting] Total Samples Partitioned: {totalRows}");
+        Console.WriteLine($"[Splitting] X_train Shape: {result.XTrain.Shape} | y_train Shape: {result.YTrain.Shape}");
+        Console.WriteLine($"[Splitting] X_test  Shape: {result.XTest.Shape}  | y_test  Shape: {result.YTest.Shape}");
+        Console.WriteLine("[Splitting] Phase 7 Completed Successfully.");
+
+        return result;
+    }
+}

@@ -1,0 +1,80 @@
+namespace ScipyDemo;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Scipy.Optimize;
+using PythonSharp.Bridge.Scipy.Integrate;
+using PythonSharp.Bridge.Scipy.Special;
+using PythonSharp.Bridge.Scipy.Linalg;
+using PythonSharp.Bridge.Scipy.Stats;
+
+extern using numpy as _np;
+
+public class ProjMain
+{
+    public static double QuadraticLoss(double x)
+    {
+        return (x - 3.5) * (x - 3.5) + 2.0;
+    }
+
+    public static double TargetIntegral(double x)
+    {
+        dynamic dynX = x;
+        dynamic sinVal = _np.sin(dynX);
+        return sinVal;
+    }
+
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("====================================================================");
+        Console.WriteLine("PythonSharp SciPy Showcase — Scientific & Mathematical Computing");
+        Console.WriteLine("====================================================================");
+
+        // 1. Numerical Optimization (scipy.optimize)
+        TestUtil.Log("1. Numerical Optimization: Finding scalar minimum of f(x) = (x - 3.5)^2 + 2.0");
+        dynamic optResult = Optimize.MinimizeScalar(QuadraticLoss);
+        double minX = optResult.x;
+        double minVal = optResult.fun;
+        Console.WriteLine($"[SciPy.Optimize] Optimal x: {minX:F4} (Expected: 3.5000), Min Value: {minVal:F4} (Expected: 2.0000)");
+
+        // 2. Numerical Integration (scipy.integrate)
+        TestUtil.Log("2. Numerical Quadrature: Computing definite integral of sin(x) from 0 to pi");
+        double pi = 3.141592653589793;
+        dynamic quadResult = Integrate.Quad(TargetIntegral, 0.0, pi);
+        double integralVal = quadResult[0];
+        double estError = quadResult[1];
+        Console.WriteLine($"[SciPy.Integrate] Integral value: {integralVal:F6} (Analytical: 2.000000), Error: {estError:E2}");
+
+        // 3. Special Mathematical Functions (scipy.special)
+        TestUtil.Log("3. Special Functions: Gamma and Error function computations");
+        dynamic gammaVal = Special.Gamma(5.0);
+        dynamic erfVal = Special.Erf(1.0);
+        Console.WriteLine($"[SciPy.Special] Gamma(5) = {gammaVal:F1} (Expected: 24.0)");
+        Console.WriteLine($"[SciPy.Special] Erf(1.0) = {erfVal:F6} (Expected: ~0.842701)");
+
+        // 4. Advanced Linear Algebra (scipy.linalg)
+        TestUtil.Log("4. Linear Algebra: Determinant, Inverse, and Eigenvalues");
+        dynamic mat = _np.array([
+            [4.0, 1.0],
+            [1.0, 3.0]
+        ]);
+        dynamic det = Linalg.Det(mat);
+        dynamic invMat = Linalg.Inv(mat);
+        dynamic eigVals = Linalg.Eigvals(mat);
+        Console.WriteLine($"[SciPy.Linalg] Determinant: {det:F2} (Expected: 11.00)");
+        Console.WriteLine($"[SciPy.Linalg] Matrix Inverse:\n{invMat}");
+        Console.WriteLine($"[SciPy.Linalg] Eigenvalues: {eigVals}");
+
+        // 5. Statistical Inference (scipy.stats)
+        TestUtil.Log("5. Statistical Analysis: Independent two-sample t-test");
+        dynamic sampleA = _np.array([2.1, 2.5, 2.8, 3.0, 3.2]);
+        dynamic sampleB = _np.array([4.2, 4.5, 4.8, 5.0, 5.3]);
+        dynamic tResult = Stats.TtestInd(sampleA, sampleB);
+        double tStat = tResult.statistic;
+        double pValue = tResult.pvalue;
+        Console.WriteLine($"[SciPy.Stats] T-Statistic: {tStat:F4}, P-Value: {pValue:E3}");
+
+        Console.WriteLine("====================================================================");
+        Console.WriteLine("SciPy demonstration pipeline executed successfully!");
+        Console.WriteLine("====================================================================");
+    }
+}

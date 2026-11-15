@@ -1,0 +1,12 @@
+<Project Sdk="PythonSharp.Sdk/0.1.0">
+  <PropertyGroup>
+    <AssemblyName>SklearnPipeline</AssemblyName>
+    <TargetFramework>py3.11</TargetFramework>
+    <EmitPyc>false</EmitPyc>
+  </PropertyGroup>
+  <ItemGroup>
+    <PyPiPackage Include="scikit-learn" Version=">=1.3.0" />
+    <PyPiPackage Include="numpy" Version=">=1.24.0" />
+  </ItemGroup>
+</Project>
+

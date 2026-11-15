@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "micro_shutil.py",
+      "namespace": [
+        "MicroShutil"
+      ],
+      "primary_ps": "ShutilEngine.ps",
+      "py": "micro_shutil.py",
+      "pyc": "micro_shutil.pyc"
+    }
+  ],
+  "schema_version": 1
+}

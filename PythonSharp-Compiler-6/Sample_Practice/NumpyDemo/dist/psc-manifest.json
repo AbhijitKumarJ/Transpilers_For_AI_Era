@@ -1,0 +1,17 @@
+{
+  "compiler_version": "0.2.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "d_ps": "numpy_demo.d.ps",
+      "module": "numpy_demo.py",
+      "namespace": [
+        "NumpyDemo"
+      ],
+      "primary_ps": "ProjMain.ps",
+      "py": "numpy_demo.py",
+      "pyc": "numpy_demo.pyc"
+    }
+  ],
+  "schema_version": 1
+}

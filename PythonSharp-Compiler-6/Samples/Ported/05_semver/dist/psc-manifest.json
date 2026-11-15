@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "sem_ver_util.py",
+      "namespace": [
+        "SemVerUtil"
+      ],
+      "primary_ps": "SemanticVersion.ps",
+      "py": "sem_ver_util.py",
+      "pyc": "sem_ver_util.pyc"
+    }
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,214 @@
+namespace MicroAsync;
+
+extern using time;
+using PythonSharp.Core;
+
+public class StepResult
+{
+    private bool _done;
+    private object? _value;
+    private object? _error;
+
+    public StepResult(bool done, object? value, object? error)
+    {
+        this._done = done;
+        this._value = value;
+        this._error = error;
+    }
+
+    public bool Done { get { return this._done; } }
+    public object? Value { get { return this._value; } }
+    public object? Error { get { return this._error; } }
+}
+
+public class Task
+{
+    private object _coro;
+    private string _status;
+    private object? _result;
+    private object? _exception;
+
+    public Task(object coro)
+    {
+        this._coro = coro;
+        this._status = "PENDING";
+        this._result = null;
+        this._exception = null;
+    }
+
+    public object Coroutine { get { return this._coro; } }
+    public string Status { get { return this._status; } }
+    public object? Result { get { return this._result; } }
+    public object? Exception { get { return this._exception; } }
+    public bool IsDone { get { return this._status == "COMPLETED" || this._status == "FAILED"; } }
+
+    [InlineTemplate("{0}.send(None)")]
+    private static extern object? SendNone(object coro);
+
+    [InlineTemplate("getattr({0}, 'value', None)")]
+    private static extern object? GetExceptionValue(object exc);
+
+    [InlineTemplate("isinstance({0}, StopIteration)")]
+    private static extern bool IsStopIteration(object exc);
+
+    public StepResult Step()
+    {
+        this._status = "RUNNING";
+        try
+        {
+            object? yielded = SendNone(this._coro);
+            return new StepResult(false, yielded, null);
+        }
+        catch (Exception err)
+        {
+            if (IsStopIteration(err))
+            {
+                this._status = "COMPLETED";
+                this._result = GetExceptionValue(err);
+                return new StepResult(true, this._result, null);
+            }
+            this._status = "FAILED";
+            this._exception = err;
+            return new StepResult(true, null, err);
+        }
+    }
+}
+
+public class DelayedTask
+{
+    private double _deadline;
+    private Task _task;
+
+    public DelayedTask(double deadline, Task task)
+    {
+        this._deadline = deadline;
+        this._task = task;
+    }
+
+    public double Deadline { get { return this._deadline; } }
+    public Task Task { get { return this._task; } }
+}
+
+public class EventLoop
+{
+    private List<Task> _readyQueue;
+    private List<DelayedTask> _sleepQueue;
+
+    public EventLoop()
+    {
+        this._readyQueue = new List<Task>();
+        this._sleepQueue = new List<DelayedTask>();
+    }
+
+    public Task CreateTask(object coro)
+    {
+        Task t = new Task(coro);
+        this._readyQueue.Add(t);
+        return t;
+    }
+
+    [InlineTemplate("time.time()")]
+    public static extern double GetTime();
+
+    [InlineTemplate("time.sleep({0})")]
+    public static extern void Sleep(double seconds);
+
+    [InlineTemplate("isinstance({0}, (int, float)) and not isinstance({0}, bool)")]
+    public static extern bool IsNumeric(object? obj);
+
+    [InlineTemplate("float({0})")]
+    public static extern double ToDouble(object obj);
+
+    [InlineTemplate("exec('raise e', {'e': {0}})")]
+    private static extern void RaiseException(object exc);
+
+    public object? RunUntilComplete(Task rootTask)
+    {
+        while (!rootTask.IsDone)
+        {
+            double now = GetTime();
+
+            // 1. Move awakened tasks from sleep queue to ready queue
+            List<DelayedTask> remainingSleep = new List<DelayedTask>();
+            int s = 0;
+            while (s < this._sleepQueue.Count)
+            {
+                DelayedTask dt = this._sleepQueue[s];
+                if (dt.Deadline <= now)
+                {
+                    this._readyQueue.Add(dt.Task);
+                }
+                else
+                {
+                    remainingSleep.Add(dt);
+                }
+                s = s + 1;
+            }
+            this._sleepQueue = remainingSleep;
+
+            // 2. Step the next ready task
+            if (this._readyQueue.Count > 0)
+            {
+                Task current = this._readyQueue[0];
+                this._readyQueue.RemoveAt(0);
+
+                if (current.IsDone)
+                {
+                    continue;
+                }
+
+                StepResult stepRes = current.Step();
+                if (!stepRes.Done)
+                {
+                    object? y = stepRes.Value;
+                    if (IsNumeric(y))
+                    {
+                        double duration = ToDouble(y);
+                        if (duration > 0.0)
+                        {
+                            this._sleepQueue.Add(new DelayedTask(GetTime() + duration, current));
+                        }
+                        else
+                        {
+                            this._readyQueue.Add(current);
+                        }
+                    }
+                    else
+                    {
+                        this._readyQueue.Add(current);
+                    }
+                }
+            }
+            else if (this._sleepQueue.Count > 0)
+            {
+                double earliest = this._sleepQueue[0].Deadline;
+                int k = 1;
+                while (k < this._sleepQueue.Count)
+                {
+                    if (this._sleepQueue[k].Deadline < earliest)
+                    {
+                        earliest = this._sleepQueue[k].Deadline;
+                    }
+                    k = k + 1;
+                }
+                double diff = earliest - GetTime();
+                if (diff > 0.0)
+                {
+                    double sleepTime = diff < 0.05 ? diff : 0.05;
+                    Sleep(sleepTime);
+                }
+            }
+            else
+            {
+                throw new SystemException("Event loop deadlock: no tasks ready to execute");
+            }
+        }
+
+        if (rootTask.Status == "FAILED" && rootTask.Exception != null)
+        {
+            RaiseException(rootTask.Exception);
+        }
+
+        return rootTask.Result;
+    }
+}

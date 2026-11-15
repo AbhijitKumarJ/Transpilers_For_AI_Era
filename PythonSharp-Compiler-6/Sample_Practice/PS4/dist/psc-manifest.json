@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "ps_4.py",
+      "namespace": [
+        "PS4"
+      ],
+      "primary_ps": "ProjMain.ps",
+      "py": "ps_4.py",
+      "pyc": "ps_4.pyc"
+    }
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,3421 @@
+{
+  "version": "0.1.0",
+  "emit_pyc": true,
+  "target_python": "3.11",
+  "inputs": {
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/00_pandas.primitives.d.ps": {
+      "sha256": "5690baa05dfb1afabdab752a2bc057f33d5b5d188c71bbfeac254c27c8849173",
+      "mtime": 1794260427.338589,
+      "size": 444
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/02_pandas.csharp.d.ps": {
+      "sha256": "6e499a919f60d3107fcd8ad449fb2d42735f3ed3e73cbb6616efc2b0ab4bdfd6",
+      "mtime": 1794260427.3388844,
+      "size": 43292
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_config/00__config.primitives.d.ps": {
+      "sha256": "251cc0a6f1c098d2eeb4e18a05703d3259ee851ba886bd8d518f55692f67b914",
+      "mtime": 1794260427.3408127,
+      "size": 485
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_config/02__config.csharp.d.ps": {
+      "sha256": "7e23f152f70269fb440fb5e731f923681a303c5e83558b67821f955440d70a8a",
+      "mtime": 1794260427.3410757,
+      "size": 2851
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_config/config/00_config.primitives.d.ps": {
+      "sha256": "c6cb0e76079364a3864b3ad28428d3e86295edfb407bc3ea938caf46cd63d232",
+      "mtime": 1794260427.3475065,
+      "size": 1897
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_config/config/02_config.csharp.d.ps": {
+      "sha256": "20f0bb63f987773ef3ba0fd15a05e575ba5c0b9e7315bf8f5f492518c1eb45ad",
+      "mtime": 1794260427.347863,
+      "size": 8967
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_config/dates/00_dates.primitives.d.ps": {
+      "sha256": "f56d79fe8dfcc3e511eb04855c60e2d9ef58fe827343108e37e8d69b0a61f58c",
+      "mtime": 1794260427.3488855,
+      "size": 513
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_config/dates/02_dates.csharp.d.ps": {
+      "sha256": "273f751cbb004802a4af99e6bbc4c642f18ce1a0f40e2d0d5eca4b52fcbafc07",
+      "mtime": 1794260427.3492684,
+      "size": 404
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_config/display/00_display.primitives.d.ps": {
+      "sha256": "2eb712482de7f7df68d5de8e8332ad0c8689ff89f92d6de6dc0cd7b0fcf840a3",
+      "mtime": 1794260427.350361,
+      "size": 525
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_config/display/02_display.csharp.d.ps": {
+      "sha256": "9b6d409b341dd3e2b64607d532948850592196516e60fb9b07f1d28b9ba50d5a",
+      "mtime": 1794260427.3507383,
+      "size": 936
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_config/localization/00_localization.primitives.d.ps": {
+      "sha256": "57630571afef45f7801356577d9287a7f6ef2518f6a09b0fedcc8bea132ca147",
+      "mtime": 1794260427.3525681,
+      "size": 555
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_config/localization/02_localization.csharp.d.ps": {
+      "sha256": "766257c777854be2934195076fb4b13c02d9a205d9fa4ae8c83ec2d7214ec33b",
+      "mtime": 1794260427.3529406,
+      "size": 2184
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/00__libs.primitives.d.ps": {
+      "sha256": "639dac569df1c35a17e1214c8dc34a5ed40475acbb36301d8ff1f7be0f482556",
+      "mtime": 1794260427.3540206,
+      "size": 473
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/02__libs.csharp.d.ps": {
+      "sha256": "85e6d011ac95f24e8b70f3fdfce6f330820f0e582f1866e033810b64946bd32b",
+      "mtime": 1794260427.3542595,
+      "size": 2453
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/_ujson/00__ujson.primitives.d.ps": {
+      "sha256": "de384d1a0f7143503b73f8390846cb97f7265a317a611b70755bdeab8ae7edce",
+      "mtime": 1794260427.3555048,
+      "size": 509
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/_ujson/02__ujson.csharp.d.ps": {
+      "sha256": "5220db7cd50f7b551be0bcf93ee1658a81e003f17c1ff0f79cd67524a725fd2d",
+      "mtime": 1794260427.3557386,
+      "size": 1551
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/algos/00_algos.primitives.d.ps": {
+      "sha256": "c243cdd9fc311b26471d224e45e73a81f38160a37f2dd9a1ae934e2e6447c5a9",
+      "mtime": 1794260427.3774385,
+      "size": 1424
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/algos/02_algos.csharp.d.ps": {
+      "sha256": "3806c92280c39924f5a424362d7eb62d598330a4828839a5c196aed4008fb18c",
+      "mtime": 1794260427.377687,
+      "size": 36501
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/arrays/00_arrays.primitives.d.ps": {
+      "sha256": "42b6e53ae239300e652f3d4189bf8672087f4f09a922e5327a4cfd96a2a98415",
+      "mtime": 1794260427.3806252,
+      "size": 1804
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/arrays/02_arrays.csharp.d.ps": {
+      "sha256": "aa6564c072e17ea7d5b1fac01c98e121fe158a211fdffa7682b31f0ecd1653fa",
+      "mtime": 1794260427.3809226,
+      "size": 4504
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/byteswap/00_byteswap.primitives.d.ps": {
+      "sha256": "4b5042182a09b2c21749855e780cb3c47764892f9bfee985425c19247ee19547",
+      "mtime": 1794260427.382163,
+      "size": 521
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/byteswap/02_byteswap.csharp.d.ps": {
+      "sha256": "4140ca8bf28aae7b22bc93bcb5477091b517034eec9e2e4b84fcf3caa470d65d",
+      "mtime": 1794260427.3824797,
+      "size": 1742
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/groupby/00_groupby.primitives.d.ps": {
+      "sha256": "966a56822e7a6bb0d2b606a44afdcc8f2587c713ef187213dfb0ed7ba935dafe",
+      "mtime": 1794260427.3907204,
+      "size": 515
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/groupby/02_groupby.csharp.d.ps": {
+      "sha256": "3387318a3323a80cb7a4d3f08bdce120d1d26b886ca8ce7c80bc39147e5baf33",
+      "mtime": 1794260427.3910277,
+      "size": 8782
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/hashing/00_hashing.primitives.d.ps": {
+      "sha256": "dc64fc204515b4dd041355a3cf622e7d0303e2d9f49cc0b74b27f23a5034105a",
+      "mtime": 1794260427.3923333,
+      "size": 515
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/hashing/02_hashing.csharp.d.ps": {
+      "sha256": "2246780cc9e1a4e9e73bbf64d36d4feb005c3c9d5a63e53256f708b85c263812",
+      "mtime": 1794260427.3926713,
+      "size": 1160
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/hashtable/00_hashtable.primitives.d.ps": {
+      "sha256": "8fab9c995ef47f6887647a1e340413fab639bacfcc872ba4a9d3b845b0cc959d",
+      "mtime": 1794260427.403562,
+      "size": 12460
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/hashtable/02_hashtable.csharp.d.ps": {
+      "sha256": "5b21d6de816bff278f48a2cb7d79f468ad1cb26794270bb7ad800f24bdc7b242",
+      "mtime": 1794260427.4038904,
+      "size": 23858
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/index/00_index.primitives.d.ps": {
+      "sha256": "51e02c8824eb9b6bde74ed46d2a6492088099ac552e6ca2535772cff0eaaed82",
+      "mtime": 1794260427.4093568,
+      "size": 7830
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/index/02_index.csharp.d.ps": {
+      "sha256": "6c3c498324d493abcd38cbfb3e90a47d7e7d21a028061b8110a4b489129aeea2",
+      "mtime": 1794260427.4097822,
+      "size": 11517
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/indexing/00_indexing.primitives.d.ps": {
+      "sha256": "89422625e48b0f077f29181c3ded64e14bb5b40777aa9549a1abd6d83b8f5006",
+      "mtime": 1794260427.4114342,
+      "size": 805
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/indexing/02_indexing.csharp.d.ps": {
+      "sha256": "8913cb699c3120ef02e467bb9e7070333d86eceb029cfbc134f89d78853bac62",
+      "mtime": 1794260427.4117281,
+      "size": 1952
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/internals/00_internals.primitives.d.ps": {
+      "sha256": "6bf88b8c968cce2cfa769f587b80fdadb5326343213b55dd484ebe0f16104626",
+      "mtime": 1794260427.4166844,
+      "size": 3772
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/internals/02_internals.csharp.d.ps": {
+      "sha256": "ca6d294f64b9da7b75946111e9a8ce2f50601b8c0fdb791bae148b8dcd3750ad",
+      "mtime": 1794260427.417155,
+      "size": 10907
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/interval/00_interval.primitives.d.ps": {
+      "sha256": "95ea12df030e75d524efd1cd027c2e2a2224f3a048477c0fe7459f684b619e83",
+      "mtime": 1794260427.42347,
+      "size": 5550
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/interval/02_interval.csharp.d.ps": {
+      "sha256": "7c382ef3dfb2be414ec6358e7d9ccb023867163c2c6561bb53dc5975940efe57",
+      "mtime": 1794260427.4237812,
+      "size": 13230
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/join/00_join.primitives.d.ps": {
+      "sha256": "65789ddde809c57c8a270fcc13d150ba66968567243b1ba061bd7f2e0e559776",
+      "mtime": 1794260427.4269733,
+      "size": 497
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/join/02_join.csharp.d.ps": {
+      "sha256": "02998fa4418c8c5a6af5bf5244fe863a15316ca7fa50f26361299588bf0de744",
+      "mtime": 1794260427.427318,
+      "size": 3982
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/lib/00_lib.primitives.d.ps": {
+      "sha256": "8db11908d80a1401895a80aa66fd40519d528d887e5ff52965fc3fed441c0785",
+      "mtime": 1794260427.4371202,
+      "size": 501
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/lib/02_lib.csharp.d.ps": {
+      "sha256": "aeb4b5a4efe1d3604367714bc954a20c54125129268265b1f5335757df8d4fb5",
+      "mtime": 1794260427.4390242,
+      "size": 16426
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/missing/00_missing.primitives.d.ps": {
+      "sha256": "d00c85c5185d71618f20eb0d6800ec922b40cd882fc2030eb89dfa2abccc05a6",
+      "mtime": 1794260427.4410768,
+      "size": 609
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/missing/02_missing.csharp.d.ps": {
+      "sha256": "ae05dc78866bf0d1ff090466573193f744b569d5828cd527795db9f4655255f9",
+      "mtime": 1794260427.4415023,
+      "size": 3313
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/ops/00_ops.primitives.d.ps": {
+      "sha256": "3e6cb409d0dc992692fed8c1e7624a7fc939803cf1cb9414828afa6cff645a1b",
+      "mtime": 1794260427.4437969,
+      "size": 491
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/ops/02_ops.csharp.d.ps": {
+      "sha256": "ace66186b0792d6f4274022e8fffda6a5e3e208e8cd22531a151110174874047",
+      "mtime": 1794260427.4441357,
+      "size": 3793
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/ops_dispatch/00_ops_dispatch.primitives.d.ps": {
+      "sha256": "0b1baee1ce2f9b82ea0c3d17d89be0063467a0c3a2355ede6ca46df89e44c226",
+      "mtime": 1794260427.44533,
+      "size": 543
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/ops_dispatch/02_ops_dispatch.csharp.d.ps": {
+      "sha256": "31da1e421fda05122e74f468cfdadfba0a0c6c32fdf43fc885c5d5a079088d9a",
+      "mtime": 1794260427.4456534,
+      "size": 1531
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/parsers/00_parsers.primitives.d.ps": {
+      "sha256": "75d41f35eb4adaa590d2b3440391e2176cebc8b666f69e96a73c6e9c3202d3ab",
+      "mtime": 1794260430.6511598,
+      "size": 4219
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/parsers/02_parsers.csharp.d.ps": {
+      "sha256": "794ef5b1f739ef237287e40466763ade3106ed2d856169e8ed5f73dedc22ab21",
+      "mtime": 1794260430.6515496,
+      "size": 10111
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/properties/00_properties.primitives.d.ps": {
+      "sha256": "1ed091c31cff8a160d2fde5cda5f85faa4b37acb5465c397ec5f8e5bb248c3cf",
+      "mtime": 1794260430.6536176,
+      "size": 1268
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/properties/02_properties.csharp.d.ps": {
+      "sha256": "5ca25bf0fda78cb87084fdbe88bba542e63dbd1f995b92d7f16bb471ca712ee0",
+      "mtime": 1794260430.653913,
+      "size": 3885
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/reshape/00_reshape.primitives.d.ps": {
+      "sha256": "204ac418857f335aadea226c2cf6f90bc32cebdc7a7dda47401d7f026119d547",
+      "mtime": 1794260430.654986,
+      "size": 515
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/reshape/02_reshape.csharp.d.ps": {
+      "sha256": "56c72bed96679da19e9d8aec6471117bcb6d5666252eac5028dc6eab3c30d507",
+      "mtime": 1794260430.6553056,
+      "size": 1361
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/sas/00_sas.primitives.d.ps": {
+      "sha256": "b1345bc89994dd03f5a26473c24996f16e0f6e7a3b634ed374d01313b9cf61c3",
+      "mtime": 1794260430.6564817,
+      "size": 670
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/sas/02_sas.csharp.d.ps": {
+      "sha256": "5afa29b77fbd1eb6a1487904923688e97f192f2971555169101bab2cbf8e48be",
+      "mtime": 1794260430.6568115,
+      "size": 1654
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/sparse/00_sparse.primitives.d.ps": {
+      "sha256": "1b517010a14e951036cb960ad14df17d83ad8db4dc5d1d43c5a39ef1bc7dfe86",
+      "mtime": 1794260430.6600404,
+      "size": 2201
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/sparse/02_sparse.csharp.d.ps": {
+      "sha256": "529969eab62d3e478c391cfe03683ec1d5c2a71788816f56faaf3955d88bb453",
+      "mtime": 1794260430.6603684,
+      "size": 5587
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/testing/00_testing.primitives.d.ps": {
+      "sha256": "60616031a08c3c843df8d419ad369b32efda7c8f82cd31e027dd9e5db4fcf48b",
+      "mtime": 1794260430.661857,
+      "size": 515
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/testing/02_testing.csharp.d.ps": {
+      "sha256": "0111662b55cd3a7ab9ec448e764a1629fdfd575addb2c6f677905fec96a8b1e1",
+      "mtime": 1794260430.6621716,
+      "size": 1989
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslib/00_tslib.primitives.d.ps": {
+      "sha256": "3d23b6fff2577c39584130621e21cb4a083b1a2d63a6141ddfbae503b54a918b",
+      "mtime": 1794260430.6635978,
+      "size": 503
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslib/02_tslib.csharp.d.ps": {
+      "sha256": "5e804dd147d84e28c22a5327fb93fe39e64e04bb9446dfbf778a4fd0a94a0430",
+      "mtime": 1794260430.6645808,
+      "size": 2306
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/00_tslibs.primitives.d.ps": {
+      "sha256": "7f5eaee71a5cd9e84c3c002b63152cf5ccc9280943a0206620affdd02253ba0f",
+      "mtime": 1794260430.6686864,
+      "size": 509
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/02_tslibs.csharp.d.ps": {
+      "sha256": "896a4dd937ec8e5b14b4f267ab31b0baf8f7c65cc7151f6b5f49166922a4717c",
+      "mtime": 1794260430.6690001,
+      "size": 10009
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/ccalendar/00_ccalendar.primitives.d.ps": {
+      "sha256": "98a35904ccaf47f1be112471fb83fb2172dec3dd4735f0b69954db25fb7ff56c",
+      "mtime": 1794260430.6728785,
+      "size": 562
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/ccalendar/02_ccalendar.csharp.d.ps": {
+      "sha256": "7d1594626bce25a5005ffb34c8cbb8749c40f21a313ed4faf59ba4adcb26dd72",
+      "mtime": 1794260430.6733994,
+      "size": 3186
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/conversion/00_conversion.primitives.d.ps": {
+      "sha256": "63e34c22010b7f7422b3fb6ddd20034710a9e3f94ab8819c982cb63cc99774d4",
+      "mtime": 1794260430.675184,
+      "size": 568
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/conversion/02_conversion.csharp.d.ps": {
+      "sha256": "c4d88936e9ba560397476576e0fa31b8260723bf2535ed315fc16bc0bad3f9ef",
+      "mtime": 1794260430.6754642,
+      "size": 2699
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/dtypes/00_dtypes.primitives.d.ps": {
+      "sha256": "606d54029313e84ed38f0e51a8b49cda1df9fe50f900a303a8e814c0cf50eb42",
+      "mtime": 1794260430.677728,
+      "size": 1963
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/dtypes/02_dtypes.csharp.d.ps": {
+      "sha256": "1889c3e913204431f22dcfa8b43362356408d480fdc80510a03531b5fa338acb",
+      "mtime": 1794260430.6779885,
+      "size": 4997
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/fields/00_fields.primitives.d.ps": {
+      "sha256": "8f639b05dd942272260b845f0482eae4addb92fedb09ea84926e4384bc83efbb",
+      "mtime": 1794260430.6804671,
+      "size": 930
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/fields/02_fields.csharp.d.ps": {
+      "sha256": "87c3cfc49fbbf9cb369d753e987cd71dc0947570c38ba8e85500e83129156979",
+      "mtime": 1794260430.6807957,
+      "size": 4271
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/nattype/00_nattype.primitives.d.ps": {
+      "sha256": "199bb080a9eddca9e24fd2760822afcb53238d38f8f67579b65b65560f95d6ca",
+      "mtime": 1794260430.689301,
+      "size": 8041
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/nattype/02_nattype.csharp.d.ps": {
+      "sha256": "bd9ae6a93a84993a6b1e43fbfdc510018053e7b9ec71f7a7a9ae988c2c5ef4fb",
+      "mtime": 1794260430.6896632,
+      "size": 21901
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/np_datetime/00_np_datetime.primitives.d.ps": {
+      "sha256": "cf8723b8114bf3bd3319587efc71df2c2f890d3f845a157c6e10b44cfdc0fd0e",
+      "mtime": 1794260430.6925857,
+      "size": 758
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/np_datetime/02_np_datetime.csharp.d.ps": {
+      "sha256": "7646ca14cdef66db5f4aba3e007a4bf91200e1c7d6334c11aa21c89074edb152",
+      "mtime": 1794260430.6929016,
+      "size": 4935
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/offsets/00_offsets.primitives.d.ps": {
+      "sha256": "5d9657d1f30061e6e280e24cd4d608f18d6eec2cf3694dec4d04041704ee08d7",
+      "mtime": 1794260430.7055473,
+      "size": 13677
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/offsets/02_offsets.csharp.d.ps": {
+      "sha256": "14f4c43e473d3d313f7cac1192ce776690113330cece180dc6424b773bbb3bb2",
+      "mtime": 1794260430.705889,
+      "size": 24419
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/parsing/00_parsing.primitives.d.ps": {
+      "sha256": "df56ecb9319618d430e79af92602d5557d99beb19f00513cb11efd7ba5e8aad4",
+      "mtime": 1794260430.7086241,
+      "size": 563
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/parsing/02_parsing.csharp.d.ps": {
+      "sha256": "31effb8cd2cd00c4903baaf8e3d223917de0c5dbef3f449db67aff4339970553",
+      "mtime": 1794260430.70893,
+      "size": 3291
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/period/00_period.primitives.d.ps": {
+      "sha256": "ff6cc7877f35a734dbadb31f27b333193fe08d6dcd5b39b15f51a419b8ecfb37",
+      "mtime": 1794260430.7139618,
+      "size": 3138
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/period/02_period.csharp.d.ps": {
+      "sha256": "8766e448e4d85d17a763b61fab38710bcd3d5aabb6b987f758d89e572f8e4ae5",
+      "mtime": 1794260430.7143128,
+      "size": 12558
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/strptime/00_strptime.primitives.d.ps": {
+      "sha256": "a04a6491b3688d7c986230df96b9e8b77bfc9756704ee212ce85845ae54350dc",
+      "mtime": 1794260430.7160091,
+      "size": 556
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/strptime/02_strptime.csharp.d.ps": {
+      "sha256": "35dbbf295342452a560c3c2ccc578e46dd0ab57c333d9ff2ada9c87dcfa57f16",
+      "mtime": 1794260430.716391,
+      "size": 1699
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/timedeltas/00_timedeltas.primitives.d.ps": {
+      "sha256": "b05dbc26a4bacf68ab2a74b86f02a50acb6a75d399f4b655f40a00d979116569",
+      "mtime": 1794260430.722725,
+      "size": 4658
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/timedeltas/02_timedeltas.csharp.d.ps": {
+      "sha256": "22d8212e434a7ade2d91e106a602042ea263ff473b1bc4fbc9887703eed61adb",
+      "mtime": 1794260430.7230477,
+      "size": 16660
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/timestamps/00_timestamps.primitives.d.ps": {
+      "sha256": "76acdedff8cc2be36fcbafdcec027aa07f29c20808c68317d0e664927140caf2",
+      "mtime": 1794260430.7366097,
+      "size": 8184
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/timestamps/02_timestamps.csharp.d.ps": {
+      "sha256": "890be68383cd56f65b3c572f15a423bbc82b2b3da8c2c16139e8c78a4978f947",
+      "mtime": 1794260430.737739,
+      "size": 22797
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/timezones/00_timezones.primitives.d.ps": {
+      "sha256": "f88027e24028e5bbc7c8abe5d088b8f8b039bad05b2f7ff8b5a5f985e0a39f25",
+      "mtime": 1794260430.739938,
+      "size": 562
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/timezones/02_timezones.csharp.d.ps": {
+      "sha256": "61c624291becd31f0748552221bee85c7fccd3b98857a879a09b2ebb18045f75",
+      "mtime": 1794260430.7402928,
+      "size": 3598
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/tzconversion/00_tzconversion.primitives.d.ps": {
+      "sha256": "71df9231c7690d1687a32d9a533890323d9630ea512d418dfa6e7dfd67446d51",
+      "mtime": 1794260430.7425456,
+      "size": 580
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/tzconversion/02_tzconversion.csharp.d.ps": {
+      "sha256": "f9f2a405df829de7595721fb3ff862bf15986d51ba22bed56f20a4985be1964a",
+      "mtime": 1794260430.7428594,
+      "size": 2285
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/vectorized/00_vectorized.primitives.d.ps": {
+      "sha256": "38cb191279511eb275b5f802faba87a6db5a4ada5a9355a00bf0e075f0ef86ce",
+      "mtime": 1794260430.7446406,
+      "size": 568
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/tslibs/vectorized/02_vectorized.csharp.d.ps": {
+      "sha256": "894b3ca0ba52966c1fc483c372df548bbe56f42b5fd908fa978c43b6c14c97b9",
+      "mtime": 1794260430.7449489,
+      "size": 3107
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/window/aggregations/00_aggregations.primitives.d.ps": {
+      "sha256": "1b1b58bb607d9e12d6914616efaf88acb3e88d6154ab685f209908f19dfdab8a",
+      "mtime": 1794260430.7488422,
+      "size": 580
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/window/aggregations/02_aggregations.csharp.d.ps": {
+      "sha256": "d1c6011fec65f41dd0787745caa2ae8d20371beb9b4994af39ddf273ac179a57",
+      "mtime": 1794260430.7490973,
+      "size": 7295
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/window/indexers/00_indexers.primitives.d.ps": {
+      "sha256": "49f68689e20743a92a40ff2119c822f7dbf53cbdb51964ba12226710ef9f20b1",
+      "mtime": 1794260430.7503116,
+      "size": 556
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/window/indexers/02_indexers.csharp.d.ps": {
+      "sha256": "f51d38672c2e558101e310144c18fd2c743bca956473e7c1b1ab3fae30696c1e",
+      "mtime": 1794260430.7506175,
+      "size": 1326
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/writers/00_writers.primitives.d.ps": {
+      "sha256": "47acd67a8e88321cebabd13121e4c8bd97a85ae0fd99d9429dc355a5c4c971e4",
+      "mtime": 1794260430.7517858,
+      "size": 515
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_libs/writers/02_writers.csharp.d.ps": {
+      "sha256": "69a09e7d6873b81bc0bc3ffc59f17050203a234f769823ad95af621fbac2ae68",
+      "mtime": 1794260430.7521155,
+      "size": 2009
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_testing/00__testing.primitives.d.ps": {
+      "sha256": "0c000ebf685058dd2d82b711366e93596674b77f169a35c4dbc64a4dee0755e8",
+      "mtime": 1794260430.8219764,
+      "size": 662
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_testing/02__testing.csharp.d.ps": {
+      "sha256": "65334026cc4f601af718676908e33b633f8df24229a8b75a4ca28e99c49bf5bf",
+      "mtime": 1794260430.8223162,
+      "size": 28284
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_testing/_io/00__io.primitives.d.ps": {
+      "sha256": "b3beefcd48a0db2fd8849114db10afd16d3308e0aacaea83f2614efdb2444cec",
+      "mtime": 1794260430.8245418,
+      "size": 506
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_testing/_io/02__io.csharp.d.ps": {
+      "sha256": "0563987b22374df5dbc0de44c7fabe81cb4d4c09d8ebca5878e83b8911f351a1",
+      "mtime": 1794260430.8248932,
+      "size": 2535
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_testing/_warnings/00__warnings.primitives.d.ps": {
+      "sha256": "9dc7950d2ee9dc53ec0bd1f382ae0f7dac5b4876d90c84ad73b2a82c29a925b1",
+      "mtime": 1794260430.826806,
+      "size": 542
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_testing/_warnings/02__warnings.csharp.d.ps": {
+      "sha256": "cbf5c4ebe5bc342d0969a859178a732a9801a44324f7fbe8f3e2e02108a8e335",
+      "mtime": 1794260430.8271317,
+      "size": 3718
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_testing/asserters/00_asserters.primitives.d.ps": {
+      "sha256": "2eb1e476557f66b7acc067ce1a91042731bde6955624f3833001b6e4e442f731",
+      "mtime": 1794260430.8384743,
+      "size": 542
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_testing/asserters/02_asserters.csharp.d.ps": {
+      "sha256": "ae93f533c1e39434cbd73a9ae13a78775fd1755bf6f02cde49f87a4ce87ccce2",
+      "mtime": 1794260430.838791,
+      "size": 13999
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_testing/compat/00_compat.primitives.d.ps": {
+      "sha256": "c91e3462ef75543cad8f1e7cbcb6dfedf33f8987d607e8ccf95bb9679a0fdb24",
+      "mtime": 1794260430.8402567,
+      "size": 524
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_testing/compat/02_compat.csharp.d.ps": {
+      "sha256": "43f3c0ff4203aa9c3e9550c124c9af8f78df40d4a84463a57a508ed166754038",
+      "mtime": 1794260430.8405979,
+      "size": 2024
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_testing/contexts/00_contexts.primitives.d.ps": {
+      "sha256": "b672c8bcacd35012991110d5515383d585708f909cfe6bbc4a9a8a1f9a20b333",
+      "mtime": 1794260430.842185,
+      "size": 536
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_testing/contexts/02_contexts.csharp.d.ps": {
+      "sha256": "421d352d723eaf6cf353f51e1358e499d555b7e80ddaeb8417231da946adbe11",
+      "mtime": 1794260430.8425007,
+      "size": 3933
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_typing/00__typing.primitives.d.ps": {
+      "sha256": "cd2e335bd25152be71d443c330e8368e60ab2c391cf9fb15d2ea29beddaae7fc",
+      "mtime": 1794260430.851088,
+      "size": 3639
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_typing/02__typing.csharp.d.ps": {
+      "sha256": "b4bd5ba67785fc2d71194dab515c336bc65cebf3da66bb168661bff578c8d12b",
+      "mtime": 1794260430.8514302,
+      "size": 36749
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_version_meson/00__version_meson.primitives.d.ps": {
+      "sha256": "44a8bace0e366206d297e55c097e790ddf10a9685fed8c9abee0fedb4180d49d",
+      "mtime": 1794260430.8526893,
+      "size": 525
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/_version_meson/02__version_meson.csharp.d.ps": {
+      "sha256": "4e014796302d5bc7ce9b7e7dfb76c19a61516678d5f77bddb8610fe0dd755104",
+      "mtime": 1794260430.8529873,
+      "size": 406
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/api/00_api.primitives.d.ps": {
+      "sha256": "fa2041d895ad9708a1663954d0584af23f94f33f666628bcf6c2e261d450dfbc",
+      "mtime": 1794260430.8540509,
+      "size": 461
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/api/02_api.csharp.d.ps": {
+      "sha256": "146c0bd70b9f58d06365d0c1edcb717e3e9a797ea9631ab371dec3b1e8e031df",
+      "mtime": 1794260430.8543575,
+      "size": 1862
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/api/executors/00_executors.primitives.d.ps": {
+      "sha256": "275ef58c329078436f628c67d9f9fc805d4d2ec2d12563c0b286f6af5017b221",
+      "mtime": 1794260430.855085,
+      "size": 517
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/api/executors/02_executors.csharp.d.ps": {
+      "sha256": "78c1c3ce56d8ff18a4f1b6311e6ffbe6d340e13098e49c88745a188bc8766145",
+      "mtime": 1794260430.8553946,
+      "size": 824
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/api/extensions/00_extensions.primitives.d.ps": {
+      "sha256": "3e190b00cfd0565ab809a7b9c64ca88bd5644efe70de90ccbb089060060e4fa9",
+      "mtime": 1794260430.8568826,
+      "size": 523
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/api/extensions/02_extensions.csharp.d.ps": {
+      "sha256": "10771293bcca37db587cbbdc3a615ec47ae12f19c37a3355073cf3cf0449301f",
+      "mtime": 1794260430.8572423,
+      "size": 2931
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/api/indexers/00_indexers.primitives.d.ps": {
+      "sha256": "1f00b2d1432c0a01ef7e7bec92681488e418a1aa179def6f4dc2301f42fa39d6",
+      "mtime": 1794260430.858348,
+      "size": 511
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/api/indexers/02_indexers.csharp.d.ps": {
+      "sha256": "9e52b0add46552384bd6ea191ec107650a03641a37abfa579104b32e8ff1b95c",
+      "mtime": 1794260430.858611,
+      "size": 1649
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/api/interchange/00_interchange.primitives.d.ps": {
+      "sha256": "18c5f22a4407240815103f03793b9d962de0b9f7d947df5862e50b127cddc228",
+      "mtime": 1794260430.8594258,
+      "size": 529
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/api/interchange/02_interchange.csharp.d.ps": {
+      "sha256": "b40b9e419adda8f4aa8e18a7e290ad8003e5c793f215b06e00a679ac8cdc7226",
+      "mtime": 1794260430.859665,
+      "size": 1087
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/api/internals/00_internals.primitives.d.ps": {
+      "sha256": "135b5f0b72641261e8011b132176b4683d60f3647dce4cd0ba11d5605975c771",
+      "mtime": 1794260430.860824,
+      "size": 517
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/api/internals/02_internals.csharp.d.ps": {
+      "sha256": "6e13703812a272b481588b4a9125054d0d4cb9e09d0b10123f2f15e4bb7ea854",
+      "mtime": 1794260430.8610802,
+      "size": 1738
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/api/types/00_types.primitives.d.ps": {
+      "sha256": "11fdf068ff6f2473cd4f17f241251301495bc61885ba6737c191cb19ab0fda90",
+      "mtime": 1794260430.8615687,
+      "size": 493
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/api/types/02_types.csharp.d.ps": {
+      "sha256": "fefa49c7f4411b293b222a24e0a3623c2359dbe74c6e4ca26955ff5136c807cb",
+      "mtime": 1794260430.862463,
+      "size": 2048
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/api/typing/00_typing.primitives.d.ps": {
+      "sha256": "1a22ef2dfa75918a5a3141585781aff59d894ab7ec628099686a2aa71e86f48a",
+      "mtime": 1794260430.8635685,
+      "size": 499
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/api/typing/02_typing.csharp.d.ps": {
+      "sha256": "bc643d8f10078d435d431bba2e2cc366ac5dd40bc06f7c4da2b2251e6c2b3f95",
+      "mtime": 1794260430.8645458,
+      "size": 6518
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/arrays/00_arrays.primitives.d.ps": {
+      "sha256": "d9dcf051eaeb8d63553204f532053b542dc2f73d3174d8d666e2e8df7c8f28cc",
+      "mtime": 1794260430.8665998,
+      "size": 479
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/arrays/02_arrays.csharp.d.ps": {
+      "sha256": "daebdc5071fb03410526562edb9170801402b22f127484417e7a549d196663c6",
+      "mtime": 1794260430.866896,
+      "size": 4174
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/compat/00_compat.primitives.d.ps": {
+      "sha256": "9e009cdfb9d641c03179b764c6a926a5adb2925269464e83f303f69569ed447d",
+      "mtime": 1794260430.8695004,
+      "size": 479
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/compat/02_compat.csharp.d.ps": {
+      "sha256": "bbf8916166bb00fc0d187c0d693c33c19648d143b49f0e72d3abfbe87b44a4b8",
+      "mtime": 1794260430.86979,
+      "size": 7189
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/compat/_constants/00__constants.primitives.d.ps": {
+      "sha256": "2c3e88b564fd6077fe8cf5f32a31ef7da43df9685242455c3f45fcc0491922dd",
+      "mtime": 1794260430.8707483,
+      "size": 538
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/compat/_constants/02__constants.csharp.d.ps": {
+      "sha256": "594e36486f99e9493c959a3b38458b5509ec82dafd62a1317058d5cdc459b506",
+      "mtime": 1794260430.8710535,
+      "size": 2230
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/compat/_cpu/00__cpu.primitives.d.ps": {
+      "sha256": "60f8bc1c2eab87a56cf090fd2418b713328f6e7ccabca662c8aa769177315023",
+      "mtime": 1794260430.8724506,
+      "size": 502
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/compat/_cpu/02__cpu.csharp.d.ps": {
+      "sha256": "452b64025fceb9eee87c754b4f46a60e1cebd864af44316e059ee9f750acf39c",
+      "mtime": 1794260430.8727512,
+      "size": 683
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/compat/_optional/00__optional.primitives.d.ps": {
+      "sha256": "aa58edb4bb15bd7f662fb7c6a6e4390cac0c74c344adc5465f826da4900cf30d",
+      "mtime": 1794260430.8740566,
+      "size": 532
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/compat/_optional/02__optional.csharp.d.ps": {
+      "sha256": "111d3cea596c92cfcb9513133ac451223ccd5e82001eec02c739a08b4a308c26",
+      "mtime": 1794260430.8744826,
+      "size": 1674
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/compat/numpy/00_numpy.primitives.d.ps": {
+      "sha256": "9fed857779f0c233890ab9a5593247813340252908c1071ced4bae6090f66d9e",
+      "mtime": 1794260430.8754854,
+      "size": 508
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/compat/numpy/02_numpy.csharp.d.ps": {
+      "sha256": "b0136eeb4c5ccb525e7936e71ad7b76c24e4f8d338c00d00e9e37d59a8a4fa67",
+      "mtime": 1794260430.8757741,
+      "size": 1172
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/compat/numpy/function/00_function.primitives.d.ps": {
+      "sha256": "c587ce70a19c45a8b29bb0cc1930866208a6d60ff54bed192b12e7c52aba3c47",
+      "mtime": 1794260430.8801486,
+      "size": 892
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/compat/numpy/function/02_function.csharp.d.ps": {
+      "sha256": "344694dbbc4fa91ecc5863cdcb8b69cc3f31d3322a05ec6de16f659f1c5adf3d",
+      "mtime": 1794260430.880692,
+      "size": 8156
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/compat/pickle_compat/00_pickle_compat.primitives.d.ps": {
+      "sha256": "e5e6d3be532f79581e053e5a1226255163a2ffa3343feb8c07056980ea424bbd",
+      "mtime": 1794260430.8833776,
+      "size": 768
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/compat/pickle_compat/02_pickle_compat.csharp.d.ps": {
+      "sha256": "cab95b3008a86df4bf2258e7f32a533bc486915a16a5cbfd6a0c84ca0a5a71d8",
+      "mtime": 1794260430.8837852,
+      "size": 2271
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/compat/pyarrow/00_pyarrow.primitives.d.ps": {
+      "sha256": "afbc9489dc1c2a0f67eabf2570386583ec4cc49274dc3ef8cc5988fe8dfcc17e",
+      "mtime": 1794260430.8848524,
+      "size": 520
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/compat/pyarrow/02_pyarrow.csharp.d.ps": {
+      "sha256": "3eb668d0e2573d4cca133680275ff0e8da6d5f3d3fcf30a04aefc3376f394f1a",
+      "mtime": 1794260430.885244,
+      "size": 408
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/conftest/00_conftest.primitives.d.ps": {
+      "sha256": "f7bc17111ad3007037bcb0ab75929ca40a84f60f92565120568e08c5db5bc595",
+      "mtime": 1794260430.9038596,
+      "size": 491
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/conftest/02_conftest.csharp.d.ps": {
+      "sha256": "e3ecf875f9d1b90454efcf71a7caaed30f16539540a7af8cfbfb180605580f48",
+      "mtime": 1794260430.9043465,
+      "size": 27878
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/00_core.primitives.d.ps": {
+      "sha256": "aaed79e711fced76fb352a88cc624d1ad3cd1e5c34bb59ae5fef02b68a02791b",
+      "mtime": 1794260430.906745,
+      "size": 467
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/02_core.csharp.d.ps": {
+      "sha256": "3b72d826066ec5f8fa32e60ff8ac6843847c5526c7471bac963c1f8e50ce8b35",
+      "mtime": 1794260430.907172,
+      "size": 368
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/00__numba.primitives.d.ps": {
+      "sha256": "3ccab9a1914bb0728353d1058100067a1c84d7bea993c6ee430a1c7bb2c0ca97",
+      "mtime": 1794260430.9083319,
+      "size": 504
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/02__numba.csharp.d.ps": {
+      "sha256": "9cf219c994eac391cb9547adc0dc27d718d65d320ee7240adf38e9f73d4b589f",
+      "mtime": 1794260430.9088593,
+      "size": 396
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/executor/00_executor.primitives.d.ps": {
+      "sha256": "babf77cc43ab15198fdd3e161461a6b06161225527db5f28226a1ef7193ebcbe",
+      "mtime": 1794260430.9106586,
+      "size": 551
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/executor/02_executor.csharp.d.ps": {
+      "sha256": "11f3c1b27a160bf807762c4884202f85919996432abdf8e6b05e9728960ccb40",
+      "mtime": 1794260430.910955,
+      "size": 3203
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/extensions/00_extensions.primitives.d.ps": {
+      "sha256": "6bc98ae0659f13f5b154b75e0453f5f668e784b56038f3a99f8ad61d3e11fb69",
+      "mtime": 1794260430.916521,
+      "size": 2102
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/extensions/02_extensions.csharp.d.ps": {
+      "sha256": "7cf4bc93f973f3acffee8acf3cae77560e52764e8aec29a0f093bc27f5b8ad24",
+      "mtime": 1794260430.916778,
+      "size": 12538
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/kernels/00_kernels.primitives.d.ps": {
+      "sha256": "8f3b077134b119eab226eb94d2482e476a10719208d28e85366fae21e204a558",
+      "mtime": 1794260430.9189742,
+      "size": 545
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/kernels/02_kernels.csharp.d.ps": {
+      "sha256": "3e97d379d4a3e3f5900ad95737ccb2e5d5c24fc2be67c62bfa365bf6f2d9877b",
+      "mtime": 1794260430.9192111,
+      "size": 3108
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/kernels/mean_/00_mean_.primitives.d.ps": {
+      "sha256": "84700d33a0dc29b874546cc6510d1a842050d08934d7d466aa7ea98779926c13",
+      "mtime": 1794260430.9206603,
+      "size": 571
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/kernels/mean_/02_mean_.csharp.d.ps": {
+      "sha256": "bc5be73548bc4da9c6669418a59e51cfc09b5effb7bdab25f80ef4abffc34997",
+      "mtime": 1794260430.9208932,
+      "size": 2352
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/kernels/min_max_/00_min_max_.primitives.d.ps": {
+      "sha256": "f9c378d7698f9f1b241abcc201e38a2881c423fc7ec1bc7c0d83f4189ff4c17e",
+      "mtime": 1794260430.9223025,
+      "size": 587
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/kernels/min_max_/02_min_max_.csharp.d.ps": {
+      "sha256": "f725f2a811a3c770e8d4e5354907a44763a670c8ae4126c6cca5039597ffd23b",
+      "mtime": 1794260430.9225395,
+      "size": 2306
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/kernels/shared/00_shared.primitives.d.ps": {
+      "sha256": "854dc444ff5579f3eb2ac8dd4bc6748a41d4917f5c2e7491e4ef4989b6bf8081",
+      "mtime": 1794260430.923395,
+      "size": 579
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/kernels/shared/02_shared.csharp.d.ps": {
+      "sha256": "0abca148a19640a29c8556a62c2ccd07692c96976687b04e9df48afbfb8ce1b6",
+      "mtime": 1794260430.9236248,
+      "size": 1252
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/kernels/sum_/00_sum_.primitives.d.ps": {
+      "sha256": "7e89b7ca5212b73101a84cee63aac12b0b395f2e407943039e6857d2dd4d120b",
+      "mtime": 1794260430.9254322,
+      "size": 565
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/kernels/sum_/02_sum_.csharp.d.ps": {
+      "sha256": "dc1c19c77db1d5948c5aa3bdb26744a84edf79f566a378881386dffd9e0f7a03",
+      "mtime": 1794260430.9256823,
+      "size": 3071
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/kernels/var_/00_var_.primitives.d.ps": {
+      "sha256": "4bd15dd999173ef089b6578690455620265142717312f1f5c26e2a9a106aa10a",
+      "mtime": 1794260430.9272842,
+      "size": 565
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/_numba/kernels/var_/02_var_.csharp.d.ps": {
+      "sha256": "e0352705816d2631ad0d3a08ed097c7c66380c515a965d5e6a6b59c6ff7199b4",
+      "mtime": 1794260430.927531,
+      "size": 2372
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/accessor/00_accessor.primitives.d.ps": {
+      "sha256": "79816414112d654b7539724b523d653015471e12142765ab384154a29f343932",
+      "mtime": 1794260430.929603,
+      "size": 1104
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/accessor/02_accessor.csharp.d.ps": {
+      "sha256": "278225865976f6ab63e24f5690f925f940000d5a00f8746aa991d2e8385bea0a",
+      "mtime": 1794260430.9298887,
+      "size": 3796
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/algorithms/00_algorithms.primitives.d.ps": {
+      "sha256": "d0b38d294305222f21f6cc3e5f151a5647d326bbba05413498584c5ee9a758a9",
+      "mtime": 1794260430.936354,
+      "size": 528
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/algorithms/02_algorithms.csharp.d.ps": {
+      "sha256": "2ccb3ec547f2c2c3055de943220654a4d1b19e4d4f176adc7d22b206f2ef3a1a",
+      "mtime": 1794260430.9366322,
+      "size": 12470
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/api/00_api.primitives.d.ps": {
+      "sha256": "692dd290a994558cf989fe2a2e4cbe25d446bb1ed2c7582e491dbe01691b4e3d",
+      "mtime": 1794260430.9423866,
+      "size": 486
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/api/02_api.csharp.d.ps": {
+      "sha256": "99d6487d3d23739a2da7806ddb15eb890fc7612262d1d4406a073c417b3b0088",
+      "mtime": 1794260430.942677,
+      "size": 16437
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/apply/00_apply.primitives.d.ps": {
+      "sha256": "bc4ea5c3d62f83a07b420949accf982a0fbe4fb24a8cf23f3775a0015bfc4fa6",
+      "mtime": 1794260430.956843,
+      "size": 10618
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/apply/02_apply.csharp.d.ps": {
+      "sha256": "2cd076e7294ad4361e23e5333ca9c4b4cf12b6e804ac147f2b6089d0ed3900d9",
+      "mtime": 1794260430.9571433,
+      "size": 28839
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/00_array_algos.primitives.d.ps": {
+      "sha256": "a09e5559c59566866b0028e05614ff973d82c107007e286ba2a4c0198687e0db",
+      "mtime": 1794260430.9585395,
+      "size": 532
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/02_array_algos.csharp.d.ps": {
+      "sha256": "99aada42c2c11fb114a0896ba5608b7ccdd2df982350be55e154a301dfc13a50",
+      "mtime": 1794260430.9588287,
+      "size": 414
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/datetimelike_accumulations/00_datetimelike_accumulations.primitives.d.ps": {
+      "sha256": "08484fa65dac6fa93639ab67a8a215431ebadfd90ede165d62c6fe0b2c05e4a4",
+      "mtime": 1794260430.9598305,
+      "size": 681
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/datetimelike_accumulations/02_datetimelike_accumulations.csharp.d.ps": {
+      "sha256": "901c5fb69e844fe0551c4592c14518153d4dc58087d472f00aa8557767a11c48",
+      "mtime": 1794260430.9601593,
+      "size": 1863
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/masked_accumulations/00_masked_accumulations.primitives.d.ps": {
+      "sha256": "f0f2ee664d235daacbf372f75f94cdb04f7cdae55c262fbbe2bb4a13407a3bf7",
+      "mtime": 1794260430.9614866,
+      "size": 645
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/masked_accumulations/02_masked_accumulations.csharp.d.ps": {
+      "sha256": "9581771e1d31c7fa0f57920e3fedea6c6f424c7a252d8e45a473275129c42948",
+      "mtime": 1794260430.9617922,
+      "size": 2359
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/masked_reductions/00_masked_reductions.primitives.d.ps": {
+      "sha256": "b2dcc90857e9c91bedda933ce7a181635d307c2fa3cde289ea812ef5addebd7b",
+      "mtime": 1794260430.9635367,
+      "size": 627
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/masked_reductions/02_masked_reductions.csharp.d.ps": {
+      "sha256": "791e6b2f4328388f65868ea11132fe3eff0838dca31d5badd869ed3367ce08ce",
+      "mtime": 1794260430.9638822,
+      "size": 3286
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/putmask/00_putmask.primitives.d.ps": {
+      "sha256": "e1e1b30b0f1472ba0d426502380e05c5ff8225b5d330a4ca6208c07c18b54da4",
+      "mtime": 1794260430.9657578,
+      "size": 569
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/putmask/02_putmask.csharp.d.ps": {
+      "sha256": "447dada6a876b609fddcb653587d9c7030074d47291f46601cccab04d3eab69e",
+      "mtime": 1794260430.9661546,
+      "size": 3400
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/quantile/00_quantile.primitives.d.ps": {
+      "sha256": "287c200e6b70a7be99c8f7cd0269950658946d42121aec82a1f8525b7fc54903",
+      "mtime": 1794260430.9676673,
+      "size": 575
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/quantile/02_quantile.csharp.d.ps": {
+      "sha256": "384e2fd07e693b7d0fba6c80dc599a84df5ffe0d67eba9c63e7c1c28531e9cc7",
+      "mtime": 1794260430.9678984,
+      "size": 2229
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/replace/00_replace.primitives.d.ps": {
+      "sha256": "96c4a01005645ab555eb40ca05e4512315765a270648abcf9f58ecf33691589c",
+      "mtime": 1794260430.968553,
+      "size": 569
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/replace/02_replace.csharp.d.ps": {
+      "sha256": "68d42cd8814920b08fb3057fa977b7ddaa9777f78ef1ce8fde3ac3444c8c4fa7",
+      "mtime": 1794260430.9694595,
+      "size": 3101
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/take/00_take.primitives.d.ps": {
+      "sha256": "d13bbc8076936c5f2a18d60654f145c5b38565330814628c44e603150a038f89",
+      "mtime": 1794260430.970553,
+      "size": 551
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/take/02_take.csharp.d.ps": {
+      "sha256": "028bb06f5cc23b60a90c1652c5bcc133e322a48ea950ad9f2c942cf88228cddd",
+      "mtime": 1794260430.9714444,
+      "size": 3170
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/transforms/00_transforms.primitives.d.ps": {
+      "sha256": "cf9aaa3b731335cfb6b19bbe410b62c01d801c4decbeba7cace4a80924a78a0d",
+      "mtime": 1794260430.9723191,
+      "size": 587
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/array_algos/transforms/02_transforms.csharp.d.ps": {
+      "sha256": "6be9aa638d76bc770611b548716c17305b6163f8ff2d877706accc066ed116c6",
+      "mtime": 1794260430.9725418,
+      "size": 1483
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arraylike/00_arraylike.primitives.d.ps": {
+      "sha256": "a9dc2b6efacd68a329dbe3be2eef84175313b57a64a743575d37dbd42d099432",
+      "mtime": 1794260430.97608,
+      "size": 2658
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arraylike/02_arraylike.csharp.d.ps": {
+      "sha256": "961005ec4cd1fad55319823f3a7383a8c393593bed4b626e6f4abdd46ef05d2c",
+      "mtime": 1794260430.9763372,
+      "size": 7503
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/00_arrays.primitives.d.ps": {
+      "sha256": "2f2c1c7c9faaa72ef5c3a5e28bb5e36ef74b8a37c96c959f85392afa34db20fc",
+      "mtime": 1794260430.978102,
+      "size": 504
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/02_arrays.csharp.d.ps": {
+      "sha256": "2d08eb328c1f5b6cda9e361480316e77091b1f775374b591bf87e7e3a3c64d3e",
+      "mtime": 1794260430.9783366,
+      "size": 5812
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/_arrow_string_mixins/00__arrow_string_mixins.primitives.d.ps": {
+      "sha256": "b85965d102edd3c0f2d32d0919345f6acda2a35a36bffe01583b75ab1f693224",
+      "mtime": 1794260430.979421,
+      "size": 778
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/_arrow_string_mixins/02__arrow_string_mixins.csharp.d.ps": {
+      "sha256": "38ed11290e1c1ae38bef62a32ac2ce9fbc90f5775f23702da89285555ad5a721",
+      "mtime": 1794260430.9797196,
+      "size": 1809
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/_mixins/00__mixins.primitives.d.ps": {
+      "sha256": "0b57df04318264617931792fc8e0d13ca14b0eca0c6c4a339ab07ea10d95a741",
+      "mtime": 1794260430.983551,
+      "size": 2415
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/_mixins/02__mixins.csharp.d.ps": {
+      "sha256": "ee73f2e3d896e8fdb17b4f98e2d110a865a6bee502386d57666fa566f1d099d0",
+      "mtime": 1794260430.9845214,
+      "size": 9602
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/_ranges/00__ranges.primitives.d.ps": {
+      "sha256": "608b044f239798c9f2f934f52a32142752cef0c7ac6b28c85d7a1471ae161b82",
+      "mtime": 1794260430.986308,
+      "size": 545
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/_ranges/02__ranges.csharp.d.ps": {
+      "sha256": "2048561895a9ac5cb8c61148a7c3e75877869fd5f5766bf42633f2f524227d85",
+      "mtime": 1794260430.9865677,
+      "size": 3763
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/_utils/00__utils.primitives.d.ps": {
+      "sha256": "2a53d288163cbe036e650f816468a5c22ec0c0ff161dcfab94781feacc54503f",
+      "mtime": 1794260430.9876766,
+      "size": 539
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/_utils/02__utils.csharp.d.ps": {
+      "sha256": "1da14662b143bbc8efaa30bc6f281cd71e7ee4e34c771a6c39f3db6c899592fc",
+      "mtime": 1794260430.9879282,
+      "size": 1952
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/arrow/00_arrow.primitives.d.ps": {
+      "sha256": "d313bc635963f2dca06a0a9c8d3c3d4de28b2f3e6fd65bdbaf73d3d7f500d725",
+      "mtime": 1794260430.9887662,
+      "size": 533
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/arrow/02_arrow.csharp.d.ps": {
+      "sha256": "5078e640b20fd1caf98d00d2552f5643bbaf7dca21d27cf5d7b9872f2bb04e55",
+      "mtime": 1794260430.9890182,
+      "size": 1386
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/arrow/_arrow_utils/00__arrow_utils.primitives.d.ps": {
+      "sha256": "d47de7cf80cc96bc3975474cf07b61c3b05ea93c75c129501d4b78676c98d98e",
+      "mtime": 1794260430.989844,
+      "size": 603
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/arrow/_arrow_utils/02__arrow_utils.csharp.d.ps": {
+      "sha256": "5f41dedb03f4999e9e04fc934bb7559979c597295fee351f37a8022d1452443c",
+      "mtime": 1794260430.990113,
+      "size": 1097
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/arrow/accessors/00_accessors.primitives.d.ps": {
+      "sha256": "8e27ca6f5b1443e8224053553310c35e24ced009ee4755bb5b928391dd3355d2",
+      "mtime": 1794260430.992697,
+      "size": 1852
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/arrow/accessors/02_accessors.csharp.d.ps": {
+      "sha256": "547c9c570a5cc840227b82eb5bf9cefe11ed63701cc3af088193129fdebf48ca",
+      "mtime": 1794260430.9929805,
+      "size": 5331
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/arrow/array/00_array.primitives.d.ps": {
+      "sha256": "4722ece87deb2d72f90d149818e375be2e764958101da6451d885b2b36a7dd78",
+      "mtime": 1794260431.001633,
+      "size": 5621
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/arrow/array/02_array.csharp.d.ps": {
+      "sha256": "119879c5eec68d5e5af7420fc78291e6a5193f546457d52cf8126943ed1354ed",
+      "mtime": 1794260431.0019338,
+      "size": 20173
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/arrow/extension_types/00_extension_types.primitives.d.ps": {
+      "sha256": "883e6182281408b1797e7b1d7701ae978a4855c00e509bf7d1170a874ac0ec40",
+      "mtime": 1794260431.0046608,
+      "size": 2176
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/arrow/extension_types/02_extension_types.csharp.d.ps": {
+      "sha256": "93ffc4f042bcf8e913e37b5130014bb1f55d7aeb3fb56954f16425ecbbbcc30f",
+      "mtime": 1794260431.0049326,
+      "size": 5350
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/base/00_base.primitives.d.ps": {
+      "sha256": "80872dbfda32649574e7f56ed4df6a95c2d376123922a657a2db624994cb577d",
+      "mtime": 1794260431.0138862,
+      "size": 5838
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/base/02_base.csharp.d.ps": {
+      "sha256": "1e4f6a8c1d68a94c1a91fdbd36497439fc67bd406e5aba19c33c6bb578cb830f",
+      "mtime": 1794260431.0142224,
+      "size": 17961
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/boolean/00_boolean.primitives.d.ps": {
+      "sha256": "02fdb5ef03661090f2f93bbcf30abe5b204ba51ee96ccbc4c84b4126c179aaaa",
+      "mtime": 1794260431.017828,
+      "size": 1448
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/boolean/02_boolean.csharp.d.ps": {
+      "sha256": "0ead84126217b41e9b2b77f9550dcffe2eb0803e7e7debe50902dae8355420dd",
+      "mtime": 1794260431.018108,
+      "size": 4811
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/categorical/00_categorical.primitives.d.ps": {
+      "sha256": "924c9433f159c48dd526350556c41b50a3743107d566dc78be1476af9c4c1d44",
+      "mtime": 1794260431.0253427,
+      "size": 4477
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/categorical/02_categorical.csharp.d.ps": {
+      "sha256": "524fb27da5f23b56626a9789be51fb29498c1c69b15c735632be9c02839847a7",
+      "mtime": 1794260431.0256326,
+      "size": 17428
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/datetimelike/00_datetimelike.primitives.d.ps": {
+      "sha256": "8749167853527ed35d9f63a9ffd61bf5ea2186e66298467e1b86246ed463729c",
+      "mtime": 1794260431.034141,
+      "size": 4731
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/datetimelike/02_datetimelike.csharp.d.ps": {
+      "sha256": "d2494027c5230835a125b139b43a7309e40ff927a90945859e5f0c4aa09f6f2f",
+      "mtime": 1794260431.0344484,
+      "size": 19848
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/datetimes/00_datetimes.primitives.d.ps": {
+      "sha256": "1b416ff699ef13780d370c20d31258a9081736b6e74190fb04b3f3fb3936bf6f",
+      "mtime": 1794260431.0397503,
+      "size": 3063
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/datetimes/02_datetimes.csharp.d.ps": {
+      "sha256": "9b66d98aa6be04ebfb8a79080599024fea743efa787e9ffc4215726f45344b03",
+      "mtime": 1794260431.0400321,
+      "size": 12327
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/floating/00_floating.primitives.d.ps": {
+      "sha256": "6b130ba62236e575b61b25bef00500ab7752aed12d637bf9edb30f8dc6d024fa",
+      "mtime": 1794260431.042291,
+      "size": 1277
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/floating/02_floating.csharp.d.ps": {
+      "sha256": "c3c5db9b9283c11799ca623abb4d6427fbfc754497478772510ba9d75bd8f50b",
+      "mtime": 1794260431.042606,
+      "size": 4220
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/integer/00_integer.primitives.d.ps": {
+      "sha256": "85f18d2f77ed4514afb15eab4619adab24c38bc45a18fbd8af12bde901416b83",
+      "mtime": 1794260431.0448487,
+      "size": 2419
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/integer/02_integer.csharp.d.ps": {
+      "sha256": "d7565d7cb507d58ccfa0c597fc61278835e5ef8d7f88e0f7f1a17cfce525a736",
+      "mtime": 1794260431.0451891,
+      "size": 5909
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/interval/00_interval.primitives.d.ps": {
+      "sha256": "a97705b3f433e860ecb9c2c616b149799bfcdebd7c78acedb631ad58fc89c2fe",
+      "mtime": 1794260431.0534637,
+      "size": 4808
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/interval/02_interval.csharp.d.ps": {
+      "sha256": "b45989d5a982e20b1ac6cb7479ad44b7b0f1d74e0335db17095e5bea8c8e3f4b",
+      "mtime": 1794260431.0537827,
+      "size": 16665
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/masked/00_masked.primitives.d.ps": {
+      "sha256": "f24ecda898a62769aad2e16b6f0b1de27b3306879aa769820f86fd1df2445784",
+      "mtime": 1794260431.0621326,
+      "size": 5904
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/masked/02_masked.csharp.d.ps": {
+      "sha256": "3a2e1adc311f119f7f31f3ebbfda7e60e0a67b0df46c530fc6c821e0e2c746c4",
+      "mtime": 1794260431.062468,
+      "size": 19563
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/numeric/00_numeric.primitives.d.ps": {
+      "sha256": "a78f3e8a872ef8c6df73813049c259a2db2afaba5c0c2294ba5ab7ab6649f143",
+      "mtime": 1794260431.0651534,
+      "size": 1483
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/numeric/02_numeric.csharp.d.ps": {
+      "sha256": "297345ddeab09c682ba4c41e5900e357a6ee8befb40c2891ae4dc5ac10e66157",
+      "mtime": 1794260431.0654843,
+      "size": 4507
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/numpy_/00_numpy_.primitives.d.ps": {
+      "sha256": "dea818f131f72c913d5f92aa16d43a3584cef31c8c222ec20813d3236f69fe32",
+      "mtime": 1794260431.070174,
+      "size": 3080
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/numpy_/02_numpy_.csharp.d.ps": {
+      "sha256": "faa241c2f958f0bd1d453a228636a206a1a4c462f06591275fcea3604094fe10",
+      "mtime": 1794260431.0705044,
+      "size": 11209
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/period/00_period.primitives.d.ps": {
+      "sha256": "4a7ce4d1cc282b8e3e8eb54970f59d4e9a061b13aa088ddf6a37c8efa7526706",
+      "mtime": 1794260431.0753727,
+      "size": 2586
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/period/02_period.csharp.d.ps": {
+      "sha256": "56df0f751fcd0f26d6073d24f7bc02a1a6ebc65bada9aae9ac2f6f764600b5bf",
+      "mtime": 1794260431.075708,
+      "size": 11987
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/sparse/00_sparse.primitives.d.ps": {
+      "sha256": "15b24a3c28c516e5174099e9d8b94910858484fa2cc76367bd931cda08cae5ad",
+      "mtime": 1794260431.0770183,
+      "size": 539
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/sparse/02_sparse.csharp.d.ps": {
+      "sha256": "42e9e5bcbe54cd1d8272813152c78a4d0cc0dddd0baf722884f959b423be6758",
+      "mtime": 1794260431.0773315,
+      "size": 2123
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/sparse/accessor/00_accessor.primitives.d.ps": {
+      "sha256": "f8d6eb011a0fef5b9b6f09f08fd1a64234fc1507d58ed620351f74ce9c9a0153",
+      "mtime": 1794260431.0800245,
+      "size": 1662
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/sparse/accessor/02_accessor.csharp.d.ps": {
+      "sha256": "8f48886fa251a0ef99f57cd5706346e0004578a93a7b0fe2c2e623cd21c006a3",
+      "mtime": 1794260431.0804136,
+      "size": 5061
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/sparse/array/00_array.primitives.d.ps": {
+      "sha256": "04b5562eefb95d5de6f1add8b62cfa9a81aa167648376384a416d0a85e9d9bce",
+      "mtime": 1794260431.089458,
+      "size": 5962
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/sparse/array/02_array.csharp.d.ps": {
+      "sha256": "51a35fa8219a1611a8af6f5a679055c121147b268891e69e35097b96b09d711c",
+      "mtime": 1794260431.0897942,
+      "size": 20167
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/sparse/scipy_sparse/00_scipy_sparse.primitives.d.ps": {
+      "sha256": "013fa2b754f3781e456eea0490579e26a27c617f201f9ec10644e92dd4084386",
+      "mtime": 1794260431.091749,
+      "size": 608
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/sparse/scipy_sparse/02_scipy_sparse.csharp.d.ps": {
+      "sha256": "6ee6e8d867d16e3146ab362f13b4272306335f0b0815070e7f48e13f9858abea",
+      "mtime": 1794260431.0921004,
+      "size": 2223
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/string_/00_string_.primitives.d.ps": {
+      "sha256": "22ca95266575d7a2ee0d6a91301e18828f7e37918abb7ff070df9b6fb1075712",
+      "mtime": 1794260431.097764,
+      "size": 4110
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/string_/02_string_.csharp.d.ps": {
+      "sha256": "092653853eab832ce7ae41d0e2cb772aa56c91e9c5b7abf95dd36bdcb233c9b7",
+      "mtime": 1794260431.098115,
+      "size": 13443
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/string_arrow/00_string_arrow.primitives.d.ps": {
+      "sha256": "27600360ffc01d15440d0bcaf9559588335c5b0f3a348cd19b0ac10a95ef75cb",
+      "mtime": 1794260431.1009703,
+      "size": 1278
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/string_arrow/02_string_arrow.csharp.d.ps": {
+      "sha256": "99c87b3286af4fc9cdfe72a964e7f2288da9ca786de54664331b6df8a7ce8d98",
+      "mtime": 1794260431.1013353,
+      "size": 5415
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/timedeltas/00_timedeltas.primitives.d.ps": {
+      "sha256": "b5ed4fbd4abd31183fd5e6fe73d76633c9e046d1c10fe7d126639067de101d33",
+      "mtime": 1794260431.1047626,
+      "size": 2468
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/arrays/timedeltas/02_timedeltas.csharp.d.ps": {
+      "sha256": "97dc9846d33267ed1d1bf257e1f31e66a8350df9c1b2460a92d1087dbff9386c",
+      "mtime": 1794260431.105103,
+      "size": 8729
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/base/00_base.primitives.d.ps": {
+      "sha256": "7563c62e6283f182023bc632b680b0ad85267705bd971167ffe5d99b9b3649e5",
+      "mtime": 1794260431.111294,
+      "size": 4347
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/base/02_base.csharp.d.ps": {
+      "sha256": "193a1ada27fb4bac948b5d0b71a5c9b8068d3e5982ccc792e9c8bb538e99daf7",
+      "mtime": 1794260431.1116023,
+      "size": 13756
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/col/00_col.primitives.d.ps": {
+      "sha256": "77499d6e23eb6364d6b56a6c09d80513b61e8d44d18e4db05c6f5340f65247da",
+      "mtime": 1794260431.1173215,
+      "size": 3916
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/col/02_col.csharp.d.ps": {
+      "sha256": "2a63f9cf6c17b821ec0a4fa411a8cef3dcb96992e898eb38a0748b1bacd24209",
+      "mtime": 1794260431.117651,
+      "size": 9686
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/common/00_common.primitives.d.ps": {
+      "sha256": "d8ec38bd11e173d151bcb06c54e80210b535c6b45ae26408f238743f81f901f4",
+      "mtime": 1794260431.1230173,
+      "size": 504
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/common/02_common.csharp.d.ps": {
+      "sha256": "8935c3d815436d8f54555f86062e9a62f9606332134f3348abd843441b579d21",
+      "mtime": 1794260431.1233654,
+      "size": 14946
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/00_computation.primitives.d.ps": {
+      "sha256": "0c39b7b0f821991df76eb884b787c1bcb7eda2ec989757aa1b36940e8d03576d",
+      "mtime": 1794260431.124319,
+      "size": 534
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/02_computation.csharp.d.ps": {
+      "sha256": "53fa46f932d0d656ea2271626b90372cab12ea6252ee8ef765d1468b6fb7c066",
+      "mtime": 1794260431.1246524,
+      "size": 416
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/align/00_align.primitives.d.ps": {
+      "sha256": "3327479628922735d7a313ba57c338b9eb053170cfce3943f1a1e505331469ea",
+      "mtime": 1794260431.125846,
+      "size": 558
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/align/02_align.csharp.d.ps": {
+      "sha256": "0ad755843c7d55d11953949f5cc905362096a1f60ea07e0d5d19abaa79d70257",
+      "mtime": 1794260431.1261678,
+      "size": 1238
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/api/00_api.primitives.d.ps": {
+      "sha256": "c303ece3b8c165fe3cb9595a7de67adc350f92e8bfeb0638cc6f8e5302b20327",
+      "mtime": 1794260431.127759,
+      "size": 546
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/api/02_api.csharp.d.ps": {
+      "sha256": "1f6a03febaf2f2ba4e5b8cb584bfedc82cfc379b2e4a52d349841901a5471c73",
+      "mtime": 1794260431.1280766,
+      "size": 1293
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/check/00_check.primitives.d.ps": {
+      "sha256": "6fe78738fe48b3f997f89b38598be2c532772f89872c62d7a52f766b5c71fa04",
+      "mtime": 1794260431.1293118,
+      "size": 558
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/check/02_check.csharp.d.ps": {
+      "sha256": "166cbb4be9c2c771ac324b27e5ad464275ba44fce3c4312327a863bebb562f0f",
+      "mtime": 1794260431.1296854,
+      "size": 1749
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/common/00_common.primitives.d.ps": {
+      "sha256": "32927f5a328241d41a0b08c823d9dda767d717a2ce41ff7f3bf5cdbb2e98bd76",
+      "mtime": 1794260431.1308107,
+      "size": 564
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/common/02_common.csharp.d.ps": {
+      "sha256": "228d047eafb484ebacecdba3e6eca698cec01cb816a0720af2786314dd736ade",
+      "mtime": 1794260431.1311314,
+      "size": 1847
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/engines/00_engines.primitives.d.ps": {
+      "sha256": "26b374d688728b9e973603dac9d33e4fb25514743ee4d2a1cdd4eca1eaa466f0",
+      "mtime": 1794260431.132599,
+      "size": 1090
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/engines/02_engines.csharp.d.ps": {
+      "sha256": "765bb9d119a110f233983bdc240bc7c023a85ef84c0465c9ff726c05655541aa",
+      "mtime": 1794260431.1330054,
+      "size": 2010
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/eval/00_eval.primitives.d.ps": {
+      "sha256": "e43056f57dca00f8c91cddb5c8052dc7cb48655da351163deb31b07afa5ecda5",
+      "mtime": 1794260431.1350355,
+      "size": 552
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/eval/02_eval.csharp.d.ps": {
+      "sha256": "f5dcae8615f3cbc228014cce287ae4dbed61bbaa622d3b9183d4ba0c2169fbfc",
+      "mtime": 1794260431.135343,
+      "size": 2392
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/expr/00_expr.primitives.d.ps": {
+      "sha256": "f8b9894b34c67286722f9c7725155bc57478e1980c44efefe51abff7f67b6c39",
+      "mtime": 1794260431.139793,
+      "size": 4363
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/expr/02_expr.csharp.d.ps": {
+      "sha256": "71eb38b667d0b9cdaf64bc3478b93030c67b44738f4c8bef0ed4c7613bd6466a",
+      "mtime": 1794260431.1401255,
+      "size": 9879
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/expressions/00_expressions.primitives.d.ps": {
+      "sha256": "872afa850e9f4575118e93cda084b7e3db84e9746a1fac750967173c11f10cba",
+      "mtime": 1794260431.1424618,
+      "size": 594
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/expressions/02_expressions.csharp.d.ps": {
+      "sha256": "d217789ec3608e2819a2f29e3ec39eb98931e92e692883db83fb6381ec8c5d7a",
+      "mtime": 1794260431.1427653,
+      "size": 3677
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/ops/00_ops.primitives.d.ps": {
+      "sha256": "5bb969609ad19d0a76a9171753e42d6619720b4b3a1919d0316a60842b879194",
+      "mtime": 1794260431.1465273,
+      "size": 4018
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/ops/02_ops.csharp.d.ps": {
+      "sha256": "fd2a86f5507bf1c36da8cf4ca2fe62a8877b1b4bf06da754228a2bede62dde3c",
+      "mtime": 1794260431.1475515,
+      "size": 8777
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/parsing/00_parsing.primitives.d.ps": {
+      "sha256": "21da1bfa768dc0862d1eb97a6c936dac0bee5714fe172abed4dbfcb70712001f",
+      "mtime": 1794260431.1485271,
+      "size": 561
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/parsing/02_parsing.csharp.d.ps": {
+      "sha256": "5584fa8f0c1c0051b212b223c969700b8f6f6bb2e5bc8bde7356dd3bd3675b4a",
+      "mtime": 1794260431.1496089,
+      "size": 2526
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/pytables/00_pytables.primitives.d.ps": {
+      "sha256": "43f7863857e3637a17d5f6a24a6080b5d1c9d3ff4b8affd8b5627519080ba98c",
+      "mtime": 1794260431.1599164,
+      "size": 6240
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/pytables/02_pytables.csharp.d.ps": {
+      "sha256": "aa0933abb36913bc09ed91af575563fa22df2004f9529fc9402b7007ce47dfe4",
+      "mtime": 1794260431.1603541,
+      "size": 13644
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/scope/00_scope.primitives.d.ps": {
+      "sha256": "0f7b5b1e088fd075f123594efe92b5ed7a71d3738526319cfeb39795184369bc",
+      "mtime": 1794260431.1648202,
+      "size": 1778
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/computation/scope/02_scope.csharp.d.ps": {
+      "sha256": "afbe6e307968623f93f313ed9a0a30f5b159a6b8812c70df6e4b928675da3a26",
+      "mtime": 1794260431.165275,
+      "size": 4110
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/config_init/00_config_init.primitives.d.ps": {
+      "sha256": "5a2813cb4ef798338740ea9a41a22462e0626de3500ecbbd8cd7db4d9d3037b3",
+      "mtime": 1794260431.1683831,
+      "size": 532
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/config_init/02_config_init.csharp.d.ps": {
+      "sha256": "481318b0abfb3b84916376d89914957e9dce29217ccb87ac7585d5f7f55c6442",
+      "mtime": 1794260431.1687431,
+      "size": 2580
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/construction/00_construction.primitives.d.ps": {
+      "sha256": "0eb61331ed6c50b7406f1239b7c598aea4172b7de31c54d3384386ba33b00c93",
+      "mtime": 1794260431.1729207,
+      "size": 540
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/construction/02_construction.csharp.d.ps": {
+      "sha256": "292c08f6ae5c5db28711690948e320344925c30813cb723a15514ad26bc77398",
+      "mtime": 1794260431.17331,
+      "size": 5930
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/00_dtypes.primitives.d.ps": {
+      "sha256": "a4ecc840c9f7dd0da7f83aaa36fe4ed253e3571e5e4dba6c89d7da637f3e7341",
+      "mtime": 1794260431.174531,
+      "size": 504
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/02_dtypes.csharp.d.ps": {
+      "sha256": "d1c63a2de8822edb57fb0349ef23c917dd0e29e53baa3767a23eda93b941d537",
+      "mtime": 1794260431.1749175,
+      "size": 396
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/api/00_api.primitives.d.ps": {
+      "sha256": "245932b746411122a5cf0e74ad81575fdd195ef8618ba81b76faeff7493bd3f4",
+      "mtime": 1794260431.1808517,
+      "size": 521
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/api/02_api.csharp.d.ps": {
+      "sha256": "9d9d6c22eeea640086a7377812674238cc9666cd04f4a906bf8bf36249fa3e1f",
+      "mtime": 1794260431.1812873,
+      "size": 8300
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/astype/00_astype.primitives.d.ps": {
+      "sha256": "38264365621694d7b056434ac062dfb661201dc6cbedf59b7fd18bb235e4ebf9",
+      "mtime": 1794260431.1839023,
+      "size": 539
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/astype/02_astype.csharp.d.ps": {
+      "sha256": "ef4d2f04df67bc8a08eafd307735f4a2c679611da8807fe7ea8db44792b0305e",
+      "mtime": 1794260431.1842866,
+      "size": 2796
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/base/00_base.primitives.d.ps": {
+      "sha256": "884f34adffcd42e3452c7ef5cf70654bfd0f2db307f85281c01e1d0d180f65f1",
+      "mtime": 1794260431.1889794,
+      "size": 3022
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/base/02_base.csharp.d.ps": {
+      "sha256": "450f54023406a968bc3200e9b7d3e9cdbc2ae9b1375ee64bb946ef4498554d1f",
+      "mtime": 1794260431.189235,
+      "size": 9295
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/cast/00_cast.primitives.d.ps": {
+      "sha256": "53a25110332da7946e9046478993943ee9455cf16b76a6243748cbc503d406f7",
+      "mtime": 1794260431.1955202,
+      "size": 527
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/cast/02_cast.csharp.d.ps": {
+      "sha256": "2986f0625ad17de0a1e127c000e1a32fa4f49361ca0ee5c314fe303f59c5c1ff",
+      "mtime": 1794260431.196589,
+      "size": 13573
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/common/00_common.primitives.d.ps": {
+      "sha256": "eaa6d5e8a15808df2a6b975c2f1a08765e23046db10a5c9827dd6c95af58c61d",
+      "mtime": 1794260431.2036662,
+      "size": 539
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/common/02_common.csharp.d.ps": {
+      "sha256": "6c9c4611112d447b0912c0e35d43ba721344b82b266e613bb7bc572491752732",
+      "mtime": 1794260431.2039251,
+      "size": 14067
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/concat/00_concat.primitives.d.ps": {
+      "sha256": "8dda48b7c0abf5ff5af9bf0c11c18ef129b09441ef3a709c2e3a6e3f03b1dc75",
+      "mtime": 1794260431.2058344,
+      "size": 539
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/concat/02_concat.csharp.d.ps": {
+      "sha256": "f1587621aff899b9a4ac5efe4610ceeee43b11d7c7708762b1419e22ce837cf1",
+      "mtime": 1794260431.2060626,
+      "size": 3341
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/dtypes/00_dtypes.primitives.d.ps": {
+      "sha256": "3f40c6c2986fe4e20657d410ee2d18d91334754108f48d283425dd32e972b6a9",
+      "mtime": 1794260431.2246513,
+      "size": 11715
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/dtypes/02_dtypes.csharp.d.ps": {
+      "sha256": "048fece62286a5c679be3eec311d840c5bd149e4be1a606bdd4502990e4d0ae7",
+      "mtime": 1794260431.2253091,
+      "size": 35310
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/generic/00_generic.primitives.d.ps": {
+      "sha256": "48ab4ed92df6e45070cc9980a9a55f25af778fbd08e9b5d13db0e2e313125c10",
+      "mtime": 1794260431.2275157,
+      "size": 545
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/generic/02_generic.csharp.d.ps": {
+      "sha256": "8d6514ceb7663263579b3ecd151be4c09ff30ac2006f79168a79225bffc42aa3",
+      "mtime": 1794260431.2278473,
+      "size": 1279
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/inference/00_inference.primitives.d.ps": {
+      "sha256": "33f8c4d12039e04bd29a58d5d7ca10db3730e3ea1e7f3b3ed66bdce40af9a859",
+      "mtime": 1794260431.2310157,
+      "size": 557
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/inference/02_inference.csharp.d.ps": {
+      "sha256": "5b855c0ff28df1cb198fb38c8a2ba820b466f05820131a8764c0fe161a4bf8f0",
+      "mtime": 1794260431.2313492,
+      "size": 4724
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/missing/00_missing.primitives.d.ps": {
+      "sha256": "9b07bdbc5c5fa22928242f09ca96d0d9dc6a8b34e492cc0e014c534452b254cf",
+      "mtime": 1794260431.2350965,
+      "size": 545
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/dtypes/missing/02_missing.csharp.d.ps": {
+      "sha256": "0f180a6f670e4d46863b5cde3f60a98eed9a80ef6d00f6c6cc3824c9301e6ed8",
+      "mtime": 1794260431.2353966,
+      "size": 8799
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/flags/00_flags.primitives.d.ps": {
+      "sha256": "092e90b63adf6d238a2102850dc83a39354c6a4a800a8aa234b58b38d19e831f",
+      "mtime": 1794260431.2370567,
+      "size": 869
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/flags/02_flags.csharp.d.ps": {
+      "sha256": "fe66aa9b1f45dd5bbbe6ca2810cba10409651ceb5972f75ca151bb7e0811040a",
+      "mtime": 1794260431.2373388,
+      "size": 2098
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/frame/00_frame.primitives.d.ps": {
+      "sha256": "27e685035587a64ec82209b9454dcacacd01a99c342ff4c4385eb3591d93c7e4",
+      "mtime": 1794260431.2904184,
+      "size": 20926
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/frame/02_frame.csharp.d.ps": {
+      "sha256": "8f62e83a04bfcf5d2914044ac9550900cf0462934c1bbbf52f1200ce4cef135e",
+      "mtime": 1794260431.2908888,
+      "size": 53262
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/generic/00_generic.primitives.d.ps": {
+      "sha256": "362b51f7eecefda308322c7d740fb57d0c841a2001dddd161e8dab28d4aa1731",
+      "mtime": 1794260431.323469,
+      "size": 15955
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/generic/02_generic.csharp.d.ps": {
+      "sha256": "db92fb1dbbcaefbf95078f5e456067d4b8b02bf36482bc434129e8f8f0f727e1",
+      "mtime": 1794260431.3237848,
+      "size": 48568
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/00_groupby.primitives.d.ps": {
+      "sha256": "7b2f9dc2ccc49b2d04694f9dd578386fa5bb8bcba1ce2ccf4301865a6c60b9b3",
+      "mtime": 1794260431.3269265,
+      "size": 510
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/02_groupby.csharp.d.ps": {
+      "sha256": "e4c955e8309c3e37e5db0b5373d5ef624e9d00b9428679ab45a18551e4ebf672",
+      "mtime": 1794260431.3271554,
+      "size": 1790
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/base/00_base.primitives.d.ps": {
+      "sha256": "b91279dd716fbfb783bf4603f74a06c8738b3fe59a652bb16bb8620744052dc5",
+      "mtime": 1794260431.327976,
+      "size": 636
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/base/02_base.csharp.d.ps": {
+      "sha256": "6960d788289500c2f707a97b7e40e30ea2556f83e23c735ec78eaad33ee09fbb",
+      "mtime": 1794260431.328208,
+      "size": 1392
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/categorical/00_categorical.primitives.d.ps": {
+      "sha256": "3a1b3fc8f3e2c8dc00192f3a36e7ea15898e53401148110a806928b85b7dac99",
+      "mtime": 1794260431.3290014,
+      "size": 574
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/categorical/02_categorical.csharp.d.ps": {
+      "sha256": "d4c93af944c5469dafa23292c7c1ba6743cc8247a0a6877b4d4ad8c051585c57",
+      "mtime": 1794260431.329235,
+      "size": 1125
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/generic/00_generic.primitives.d.ps": {
+      "sha256": "454c6a1850db2ed0a47156273a63efce07f2264115067e83ba1b14d3c9782bff",
+      "mtime": 1794260431.3390622,
+      "size": 6404
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/generic/02_generic.csharp.d.ps": {
+      "sha256": "494ff6dbf7f32e7a7b445dc143db83267c4fbc17edef9600289b2daf3e51358b",
+      "mtime": 1794260431.3393378,
+      "size": 15278
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/groupby/00_groupby.primitives.d.ps": {
+      "sha256": "8c928e5a2a17369bfa172efa67c8b5a91e68cc8162abeefb331517dc6f7a24e6",
+      "mtime": 1794260431.3545194,
+      "size": 8549
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/groupby/02_groupby.csharp.d.ps": {
+      "sha256": "4b739b7549b568f961a3ab65fc5b141c88ed702c747350cec648aaa0ef8eadd0",
+      "mtime": 1794260431.3547816,
+      "size": 26229
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/grouper/00_grouper.primitives.d.ps": {
+      "sha256": "934ac745c3510593517f709a6daa75460e47be9e29c16d32d2fe34c74a3be8b9",
+      "mtime": 1794260431.3593843,
+      "size": 2229
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/grouper/02_grouper.csharp.d.ps": {
+      "sha256": "1ceec3190d77c7254198b489e99b576bff27efe064077d89daadebd259f7e2ab",
+      "mtime": 1794260431.3596287,
+      "size": 7619
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/indexing/00_indexing.primitives.d.ps": {
+      "sha256": "453e9c2a36fe37cef020b857d057fce491ca03bc92b2f20b1f223b381d03aae3",
+      "mtime": 1794260431.3616138,
+      "size": 1438
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/indexing/02_indexing.csharp.d.ps": {
+      "sha256": "723abc99d8d494c459f1a1970dac5a6004deaafafb97283b3c822d4332fcf593",
+      "mtime": 1794260431.3618426,
+      "size": 3263
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/numba_/00_numba_.primitives.d.ps": {
+      "sha256": "2d1bac8450743ad5d3016b07eee106f19a0ca44f26a06884a0b5b815ca33db5c",
+      "mtime": 1794260431.363099,
+      "size": 542
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/numba_/02_numba_.csharp.d.ps": {
+      "sha256": "9ba6cc4eaec43a6456009710776f33b0cf1e799da91a940f789dbf57574c8b16",
+      "mtime": 1794260431.363447,
+      "size": 2416
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/ops/00_ops.primitives.d.ps": {
+      "sha256": "1b739bdc26d62271eda9f4474c113635234403ad4dae68aae082daf70a3eb793",
+      "mtime": 1794260431.3719194,
+      "size": 4665
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/groupby/ops/02_ops.csharp.d.ps": {
+      "sha256": "c82973a05eacc0b6194a0e2db85329559d1fa088670bb0d281e504d07dd5edc6",
+      "mtime": 1794260431.372239,
+      "size": 13616
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexers/00_indexers.primitives.d.ps": {
+      "sha256": "53c8198b9960a2127c797b77752dc49406cae60cf550305c27a90dbc6d663caf",
+      "mtime": 1794260431.3751295,
+      "size": 516
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexers/02_indexers.csharp.d.ps": {
+      "sha256": "1c551ebf8df7626250c70adede19d99bc7764d682629eadf410e0214ba8c4bf0",
+      "mtime": 1794260431.375447,
+      "size": 3599
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexers/objects/00_objects.primitives.d.ps": {
+      "sha256": "4ccb7de66931019d5c7ef0698dfb401ca12526ee7ca5b9c242a34bc7e3f29ea8",
+      "mtime": 1794260431.3814933,
+      "size": 3858
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexers/objects/02_objects.csharp.d.ps": {
+      "sha256": "f7a07ac52650b111f87568f84bb338ea70c59f74cd00a71b98d9302a1a0aa8c9",
+      "mtime": 1794260431.3827012,
+      "size": 6632
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexers/utils/00_utils.primitives.d.ps": {
+      "sha256": "f3b69d2dfd0ed73bf7c388dff51936e53e122aad417d0fea316aa208995ac036",
+      "mtime": 1794260431.3877287,
+      "size": 543
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexers/utils/02_utils.csharp.d.ps": {
+      "sha256": "dc6b92ca346d79f509d4cce7cedefb0bd267858d559b6886eaf01f2c4ae3bfc4",
+      "mtime": 1794260431.3880887,
+      "size": 5242
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/accessors/00_accessors.primitives.d.ps": {
+      "sha256": "67a6f58084e82d4b4bc72985d9a84117a8bb0b930caefd1c6c7f9a274f3fd891",
+      "mtime": 1794260431.3936222,
+      "size": 2976
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/accessors/02_accessors.csharp.d.ps": {
+      "sha256": "664128da8b771c066824934c4c01f93a55eeea17af205432658409b672998399",
+      "mtime": 1794260431.3938692,
+      "size": 8721
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/api/00_api.primitives.d.ps": {
+      "sha256": "496f83947b5fbec291cf6ee6c218a7fdbe6801eb8cb6ad481c3a2a095aeb67f9",
+      "mtime": 1794260431.3964634,
+      "size": 526
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/api/02_api.csharp.d.ps": {
+      "sha256": "fc9d4fbe5e4c57bd323f19b57fb2517ed4bbf23b82102d9c8c63b27d1c8133f3",
+      "mtime": 1794260431.3969448,
+      "size": 5874
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/base/00_base.primitives.d.ps": {
+      "sha256": "91ed4d739d63fa4e1e65d80baa9d800230e420e48c79daa4cc43d78774192f3f",
+      "mtime": 1794260431.4216409,
+      "size": 11137
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/base/02_base.csharp.d.ps": {
+      "sha256": "bc8113f6ea2f582ebff8e7294c0930da10686a473b9a6d04d5cc70782dd7f7c7",
+      "mtime": 1794260431.4219913,
+      "size": 34068
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/category/00_category.primitives.d.ps": {
+      "sha256": "9a3c2e656b2a19857658b79d79ba15c2fe7218d06ac56f07703c1c473f983411",
+      "mtime": 1794260431.4280071,
+      "size": 2817
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/category/02_category.csharp.d.ps": {
+      "sha256": "81dff9b41f981ade91d98c07590e1db1fd8823f87b831a62ee8d9f297d2d1768",
+      "mtime": 1794260431.4284067,
+      "size": 9553
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/datetimelike/00_datetimelike.primitives.d.ps": {
+      "sha256": "8b1357c3fa1f61a12fc080309d75621537baeba2d06925b3a333ef305aff7a87",
+      "mtime": 1794260431.4360297,
+      "size": 2949
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/datetimelike/02_datetimelike.csharp.d.ps": {
+      "sha256": "a435c54c4886413af189aff9f835752298b8d477cefb1cce70aba517a2076bb4",
+      "mtime": 1794260431.4365067,
+      "size": 10481
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/datetimes/00_datetimes.primitives.d.ps": {
+      "sha256": "77d41c981dc15b2d4b325fe832e9e6d98a9632a25cc76ea7a1d8e65dcb5c1bcb",
+      "mtime": 1794260431.4530187,
+      "size": 5198
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/datetimes/02_datetimes.csharp.d.ps": {
+      "sha256": "2e565c732d9368ac89b83e057eb282e4175c2207ebb050df6b32dfa9f444fada",
+      "mtime": 1794260431.4534743,
+      "size": 17142
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/extension/00_extension.primitives.d.ps": {
+      "sha256": "a18d49a07b5a02b99f40d9c0b79308943463641b4449c742437f3fb6f5b310bd",
+      "mtime": 1794260431.4566665,
+      "size": 890
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/extension/02_extension.csharp.d.ps": {
+      "sha256": "9d870b35462b3bc637079c1df0ecda7685559f9d86a035142a35cf7d0896d604",
+      "mtime": 1794260431.4570632,
+      "size": 3141
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/frozen/00_frozen.primitives.d.ps": {
+      "sha256": "01300cd30360769460661467ef1c2d4555f42b02f3b6600c1d17e8d3f84bbf52",
+      "mtime": 1794260431.460727,
+      "size": 1496
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/frozen/02_frozen.csharp.d.ps": {
+      "sha256": "207e58200e3b5a462dcbc985fa643cb1314290fdea384f0f998337293d626e15",
+      "mtime": 1794260431.4611647,
+      "size": 4362
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/interval/00_interval.primitives.d.ps": {
+      "sha256": "acb6952e79ae16972c8d32f91051246af96a112cae94144338aa56f48c3eb55b",
+      "mtime": 1794260431.468893,
+      "size": 3326
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/interval/02_interval.csharp.d.ps": {
+      "sha256": "90ac4dc5ec1127661134c5ac558a5abd27c165b84ec9adc2807a6e7f63af12fb",
+      "mtime": 1794260431.4691541,
+      "size": 10668
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/multi/00_multi.primitives.d.ps": {
+      "sha256": "51f8aee1afa0a762ab8900b68fbe91c5291591e27eddb4dd1157c3501409d686",
+      "mtime": 1794260431.479668,
+      "size": 7142
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/multi/02_multi.csharp.d.ps": {
+      "sha256": "d147ede5d6973f3f5d5e4fcfe1f3cdfd7d2b3598033d31224732904c84835d9a",
+      "mtime": 1794260431.4801097,
+      "size": 19643
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/period/00_period.primitives.d.ps": {
+      "sha256": "c3f9dded66f26bb54ca633c6847623f030cb4e4f41a9327a88638de1ef9e293d",
+      "mtime": 1794260431.486362,
+      "size": 3223
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/period/02_period.csharp.d.ps": {
+      "sha256": "d7fd18f975a59b7176613f4881ca9cd9abf9d88e57bea42b1a2957733f61f9a6",
+      "mtime": 1794260431.4866185,
+      "size": 10509
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/range/00_range.primitives.d.ps": {
+      "sha256": "b90276746b0acc3fcc56f5868a2e0f69e22a51eb30dcc453716a69b5b9f14b5a",
+      "mtime": 1794260431.4956734,
+      "size": 5710
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/range/02_range.csharp.d.ps": {
+      "sha256": "4883cfb85bd3b3326a06b381916ec4f5b17590cbe61fbcddc9aa70ec43c0c28f",
+      "mtime": 1794260431.4959471,
+      "size": 17324
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/timedeltas/00_timedeltas.primitives.d.ps": {
+      "sha256": "e374c51ab6f2f3b6a3b103b9b3bdea5d92ac16977cdb2e735fa9b15fbce5e80a",
+      "mtime": 1794260431.502112,
+      "size": 2273
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexes/timedeltas/02_timedeltas.csharp.d.ps": {
+      "sha256": "5071f0d7cadb52d87a9f9e06616249d7f5e4ab2a8aadabf5d9aa13120a71f32b",
+      "mtime": 1794260431.502383,
+      "size": 8997
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexing/00_indexing.primitives.d.ps": {
+      "sha256": "d2223b9ed14b5a4e5395a9608e11f49d15bdd68d30bf3655357c49035f45415b",
+      "mtime": 1794260431.5054753,
+      "size": 2434
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/indexing/02_indexing.csharp.d.ps": {
+      "sha256": "d67430dc5e9999a16e0628ff395cb97c1078675db5627001879e6a461f91c3b9",
+      "mtime": 1794260431.5064373,
+      "size": 9604
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/interchange/buffer/00_buffer.primitives.d.ps": {
+      "sha256": "d14ec73042f81b57cee3abf4f3d67405ac23819cf48f10ef454a08036b4b254c",
+      "mtime": 1794260431.509,
+      "size": 1531
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/interchange/buffer/02_buffer.csharp.d.ps": {
+      "sha256": "a08706fb894d15e35d0207ca76e031cd8398e8a4eff9ef85605be2440357359f",
+      "mtime": 1794260431.509244,
+      "size": 4224
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/interchange/column/00_column.primitives.d.ps": {
+      "sha256": "85d070905581e7ad3a5c719903df09deab6995a3f0b72acfaad8de2dc64c5798",
+      "mtime": 1794260431.5111697,
+      "size": 1362
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/interchange/column/02_column.csharp.d.ps": {
+      "sha256": "f6254f6dd65fe75f3f84d7a8b605c25faab8b52988a21bf98e25e8837f6a432e",
+      "mtime": 1794260431.5114079,
+      "size": 4053
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/interchange/dataframe/00_dataframe.primitives.d.ps": {
+      "sha256": "75586dacb2e13e3f2294f0aad84a753a6a53957dd9851b22a86865b0453bc96c",
+      "mtime": 1794260431.5147784,
+      "size": 1737
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/interchange/dataframe/02_dataframe.csharp.d.ps": {
+      "sha256": "495b19e4c3dc1e36bf990e1763c3f01d14b64628fa05bc311b297203e2d09ab6",
+      "mtime": 1794260431.5151646,
+      "size": 5155
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/interchange/dataframe_protocol/00_dataframe_protocol.primitives.d.ps": {
+      "sha256": "040b1e48c3233b300f6cc03d6062ee1a081beb72847b82a805eb31f6145cf7f8",
+      "mtime": 1794260431.5198932,
+      "size": 4133
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/interchange/dataframe_protocol/02_dataframe_protocol.csharp.d.ps": {
+      "sha256": "4869c748d556c4c31d9643c729d102bdb0a4f62108c6520277f1567dd0ab75fc",
+      "mtime": 1794260431.5201523,
+      "size": 10064
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/interchange/from_dataframe/00_from_dataframe.primitives.d.ps": {
+      "sha256": "f240a6bdae60d1ca12738ebdf9e92a5b8f7e049b694aefb6d0532e0c01a1f28d",
+      "mtime": 1794260431.5229642,
+      "size": 610
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/interchange/from_dataframe/02_from_dataframe.csharp.d.ps": {
+      "sha256": "d62a942d0e1fff04ab810b84840e5b069e26b36d9c7f4d4039df06e39fee6d6d",
+      "mtime": 1794260431.5232694,
+      "size": 5653
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/interchange/utils/00_utils.primitives.d.ps": {
+      "sha256": "69e8480059781ae17962bfae0b121e66cdc124819381690fd552b9fba9be65cd",
+      "mtime": 1794260431.52479,
+      "size": 669
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/interchange/utils/02_utils.csharp.d.ps": {
+      "sha256": "8760ba182a881a271eb802d6c2d1d33a9e04d940586e16897c807b975aa5612e",
+      "mtime": 1794260431.5250266,
+      "size": 1626
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/internals/00_internals.primitives.d.ps": {
+      "sha256": "7c1db4a521c1fa9b37e7660b8847483fbd0220e074cf0351f4dd791edb066186",
+      "mtime": 1794260431.526535,
+      "size": 522
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/internals/02_internals.csharp.d.ps": {
+      "sha256": "7b10ba369aa4df00207572efc937e9ff4bd0b245cad6f4b48fa656bd8ef59cc0",
+      "mtime": 1794260431.5267515,
+      "size": 3006
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/internals/api/00_api.primitives.d.ps": {
+      "sha256": "fe89d32d0711979e04fac5168936f739cfc99698b9e1a0c19b6a2607a792059c",
+      "mtime": 1794260431.528306,
+      "size": 631
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/internals/api/02_api.csharp.d.ps": {
+      "sha256": "e73523d4260acd3f978b5b7e23e9c39ca7737c83aee84a84e15e21904b189600",
+      "mtime": 1794260431.5285408,
+      "size": 3558
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/internals/blocks/00_blocks.primitives.d.ps": {
+      "sha256": "74d1e25fe7d704044bf488e0c3992454e2afe1f24a2ce13353ac58988da28b10",
+      "mtime": 1794260431.5416894,
+      "size": 7960
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/internals/blocks/02_blocks.csharp.d.ps": {
+      "sha256": "2e790ff06196cc3428abdb40c1ab8b64258f923c8b81117696efa751f6d87356",
+      "mtime": 1794260431.5419557,
+      "size": 25050
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/internals/concat/00_concat.primitives.d.ps": {
+      "sha256": "61c9e6d901cdcc1666eb151a4746822f3bb8a2074d0e8adf84b6b0ac61c1d9d1",
+      "mtime": 1794260431.5440576,
+      "size": 816
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/internals/concat/02_concat.csharp.d.ps": {
+      "sha256": "7b23165b09774c147191afd12db3c2508b1fc32b70506627f18818d24d31aaa2",
+      "mtime": 1794260431.5443056,
+      "size": 3487
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/internals/construction/00_construction.primitives.d.ps": {
+      "sha256": "2a9041f850bbc2e6eba92e4752a97b9399919083c13546da67522bd1e7604987",
+      "mtime": 1794260431.5478723,
+      "size": 590
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/internals/construction/02_construction.csharp.d.ps": {
+      "sha256": "5495c7cb08d8618a8a91ae0d0e669eaa06abde58ae5580cfd3cf717c2634665f",
+      "mtime": 1794260431.5482624,
+      "size": 5360
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/internals/managers/00_managers.primitives.d.ps": {
+      "sha256": "198f93ce1360d9a66b97731cc9ef3a757e0d6a1b0ae6f14981b4aeb8f3fa095b",
+      "mtime": 1794260431.561518,
+      "size": 10333
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/internals/managers/02_managers.csharp.d.ps": {
+      "sha256": "46ea2c6981ed2b2e89330c8d5cc661df840d4f5ee8f1d661370cd7956a7f1bb6",
+      "mtime": 1794260431.5617955,
+      "size": 28688
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/internals/ops/00_ops.primitives.d.ps": {
+      "sha256": "d87bba020385e9eecf162f4cf1c281546b4ea05f243c362f10e019fadec4dadf",
+      "mtime": 1794260431.5648115,
+      "size": 883
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/internals/ops/02_ops.csharp.d.ps": {
+      "sha256": "2c13a4707a345df6f17986f3a1355aa2a69e20b0479944b2c227f0b21554dff0",
+      "mtime": 1794260431.565182,
+      "size": 3732
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/methods/00_methods.primitives.d.ps": {
+      "sha256": "d6ee491903d9e947d1bd064456520f50f602364832f15cd9a4ed57f9a2efcd4d",
+      "mtime": 1794260431.5661416,
+      "size": 510
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/methods/02_methods.csharp.d.ps": {
+      "sha256": "421caa23fed9cb3b0923fa34041de405755f8039c04e748c3ca29f36ca4a635d",
+      "mtime": 1794260431.5665112,
+      "size": 400
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/methods/describe/00_describe.primitives.d.ps": {
+      "sha256": "b44100ae8dd20d7ebc2e824f014fc82b390c11410c01c28288523ead6501d890",
+      "mtime": 1794260431.5693817,
+      "size": 1717
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/methods/describe/02_describe.csharp.d.ps": {
+      "sha256": "7b4970e2048ff601012ec0d56207dbe7e8954f8d9c6c5f6e2b6592ebdeb10544",
+      "mtime": 1794260431.5696595,
+      "size": 6498
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/methods/filter/00_filter.primitives.d.ps": {
+      "sha256": "3f450e3add7291f88c17f45cb9665cc054bc56480aa0e2688c800e75cdf7e3cb",
+      "mtime": 1794260431.5717278,
+      "size": 544
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/methods/filter/02_filter.csharp.d.ps": {
+      "sha256": "2d8eefdfc1d159a54ad41f6b02be87c5bf1e405917fb4792691e4fc1c9a6aed0",
+      "mtime": 1794260431.5721133,
+      "size": 2959
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/methods/select/00_select.primitives.d.ps": {
+      "sha256": "1a173b4847d66aaae78037e107c57d17f2ddfc79a174c28dcb9a3f159140f25f",
+      "mtime": 1794260431.5735884,
+      "size": 544
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/methods/select/02_select.csharp.d.ps": {
+      "sha256": "965473cfa4013fe4f1f64bcd8257419116bb622b2cd6645ad609fafade56709c",
+      "mtime": 1794260431.5739505,
+      "size": 1493
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/methods/selectn/00_selectn.primitives.d.ps": {
+      "sha256": "2affdc05fca75478fa852d8106180b0087c14b70de352dcbfe66a38da8f6297e",
+      "mtime": 1794260431.5770576,
+      "size": 1448
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/methods/selectn/02_selectn.csharp.d.ps": {
+      "sha256": "0d39bceb08be162fc1cc5148d0945473220aacfe62dbc8cd8631dc23b6ac32fe",
+      "mtime": 1794260431.5773523,
+      "size": 4321
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/methods/to_dict/00_to_dict.primitives.d.ps": {
+      "sha256": "10fa4a6eec19c3676576a4d3aa5ded23b94786985a7c32fc9f8a023162229777",
+      "mtime": 1794260431.5790257,
+      "size": 548
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/methods/to_dict/02_to_dict.csharp.d.ps": {
+      "sha256": "1fc84c95019f45bd91e80d9b1805739120032418775513af4f3128c7a3b06bca",
+      "mtime": 1794260431.579378,
+      "size": 2867
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/missing/00_missing.primitives.d.ps": {
+      "sha256": "c265d292f8b28036c4bccdfc587159138ae5f39d63c284a0ff14432dee55dc4a",
+      "mtime": 1794260431.5831308,
+      "size": 510
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/missing/02_missing.csharp.d.ps": {
+      "sha256": "8985c2a15706d3a97bf3e9c3170a0ecdaa2c4fa6e42920963f4cde8e609d59c6",
+      "mtime": 1794260431.5834587,
+      "size": 6163
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/nanops/00_nanops.primitives.d.ps": {
+      "sha256": "320190871ea1a427221ac6b64ab390d6cf6e2ef96eeffd81d0a13f4d59e4c055",
+      "mtime": 1794260431.5885556,
+      "size": 949
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/nanops/02_nanops.csharp.d.ps": {
+      "sha256": "49957e97e6970656b0746f0370046497381f0906ec320ceb6b1a13a8f23e7edd",
+      "mtime": 1794260431.5888157,
+      "size": 7382
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/ops/00_ops.primitives.d.ps": {
+      "sha256": "7ae4f36a33b6e3f92e7a6fe5f799d3465157461fa07269bb6dad25ea5fff8f74",
+      "mtime": 1794260431.5941231,
+      "size": 486
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/ops/02_ops.csharp.d.ps": {
+      "sha256": "971d13ba65ff5d29c2d344d0b00d2c911a99170fab11ca8515202b1ae39b5567",
+      "mtime": 1794260431.5944223,
+      "size": 13859
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/ops/array_ops/00_array_ops.primitives.d.ps": {
+      "sha256": "ecb5093e9b8bd1778e684f503a3a63c82b80fb2c578b04c8b1fcc4fdfec9151d",
+      "mtime": 1794260431.59614,
+      "size": 540
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/ops/array_ops/02_array_ops.csharp.d.ps": {
+      "sha256": "b454195d465822adf600fb1b676b53c3d24c9d14bf2947b77a2416470bb26a0a",
+      "mtime": 1794260431.596476,
+      "size": 3338
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/ops/common/00_common.primitives.d.ps": {
+      "sha256": "7a11df0459616ef324089ce078e26f73957da96bb5b76fc200068b3ad9b65f7f",
+      "mtime": 1794260431.5977862,
+      "size": 524
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/ops/common/02_common.csharp.d.ps": {
+      "sha256": "18142244fd35ea7160a0b58e795566d34dec5af9c812f719739582a166003cf5",
+      "mtime": 1794260431.5980682,
+      "size": 2170
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/ops/dispatch/00_dispatch.primitives.d.ps": {
+      "sha256": "3e2d52402aff036f6ed903a8d6ed0a2976da6229dd3667334e90def1d2858ea0",
+      "mtime": 1794260431.5990727,
+      "size": 536
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/ops/dispatch/02_dispatch.csharp.d.ps": {
+      "sha256": "a86955275ec525a5113c9f8dd8972dd236c29d31ce7a6bd6696f943f45bebb0a",
+      "mtime": 1794260431.599484,
+      "size": 1432
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/ops/invalid/00_invalid.primitives.d.ps": {
+      "sha256": "2e36fd4ecc122e9f6363f5a3f989d8d817c49c1879f0f5fb84f739184ef0fdc3",
+      "mtime": 1794260431.6018796,
+      "size": 530
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/ops/invalid/02_invalid.csharp.d.ps": {
+      "sha256": "7c3605d7ff8b8bfcbbea2ffb8f8bc3df7f867ab436e22c24f67369e62262beb9",
+      "mtime": 1794260431.6021209,
+      "size": 4548
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/ops/mask_ops/00_mask_ops.primitives.d.ps": {
+      "sha256": "7a34eed4b67d3371205b490bb8898c468db81b03568b517d8f0c7dac4f3bbbf1",
+      "mtime": 1794260431.6046257,
+      "size": 534
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/ops/mask_ops/02_mask_ops.csharp.d.ps": {
+      "sha256": "ea49b76e08f92fc99bd013d14fba74c7ba68acfa3f92f5ef607f047ab4c8827d",
+      "mtime": 1794260431.6048684,
+      "size": 8616
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/ops/missing/00_missing.primitives.d.ps": {
+      "sha256": "bc206f7836d01bad5effd2d86e740c5a91ee9e3e403f274a94bf89bad30220ed",
+      "mtime": 1794260431.6058455,
+      "size": 530
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/ops/missing/02_missing.csharp.d.ps": {
+      "sha256": "af86f4f8b1998cdbc537dc0613e039ba4beb236a6683e58d70f157c6a1998b76",
+      "mtime": 1794260431.6060684,
+      "size": 1199
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/resample/00_resample.primitives.d.ps": {
+      "sha256": "38869d6a7c2d2b1b70ab33080d5b8a66a4c1f54038acd294989e9b7541eb6324",
+      "mtime": 1794260431.6167731,
+      "size": 5643
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/resample/02_resample.csharp.d.ps": {
+      "sha256": "e842c6fef78279653a02b51ae60ae8e1e428af8502079bf7db04f39b95ec1d2b",
+      "mtime": 1794260431.6171966,
+      "size": 18618
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/reshape/api/00_api.primitives.d.ps": {
+      "sha256": "9a53d706d7864b50b70bf89813250fbc2d87143461c0ea3dd52e45b3548157b0",
+      "mtime": 1794260431.6294963,
+      "size": 526
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/reshape/api/02_api.csharp.d.ps": {
+      "sha256": "f4ef473978a3586b0f4d2bfb054ac63a68d50666ecd261a941c3c9d9a30eb84e",
+      "mtime": 1794260431.6299012,
+      "size": 9604
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/reshape/concat/00_concat.primitives.d.ps": {
+      "sha256": "b19d33d43366b84eafaef9dee881f93e9fbde6ac2d1edb9f66f975fce18579e5",
+      "mtime": 1794260431.6346278,
+      "size": 544
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/reshape/concat/02_concat.csharp.d.ps": {
+      "sha256": "6c5d52c8a59dc9852066f017b306c761bf733826a29799f4f808d95b0412b0e8",
+      "mtime": 1794260431.6348832,
+      "size": 5094
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/reshape/encoding/00_encoding.primitives.d.ps": {
+      "sha256": "6d2e0dddf13e928b6e00af22a044bd15f681def7483d2e7075bbaf4c520c6e25",
+      "mtime": 1794260431.6367462,
+      "size": 556
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/reshape/encoding/02_encoding.csharp.d.ps": {
+      "sha256": "6cb496fe600571087d2cf434857fab0d1ae854afc70a24dae27888375953f1c7",
+      "mtime": 1794260431.636985,
+      "size": 2582
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/reshape/melt/00_melt.primitives.d.ps": {
+      "sha256": "ea0ed5a40ad803bd69f4e65f69abe40c3fbe27bdd4cc9419b1c2277e2aa5e198",
+      "mtime": 1794260431.6387746,
+      "size": 532
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/reshape/melt/02_melt.csharp.d.ps": {
+      "sha256": "d503303dcb60c64585537c4cdacac9e537ed5564a297aa2f01ffb4736e562c5d",
+      "mtime": 1794260431.639002,
+      "size": 2736
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/reshape/merge/00_merge.primitives.d.ps": {
+      "sha256": "ae06b2d77dcc108d6e0f981ca7bf91c7541129cd2daa9faf7492fc208c7ee7b4",
+      "mtime": 1794260431.6669772,
+      "size": 6262
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/reshape/merge/02_merge.csharp.d.ps": {
+      "sha256": "f940df76b9c09e917da6f8ad6034aa69b39e6c2a8a60e94f98f823cdb3f15277",
+      "mtime": 1794260431.6673927,
+      "size": 19135
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/reshape/pivot/00_pivot.primitives.d.ps": {
+      "sha256": "b9361691a10853ae5374f4b8c0009c488eb43abf4ec23ef5fab8723b75e347d7",
+      "mtime": 1794260431.6700244,
+      "size": 538
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/reshape/pivot/02_pivot.csharp.d.ps": {
+      "sha256": "95e76c64a5ec78891f48fb3b65449afb7546f9f2a8c6e61c3bda68b632816dea",
+      "mtime": 1794260431.6703231,
+      "size": 3362
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/reshape/reshape/00_reshape.primitives.d.ps": {
+      "sha256": "ff825a9435e5b8f70c02cede1381b78ad2d0373f0341531bebf981d06c6aed70",
+      "mtime": 1794260431.6733437,
+      "size": 1161
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/reshape/reshape/02_reshape.csharp.d.ps": {
+      "sha256": "40c0d210ce3e1a5f12eef212b11f74ea24b33ecc7c2c11ba71e1275815450abb",
+      "mtime": 1794260431.673611,
+      "size": 5758
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/reshape/tile/00_tile.primitives.d.ps": {
+      "sha256": "129998e0ed006a17d60e690ba42c32afe339a90a81932f792bd910af65d7c983",
+      "mtime": 1794260431.6754334,
+      "size": 532
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/reshape/tile/02_tile.csharp.d.ps": {
+      "sha256": "8a1ec9dd01e376ac123698d5bde1c4e1f7c88b0a0db8cb3b132d97a72f29f243",
+      "mtime": 1794260431.6757042,
+      "size": 1582
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/roperator/00_roperator.primitives.d.ps": {
+      "sha256": "1616d588cc69cb4397343799771b5563efe919cbc64fad93a142b13374786675",
+      "mtime": 1794260431.6772544,
+      "size": 522
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/roperator/02_roperator.csharp.d.ps": {
+      "sha256": "cf657ce4cbd02af57689c56c26e0260abdb85db4121e3c09328f9b9e8036cf5d",
+      "mtime": 1794260431.6774933,
+      "size": 2918
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/sample/00_sample.primitives.d.ps": {
+      "sha256": "e20c3f8326df59cbf0d85c0e5a5289b039cb006aabd5854c654942bdd8e16525",
+      "mtime": 1794260431.6789799,
+      "size": 504
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/sample/02_sample.csharp.d.ps": {
+      "sha256": "903a4bc31a5bddd046ea2796e78aa93d0cc33ec9f087d7dccf9462a4a82d40b2",
+      "mtime": 1794260431.679284,
+      "size": 2757
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/series/00_series.primitives.d.ps": {
+      "sha256": "3fc4fa8be59c39484c5e29ce7ad1a79ca7825f2212f1311effd2facaaa8b9938",
+      "mtime": 1794260431.7100918,
+      "size": 14729
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/series/02_series.csharp.d.ps": {
+      "sha256": "c99fe0e6df5f04693211ae334a0b1b2e9814046d78055f7b2f822317b223a7a7",
+      "mtime": 1794260431.7147572,
+      "size": 39508
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/sorting/00_sorting.primitives.d.ps": {
+      "sha256": "dfc3a942e6838f1da9991597f6cca3c58b5f535fe9b82d02be763b6939720baa",
+      "mtime": 1794260431.7206848,
+      "size": 510
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/sorting/02_sorting.csharp.d.ps": {
+      "sha256": "5de60be491250beb7311372a7a6611324ef0b08e2c80eb07218fef021c097214",
+      "mtime": 1794260431.720922,
+      "size": 8873
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/strings/accessor/00_accessor.primitives.d.ps": {
+      "sha256": "6c17e4160960b4b8093475b52463cc82a852024cdeeee1b3ceea04f172d3c37d",
+      "mtime": 1794260431.7349102,
+      "size": 6588
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/strings/accessor/02_accessor.csharp.d.ps": {
+      "sha256": "073a2a53faa5cb2bb5d155da6d69a490f0244f572577cb907a51e824ce0700db",
+      "mtime": 1794260431.7351637,
+      "size": 18539
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/strings/object_array/00_object_array.primitives.d.ps": {
+      "sha256": "8fc038bdf478c6bfdd464bd991c7ae44d804e8f8a66f8bab0c118c9880271ccf",
+      "mtime": 1794260431.7367694,
+      "size": 650
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/strings/object_array/02_object_array.csharp.d.ps": {
+      "sha256": "f4c29927ec2f838bd561f0e66338f44e73a5ad8235ff08af9539c959c05400af",
+      "mtime": 1794260431.7370017,
+      "size": 1141
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/tools/00_tools.primitives.d.ps": {
+      "sha256": "cc13521ba0857284db6625b40a5f43866d91d3e0629a133e4eee13601cea1365",
+      "mtime": 1794260431.737544,
+      "size": 498
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/tools/02_tools.csharp.d.ps": {
+      "sha256": "7b5e442360371af8d689a2b32ab8421fb6f57ca6aafc303a7d9515bd106106cf",
+      "mtime": 1794260431.7377515,
+      "size": 392
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/tools/datetimes/00_datetimes.primitives.d.ps": {
+      "sha256": "86de2da3fbbfea6c9d3a1b3a42ac2465802ac26a4ec509ef5dd8c329fb3fec9d",
+      "mtime": 1794260431.7430296,
+      "size": 1465
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/tools/datetimes/02_datetimes.csharp.d.ps": {
+      "sha256": "cefdf5f342fca6885fcc8c8ee7075ad756f5ba327dd63c262d4c87c670da1c4b",
+      "mtime": 1794260431.7433007,
+      "size": 12301
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/tools/numeric/00_numeric.primitives.d.ps": {
+      "sha256": "d7a8a496b3cb939499dc4979d5720eeafb327a1246a4e63d74ca836b57bd8540",
+      "mtime": 1794260431.744778,
+      "size": 540
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/tools/numeric/02_numeric.csharp.d.ps": {
+      "sha256": "c415866804254a49dd52f5a114215a626fe79104e673e07e8c576fcd0b3963a5",
+      "mtime": 1794260431.7450156,
+      "size": 2195
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/tools/timedeltas/00_timedeltas.primitives.d.ps": {
+      "sha256": "a48525f2280bc10e0fb4613469aa9969a48f375eaf25cd81fcec5c7eb56b0c31",
+      "mtime": 1794260431.7496688,
+      "size": 558
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/tools/timedeltas/02_timedeltas.csharp.d.ps": {
+      "sha256": "a4c733512b2032949b015a3aee0bad917a226c8e774597911ce775694b3ebf3c",
+      "mtime": 1794260431.7500439,
+      "size": 5953
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/tools/times/00_times.primitives.d.ps": {
+      "sha256": "29acbb65a8484b6c59a3dd797dcc9c14c905995fff02400ba5bf5bb119bd1e99",
+      "mtime": 1794260431.7512975,
+      "size": 528
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/tools/times/02_times.csharp.d.ps": {
+      "sha256": "ef6bfe5248cb9a2413220e9ebfec851368a375e65005267e293bd739debad550",
+      "mtime": 1794260431.7515647,
+      "size": 1263
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/util/00_util.primitives.d.ps": {
+      "sha256": "1fe0defea2f4f83f956b4b5c2621313e495c40315f81b743fe51229f6ee93a44",
+      "mtime": 1794260431.7521386,
+      "size": 492
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/util/02_util.csharp.d.ps": {
+      "sha256": "3a94a9a92723e077dc4eb80f2042427d51c8fbd140a2d2f383aa1a7498033752",
+      "mtime": 1794260431.75239,
+      "size": 388
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/util/hashing/00_hashing.primitives.d.ps": {
+      "sha256": "6c0b0a7c268d9df44a4d74377d96c47198777ccd0dffd9523748955466bb6a5c",
+      "mtime": 1794260431.7544014,
+      "size": 535
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/util/hashing/02_hashing.csharp.d.ps": {
+      "sha256": "24f73ae7b38eb01dcf87aea98b14e43feecd247583dff90a5e2e198e4631c1df",
+      "mtime": 1794260431.7546616,
+      "size": 5039
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/util/numba_/00_numba_.primitives.d.ps": {
+      "sha256": "bba9d3519a5272af685d7d1a20d92c48fc8abf8fe76029a0fcfc3eaafe86b51e",
+      "mtime": 1794260431.7560158,
+      "size": 527
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/util/numba_/02_numba_.csharp.d.ps": {
+      "sha256": "997594a25c52228a064cd669496a2b5ad63cb0db1a891774da8367e9ec51d191",
+      "mtime": 1794260431.7563157,
+      "size": 2261
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/window/00_window.primitives.d.ps": {
+      "sha256": "132543510e91ddf9da753df9a930bf32f56a9e968b7b768a90552586da66ec2c",
+      "mtime": 1794260431.757308,
+      "size": 504
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/window/02_window.csharp.d.ps": {
+      "sha256": "cb18d574e2b72072b98ac49799b324ff7ac0f40187283e9b3863efdd772c2f95",
+      "mtime": 1794260431.7576253,
+      "size": 2346
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/window/common/00_common.primitives.d.ps": {
+      "sha256": "6056bd6e0fd0f7e4808d2927b4b31f2dd25ba72d6ec743cf064daf08e0ade585",
+      "mtime": 1794260431.7587357,
+      "size": 539
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/window/common/02_common.csharp.d.ps": {
+      "sha256": "6eea59a31c1de79b9fa0f7d7ed5734314633e71a9e791ad7678123086b444468",
+      "mtime": 1794260431.7590132,
+      "size": 1150
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/window/ewm/00_ewm.primitives.d.ps": {
+      "sha256": "08a72b458e60883dea54e7061715fe5e4cd47d19446c47eacb8413f598a15cc7",
+      "mtime": 1794260431.7674341,
+      "size": 3407
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/window/ewm/02_ewm.csharp.d.ps": {
+      "sha256": "7d08bc8e2f74d15492e70bd0d07a03168ebaf720bd1607665b37831a67b54fdb",
+      "mtime": 1794260431.767745,
+      "size": 7644
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/window/expanding/00_expanding.primitives.d.ps": {
+      "sha256": "42762f051e49241dda490e020c94f9bb432fca027db8bc4f320f32c3e6921ce8",
+      "mtime": 1794260431.7743342,
+      "size": 3690
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/window/expanding/02_expanding.csharp.d.ps": {
+      "sha256": "5876e627cf8ad9d1c6294349a2b4a2b7604f78dcfebf9c09d6900f6d2d457eb5",
+      "mtime": 1794260431.774628,
+      "size": 10625
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/window/numba_/00_numba_.primitives.d.ps": {
+      "sha256": "e7f93829b9773c232236d7d63e972e79832b2834d6c0320403647fd62bf3a63b",
+      "mtime": 1794260431.7767174,
+      "size": 537
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/window/numba_/02_numba_.csharp.d.ps": {
+      "sha256": "4a19ad6aa3d33f3a89d073e8ec323f9e6deb06b23aad4b503dbb9f823b9e27b1",
+      "mtime": 1794260431.7769856,
+      "size": 2795
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/window/online/00_online.primitives.d.ps": {
+      "sha256": "897158f8eb33e8fb90e0917d982346c7f0639ac36eb5d6e1a1ebc1b9aafed619",
+      "mtime": 1794260431.7785647,
+      "size": 892
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/window/online/02_online.csharp.d.ps": {
+      "sha256": "3dd4a4825cb673346eead7fbdd4d598b127eddc3587fb099d37c69bbe35c097c",
+      "mtime": 1794260431.7788265,
+      "size": 2214
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/window/rolling/00_rolling.primitives.d.ps": {
+      "sha256": "69fce9d9d36e6e4c93de71bae88e09dccbec42edcc90d70774b665d4180c1703",
+      "mtime": 1794260431.7948098,
+      "size": 8528
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/core/window/rolling/02_rolling.csharp.d.ps": {
+      "sha256": "966d132ce5640435a4f94e72c2eadbf2eed2ef5ce80d14e450ae3758cd505800",
+      "mtime": 1794260431.795223,
+      "size": 19922
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/errors/00_errors.primitives.d.ps": {
+      "sha256": "0622ae115c1288b9b61f6dd175eca8104fe30e96f36fb669d07bbf63ee20eee5",
+      "mtime": 1794260431.8004327,
+      "size": 6851
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/errors/02_errors.csharp.d.ps": {
+      "sha256": "e3783c874db5a140e185e815f4c31b58cdf6a683683ae3ba9c93d01e38895234",
+      "mtime": 1794260431.8015187,
+      "size": 8436
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/errors/cow/00_cow.primitives.d.ps": {
+      "sha256": "908e04b282b45cc91c2cb35d1c658a99325f0abf51c1cffe41772210ffd6c466",
+      "mtime": 1794260431.8023753,
+      "size": 496
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/errors/cow/02_cow.csharp.d.ps": {
+      "sha256": "f6b226c097a23b09a1a37f9e14518e2a0c5b7d33f07549c841f5770b3c5f5b6e",
+      "mtime": 1794260431.8026178,
+      "size": 392
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/00_io.primitives.d.ps": {
+      "sha256": "6ecc71201e5f302754ed3855116656bf9d3c60fbf333313efc47b67dfb20c657",
+      "mtime": 1794260431.8033502,
+      "size": 455
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/02_io.csharp.d.ps": {
+      "sha256": "13fd37e216b51db97695ff02e2624ad30033f9d9e0953a720ceff1f0c0997dd7",
+      "mtime": 1794260431.8035817,
+      "size": 1230
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/_util/00__util.primitives.d.ps": {
+      "sha256": "17434182e0868abf9498878217ee0b3312585f5002cbfda90022149a8d162115",
+      "mtime": 1794260431.8049798,
+      "size": 488
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/_util/02__util.csharp.d.ps": {
+      "sha256": "008243126ced6865387da7dc4aea11fcbd5a52b946d3104a26cc05e7a996aa71",
+      "mtime": 1794260431.8052692,
+      "size": 3138
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/api/00_api.primitives.d.ps": {
+      "sha256": "8d345147408ab5a40b26946d2ddf06bc18a713eded100a5d8c498506105e8b07",
+      "mtime": 1794260431.818374,
+      "size": 476
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/api/02_api.csharp.d.ps": {
+      "sha256": "63245bed9037cdac3b0a7a0610ac8f2a9e7db88b1740806ac82ccaf98cf09b67",
+      "mtime": 1794260431.8186626,
+      "size": 12581
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/clipboard/00_clipboard.primitives.d.ps": {
+      "sha256": "4a06084b9dae7b87e87e60c499b2bc8647a99d53d3ad5c107725a53be65f79c5",
+      "mtime": 1794260431.8212795,
+      "size": 900
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/clipboard/02_clipboard.csharp.d.ps": {
+      "sha256": "3e7d251c19acfc84d51a14752a9cc8d473cb451713e4d00d7e7295043f3a521e",
+      "mtime": 1794260431.821537,
+      "size": 7535
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/clipboards/00_clipboards.primitives.d.ps": {
+      "sha256": "6f97cde514e47b619516a45c524a2bdca0eac1142bb1baaa84330cee2ee9268c",
+      "mtime": 1794260431.8230257,
+      "size": 518
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/clipboards/02_clipboards.csharp.d.ps": {
+      "sha256": "5f92b0965b705ee12e5847b674a3e8431eae7f4604d4c954e73788f25453220c",
+      "mtime": 1794260431.8233757,
+      "size": 1939
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/common/00_common.primitives.d.ps": {
+      "sha256": "2988e1886a8649aafef73ee164fbe493a356bea4feaad4d9d4d1e2991e745af0",
+      "mtime": 1794260431.835671,
+      "size": 3889
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/common/02_common.csharp.d.ps": {
+      "sha256": "9ed028128b88148ddd81481f5671156d72cfe0cd6aab2742fa1c33fa28498904",
+      "mtime": 1794260431.835964,
+      "size": 16713
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/00_excel.primitives.d.ps": {
+      "sha256": "101f297052867ca1ca01652719b5158cbefdee4e0ae7594bdcb8e2797ec006e4",
+      "mtime": 1794260431.837432,
+      "size": 488
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/02_excel.csharp.d.ps": {
+      "sha256": "311aac4112359cdafcf3141db296a5c1e5686af651be1135258f76bf208beacd",
+      "mtime": 1794260431.8377247,
+      "size": 1405
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_base/00__base.primitives.d.ps": {
+      "sha256": "c77a37889bc4e4eb8a46bc9069b3921ca0aef276006a1151959765e8aa953711",
+      "mtime": 1794260431.9430203,
+      "size": 6591
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_base/02__base.csharp.d.ps": {
+      "sha256": "3c3de43922ce405fcd7a08ec772cc5882ab0b79543e7e00fd5e662c3df3d7f05",
+      "mtime": 1794260431.9434137,
+      "size": 17080
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_calamine/00__calamine.primitives.d.ps": {
+      "sha256": "89be9a65d066be0a9119be9c1c31fee792f4ee87eafc86f1bf6e598e4bd05b32",
+      "mtime": 1794260431.946743,
+      "size": 1552
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_calamine/02__calamine.csharp.d.ps": {
+      "sha256": "7bd7d95bcaea1416b95390c0c3b746d37554e2ca5ff846e75d5e8c6712acf8d6",
+      "mtime": 1794260431.9471262,
+      "size": 6094
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_odfreader/00__odfreader.primitives.d.ps": {
+      "sha256": "757df6ae7d9392bfeef8170680b320eb83f5f748ceadbbe0a2c41814cfbd0b56",
+      "mtime": 1794260431.9497676,
+      "size": 1571
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_odfreader/02__odfreader.csharp.d.ps": {
+      "sha256": "77d762da2158eaf8de1d6590407d363e57cb8a3f5b9b300384b1314db2615cc5",
+      "mtime": 1794260431.9501448,
+      "size": 4700
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_odswriter/00__odswriter.primitives.d.ps": {
+      "sha256": "f16bf2841fbfff7e8ae0db73a68f326011824dbbfd5c104a731aa071156c65f8",
+      "mtime": 1794260431.9527035,
+      "size": 1680
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_odswriter/02__odswriter.csharp.d.ps": {
+      "sha256": "4418e1a45bb3318ca7cf2898b0b1fc76910120819218c4aacefdee0cf842ccc7",
+      "mtime": 1794260431.953044,
+      "size": 4106
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_openpyxl/00__openpyxl.primitives.d.ps": {
+      "sha256": "cfa575264b80fb413832556d4b3bca11a886fb9dbd3c6d0f1cb392c83b11ef93",
+      "mtime": 1794260431.9574475,
+      "size": 2769
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_openpyxl/02__openpyxl.csharp.d.ps": {
+      "sha256": "0ff6089f584ae5d4cc332d651a1803b9a77c1e8573bbeed3fa39a0536d9c5d43",
+      "mtime": 1794260431.9579418,
+      "size": 6531
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_pyxlsb/00__pyxlsb.primitives.d.ps": {
+      "sha256": "43e216f8508e20c5b21149b0b913a9528010b5daa1adadaae3cae59d0a6d9551",
+      "mtime": 1794260431.9607406,
+      "size": 1526
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_pyxlsb/02__pyxlsb.csharp.d.ps": {
+      "sha256": "6219dd8f63ca91a76ed7280d8272f11f992e836c935a63988af20e59405f659d",
+      "mtime": 1794260431.9610999,
+      "size": 4421
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_util/00__util.primitives.d.ps": {
+      "sha256": "058452ed755f5f449ae49dc8564455f834b47ff9f065ad12588fdf96377dc32e",
+      "mtime": 1794260431.9644089,
+      "size": 518
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_util/02__util.csharp.d.ps": {
+      "sha256": "4f9e57c517afb39eb797582e9ed02769168ca04735d11b565782abc714b175e1",
+      "mtime": 1794260431.9656985,
+      "size": 5804
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_xlrd/00__xlrd.primitives.d.ps": {
+      "sha256": "55f43d5544d241b3ba3ffe31b521f43db5f6bcd51de9484df936898c1b744094",
+      "mtime": 1794260431.9689908,
+      "size": 1173
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_xlrd/02__xlrd.csharp.d.ps": {
+      "sha256": "253d501fe475e9cc95dd00ceff8023822c0e1e02305bbabd025c026ce224166c",
+      "mtime": 1794260431.969451,
+      "size": 3173
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_xlsxwriter/00__xlsxwriter.primitives.d.ps": {
+      "sha256": "d39840b95cca80a01890677761e006249aedf04f16014fc9d13db1258e4a28df",
+      "mtime": 1794260431.9738076,
+      "size": 2033
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/excel/_xlsxwriter/02__xlsxwriter.csharp.d.ps": {
+      "sha256": "5f8d61d067e3dbc8c02adbf634d9acdca11907f28c6af5e34a0993b713acad00",
+      "mtime": 1794260431.9742992,
+      "size": 4647
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/feather_format/00_feather_format.primitives.d.ps": {
+      "sha256": "7189936673742e3f9d5fd1c963e4047a6278f01a1828cd5973cbbc7d49499dd1",
+      "mtime": 1794260431.9778073,
+      "size": 540
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/feather_format/02_feather_format.csharp.d.ps": {
+      "sha256": "6a4e1a595a1472b700cb56cfb35c9f193f83b4239a536c30ff6d611b4b44540d",
+      "mtime": 1794260431.978261,
+      "size": 4605
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/00_formats.primitives.d.ps": {
+      "sha256": "6c6f4565c11117dc4662998b9cc7abe2d80853bb40167b95191f38c78680ea29",
+      "mtime": 1794260431.9794512,
+      "size": 500
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/02_formats.csharp.d.ps": {
+      "sha256": "eb384ccc752a9bd8ffd20dfdab34c4e0a2922d3385c96dae251648ec51d4827d",
+      "mtime": 1794260431.9799056,
+      "size": 925
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/_color_data/00__color_data.primitives.d.ps": {
+      "sha256": "3cb38632276d2a5ddb9b53a233672630af8b3a397e30f823ab280be034c6a480",
+      "mtime": 1794260431.9807622,
+      "size": 562
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/_color_data/02__color_data.csharp.d.ps": {
+      "sha256": "acc8f86c5309f5817727f465e9845d95ff26dd712fde94d61e50803e239c95c5",
+      "mtime": 1794260431.9810984,
+      "size": 438
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/console/00_console.primitives.d.ps": {
+      "sha256": "de10d362764489c7c78b36b3b302768d36cb8b5daab8599f46cf0b0767937ec4",
+      "mtime": 1794260431.9821126,
+      "size": 540
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/console/02_console.csharp.d.ps": {
+      "sha256": "7396685268b57e7153157562797ee7333e56594eff8c92dbfc3705989369f51d",
+      "mtime": 1794260431.9825063,
+      "size": 1132
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/css/00_css.primitives.d.ps": {
+      "sha256": "fdfea27a6a576e4f6925ce03c0d0d4683ac165941eac652f826d43dd54279acb",
+      "mtime": 1794260431.9848773,
+      "size": 1185
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/css/02_css.csharp.d.ps": {
+      "sha256": "62d4ba2f8dac780e40c505b44fe2eed534bc86f9fe8d9429612cd4a4066dbae0",
+      "mtime": 1794260431.9852483,
+      "size": 2642
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/csvs/00_csvs.primitives.d.ps": {
+      "sha256": "c66ee16ce2fdf5167dfa70bc9daa80694acb289684c3411509057c4f34056042",
+      "mtime": 1794260431.9890623,
+      "size": 1858
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/csvs/02_csvs.csharp.d.ps": {
+      "sha256": "3d003373ee91d5ef03f16c8ff23136d61e6ff398e0119e5835fce5447f395645",
+      "mtime": 1794260431.989456,
+      "size": 6678
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/excel/00_excel.primitives.d.ps": {
+      "sha256": "8736bf679a1fde52cfc2368eb6daabfcfc7d455c008e23619ea76152c0223ecc",
+      "mtime": 1794260431.9952924,
+      "size": 3698
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/excel/02_excel.csharp.d.ps": {
+      "sha256": "5ffb325c69573d27762669d6179bde60890f2bb645e5cb8078246a96562889f1",
+      "mtime": 1794260431.9956415,
+      "size": 8406
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/format/00_format.primitives.d.ps": {
+      "sha256": "f9be964d45cbf1a92debcc8838fe833768638a0c1db3138768b4b739a8f0d3da",
+      "mtime": 1794260432.0068583,
+      "size": 5707
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/format/02_format.csharp.d.ps": {
+      "sha256": "2f1de03af6191e929d95f6cc75eba31655ceac00ab29b02bbcce0d4dbbb8a2b7",
+      "mtime": 1794260432.007255,
+      "size": 17395
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/html/00_html.primitives.d.ps": {
+      "sha256": "ebe07f8f0281b1ddf10e1d25a706343396b48516f237b4342d356c4f3c2e7a5d",
+      "mtime": 1794260432.0108047,
+      "size": 2159
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/html/02_html.csharp.d.ps": {
+      "sha256": "dc1ac761b5846a5037da92b5d457c2ca8bca14e177b8181aaf1d37262fb60262",
+      "mtime": 1794260432.011045,
+      "size": 5200
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/info/00_info.primitives.d.ps": {
+      "sha256": "fc3d1b3c0098a308f2e7981982e21829a2956707d633ba4979cc7a2cca271511",
+      "mtime": 1794260432.0184011,
+      "size": 7825
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/info/02_info.csharp.d.ps": {
+      "sha256": "48006e99713bc9dd97843c9fc6eedfafa278ece02d6b5f548de5402fa5618f8e",
+      "mtime": 1794260432.019508,
+      "size": 17086
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/printing/00_printing.primitives.d.ps": {
+      "sha256": "0de6adedff66cd03bbf05cf436ee0cacf0f4c5016bd61230e5d7afcf02611428",
+      "mtime": 1794260432.0227728,
+      "size": 1481
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/printing/02_printing.csharp.d.ps": {
+      "sha256": "99c2b4a69b624970b391091da491e3496efb0dba53b125052871d2994fe19ce7",
+      "mtime": 1794260432.0230134,
+      "size": 6059
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/string/00_string.primitives.d.ps": {
+      "sha256": "485aeff4b57bb45f1a8b17486771d8e3e21a08c9a7b6fb1e0c9b7b7a8c2df00a",
+      "mtime": 1794260432.0243983,
+      "size": 687
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/string/02_string.csharp.d.ps": {
+      "sha256": "c15a41bbad87861f64d2cedd5a49f2fa347de1592adbb19cfb693c4a223d82ac",
+      "mtime": 1794260432.0246847,
+      "size": 1469
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/style/00_style.primitives.d.ps": {
+      "sha256": "14b0ba13d71e8f6a60e421b9224242761c89209c489d459ce9a440d06f038dae",
+      "mtime": 1794260432.0431793,
+      "size": 8205
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/style/02_style.csharp.d.ps": {
+      "sha256": "45e09a531bdf8de79e40bde0c5547704958d8f8e4ed03b311fd64682b25ec374",
+      "mtime": 1794260432.0435662,
+      "size": 19988
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/style_render/00_style_render.primitives.d.ps": {
+      "sha256": "7218b7c9b546ae0e372ce9a993dcbe7fadde24483bc7b3c3e291a422eddfd19a",
+      "mtime": 1794260432.0499015,
+      "size": 2647
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/style_render/02_style_render.csharp.d.ps": {
+      "sha256": "0471ed01324972ab3377e3da809994255626eaff5304ee23245acd1eafbad8ce",
+      "mtime": 1794260432.0501552,
+      "size": 8731
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/xml/00_xml.primitives.d.ps": {
+      "sha256": "60cfe2277ac93f0ee4bac669951d3caa77a3c9594598627355995162e3ceedaa",
+      "mtime": 1794260432.0533032,
+      "size": 1495
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/formats/xml/02_xml.csharp.d.ps": {
+      "sha256": "94b487442ec9af155d674ceced4e7321cca4658798cae6fd3f52ae0e4372391f",
+      "mtime": 1794260432.0535464,
+      "size": 3585
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/html/00_html.primitives.d.ps": {
+      "sha256": "9964303ecd221fc03bedc89e3981a05aaadc561af902d423f724db62e4b3bba5",
+      "mtime": 1794260432.056262,
+      "size": 2101
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/html/02_html.csharp.d.ps": {
+      "sha256": "7e58a2df5f83345d6d59c0b39908eb95c4123aa826d09d9377fbc78e567e1362",
+      "mtime": 1794260432.0565615,
+      "size": 5567
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/iceberg/00_iceberg.primitives.d.ps": {
+      "sha256": "7651c27f62b9952c467e09953155ca27f95a8dd9235659ed5bd69dd2a8192e39",
+      "mtime": 1794260432.0580475,
+      "size": 500
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/iceberg/02_iceberg.csharp.d.ps": {
+      "sha256": "2b44e4186bb7ea4437f1543b08ad29a61007c1bf5389592b19b6eaecfce4c8a9",
+      "mtime": 1794260432.0583577,
+      "size": 1641
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/json/00_json.primitives.d.ps": {
+      "sha256": "5ca76112c77faf6067d7eb61a56a63d3b570bc37f47e9dc07b2bba10bfd49e39",
+      "mtime": 1794260432.0613747,
+      "size": 482
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/json/02_json.csharp.d.ps": {
+      "sha256": "3228ea334380a71ffe30a781e756f4a8f84fc00d0b8788896a70dc2eaaeb8fc7",
+      "mtime": 1794260432.0616295,
+      "size": 3975
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/json/_json/00__json.primitives.d.ps": {
+      "sha256": "d70ac03d64bbe1a2f15fd332ff9dfd6612cc8906d31ab7d9ddd57995a6c9bdfc",
+      "mtime": 1794260432.0739927,
+      "size": 3778
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/json/_json/02__json.csharp.d.ps": {
+      "sha256": "278fcf95c8cd51df92fc9f4b83d723f0e1be2c9a9c60d00e439e75edf92b3b2a",
+      "mtime": 1794260432.0744128,
+      "size": 14549
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/json/_normalize/00__normalize.primitives.d.ps": {
+      "sha256": "a655a03e0d875d0b2eb8d93dc1ce4d6b1922ea47f1a2aebcb60b684cb9ff1643",
+      "mtime": 1794260432.0778825,
+      "size": 543
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/json/_normalize/02__normalize.csharp.d.ps": {
+      "sha256": "24b284902d0490dd04d20a0aca2847fc3cc880882f7252d82b64ab8a4e68791e",
+      "mtime": 1794260432.0781832,
+      "size": 4234
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/json/_table_schema/00__table_schema.primitives.d.ps": {
+      "sha256": "60ffc5701737b4d496c4e11fe511a1e21183c64db7349b534932679f55a51966",
+      "mtime": 1794260432.080537,
+      "size": 559
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/json/_table_schema/02__table_schema.csharp.d.ps": {
+      "sha256": "a606e97a1768f7ea99f6a796538fdafb91136a1de0a367421b1c9e65dbb1be9f",
+      "mtime": 1794260432.0809267,
+      "size": 3915
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/orc/00_orc.primitives.d.ps": {
+      "sha256": "da0e1b4e6bf833255a1b17ff6ff637629b3752f623bd7b2a52a353b98fc8ae7d",
+      "mtime": 1794260432.0836535,
+      "size": 476
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/orc/02_orc.csharp.d.ps": {
+      "sha256": "c9df3a08c5485f15cc7661421b349aa29f31c596a7be8222a80e77436cd198cd",
+      "mtime": 1794260432.0838983,
+      "size": 3403
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/parquet/00_parquet.primitives.d.ps": {
+      "sha256": "25d9d77a1b44e3b6c7c624364c38049d216196512f7894263c53248398d45ad8",
+      "mtime": 1794260432.0898879,
+      "size": 2546
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/parquet/02_parquet.csharp.d.ps": {
+      "sha256": "ed5470e24e4664905b1ff38b6bfee3e8081c5e7896a7f7adee38d66b10631ea8",
+      "mtime": 1794260432.0902464,
+      "size": 7691
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/parsers/00_parsers.primitives.d.ps": {
+      "sha256": "4297a91f0cf74572138582a3b519bd7b04c4c7ba4895fc35efbc83fb6d683c25",
+      "mtime": 1794260432.0920362,
+      "size": 500
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/parsers/02_parsers.csharp.d.ps": {
+      "sha256": "4c4ab152ee652805bdfd64d281e36b7006e1c750ec7faa7baea4e1e3f24d02ea",
+      "mtime": 1794260432.0922902,
+      "size": 3102
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/parsers/arrow_parser_wrapper/00_arrow_parser_wrapper.primitives.d.ps": {
+      "sha256": "7f67747d57a2f681b0ab6ca48fc3f3b25dcf37f64959d554d933c0b081156e18",
+      "mtime": 1794260432.093482,
+      "size": 764
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/parsers/arrow_parser_wrapper/02_arrow_parser_wrapper.csharp.d.ps": {
+      "sha256": "51319a98ae392e912315d5aa380f608d8bd9ad216601623bcd3a42722cb5d88d",
+      "mtime": 1794260432.0937316,
+      "size": 2239
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/parsers/base_parser/00_base_parser.primitives.d.ps": {
+      "sha256": "3e633378018082db1026ff87cd019b083b472a921b828028643f8ab874ed5c86",
+      "mtime": 1794260432.0963726,
+      "size": 1039
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/parsers/base_parser/02_base_parser.csharp.d.ps": {
+      "sha256": "c4eafe111d8e86ddf7ea97b021fdbae5fa5d5fe64af8ff12ae7d6b34cdcc0551",
+      "mtime": 1794260432.0967739,
+      "size": 5643
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/parsers/c_parser_wrapper/00_c_parser_wrapper.primitives.d.ps": {
+      "sha256": "1d69d858e6ed4a29950b777781ca4bfb679496b4fa1d58c2d9d9c40ab53009cf",
+      "mtime": 1794260432.1001675,
+      "size": 1111
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/parsers/c_parser_wrapper/02_c_parser_wrapper.csharp.d.ps": {
+      "sha256": "f4ef8cf56832f4245812970f28ad3aee1d8d9ce493a19e84b9fcc0134d882141",
+      "mtime": 1794260432.1006312,
+      "size": 5555
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/parsers/python_parser/00_python_parser.primitives.d.ps": {
+      "sha256": "6936e6eb23ef94aac2c077ca36680b2bc98c3b8d79448c306fcff1bd33eabdb5",
+      "mtime": 1794260432.1066983,
+      "size": 2681
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/parsers/python_parser/02_python_parser.csharp.d.ps": {
+      "sha256": "09fda4888e830f5990f909b39cc05400da9c64ef7de101a370f7f1a73263526c",
+      "mtime": 1794260432.1071234,
+      "size": 7761
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/parsers/readers/00_readers.primitives.d.ps": {
+      "sha256": "8f1b771be3e3765d730ece9970889e73913e51f0613d124903d1777a4a635702",
+      "mtime": 1794260432.1166856,
+      "size": 5032
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/parsers/readers/02_readers.csharp.d.ps": {
+      "sha256": "b8e5887c1612692e20858068dec27e3dd01490a230259e4b00b73e6d6ea16380",
+      "mtime": 1794260432.1170657,
+      "size": 20558
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/pickle/00_pickle.primitives.d.ps": {
+      "sha256": "62d59b8ba35ee4f45f950f4da3a7bf1471c7b3fa02cb6f5b6833f4f8a026a558",
+      "mtime": 1794260432.120478,
+      "size": 494
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/pickle/02_pickle.csharp.d.ps": {
+      "sha256": "55c3abdff00227c5af45d47b358bb568f6ca77152681257e2fe3d573affa90dc",
+      "mtime": 1794260432.1207755,
+      "size": 3979
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/pytables/00_pytables.primitives.d.ps": {
+      "sha256": "3683fa5b4888c96512d6ceb82e8f21c046ba36efae6770afb0ff878d12f0337e",
+      "mtime": 1794260432.1584284,
+      "size": 24526
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/pytables/02_pytables.csharp.d.ps": {
+      "sha256": "11939fecc8ab833d7c3c3601769b8462afed91c4c47e703677a30020b1b81e27",
+      "mtime": 1794260432.1588104,
+      "size": 54512
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/sas/00_sas.primitives.d.ps": {
+      "sha256": "ce6b8447def35351ae989d301c4110984363f13b73f312c62e2bacc93d38bf29",
+      "mtime": 1794260432.1611433,
+      "size": 476
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/sas/02_sas.csharp.d.ps": {
+      "sha256": "ecf7920b25a14d239fd2c9ff7469b23bb60bc695cf936182f8ecaa9dcaf1284d",
+      "mtime": 1794260432.1614697,
+      "size": 890
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/sas/sas7bdat/00_sas7bdat.primitives.d.ps": {
+      "sha256": "2a776a2adb00aaba60fa46c6896d104c790b5acfc8b412a3dc553d4c7792d48e",
+      "mtime": 1794260432.1649113,
+      "size": 2984
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/sas/sas7bdat/02_sas7bdat.csharp.d.ps": {
+      "sha256": "f46cfec5b4e8dc3c1e231cb6c5d440f4e71581fd6017911ff60447b5668d6da4",
+      "mtime": 1794260432.165302,
+      "size": 6728
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/sas/sas_constants/00_sas_constants.primitives.d.ps": {
+      "sha256": "d169f3eb0806e43200af6dd86841203f5bd543716b6bdfaab5721e302018994a",
+      "mtime": 1794260432.1686747,
+      "size": 1237
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/sas/sas_constants/02_sas_constants.csharp.d.ps": {
+      "sha256": "a2a365b07a273aa16a0c9f157268f64ad2e55fda98afdbf0df2fd1666366e358",
+      "mtime": 1794260432.1690228,
+      "size": 24385
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/sas/sas_xport/00_sas_xport.primitives.d.ps": {
+      "sha256": "d45d829700ffbd33d2dd9acaecf28788702261459e5357e1704103fbe84a2740",
+      "mtime": 1794260432.1713898,
+      "size": 1156
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/sas/sas_xport/02_sas_xport.csharp.d.ps": {
+      "sha256": "4b4dea829906103fa8ed37b610973e2e438436533ec6acdffb3b680045208aa2",
+      "mtime": 1794260432.1716957,
+      "size": 3346
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/sas/sasreader/00_sasreader.primitives.d.ps": {
+      "sha256": "00229d8ecaed6eb7ff49ff6738c951e05ed0a0346d8e0debbf3a9e973dd80c95",
+      "mtime": 1794260432.1741123,
+      "size": 885
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/sas/sasreader/02_sasreader.csharp.d.ps": {
+      "sha256": "c0ba8018f0e8725b3055c7808b15695e2087d8cb6df4acefb413ec70e705210f",
+      "mtime": 1794260432.1745389,
+      "size": 5022
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/spss/00_spss.primitives.d.ps": {
+      "sha256": "62aaab7f88ed03be500e7a087c87af2a256f4a4ddc0e41c478063a08dba1eb68",
+      "mtime": 1794260432.1767533,
+      "size": 482
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/spss/02_spss.csharp.d.ps": {
+      "sha256": "e923d190dac885796de8e59771a830b3b55ae53492df78b6b1cf0672dc5524ea",
+      "mtime": 1794260432.1770322,
+      "size": 2782
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/sql/00_sql.primitives.d.ps": {
+      "sha256": "352d93a4b93a298171553ff483f2ad94a4b11bf4a76ad99ec4411a33027daade",
+      "mtime": 1794260432.200846,
+      "size": 9301
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/sql/02_sql.csharp.d.ps": {
+      "sha256": "0fe69b7de7ccc8c5e0fc5daecac4aa405001e0b93ceabf502da564ba91def882",
+      "mtime": 1794260432.2011056,
+      "size": 21951
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/stata/00_stata.primitives.d.ps": {
+      "sha256": "142a8d3ad13cfe96b8c54585ab817b424a33faaaf52ee6b3ec40a7201f3b4cdd",
+      "mtime": 1794260432.2126737,
+      "size": 7405
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/stata/02_stata.csharp.d.ps": {
+      "sha256": "e252210594e098509779532af5eafe99e0c2af8e08c98f2b4265c003e876287c",
+      "mtime": 1794260432.2130122,
+      "size": 16704
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/xml/00_xml.primitives.d.ps": {
+      "sha256": "819088094d6561c046129973c2c1ea28d0fb8f534462b8e1d66b88cf42bff123",
+      "mtime": 1794260432.217885,
+      "size": 4617
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/io/xml/02_xml.csharp.d.ps": {
+      "sha256": "0eace885a57533e0dfdf0cf23f5233d8c7daa33dd30b291f7a0c27b366a15402",
+      "mtime": 1794260432.2182279,
+      "size": 10605
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/plotting/00_plotting.primitives.d.ps": {
+      "sha256": "91bd9d6572dc0c29a3c2ee41cb6fb94499ab82458b49a62ab2c0ea8b41716761",
+      "mtime": 1794260432.2248304,
+      "size": 491
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/plotting/02_plotting.csharp.d.ps": {
+      "sha256": "0d14fb3dc3957aaf9d3ce30afec4b99d24d816fbcedb26f1dd0c59b26e1fa15c",
+      "mtime": 1794260432.2251394,
+      "size": 6624
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/plotting/_core/00__core.primitives.d.ps": {
+      "sha256": "04db8bf2ed53f487de7f9dfc1b2997a528d76953b5a88d1bc008b52021a6c6d5",
+      "mtime": 1794260432.2364683,
+      "size": 2206
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/plotting/_core/02__core.csharp.d.ps": {
+      "sha256": "a7922acd1ee7cbf5d3405f8d54d81d4ef39ce1018695e5910ddeeafd766cb0cb",
+      "mtime": 1794260432.2367916,
+      "size": 9373
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/plotting/_misc/00__misc.primitives.d.ps": {
+      "sha256": "f1678aeac402073354fc69b6ecbe2cb31f63980c4b35b700d955d2c1303482bc",
+      "mtime": 1794260432.2426465,
+      "size": 918
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/plotting/_misc/02__misc.csharp.d.ps": {
+      "sha256": "e2c6208938ca0849f60a9d281e5d7f4a0d2052a765f7a79323ecee1200b53ba4",
+      "mtime": 1794260432.2429578,
+      "size": 7429
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/testing/00_testing.primitives.d.ps": {
+      "sha256": "d9dea299acf1c9e0f5f85d5f93f68239e231a709ec84a352fee2c7acd30baabe",
+      "mtime": 1794260432.2517865,
+      "size": 485
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/testing/02_testing.csharp.d.ps": {
+      "sha256": "2eb4fb924386315974bc415f281c4bb0df341ebbbca7e5b9991ed2945546dff2",
+      "mtime": 1794260432.2521117,
+      "size": 2464
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/tseries/00_tseries.primitives.d.ps": {
+      "sha256": "0cb5e9d20b5b977c28af0e53495dda99e8c548a362a5226470f79fb547ae0ca4",
+      "mtime": 1794260432.2529294,
+      "size": 485
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/tseries/02_tseries.csharp.d.ps": {
+      "sha256": "0a4bea99b512aac89ec4d0207d1b54f1103d49b2e505425dbf6d73d5055f49bf",
+      "mtime": 1794260432.2532318,
+      "size": 1127
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/tseries/api/00_api.primitives.d.ps": {
+      "sha256": "96303a1ec81953cb4b23dee1a4657827be3cfe30831163f5310e9365729d76a5",
+      "mtime": 1794260432.254309,
+      "size": 501
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/tseries/api/02_api.csharp.d.ps": {
+      "sha256": "04fe4cb4a975d7ddda2c2da62040a0d4938c77a8a9fd2ca4e594874af8ccde2e",
+      "mtime": 1794260432.2546153,
+      "size": 1764
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/tseries/frequencies/00_frequencies.primitives.d.ps": {
+      "sha256": "a642a8c22b229eae825d105f31ee1cd9aded57fa623565f719250b39406cabdf",
+      "mtime": 1794260432.257367,
+      "size": 1609
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/tseries/frequencies/02_frequencies.csharp.d.ps": {
+      "sha256": "447ca88ce941b347f87e46b1d14cd2c59da2f2d2cecd770705d10e7f0c6584da",
+      "mtime": 1794260432.258574,
+      "size": 8940
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/tseries/holiday/00_holiday.primitives.d.ps": {
+      "sha256": "3adc87b6bdd0be4d04edac8bad4c0ac497305e335bfc2904877948444b6cbd5e",
+      "mtime": 1794260432.2633662,
+      "size": 2503
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/tseries/holiday/02_holiday.csharp.d.ps": {
+      "sha256": "815567c7a7b40bb699bb9ff1435ecb6a458b12f72da3f41ac08e363fcf7c0caa",
+      "mtime": 1794260432.2645526,
+      "size": 10640
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/tseries/offsets/00_offsets.primitives.d.ps": {
+      "sha256": "b408d03d13976cb8a4af94130e902a80adc77c93d71aabcdd5a051fa8c3e8fa8",
+      "mtime": 1794260432.2674806,
+      "size": 525
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/tseries/offsets/02_offsets.csharp.d.ps": {
+      "sha256": "4da6650947d5ff71df5bb9bd49824416a08d471c9494b666622518ec4e73dfdd",
+      "mtime": 1794260432.2678401,
+      "size": 11016
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/util/00_util.primitives.d.ps": {
+      "sha256": "a3f7691d5330c9c405f0bbb4552b00095604f336fa041f561e2df90d316a8ce3",
+      "mtime": 1794260432.2688744,
+      "size": 467
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/util/02_util.csharp.d.ps": {
+      "sha256": "216d88445906128a6f3e26aef4b4b48485a5f9be0203f563d428349eb4944401",
+      "mtime": 1794260432.2691708,
+      "size": 787
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/util/_decorators/00__decorators.primitives.d.ps": {
+      "sha256": "036c2183d946523e4e3cae671dbf665eec0fa9ec963a0f40823bc1f0ebed6087",
+      "mtime": 1794260432.2728872,
+      "size": 1101
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/util/_decorators/02__decorators.csharp.d.ps": {
+      "sha256": "c3066147c159560920a30cfb55bb43944b35bc1e4db7344ee2c77cb70517fe80",
+      "mtime": 1794260432.2732806,
+      "size": 5264
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/util/_exceptions/00__exceptions.primitives.d.ps": {
+      "sha256": "2a7cdaf48bfc601de3841f7a87d4dd8bcca8f854133c8c6797c7ba89d897d5c1",
+      "mtime": 1794260432.2747955,
+      "size": 534
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/util/_exceptions/02__exceptions.csharp.d.ps": {
+      "sha256": "0d224c585ce0a158ebdc5ac557f57316184e305759a6c6ebbb68672fb8bc324d",
+      "mtime": 1794260432.2750344,
+      "size": 2087
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/util/_print_versions/00__print_versions.primitives.d.ps": {
+      "sha256": "5797a6f0a8008a3683ee5c64bd98b2f75583a185015e9aeb48df7582f12555ea",
+      "mtime": 1794260432.276005,
+      "size": 556
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/util/_print_versions/02__print_versions.csharp.d.ps": {
+      "sha256": "96b8f861e83ec3915849ea82131d2241af2a3aeee89040cda55dd37b9985b5c4",
+      "mtime": 1794260432.2762604,
+      "size": 1256
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/util/_test_decorators/00__test_decorators.primitives.d.ps": {
+      "sha256": "79404fd0bf9187100e9feeb780381aaba279a57d45b0ea38d3ebd483aeed4042",
+      "mtime": 1794260432.2773554,
+      "size": 562
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/util/_test_decorators/02__test_decorators.csharp.d.ps": {
+      "sha256": "f5962ff0d841e3502a4bccb2da4712be7a4daafa5104d24f5c5efbeade4d6295",
+      "mtime": 1794260432.2775848,
+      "size": 1940
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/util/_tester/00__tester.primitives.d.ps": {
+      "sha256": "3e1b57405a1d3389a48c5cf3c18b78fb7f2e27ab10084bc2e02b0486e7f38237",
+      "mtime": 1794260432.2785366,
+      "size": 510
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/util/_tester/02__tester.csharp.d.ps": {
+      "sha256": "f39410ec7c5528a913e4856c04e570910d49943b055e3d4c76b123c4add3c2ea",
+      "mtime": 1794260432.2787614,
+      "size": 948
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/util/_validators/00__validators.primitives.d.ps": {
+      "sha256": "7b922e8fed2cde0d2df4d692ff9838267006df97d1097fb568ad620e36564ceb",
+      "mtime": 1794260432.281745,
+      "size": 534
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/util/_validators/02__validators.csharp.d.ps": {
+      "sha256": "ec903288650a60139b240ae6db2b20c77a4150480b07dfaec8849399e8271d6d",
+      "mtime": 1794260432.2821167,
+      "size": 6286
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/util/version/00_version.primitives.d.ps": {
+      "sha256": "84988eb1a2e757c6e9b80debaf47533cf59f4defdb418bc834b0371fde80a304",
+      "mtime": 1794260432.286625,
+      "size": 4245
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/pandas/pandas/util/version/02_version.csharp.d.ps": {
+      "sha256": "d84c3c1c18eba5d0a907d1f10c8ac6896d3a6c413a17c9fdce910d5a266c3e56",
+      "mtime": 1794260432.2869418,
+      "size": 11324
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/00_attributes.d.ps": {
+      "sha256": "36b64cd04420d389ed84dfdd4db65aace410ad442ec3a6d9965646a4055ad821",
+      "mtime": 1793464080.8828561,
+      "size": 2305
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/01_contracts.d.ps": {
+      "sha256": "0bcfb2e78e4384e495e6b02caffbcf28fe5e31e8fc7ee388bea3ef7eeb330acb",
+      "mtime": 1793464573.6832237,
+      "size": 4013
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/02_primitives.d.ps": {
+      "sha256": "fb193d96bb0674eaf174424a05c75e70f230d740e93398b4d3ed08aa5446add9",
+      "mtime": 1794158334.4086375,
+      "size": 23077
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/03_builtins.raw.d.ps": {
+      "sha256": "c7af5f14ddf1a59d135de55bc2b0b02ae72dc5b671052965b98962ec6f1e9bf5",
+      "mtime": 1793464080.883746,
+      "size": 4021
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/04_builtins.csharp.d.ps": {
+      "sha256": "fe57dd2b1012ea4b40fdf8cb23c0ec399490fdae5c7b042c7d46f7d03f4983bc",
+      "mtime": 1793464080.8840315,
+      "size": 3393
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/05_core.enterprise.d.ps": {
+      "sha256": "66caaacf57e04d4d4b961ea20c70dcf089f4ae6006799f41f6704dbedb02f217",
+      "mtime": 1793464080.8843095,
+      "size": 3302
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/contextlib_subprocess/00_contextlib.primitives.d.ps": {
+      "sha256": "e94102482c9e3e58a9f0efa85ca840b9951cf6fa7e9e8157d01135e3cb1a02f1",
+      "mtime": 1793464080.8971665,
+      "size": 2842
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/contextlib_subprocess/01_contextlib.raw.d.ps": {
+      "sha256": "6671a67e545b7740e598941d994c82cb1c6b25405ed214264b81b7fff689f9ab",
+      "mtime": 1793468315.1744256,
+      "size": 1314
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/contextlib_subprocess/02_contextlib.csharp.d.ps": {
+      "sha256": "b05f9bf997d07cb373ecb0795adb22d2df282ec11df8d4f35bd2b024d6bd168a",
+      "mtime": 1793468327.8042042,
+      "size": 1194
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/contextlib_subprocess/03_processes.enterprise.d.ps": {
+      "sha256": "a2b1a1a651cf4bab206437081a6afa9751a448615f898d233482723466666edd",
+      "mtime": 1793468341.286606,
+      "size": 1119
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/json/00_json.primitives.d.ps": {
+      "sha256": "7a87922da4004af89d60c9fd8b0ae1167ccac5919cdb4e2a348714021a75adbb",
+      "mtime": 1793464080.8870032,
+      "size": 1068
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/json/01_json.raw.d.ps": {
+      "sha256": "7056e82d8b2e4b5729a755ff31439078adbb7b4ae49a91fbc853e64c5c818265",
+      "mtime": 1793464080.8872252,
+      "size": 1123
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/json/02_json.csharp.d.ps": {
+      "sha256": "70fe6a4927907dc8aa5a47a55f56f3c345515690c32c77cd2c0b695c5a33402b",
+      "mtime": 1793464080.8874395,
+      "size": 1026
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/json/03_serialization.enterprise.d.ps": {
+      "sha256": "8f9b5f0dde02401bcf7b11dba99b5674dae26c0f70d8e3ad6e6558057e1655ce",
+      "mtime": 1793466419.9061885,
+      "size": 955
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/logging/00_logging.primitives.d.ps": {
+      "sha256": "12c80ec9e9fb4b4b342b4e8616cae10c672132cf6f08603a501264f493c637e8",
+      "mtime": 1793464080.892265,
+      "size": 3125
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/logging/01_logging.raw.d.ps": {
+      "sha256": "4e632115536938487d8a26f46f7b58aa4e96dea820f01b966685bef8cd820c3d",
+      "mtime": 1793464080.893275,
+      "size": 1409
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/logging/02_logging.csharp.d.ps": {
+      "sha256": "c0dbdc24d903f8f4f05b89fd1c35acdefff85232e2bc6831d91fb68e1433b9d4",
+      "mtime": 1793464080.8935652,
+      "size": 1313
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/logging/03_logging.enterprise.d.ps": {
+      "sha256": "58bcab63e2d48c610c42a82214bb72d0d55c0698c3001d2750987f6b9e0500c2",
+      "mtime": 1793464080.893919,
+      "size": 713
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/os_shutil/00_os.primitives.d.ps": {
+      "sha256": "d341b77a895b3b550d07b5489dc4a706c63fdac6725e9c59da21967295751bff",
+      "mtime": 1793464080.8850002,
+      "size": 2703
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/os_shutil/01_os.raw.d.ps": {
+      "sha256": "94a5a208bfcdd69230964303e473877f7b4d98ad6f3c53dbf6020678dddbdd90",
+      "mtime": 1793467356.9960291,
+      "size": 5270
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/os_shutil/02_os.csharp.d.ps": {
+      "sha256": "e2ad163325418ba30404277e06e26d5bb4df89c9276d1097c0a0ec58649686f7",
+      "mtime": 1793467363.782007,
+      "size": 4719
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/os_shutil/03_io.enterprise.d.ps": {
+      "sha256": "dc990dce5c994cd4c66414ae3986b3c73cc132a10403741700fd157a42c00e67",
+      "mtime": 1793467368.4799914,
+      "size": 3542
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/pathlib_hashlib_uuid/00_pathlib.primitives.d.ps": {
+      "sha256": "7c4783c5deae4a3d41deb6b4d74762970a66727087d7cd6ab1004a034c4a505f",
+      "mtime": 1793464080.898241,
+      "size": 3771
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/pathlib_hashlib_uuid/01_pathlib.raw.d.ps": {
+      "sha256": "d33d02da1ff42538fff06ece9f4f06b060557f62f010158988621365a39095c1",
+      "mtime": 1793464080.898502,
+      "size": 1148
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/pathlib_hashlib_uuid/02_pathlib.csharp.d.ps": {
+      "sha256": "7595120f431bbc97a6eee82215aadebed6fb4c3699ef6e5e4c64b852a59a232d",
+      "mtime": 1793464080.8987525,
+      "size": 1051
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/pathlib_hashlib_uuid/03_security.enterprise.d.ps": {
+      "sha256": "10d54743eb7372f612045cc1d8f9b4548efd0fb9c9c00ea8ff5c53721c836f82",
+      "mtime": 1793464080.8989737,
+      "size": 991
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/re/00_re.primitives.d.ps": {
+      "sha256": "9ebdee71dc3651f15016d555ec6c451b03486ec7d8ada0317a42333c67d08ea9",
+      "mtime": 1793464080.8879056,
+      "size": 3024
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/re/01_re.raw.d.ps": {
+      "sha256": "8f9ac6a5ead5e33c06220496abdcbd340d8da7a05e5875297ae096991a2b4f3e",
+      "mtime": 1793464080.8881066,
+      "size": 1616
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/re/02_re.csharp.d.ps": {
+      "sha256": "c17f7bc49fe7985f651949dbfb5ef328564419c2b1ae68b6cf25fe481915da96",
+      "mtime": 1793464080.8882985,
+      "size": 1455
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/re/03_regex.enterprise.d.ps": {
+      "sha256": "a247983be3f82078c13693dc8552f85c77abf2ab14eaffe167a30557fbb78817",
+      "mtime": 1793464080.888532,
+      "size": 1042
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/sys/00_sys.primitives.d.ps": {
+      "sha256": "398e9819cbc4243e6cab2e1548a06da32d11e5c2d21e7167a50c33329288ea68",
+      "mtime": 1793464080.8861191,
+      "size": 2480
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/sys/01_sys.raw.d.ps": {
+      "sha256": "7c17c4bc81a09fda735d0b8ba4eb15d3b85312f1ac0126b07724d54b3dbb3e6d",
+      "mtime": 1793464080.8863328,
+      "size": 1646
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/sys/02_sys.csharp.d.ps": {
+      "sha256": "93b756735f6146a6a84419d8231c3476d2a06ac884b4093e99e3bbe4c37e1ef6",
+      "mtime": 1793464080.8865335,
+      "size": 1448
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/sys/03_runtime.enterprise.d.ps": {
+      "sha256": "51233b6f6fc8f1dbbee388c287d140b8d3ff48c145333559553c62b537cc9e89",
+      "mtime": 1793464080.8867545,
+      "size": 990
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/time_datetime/00_time.primitives.d.ps": {
+      "sha256": "aa367000a98835556ef7f12867946c6af62f0cc3c4270e71ed703ff2b384a948",
+      "mtime": 1793464080.8888724,
+      "size": 2175
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/time_datetime/01_time.raw.d.ps": {
+      "sha256": "2ec1a2371df0dd0bb50812bbdf530855347da43f881391b0b14aab80f0bc7267",
+      "mtime": 1793464080.88956,
+      "size": 1917
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/time_datetime/02_time.csharp.d.ps": {
+      "sha256": "f1e976b183cb682e74ea098b81b1ec4c87a28c9621b653c8f66972417927c41e",
+      "mtime": 1793464080.8905241,
+      "size": 1666
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/time_datetime/03_clock.enterprise.d.ps": {
+      "sha256": "f0110024967630513e902c9665838d7c18d88eb2d4df4a7186144dd74b2f20b4",
+      "mtime": 1793464080.8912392,
+      "size": 1171
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/urllib_http/00_urllib.primitives.d.ps": {
+      "sha256": "2679effe312e788477c9777a55328beb9240b5b04230a1bbc83f4dc5d66245e7",
+      "mtime": 1793464080.8943167,
+      "size": 1478
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/urllib_http/01_urllib.raw.d.ps": {
+      "sha256": "0fe98b2c5dc5ad90330cac25cf702e25b2ed0405e24bce7128a4af91ee6b3d04",
+      "mtime": 1793464080.8946865,
+      "size": 1335
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/urllib_http/02_urllib.csharp.d.ps": {
+      "sha256": "ed80307fac087e025fcd8865690936cf63a492173dbd26b9b46d9e49764edc18",
+      "mtime": 1793464080.8953054,
+      "size": 1265
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/urllib_http/03_http.enterprise.d.ps": {
+      "sha256": "2bf3ddabbd0f49c545d1f6cbe814ff501e4291ad80de1ecda70ceff14443987f",
+      "mtime": 1793464080.8964922,
+      "size": 786
+    },
+    "ProjMain.ps": {
+      "sha256": "e64113cc6af5cbb2fac67c853b82e80d7367f8a2d11e2184545697145cf946b4",
+      "mtime": 1794233605.0826266,
+      "size": 1500
+    },
+    "TestUtil.ps": {
+      "sha256": "552f0c29938f122731b335a404b67d894f3d9b28bad4fc4c37e32198b5118bc5",
+      "mtime": 1794232677.321112,
+      "size": 192
+    }
+  },
+  "outputs": [
+    "pandas_demo.py",
+    "pandas_demo.pyc"
+  ]
+}

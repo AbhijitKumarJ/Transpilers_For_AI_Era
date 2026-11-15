@@ -1,0 +1,58 @@
+namespace MicroSubprocess;
+
+using subprocess;
+using PythonSharp.Core;
+
+public record ProcessOutput(int ExitCode, string StandardOutput, string StandardError, bool Succeeded);
+
+public class ProcessEngine
+{
+    public static ProcessOutput Execute(List<string> args)
+    {
+        var res = subprocess.run(args, true, true, false);
+        bool success = res.returncode == 0;
+        return new ProcessOutput(res.returncode, res.stdout, res.stderr, success);
+    }
+
+    public static ProcessOutput ExecuteWithStdin(List<string> args, string inputData)
+    {
+        var res = subprocess.run_with_input(args, inputData, true, true, false);
+        bool success = res.returncode == 0;
+        return new ProcessOutput(res.returncode, res.stdout, res.stderr, success);
+    }
+
+    public static string ExecuteAndCaptureStdout(List<string> args)
+    {
+        var res = subprocess.run(args, true, true, false);
+        string outText = res.stdout;
+        return outText.Trim();
+    }
+
+    public static bool CheckSuccess(List<string> args)
+    {
+        var res = subprocess.run(args, true, true, false);
+        return res.returncode == 0;
+    }
+
+    public static List<string> ParseLines(string outputText)
+    {
+        List<string> results = new List<string>();
+        if (string.IsNullOrEmpty(outputText))
+        {
+            return results;
+        }
+
+        List<string> rawLines = outputText.Split("\n");
+        int i = 0;
+        while (i < rawLines.Count)
+        {
+            string line = rawLines[i].Trim();
+            if (line.Length > 0)
+            {
+                results.Add(line);
+            }
+            i = i + 1;
+        }
+        return results;
+    }
+}

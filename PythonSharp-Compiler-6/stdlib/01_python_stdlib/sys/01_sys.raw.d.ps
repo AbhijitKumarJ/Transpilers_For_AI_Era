@@ -1,0 +1,38 @@
+namespace sys;
+
+using PythonSharp.Core;
+using PythonSharp.System.Runtime;
+extern using sys as _py_sys;
+
+[SurfaceLevel(2)]
+[MapsTo("_py_sys")]
+public static primitive class sys
+{
+    [CanonicalApi("PythonSharp.System.Runtime.ProcessContext.CommandLineArguments", "PythonSharp.Sys.Sys.Argv")]
+    [InlineTemplate("_py_sys.argv")]
+    public static extern List<string> argv { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.ProcessContext.ModuleSearchPaths", "PythonSharp.Sys.Sys.Path")]
+    [InlineTemplate("_py_sys.path")]
+    public static extern List<string> path { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.ProcessContext.OperatingSystemPlatform", "PythonSharp.Sys.Sys.Platform")]
+    [InlineTemplate("_py_sys.platform")]
+    public static extern string platform { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.ProcessContext.InterpreterVersionInfo", "PythonSharp.Sys.Sys.VersionInfo")]
+    [InlineTemplate("_py_sys.version_info")]
+    public static extern PythonVersionInfo version_info { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.StandardStreams.StandardOutput", "PythonSharp.Sys.Sys.Stdout")]
+    [InlineTemplate("_py_sys.stdout")]
+    public static extern TextOutputStream stdout { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.StandardStreams.StandardError", "PythonSharp.Sys.Sys.Stderr")]
+    [InlineTemplate("_py_sys.stderr")]
+    public static extern TextOutputStream stderr { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.ProcessContext.TerminateProcess", "PythonSharp.Sys.Sys.Exit")]
+    [InlineTemplate("_py_sys.exit({0})")]
+    public static extern void exit(int status = 0);
+}

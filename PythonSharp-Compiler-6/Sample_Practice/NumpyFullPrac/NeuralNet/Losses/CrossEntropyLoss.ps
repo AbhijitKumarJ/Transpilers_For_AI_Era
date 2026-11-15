@@ -1,0 +1,29 @@
+namespace NumpyFullPrac.NeuralNet.Losses;
+
+extern using numpy as _np;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+
+public class CrossEntropyLoss
+{
+    public static double Compute(NDArray<double> probabilities, NDArray<double> targets)
+    {
+        dynamic dynP = probabilities;
+        dynamic dynY = targets;
+        double n = 1.0 * dynP.shape[0];
+        dynamic clipped = _np.clip(dynP, 1e-15, 1.0 - 1e-15);
+        dynamic logP = _np.log(clipped);
+        dynamic sumVal = -_np.sum(dynY * logP);
+        double lossVal = sumVal / n;
+        return lossVal;
+    }
+
+    public static NDArray<double> Gradient(NDArray<double> probabilities, NDArray<double> targets)
+    {
+        dynamic dynP = probabilities;
+        dynamic dynY = targets;
+        double n = 1.0 * dynP.shape[0];
+        dynamic grad = (dynP - dynY) / n;
+        return grad;
+    }
+}

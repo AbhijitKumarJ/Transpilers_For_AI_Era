@@ -1,0 +1,83 @@
+namespace PythonSharp.Text.RegularExpressions;
+
+using PythonSharp.Core;
+extern using re as _py_re;
+
+[MapsTo("re.Match")]
+[RuntimeType("re.Match")]
+public primitive class RegexMatch
+{
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [InlineTemplate("{self}.group({0})")]
+    public extern string GetCapturedGroup(int groupIndex = 0);
+
+    [MapsTo("groups")]
+    public extern List<string> GetAllCapturedGroups();
+
+    [MapsTo("span")]
+    public extern (int StartIndex, int EndIndex) GetMatchSpan();
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexMatch.GetCapturedGroup")]
+    [MapsTo("group")]
+    public extern string Group(int index = 0);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexMatch.GetAllCapturedGroups")]
+    [MapsTo("groups")]
+    public extern List<string> Groups();
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexMatch.GetMatchSpan")]
+    [MapsTo("span")]
+    public extern (int Start, int End) Span();
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexMatch.GetCapturedGroup", "Group")]
+    [MapsTo("group")]
+    public extern string @group(int index = 0);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexMatch.GetAllCapturedGroups", "Groups")]
+    [MapsTo("groups")]
+    public extern List<string> groups();
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.RegexMatch.GetMatchSpan", "Span")]
+    [MapsTo("span")]
+    public extern (int start, int end) span();
+}
+
+[MapsTo("re.Pattern")]
+[RuntimeType("re.Pattern")]
+public primitive class CompiledRegexPattern
+{
+    [MapsTo("search")]
+    public extern RegexMatch? SearchFirstMatch(string inputText);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.CompiledRegexPattern.SearchFirstMatch")]
+    [MapsTo("search")]
+    public extern RegexMatch? Search(string text);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.CompiledRegexPattern.SearchFirstMatch", "Search")]
+    [MapsTo("search")]
+    public extern RegexMatch? search(string @string);
+
+    [MapsTo("findall")]
+    public extern List<string> FindAllMatches(string inputText);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.CompiledRegexPattern.FindAllMatches")]
+    [MapsTo("findall")]
+    public extern List<string> FindAll(string text);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.CompiledRegexPattern.FindAllMatches", "FindAll")]
+    [MapsTo("findall")]
+    public extern List<string> findall(string @string);
+
+    [MapsTo("sub")]
+    public extern string ReplaceMatches(string replacementText, string inputText);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.CompiledRegexPattern.ReplaceMatches")]
+    [MapsTo("sub")]
+    public extern string Sub(string repl, string text);
+
+    [CanonicalApi("PythonSharp.Text.RegularExpressions.CompiledRegexPattern.ReplaceMatches", "Sub")]
+    [MapsTo("sub")]
+    public extern string sub(string repl, string @string);
+}

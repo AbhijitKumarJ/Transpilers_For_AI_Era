@@ -1,0 +1,196 @@
+namespace PythonSharp.QuantumComputing;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+extern using qiskit as _qk;
+extern using qiskit.quantum_info as _qi;
+
+[MapsTo("qiskit.QuantumCircuit")]
+[RuntimeType("qiskit.QuantumCircuit")]
+public primitive class QuantumRegisterCircuit
+{
+    // --- Triple-Surface Properties ---
+    [InlineTemplate("int({self}.num_qubits)")]
+    public extern int QubitCount { get; }
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.QubitCount")]
+    [InlineTemplate("int({self}.num_qubits)")]
+    public extern int NumQubits { get; }
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.QubitCount", "NumQubits")]
+    [InlineTemplate("int({self}.num_qubits)")]
+    public extern int num_qubits { get; }
+
+    [InlineTemplate("int({self}.depth())")]
+    public extern int CircuitDepth { get; }
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.CircuitDepth")]
+    [MapsTo("depth")]
+    public extern int Depth();
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.CircuitDepth", "Depth")]
+    [MapsTo("depth")]
+    public extern int depth();
+
+    // --- Surface 1: Self-Documenting Enterprise Gate Methods ---
+    [MapsTo("h")]
+    public extern void ApplyHadamardGate(int targetQubit);
+
+    [MapsTo("x")]
+    public extern void ApplyPauliXGate(int targetQubit);
+
+    [MapsTo("y")]
+    public extern void ApplyPauliYGate(int targetQubit);
+
+    [MapsTo("z")]
+    public extern void ApplyPauliZGate(int targetQubit);
+
+    [MapsTo("rx")]
+    public extern void ApplyRotationXGate(double angleRadians, int targetQubit);
+
+    [MapsTo("ry")]
+    public extern void ApplyRotationYGate(double angleRadians, int targetQubit);
+
+    [MapsTo("rz")]
+    public extern void ApplyRotationZGate(double angleRadians, int targetQubit);
+
+    [MapsTo("cx")]
+    public extern void ApplyControlledNotGate(int controlQubit, int targetQubit);
+
+    [MapsTo("cz")]
+    public extern void ApplyControlledZGate(int controlQubit, int targetQubit);
+
+    [MapsTo("swap")]
+    public extern void ApplySwapGate(int firstQubit, int secondQubit);
+
+    [MapsTo("measure_all")]
+    public extern void MeasureAllQubits();
+
+    [InlineTemplate("str({self}.draw('text'))")]
+    public extern string RenderAsciiCircuitDiagram();
+
+    // --- Surface 3: C#-Standardized Gate Methods ---
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyHadamardGate")]
+    [MapsTo("h")]
+    public extern void Hadamard(int qubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyPauliXGate")]
+    [MapsTo("x")]
+    public extern void PauliX(int qubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyPauliYGate")]
+    [MapsTo("y")]
+    public extern void PauliY(int qubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyPauliZGate")]
+    [MapsTo("z")]
+    public extern void PauliZ(int qubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyRotationXGate")]
+    [MapsTo("rx")]
+    public extern void RotateX(double theta, int qubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyRotationYGate")]
+    [MapsTo("ry")]
+    public extern void RotateY(double theta, int qubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyRotationZGate")]
+    [MapsTo("rz")]
+    public extern void RotateZ(double theta, int qubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyControlledNotGate")]
+    [MapsTo("cx")]
+    public extern void CNot(int controlQubit, int targetQubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyControlledZGate")]
+    [MapsTo("cz")]
+    public extern void CZ(int controlQubit, int targetQubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplySwapGate")]
+    [MapsTo("swap")]
+    public extern void Swap(int qubitA, int qubitB);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.MeasureAllQubits")]
+    [MapsTo("measure_all")]
+    public extern void MeasureAll();
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.RenderAsciiCircuitDiagram")]
+    [InlineTemplate("str({self}.draw('text'))")]
+    public extern string DrawText();
+
+    // --- Surface 2: Raw Python snake_case Gate Methods ---
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyHadamardGate", "Hadamard")]
+    [MapsTo("h")]
+    public extern void h(int qubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyPauliXGate", "PauliX")]
+    [MapsTo("x")]
+    public extern void x(int qubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyPauliYGate", "PauliY")]
+    [MapsTo("y")]
+    public extern void y(int qubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyPauliZGate", "PauliZ")]
+    [MapsTo("z")]
+    public extern void z(int qubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyRotationXGate", "RotateX")]
+    [MapsTo("rx")]
+    public extern void rx(double theta, int qubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyRotationYGate", "RotateY")]
+    [MapsTo("ry")]
+    public extern void ry(double theta, int qubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyRotationZGate", "RotateZ")]
+    [MapsTo("rz")]
+    public extern void rz(double theta, int qubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyControlledNotGate", "CNot")]
+    [MapsTo("cx")]
+    public extern void cx(int control_qubit, int target_qubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplyControlledZGate", "CZ")]
+    [MapsTo("cz")]
+    public extern void cz(int control_qubit, int target_qubit);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.ApplySwapGate", "Swap")]
+    [MapsTo("swap")]
+    public extern void swap(int qubit1, int qubit2);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.MeasureAllQubits", "MeasureAll")]
+    [MapsTo("measure_all")]
+    public extern void measure_all();
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumRegisterCircuit.RenderAsciiCircuitDiagram", "DrawText")]
+    [InlineTemplate("str({self}.draw('text'))")]
+    public extern string draw();
+}
+
+[MapsTo("qiskit.quantum_info.Statevector")]
+[RuntimeType("qiskit.quantum_info.Statevector")]
+public primitive class QuantumStatevector
+{
+    [MapsTo("probabilities")]
+    public extern NDArray<double> ComputeMeasurementProbabilities();
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumStatevector.ComputeMeasurementProbabilities")]
+    [MapsTo("probabilities")]
+    public extern NDArray<double> Probabilities();
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumStatevector.ComputeMeasurementProbabilities", "Probabilities")]
+    [MapsTo("probabilities")]
+    public extern NDArray<double> probabilities();
+
+    [MapsTo("probabilities_dict")]
+    public extern Dict<string, double> ComputeBitstringProbabilityMap();
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumStatevector.ComputeBitstringProbabilityMap")]
+    [MapsTo("probabilities_dict")]
+    public extern Dict<string, double> ProbabilitiesDict();
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumStatevector.ComputeBitstringProbabilityMap", "ProbabilitiesDict")]
+    [MapsTo("probabilities_dict")]
+    public extern Dict<string, double> probabilities_dict();
+}

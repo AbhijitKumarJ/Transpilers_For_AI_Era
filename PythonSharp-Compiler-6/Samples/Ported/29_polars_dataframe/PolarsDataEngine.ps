@@ -1,0 +1,78 @@
+namespace PythonSharp.Samples.PolarsDataFrame;
+
+using PythonSharp.Core;
+using pl = polars.pl;
+
+public record TransactionRecord(
+    string Id,
+    string Category,
+    double Amount,
+    int Quantity,
+    string Status
+);
+
+public record AggregatedSummary(
+    string Category,
+    double TotalRevenue,
+    double AverageOrderValue,
+    int TransactionCount
+);
+
+public class PolarsDataEngine
+{
+    public static object CreateDataFrame(object dataDict)
+    {
+        return pl.DataFrame(dataDict);
+    }
+
+    public static object CreateLazyFrame(object df)
+    {
+        return df.lazy();
+    }
+
+    public static object FilterByCategory(object lf, string category)
+    {
+        return lf.filter(pl.col("Category") == category);
+    }
+
+    public static object FilterMinAmount(object lf, double minAmount)
+    {
+        return lf.filter(pl.col("Amount") >= minAmount);
+    }
+
+    public static object GroupByAndAggregate(object lf, string groupCol, string sumCol)
+    {
+        return lf.group_by(groupCol).agg(
+            pl.col(sumCol).sum().alias("Total"),
+            pl.col(sumCol).mean().alias("Mean"),
+            pl.col(sumCol).count().alias("Count")
+        );
+    }
+
+    public static object CollectPlan(object lf)
+    {
+        return lf.collect();
+    }
+
+    public static (int Rows, int Cols) GetShape(object df)
+    {
+        var shape = df.shape;
+        return (shape[0], shape[1]);
+    }
+
+    public static List<string> GetColumns(object df)
+    {
+        return df.columns;
+    }
+
+    public static object SortByColumn(object df, string colName, bool descending)
+    {
+        return df.sort(colName, descending=descending);
+    }
+
+    public static double CalculateTotalRevenue(object df, string amountCol)
+    {
+        return df[amountCol].sum();
+    }
+}
+

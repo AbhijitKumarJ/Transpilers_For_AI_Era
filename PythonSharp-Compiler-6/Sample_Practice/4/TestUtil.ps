@@ -1,0 +1,17 @@
+namespace PS2;
+
+using PythonSharp.Core;
+using PythonSharp.System.IO;
+
+
+public class TestUtil
+{
+    public static void pat(string message)
+    {
+        Console.WriteLine(message);
+        string pats=OS.Path;
+        pats=pats.ToString();
+        //check for loop, intellisense anf file formatting
+        Console.WriteLine("(property) string DirectoryEntry.Path PythonSharp Core Standard Library Canonical Target: PythonSharp.System.IO.DirectoryEntry.FullPath:  " + pats);
+    }
+}

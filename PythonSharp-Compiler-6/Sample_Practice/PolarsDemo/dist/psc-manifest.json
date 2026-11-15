@@ -1,0 +1,17 @@
+{
+  "compiler_version": "0.2.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "d_ps": "polars_demo.d.ps",
+      "module": "polars_demo.py",
+      "namespace": [
+        "PolarsDemo"
+      ],
+      "primary_ps": "ProjMain.ps",
+      "py": "polars_demo.py",
+      "pyc": "polars_demo.pyc"
+    }
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,44 @@
+namespace PandasDemo.CalHousing.Outliers;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Pandas;
+using PythonSharp.Bridge.Pandas.Core.Frame;
+
+public class OutlierHandler
+{
+    public static DataFrame HandleOutliers(DataFrame df)
+    {
+        Console.WriteLine("\n=======================================================");
+        Console.WriteLine(" PHASE 3: OUTLIER HANDLING & PRICE CEILING FILTERING");
+        Console.WriteLine("=======================================================");
+
+        // 1. Filter artificial price ceiling ($500,000 max cap = 5.0)
+        int initialRows = df.Shape[0];
+        Console.WriteLine($"[Outliers] Pre-filter sample count: {initialRows}");
+
+        dynamic dynDf = df;
+        dynamic dfUncapped = dynDf[dynDf["MedHouseVal"] < 5.0];
+        int rowsAfterCap = dfUncapped.Shape[0];
+        Console.WriteLine($"[Outliers] Filtered capped price ceiling (5.0). Retained: {rowsAfterCap} rows.");
+
+        // 2. Interquartile Range (IQR) method on Population
+        float q1 = dfUncapped["Population"].Quantile(0.25f);
+        float q3 = dfUncapped["Population"].Quantile(0.75f);
+        float iqr = q3 - q1;
+
+        float lowerBound = q1 - 1.5f * iqr;
+        float upperBound = q3 + 1.5f * iqr;
+
+        Console.WriteLine($"[Outliers] Population Q1 (25th percentile): {q1}");
+        Console.WriteLine($"[Outliers] Population Q3 (75th percentile): {q3}");
+        Console.WriteLine($"[Outliers] Population IQR: {iqr}");
+        Console.WriteLine($"[Outliers] IQR Acceptance Boundaries: [{lowerBound}, {upperBound}]");
+
+        // 3. Filter extreme population outliers
+        dynamic dfClean = dfUncapped[(dfUncapped["Population"] >= lowerBound) & (dfUncapped["Population"] <= upperBound)];
+        Console.WriteLine($"[Outliers] Dataset after population IQR filtering: {dfClean.Shape}");
+        Console.WriteLine("[Outliers] Phase 3 Completed Successfully.");
+
+        return dfClean;
+    }
+}

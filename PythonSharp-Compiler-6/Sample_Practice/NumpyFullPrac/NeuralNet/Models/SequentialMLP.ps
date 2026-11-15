@@ -1,0 +1,67 @@
+namespace NumpyFullPrac.NeuralNet.Models;
+
+extern using numpy as _np;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using NumpyFullPrac.NeuralNet.Layers;
+
+public class SequentialMLP
+{
+    public List<DenseLayer> Layers;
+    public bool IsTraining;
+
+    public SequentialMLP()
+    {
+        this.Layers = new List<DenseLayer>();
+        this.IsTraining = true;
+    }
+
+    public void Add(DenseLayer layer)
+    {
+        this.Layers.Add(layer);
+    }
+
+    public void SetTraining(bool mode)
+    {
+        this.IsTraining = mode;
+    }
+
+    public double ComputeL2Loss()
+    {
+        double totalL2 = 0.0;
+        foreach (DenseLayer layer in this.Layers)
+        {
+            if (layer.L2Lambda > 0.0)
+            {
+                dynamic dynW = layer.Weights;
+                dynamic sumSquares = _np.sum(dynW * dynW);
+                dynamic penalty = 0.5 * layer.L2Lambda * sumSquares;
+                double pVal = penalty;
+                totalL2 = totalL2 + pVal;
+            }
+        }
+        return totalL2;
+    }
+
+    public NDArray<double> Forward(NDArray<double> x)
+    {
+        NDArray<double> current = x;
+        foreach (DenseLayer layer in this.Layers)
+        {
+            current = layer.Forward(current);
+        }
+        return current;
+    }
+
+    public void Backward(NDArray<double> dOut, bool isDeltaZ = false)
+    {
+        NDArray<double> currentGrad = dOut;
+        bool deltaFlag = isDeltaZ;
+        for (int i = this.Layers.Count - 1; i >= 0; i--)
+        {
+            DenseLayer layer = this.Layers[i];
+            currentGrad = layer.Backward(currentGrad, deltaFlag);
+            deltaFlag = false; // Only the last layer receives deltaZ
+        }
+    }
+}

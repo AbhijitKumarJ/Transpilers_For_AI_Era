@@ -1,0 +1,17 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "d_ps": "matplotlib_demo.d.ps",
+      "module": "matplotlib_demo.py",
+      "namespace": [
+        "MatplotlibDemo"
+      ],
+      "primary_ps": "ProjMain.ps",
+      "py": "matplotlib_demo.py",
+      "pyc": "matplotlib_demo.pyc"
+    }
+  ],
+  "schema_version": 1
+}

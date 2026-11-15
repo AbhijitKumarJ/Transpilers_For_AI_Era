@@ -1,0 +1,51 @@
+namespace NumpyFullPrac.NeuralNet.Optimizers;
+
+extern using numpy as _np;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using NumpyFullPrac.NeuralNet.Layers;
+
+public class SGDOptimizer
+{
+    public double LearningRate;
+    public double Momentum;
+    public bool Initialized;
+    public NDArray<double> Vw;
+    public NDArray<double> Vb;
+
+    public SGDOptimizer(double learningRate = 0.1, double momentum = 0.9)
+    {
+        this.LearningRate = learningRate;
+        this.Momentum = momentum;
+        this.Initialized = false;
+        this.Vw = null;
+        this.Vb = null;
+    }
+
+    public void Step(DenseLayer layer)
+    {
+        dynamic dynW = layer.Weights;
+        dynamic dynB = layer.Biases;
+        dynamic dynDW = layer.DWeights;
+        dynamic dynDB = layer.DBiases;
+
+        if (!this.Initialized)
+        {
+            this.Vw = _np.zeros_like(dynW);
+            this.Vb = _np.zeros_like(dynB);
+            this.Initialized = true;
+        }
+
+        dynamic curVw = this.Vw;
+        dynamic curVb = this.Vb;
+
+        dynamic newVw = (this.Momentum * curVw) + (this.LearningRate * dynDW);
+        dynamic newVb = (this.Momentum * curVb) + (this.LearningRate * dynDB);
+
+        this.Vw = newVw;
+        this.Vb = newVb;
+
+        layer.Weights = dynW - newVw;
+        layer.Biases = dynB - newVb;
+    }
+}

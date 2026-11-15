@@ -1,0 +1,20 @@
+namespace NumpyFullPrac.NeuralNet.Activations;
+
+extern using numpy as _np;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+
+public class SoftmaxActivation
+{
+    public static NDArray<double> Forward(NDArray<double> z)
+    {
+        dynamic dynZ = z;
+        // Shift z for numerical stability: z - max(z, axis=1, keepdims=True)
+        dynamic maxZ = _np.max(dynZ, axis: 1, keepdims: true);
+        dynamic shiftedZ = dynZ - maxZ;
+        dynamic expZ = _np.exp(shiftedZ);
+        dynamic sumExp = _np.sum(expZ, axis: 1, keepdims: true);
+        dynamic result = expZ / sumExp;
+        return result;
+    }
+}

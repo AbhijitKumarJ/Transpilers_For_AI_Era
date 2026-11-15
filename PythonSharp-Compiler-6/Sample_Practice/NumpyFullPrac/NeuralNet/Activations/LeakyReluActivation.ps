@@ -1,0 +1,30 @@
+namespace NumpyFullPrac.NeuralNet.Activations;
+
+extern using numpy as _np;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+
+public class LeakyReluActivation
+{
+    public double Alpha;
+
+    public LeakyReluActivation(double alpha = 0.01)
+    {
+        this.Alpha = alpha;
+    }
+
+    public NDArray<double> Forward(NDArray<double> z)
+    {
+        dynamic dynZ = z;
+        dynamic result = _np.where(dynZ > 0.0, dynZ, dynZ * this.Alpha);
+        return result;
+    }
+
+    public NDArray<double> Backward(NDArray<double> a)
+    {
+        // Derivative: 1.0 where a > 0, else Alpha
+        dynamic dynA = a;
+        dynamic result = _np.where(dynA > 0.0, 1.0, this.Alpha);
+        return result;
+    }
+}

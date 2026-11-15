@@ -1,0 +1,2041 @@
+{
+  "version": "0.2.0",
+  "emit_pyc": true,
+  "target_python": "3.11",
+  "inputs": {
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/00_numpy.primitives.d.ps": {
+      "sha256": "3dfb488d2897b674608d46facd96923c409e6e0091553f290ba1e1e5b1227770",
+      "mtime": 1794273280.1726468,
+      "size": 171442
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/02_numpy.csharp.d.ps": {
+      "sha256": "519526caad4738aab099a1cde0da0b76a2eab8121d503f302f14f97de0ea2656",
+      "mtime": 1794273280.1733072,
+      "size": 436221
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/__config__/00___config__.primitives.d.ps": {
+      "sha256": "00413fa99a027e65e1f0bdb1024fe0f05fe556ecc6d2be05fc8fce282c2292b8",
+      "mtime": 1794273279.7975821,
+      "size": 1468
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/__config__/02___config__.csharp.d.ps": {
+      "sha256": "5e75a53f84878d155ea9c383e30ba5349fe57987043f3382ebaa0a08b7d53290",
+      "mtime": 1794273279.7978122,
+      "size": 4995
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_array_api_info/00__array_api_info.primitives.d.ps": {
+      "sha256": "776a0c140701b0bbe11a1072fbf0e75d41b994648d4d7695d1c2f795ca44f79c",
+      "mtime": 1794273280.190446,
+      "size": 3844
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_array_api_info/02__array_api_info.csharp.d.ps": {
+      "sha256": "8dcfc67bbc9492b4cbf568de75eb4b5b86a4440de90146c60c082519115f4d5a",
+      "mtime": 1794273280.1915638,
+      "size": 8577
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_configtool/00__configtool.primitives.d.ps": {
+      "sha256": "3ee7265c41aaea0cc07201da2c1b20b532c5776e22bc9a3e72a71bb2f4aa4890",
+      "mtime": 1794273280.1925726,
+      "size": 504
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_configtool/02__configtool.csharp.d.ps": {
+      "sha256": "d0a356c736f55e5ae5c3e6af3955d762060b376167e2ef5ea3ad327daf7431b5",
+      "mtime": 1794273280.1928685,
+      "size": 657
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/00__core.primitives.d.ps": {
+      "sha256": "0dbc2b7b8510326b0f7a068997fefb3a851e430d6fe5b1aef84d3baf992b3d85",
+      "mtime": 1794273280.2330883,
+      "size": 468
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/02__core.csharp.d.ps": {
+      "sha256": "39a041c42dfda332751c7f7855994b9fa3d7f01261b8054e091aedd2464d6f1c",
+      "mtime": 1794273280.233448,
+      "size": 77091
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_add_newdocs/00__add_newdocs.primitives.d.ps": {
+      "sha256": "53125075a3b7bf89612f4b492bb3e785d3675ac72f11e25a249e3ec1954224b4",
+      "mtime": 1794273280.2350495,
+      "size": 538
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_add_newdocs/02__add_newdocs.csharp.d.ps": {
+      "sha256": "a6a5457fbee56352c616addfb0d7cc49a2d46312ff337c9fe0cc0d5804a1d101",
+      "mtime": 1794273280.2353702,
+      "size": 418
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_add_newdocs_scalars/00__add_newdocs_scalars.primitives.d.ps": {
+      "sha256": "73a35dccb7f04ff7781965c053bdc56db494def4dfedd1f4220ffe107d8c5280",
+      "mtime": 1794273280.2368119,
+      "size": 584
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_add_newdocs_scalars/02__add_newdocs_scalars.csharp.d.ps": {
+      "sha256": "e10a38350e5c151843f20db60a258a0d119d509195da6e09b948fcf41dfeb56a",
+      "mtime": 1794273280.2371774,
+      "size": 3232
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_asarray/00__asarray.primitives.d.ps": {
+      "sha256": "1388961538482655133dd5f76e2c4a0e33132ce652b1320ac5c1033bd159eae9",
+      "mtime": 1794273280.2390542,
+      "size": 516
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_asarray/02__asarray.csharp.d.ps": {
+      "sha256": "6e1669b2a455fafa88dc521d41da032b86848a0f59c1e2aeb6c4704aaec2add5",
+      "mtime": 1794273280.2393777,
+      "size": 2243
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_dtype/00__dtype.primitives.d.ps": {
+      "sha256": "789cd5786d13a963183bfee47e17444de28317f3c39fe9cd41c1f4591688a72d",
+      "mtime": 1794273280.241275,
+      "size": 1145
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_dtype/02__dtype.csharp.d.ps": {
+      "sha256": "2cb20c2bd06f731ae16724f0b25180247d9ceb859341c3eaabd81e1470b9a2f7",
+      "mtime": 1794273280.2416046,
+      "size": 4040
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_dtype_ctypes/00__dtype_ctypes.primitives.d.ps": {
+      "sha256": "073a3eb470e3ab58b833b0addf35afa36134318d82f2ef92ec2af81536ca53be",
+      "mtime": 1794273280.2447467,
+      "size": 544
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_dtype_ctypes/02__dtype_ctypes.csharp.d.ps": {
+      "sha256": "92c519914a0bd24bffc9828f22b0ecfa07456f8367b29e697a3a841ecc7c33c0",
+      "mtime": 1794273280.2450535,
+      "size": 5318
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_exceptions/00__exceptions.primitives.d.ps": {
+      "sha256": "0da398b78e5456886e0398fe4cfb9f9862417873173288c4479b357061bfb01e",
+      "mtime": 1794273280.2480955,
+      "size": 2741
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_exceptions/02__exceptions.csharp.d.ps": {
+      "sha256": "7b82cb2e61152d9d1bca82de048342b9aff2b65e27fe1a2f36b35568dd746885",
+      "mtime": 1794273280.248428,
+      "size": 4636
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_internal/00__internal.primitives.d.ps": {
+      "sha256": "0c012a569affc805b8543029d8391b03f27c404367c8a6c16bcc16e03290850e",
+      "mtime": 1794273280.2523165,
+      "size": 1588
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_internal/02__internal.csharp.d.ps": {
+      "sha256": "769fb12b85b436b1fd558193bf82686d27e2ddb4d12d0f63638dc206a7804836",
+      "mtime": 1794273280.2526162,
+      "size": 6701
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_methods/00__methods.primitives.d.ps": {
+      "sha256": "c069c67926340b2096f43e1d61073a57799c20a8552e2225218f58af12423733",
+      "mtime": 1794273280.254047,
+      "size": 516
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_methods/02__methods.csharp.d.ps": {
+      "sha256": "68309d99bdc5fa7b7ea762da13be9fcf7f97ba9752de7fe35697988577feef70",
+      "mtime": 1794273280.2543805,
+      "size": 2783
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_simd/00__simd.primitives.d.ps": {
+      "sha256": "19dbc880d3016999481f4ab1f1f984ce797acd4cf2be0939e80fb381af0b9902",
+      "mtime": 1794273280.256159,
+      "size": 1053
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_simd/02__simd.csharp.d.ps": {
+      "sha256": "096a01640eafd1dcf6cf37274473edd782745bfa30ef5e6c358bc742750da3ff",
+      "mtime": 1794273280.2564752,
+      "size": 4614
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_string_helpers/00__string_helpers.primitives.d.ps": {
+      "sha256": "e3ab1ff5de85305a33aebaabcbc9c4230b51fa5eb6773e84fae77944e564242f",
+      "mtime": 1794273280.2579253,
+      "size": 556
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_string_helpers/02__string_helpers.csharp.d.ps": {
+      "sha256": "b402e01b0fc9b7e61762c3d28415e63a81265f6a0d0a1a34c27804dcf4d9b7f8",
+      "mtime": 1794273280.2582297,
+      "size": 2432
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_type_aliases/00__type_aliases.primitives.d.ps": {
+      "sha256": "28ad76c10a84a0bf8fc24562fc473a2a6ebb6dea4fb491b3d22da6b31cd5d2da",
+      "mtime": 1794273280.2620695,
+      "size": 3729
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_type_aliases/02__type_aliases.csharp.d.ps": {
+      "sha256": "7bb83759209114b032d7c858a1b75ada8678e87cd9bb49bc3f37ed5615559ee3",
+      "mtime": 1794273280.2623816,
+      "size": 11118
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_ufunc_config/00__ufunc_config.primitives.d.ps": {
+      "sha256": "de21eadc138c16aaf7ee86b00edac2cbfbdb466303092b8bc8f30d3bec4930d5",
+      "mtime": 1794273280.265385,
+      "size": 1299
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_ufunc_config/02__ufunc_config.csharp.d.ps": {
+      "sha256": "e39d17d3960958ab239b5fb1ba746ecba232e76fab1e6243cdbcf83f90c2b4a3",
+      "mtime": 1794273280.2657006,
+      "size": 5375
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_umath_tests/00__umath_tests.primitives.d.ps": {
+      "sha256": "1d38e9aca66d13973346a167637698d6db18466bc99971b7af3e39b2147ed3e5",
+      "mtime": 1794273280.268496,
+      "size": 834
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/_umath_tests/02__umath_tests.csharp.d.ps": {
+      "sha256": "84e5592deb665d59cebd40c1f41135442974653f59c6e7f138055ef77c6d86af",
+      "mtime": 1794273280.268804,
+      "size": 6218
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/arrayprint/00_arrayprint.primitives.d.ps": {
+      "sha256": "366127bbf71019138270743b55992ceaef91c4bc561e723cba0aa02f9e60d196",
+      "mtime": 1794273280.2799976,
+      "size": 2546
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/arrayprint/02_arrayprint.csharp.d.ps": {
+      "sha256": "487be9d69f19adeeac4ffd339bfa1a4a844d088acddca5ee1a4efbd4e388ee5f",
+      "mtime": 1794273280.2804182,
+      "size": 10256
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/cversions/00_cversions.primitives.d.ps": {
+      "sha256": "9bda68911a9ef92586d0ad17369d75b69e236cc069a09223a9f2f37a3816b7c0",
+      "mtime": 1794273280.2815895,
+      "size": 522
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/cversions/02_cversions.csharp.d.ps": {
+      "sha256": "1630909e7c206bd0bb073dcba96c2c84ec593077fec5b8f726db3b179a7e7e86",
+      "mtime": 1794273280.281884,
+      "size": 408
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/defchararray/00_defchararray.primitives.d.ps": {
+      "sha256": "6ece6f93526c45de0d0c471384da2dedc451d9d3cc5150aea408bef590b3224d",
+      "mtime": 1794273280.3358128,
+      "size": 7225
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/defchararray/02_defchararray.csharp.d.ps": {
+      "sha256": "a4bbac9c8ea7d611dbd9970965625550fcca2c7790b3ba75b4e558a00afe7d94",
+      "mtime": 1794273280.3361175,
+      "size": 52119
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/einsumfunc/00_einsumfunc.primitives.d.ps": {
+      "sha256": "1f3111143fd3017a48fcf18f4361305f045cc3da1a75e0496d0e35badd2477b3",
+      "mtime": 1794273280.3434894,
+      "size": 528
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/einsumfunc/02_einsumfunc.csharp.d.ps": {
+      "sha256": "d137672af3d70683237a9627355830b19f3a060c78b6cefebbdc08fee816ed9e",
+      "mtime": 1794273280.34385,
+      "size": 2733
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/fromnumeric/00_fromnumeric.primitives.d.ps": {
+      "sha256": "ed006610baac13a058c19a2caf7ab557b63f2796c645b60408c8129251e764b3",
+      "mtime": 1794273280.527497,
+      "size": 1389
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/fromnumeric/02_fromnumeric.csharp.d.ps": {
+      "sha256": "033a41ed3a1191169e0446fd31efd269e4d319c73da102d51a42c29f2f4d54f6",
+      "mtime": 1794273280.5279198,
+      "size": 99992
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/function_base/00_function_base.primitives.d.ps": {
+      "sha256": "e2c687f049e77d1302b047ca541a81b69b56648fcedf97ea8f95e645cdb9007b",
+      "mtime": 1794273280.5488055,
+      "size": 544
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/function_base/02_function_base.csharp.d.ps": {
+      "sha256": "072da1995f946620116adb09304aa185888452f77786a561ec5f52f3acdbf078",
+      "mtime": 1794273280.5490534,
+      "size": 10553
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/getlimits/00_getlimits.primitives.d.ps": {
+      "sha256": "55b644f2bc54ae6fcafa96ebddfd6bfddb5e601286c71ca8ab44ff5c837022bf",
+      "mtime": 1794273280.5570147,
+      "size": 4445
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/getlimits/02_getlimits.csharp.d.ps": {
+      "sha256": "d05d1b81418e30748ad92ea714e4d1c6c951632da53d0373c420f4979eb85828",
+      "mtime": 1794273280.5574117,
+      "size": 10668
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/memmap/00_memmap.primitives.d.ps": {
+      "sha256": "7a768f3f5d9a96f796616f478ebb861ddfa12884c24f611c7a30cfb14dd900cf",
+      "mtime": 1794273280.5658777,
+      "size": 3033
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/memmap/02_memmap.csharp.d.ps": {
+      "sha256": "5d5c9b06539f88f4af4c03946c4cd2640a96f95aa700ce351abb16388e871342",
+      "mtime": 1794273280.566112,
+      "size": 7563
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/multiarray/00_multiarray.primitives.d.ps": {
+      "sha256": "6d74f2defd61cd3c6379e584f910a7769e3c407b97660129aed9785ce01bac31",
+      "mtime": 1794273280.652289,
+      "size": 7080
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/multiarray/02_multiarray.csharp.d.ps": {
+      "sha256": "91bfd1eb0e7db1e9c6425056bf5e972167bf43e897637687b186724f7c75bdcd",
+      "mtime": 1794273280.6525843,
+      "size": 88055
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/numeric/00_numeric.primitives.d.ps": {
+      "sha256": "0ae3f745d318cad8b99f0ba2ada4ad6985a6a0ef22076c4fd0584bb8a26dc863",
+      "mtime": 1794273280.7503471,
+      "size": 510
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/numeric/02_numeric.csharp.d.ps": {
+      "sha256": "97e85015626e49e18b5fb263aa30893884504d522a2c66b63b201b106b917f22",
+      "mtime": 1794273280.7506332,
+      "size": 98417
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/numerictypes/00_numerictypes.primitives.d.ps": {
+      "sha256": "dd8b6f1790520371dc09f16c90d9b5d2df8ef1599babaa2aad6300440edb85e5",
+      "mtime": 1794273280.7660117,
+      "size": 1078
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/numerictypes/02_numerictypes.csharp.d.ps": {
+      "sha256": "0a9738404eada304cde62757564b8d588c0edf6a258255d6f7226ba63a9b83fb",
+      "mtime": 1794273280.7662761,
+      "size": 22817
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/overrides/00_overrides.primitives.d.ps": {
+      "sha256": "c3f74a7636875ab83d52a2e55d8499867fafe9d76988e4f45128e0f3f83b39bc",
+      "mtime": 1794273280.7687354,
+      "size": 769
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/overrides/02_overrides.csharp.d.ps": {
+      "sha256": "28db501bf947881f0d0c411aa31940a1f07967f304c678379d47020d0f11b0b3",
+      "mtime": 1794273280.7689602,
+      "size": 4231
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/printoptions/00_printoptions.primitives.d.ps": {
+      "sha256": "ff41c7b5d7b45b52c64f881a081eeec9de139a9df2e4a16958a56ad28c62e0af",
+      "mtime": 1794273280.7711656,
+      "size": 1291
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/printoptions/02_printoptions.csharp.d.ps": {
+      "sha256": "86ffe449ae90ea3319485f5e74cb97ca456179318ce3555f6d70a8f4b8481a5d",
+      "mtime": 1794273280.7715554,
+      "size": 4288
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/records/00_records.primitives.d.ps": {
+      "sha256": "ba1d29556103adcee546e315241e530cedd677a115d1a52b4716cf56296ea488",
+      "mtime": 1794273280.7966533,
+      "size": 3313
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/records/02_records.csharp.d.ps": {
+      "sha256": "2daf18864f9201bdb3d80f24f0aafcc8a1cfb77ccdd385b9aca6948dd8342d16",
+      "mtime": 1794273280.797055,
+      "size": 15177
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/shape_base/00_shape_base.primitives.d.ps": {
+      "sha256": "65c8541a91ae6b2165e38a07666bba3eae7b88dcc1a426590d023657fc2daf2f",
+      "mtime": 1794273280.8044226,
+      "size": 526
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/shape_base/02_shape_base.csharp.d.ps": {
+      "sha256": "f202ccb9698dba8128312af1593f029c70c0f4690dcde1e52167d0c45faf00ab",
+      "mtime": 1794273280.8056319,
+      "size": 9596
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/strings/00_strings.primitives.d.ps": {
+      "sha256": "13f851df5f8e7b02bec2b5b6a981e62231a322ebf2cf314f03fa7fe619d7211e",
+      "mtime": 1794273280.831675,
+      "size": 510
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/strings/02_strings.csharp.d.ps": {
+      "sha256": "f4eb8db1b3faf9f2d3e740f3535dfa3bd40dd9555da7010822cc4e9ca095e142",
+      "mtime": 1794273280.8319368,
+      "size": 26400
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/umath/00_umath.primitives.d.ps": {
+      "sha256": "9b4baae3f48d4e4df94404ff5b8b5c3be49a34a24a9d1798bc01a3f7388e687f",
+      "mtime": 1794273280.8426309,
+      "size": 851
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_core/umath/02_umath.csharp.d.ps": {
+      "sha256": "38a61bf7a9ee47df5ab4eff41e334920e198413b36925265898b14e953850e40",
+      "mtime": 1794273280.8430052,
+      "size": 24408
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_distributor_init/00__distributor_init.primitives.d.ps": {
+      "sha256": "d3b8cdaf7835aa9c80dbe65be350047881dc2578e2486e8f13e677a3fb2a9000",
+      "mtime": 1794273280.8443701,
+      "size": 538
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_distributor_init/02__distributor_init.csharp.d.ps": {
+      "sha256": "27a6d8a7aea4ece6683a22d2d41b993cb1898fafa06adc0bfad00f0fbce6dc95",
+      "mtime": 1794273280.8446863,
+      "size": 414
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_expired_attrs_2_0/00__expired_attrs_2_0.primitives.d.ps": {
+      "sha256": "a04dfdb9cb66e4aa52b3148b27ddf2e76c4fe55bc185fb0a2d56e1bf06c2d8a1",
+      "mtime": 1794273280.8483245,
+      "size": 3945
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_expired_attrs_2_0/02__expired_attrs_2_0.csharp.d.ps": {
+      "sha256": "f43917b7eff1d83ce17c2fa652343998942dd5ae20c4e913b7cfc7355e6788e7",
+      "mtime": 1794273280.8485599,
+      "size": 10978
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_globals/00__globals.primitives.d.ps": {
+      "sha256": "129c3ad120ba73655ff0fdd86eb3effdf064128b630058e98570797f394072e1",
+      "mtime": 1794273280.849673,
+      "size": 661
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_globals/02__globals.csharp.d.ps": {
+      "sha256": "781f8709c8d2bcf52d3afb771d2c777b9b03c303a82ef08e5412f0ab2ff02633",
+      "mtime": 1794273280.8498836,
+      "size": 1228
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_pyinstaller/00__pyinstaller.primitives.d.ps": {
+      "sha256": "279283a10d045d571298dba81b75fc81d6af8bd280b96ec964c1125d08326a66",
+      "mtime": 1794273280.8504028,
+      "size": 510
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_pyinstaller/02__pyinstaller.csharp.d.ps": {
+      "sha256": "f69c123611827dcd4e16d3a174793249b78f403228ca71d36833cfcce05010f6",
+      "mtime": 1794273280.8505979,
+      "size": 396
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_pyinstaller/hook_numpy/00_hook_numpy.primitives.d.ps": {
+      "sha256": "404e09604a0db49bf8eb3eb572696a89331d5c2ef8438722f5c9f68fa62fb24c",
+      "mtime": 1794273280.851374,
+      "size": 561
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_pyinstaller/hook_numpy/02_hook_numpy.csharp.d.ps": {
+      "sha256": "7062416988b925fda5c09cc05b8bd7d1866a013b56c9e28078a2fb41d597718e",
+      "mtime": 1794273280.851588,
+      "size": 1397
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_pytesttester/00__pytesttester.primitives.d.ps": {
+      "sha256": "f7abb4ae3807240faa2dc81c187571f4c4916b3159b27aafeccf3c63ec20acff",
+      "mtime": 1794273280.853551,
+      "size": 869
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_pytesttester/02__pytesttester.csharp.d.ps": {
+      "sha256": "bd15872c0b93cc96a771aa9f3c7b863b35257c987d42f985d24ff28e0f08546c",
+      "mtime": 1794273280.8539088,
+      "size": 1627
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/00__typing.primitives.d.ps": {
+      "sha256": "4166c2c21dfcb3b7fbfb24578282fb0b494a197abaa9951aa4bbf4defa2f7f90",
+      "mtime": 1794273280.85577,
+      "size": 480
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/02__typing.csharp.d.ps": {
+      "sha256": "501e19c0c8899c46d76f7df7d4b033371d14e772669663278d2e552d37e05326",
+      "mtime": 1794273280.8561163,
+      "size": 1362
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_add_docstring/00__add_docstring.primitives.d.ps": {
+      "sha256": "00d02e8934fbf9e44962ef71457fdd78152bc08740f8cdcdb002d9608ff99ff8",
+      "mtime": 1794273280.857415,
+      "size": 560
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_add_docstring/02__add_docstring.csharp.d.ps": {
+      "sha256": "2b202d3eca4196d3aa5500fbf102bd7e3bcc53a90bb6405c62a02f0f5d4a240c",
+      "mtime": 1794273280.8577666,
+      "size": 778
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_array_like/00__array_like.primitives.d.ps": {
+      "sha256": "df8ac16ebac91dc9d69677d6954390709bdfdd49e51163212d9b344a1376d6b2",
+      "mtime": 1794273280.8613484,
+      "size": 941
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_array_like/02__array_like.csharp.d.ps": {
+      "sha256": "a5455c8e1c2fb6dffdc20527dc219d05d4eb4898221d18e5804af1b0489f8fee",
+      "mtime": 1794273280.861699,
+      "size": 3324
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_char_codes/00__char_codes.primitives.d.ps": {
+      "sha256": "8078c3d6c9b3f48544f3cc97dfc1f130a0834d18f987829e227166eee3af0793",
+      "mtime": 1794273280.865143,
+      "size": 542
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_char_codes/02__char_codes.csharp.d.ps": {
+      "sha256": "7248b151c1238dd589f79911a39f859bf2eba00ab28da3df556768a423611e43",
+      "mtime": 1794273280.8653903,
+      "size": 760
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_dtype_like/00__dtype_like.primitives.d.ps": {
+      "sha256": "70513bad085d875847a611dbc733d2bfecc2044f4eb5addc4f573c757e3e94ff",
+      "mtime": 1794273280.8672974,
+      "size": 1376
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_dtype_like/02__dtype_like.csharp.d.ps": {
+      "sha256": "a7326689c90b28e8d168a9d2ad39f74ddc3e447f339d5c66d01ded9cef63b3f1",
+      "mtime": 1794273280.8675246,
+      "size": 3851
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_extended_precision/00__extended_precision.primitives.d.ps": {
+      "sha256": "fbcc19c99e10fb031af1c45ee4b58edd266934984b0d47e6702c41ac72dea8ad",
+      "mtime": 1794273280.8683214,
+      "size": 590
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_extended_precision/02__extended_precision.csharp.d.ps": {
+      "sha256": "f5b21b53e87ae3ad813aad09568b378efbff5fca6b9de7595032febf8c9afeb1",
+      "mtime": 1794273280.8685367,
+      "size": 817
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_nbit/00__nbit.primitives.d.ps": {
+      "sha256": "2a3c3f9d0c50f316bffa210068769d83457ed8e2ded04619e67e06009170c2b6",
+      "mtime": 1794273280.8691566,
+      "size": 508
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_nbit/02__nbit.csharp.d.ps": {
+      "sha256": "07615bc2f9a7b7046fbedd2504933e3d424dc89edf29de3bc7ecaf0227a6bfa9",
+      "mtime": 1794273280.8694284,
+      "size": 400
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_nbit_base/00__nbit_base.primitives.d.ps": {
+      "sha256": "1c9451fdf4191f0fa5f028085f06893572226f47915bd9d758c772d3bc9ba504",
+      "mtime": 1794273280.8716462,
+      "size": 1422
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_nbit_base/02__nbit_base.csharp.d.ps": {
+      "sha256": "2c5ebefdd8d94f5d0429ab36485aa8654b97958d1a8b00bdf224a5dc0d65c592",
+      "mtime": 1794273280.8720171,
+      "size": 1988
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_nested_sequence/00__nested_sequence.primitives.d.ps": {
+      "sha256": "6a8d97eb8ea288a738d24af32627f88862bc66b43ef3328e0adb773b8ac42c28",
+      "mtime": 1794273280.8755224,
+      "size": 1033
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_nested_sequence/02__nested_sequence.csharp.d.ps": {
+      "sha256": "065418d5e1e5e486a132e7c807a9de55745673b0442db15ef2dd0af3f22baf29",
+      "mtime": 1794273280.8758953,
+      "size": 3295
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_scalars/00__scalars.primitives.d.ps": {
+      "sha256": "78edc7bbe77cd10a6839c5c5bcb16ea2e2c99b33de573707001134c6db0b5b86",
+      "mtime": 1794273280.877307,
+      "size": 526
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_scalars/02__scalars.csharp.d.ps": {
+      "sha256": "14800a423dd7684b545a07e21627ae944caa0a719e9d0abbdd8dfb6c787e39e0",
+      "mtime": 1794273280.8776534,
+      "size": 927
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_shape/00__shape.primitives.d.ps": {
+      "sha256": "b78b7f1d6eddde01ee8d577423d44df01eabfc96552afd7c1da1f8e107623619",
+      "mtime": 1794273280.878853,
+      "size": 514
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_shape/02__shape.csharp.d.ps": {
+      "sha256": "4d562ac4207e9d14d776b7dd901ec2287f20e972b7af2e4c30ace318cf421dbc",
+      "mtime": 1794273280.8791795,
+      "size": 1151
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_ufunc/00__ufunc.primitives.d.ps": {
+      "sha256": "336097050429afdd9b334962acd0714112f5ebcbc4decc57236545481d0aca14",
+      "mtime": 1794273280.923792,
+      "size": 20024
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_typing/_ufunc/02__ufunc.csharp.d.ps": {
+      "sha256": "9d72001511ead185d94995c15f5e04f5f15c1c91042ae4eea899c99ef6d7a012",
+      "mtime": 1794273280.9242272,
+      "size": 44097
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_utils/00__utils.primitives.d.ps": {
+      "sha256": "c6737508c02add579ea3f7772f5c0a87da0792edb031f9e9abdc5fcde67e5867",
+      "mtime": 1794273280.9286103,
+      "size": 542
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_utils/02__utils.csharp.d.ps": {
+      "sha256": "82d47694e709e3ac6d6d60ded1d6033f0a2edcc76299648383a80e5c3ac8f38b",
+      "mtime": 1794273280.9289513,
+      "size": 3066
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_utils/_conversions/00__conversions.primitives.d.ps": {
+      "sha256": "5f08f4c34689e04e4768a9ebf2f53f6b3aaa4e071889b9dbc2d8f67983b1a49d",
+      "mtime": 1794273280.9304776,
+      "size": 545
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_utils/_conversions/02__conversions.csharp.d.ps": {
+      "sha256": "f9fe8c748c12fd07d84de65dbcbed6bcab85948f6f5ef4a3f36a2639ff7031e7",
+      "mtime": 1794273280.9307597,
+      "size": 1271
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_utils/_inspect/00__inspect.primitives.d.ps": {
+      "sha256": "790c8fbe11af56db33ad083edce39b37069c4dfc59b095eab9c92eb97fdb5e42",
+      "mtime": 1794273280.9341183,
+      "size": 521
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_utils/_inspect/02__inspect.csharp.d.ps": {
+      "sha256": "f13cb9ec65592915dcd75adbca7e4404f364d23a458fd293882d00d23ed60930",
+      "mtime": 1794273280.934402,
+      "size": 5805
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_utils/_pep440/00__pep440.primitives.d.ps": {
+      "sha256": "6989fab52280e783de7476079a4a1991732ea3c2f880398f8e3dbf6125d1c3bb",
+      "mtime": 1794273280.9453647,
+      "size": 4462
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/_utils/_pep440/02__pep440.csharp.d.ps": {
+      "sha256": "2b0ea223d8bfa79d7ddd4705ba7ac2ac486006114afac19cf2a9c32bc45c686c",
+      "mtime": 1794273280.9457397,
+      "size": 11475
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/char/00_char.primitives.d.ps": {
+      "sha256": "a3f8d7dd3ddbfab7c393c4106a7b8e5cf41908e25e8e7761c4330d0d41629dba",
+      "mtime": 1794273280.9537485,
+      "size": 462
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/char/02_char.csharp.d.ps": {
+      "sha256": "1bbe6a34188c6ff4ce094b4d9c06d58c2a44b98745cca4032a4c5ceacd2318c3",
+      "mtime": 1794273280.9541202,
+      "size": 10861
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/conftest/00_conftest.primitives.d.ps": {
+      "sha256": "1070add480df7d6749f5acab4d9c6e18125ca064be72f697ac271a73e08b8565",
+      "mtime": 1794273280.9567924,
+      "size": 486
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/conftest/02_conftest.csharp.d.ps": {
+      "sha256": "35c6bd58c7f8c9e5874b4bf60b508c9e67b4b64999a20ef5278d3c2777a3d409",
+      "mtime": 1794273280.9571347,
+      "size": 2337
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/00_core.primitives.d.ps": {
+      "sha256": "8e284d0b2d88df8f463a456fe362d033a0f0d363a7d7b0d6eb4902a58277c98c",
+      "mtime": 1794273280.9592776,
+      "size": 462
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/02_core.csharp.d.ps": {
+      "sha256": "dbc6044ea224575977d99eb2f4619adb52a6223726d72b4eaf8b37aa8dbb5072",
+      "mtime": 1794273280.9596107,
+      "size": 3522
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/_dtype/00__dtype.primitives.d.ps": {
+      "sha256": "6e013367d480269c29cc986420382cd5e9cf49777ab3c50ceeab668edd8d68ef",
+      "mtime": 1794273280.9604874,
+      "size": 499
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/_dtype/02__dtype.csharp.d.ps": {
+      "sha256": "6bd6671150dea9642dcb826922ec04d8a065c55946623c0cd9d16717f997157c",
+      "mtime": 1794273280.9608212,
+      "size": 392
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/_dtype_ctypes/00__dtype_ctypes.primitives.d.ps": {
+      "sha256": "796b194eb7626d5e38dcc76c8a26d1c767b5aa9f5cdcd3061d034f30aa4d581f",
+      "mtime": 1794273280.9615984,
+      "size": 539
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/_dtype_ctypes/02__dtype_ctypes.csharp.d.ps": {
+      "sha256": "82a52dd148f211281a3304c5dd8d4ce0b141563207a23524944cc6add270a5ea",
+      "mtime": 1794273280.9619224,
+      "size": 418
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/_internal/00__internal.primitives.d.ps": {
+      "sha256": "9043641f1a0e8bef5cce0ea0b14650e3913af74b1d200982a00143f90c5fe08b",
+      "mtime": 1794273280.9626894,
+      "size": 517
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/_internal/02__internal.csharp.d.ps": {
+      "sha256": "a048a1650b311ed8ea1e5c55317c9fc1ac6b1e45392603d9c9c137cca516046d",
+      "mtime": 1794273280.9630232,
+      "size": 404
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/_multiarray_umath/00__multiarray_umath.primitives.d.ps": {
+      "sha256": "af476fb795de62d66d64243d038c447a164972ec64157d5980465a80e2aef365",
+      "mtime": 1794273280.964096,
+      "size": 563
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/_multiarray_umath/02__multiarray_umath.csharp.d.ps": {
+      "sha256": "7deec4184b72550af93c4452697e52ffdceb87d3fd30c35ee9ce6e57f6a277da",
+      "mtime": 1794273280.9644718,
+      "size": 773
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/_utils/00__utils.primitives.d.ps": {
+      "sha256": "ab15bc0c405adbe07a7665569b14ac7be07ea83f758e59d54356800ba9afe998",
+      "mtime": 1794273280.9651437,
+      "size": 499
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/_utils/02__utils.csharp.d.ps": {
+      "sha256": "bf8dc48c247f337e9d7cbb5587c8569542c8f81929fe4ea0b6fd0fa3fb4854b6",
+      "mtime": 1794273280.965395,
+      "size": 392
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/arrayprint/00_arrayprint.primitives.d.ps": {
+      "sha256": "09d70c5e8c2c95f6dc30e38556c343f8d49b6c65a8f289e68bf82f807f968841",
+      "mtime": 1794273280.9659407,
+      "size": 523
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/arrayprint/02_arrayprint.csharp.d.ps": {
+      "sha256": "3bf80a5ade20d315dbf7ec87cb15054f3555647447571f646b56d22697250a38",
+      "mtime": 1794273280.9661734,
+      "size": 408
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/defchararray/00_defchararray.primitives.d.ps": {
+      "sha256": "2e37462cb8d23a316ca28343b7d1851270b100bf1734bc806a92d8def1384ff5",
+      "mtime": 1794273280.966711,
+      "size": 535
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/defchararray/02_defchararray.csharp.d.ps": {
+      "sha256": "46b85f684416dd73ce4d6037e0933aa73d5be17b3d82d28ca775040d2eb8fd5d",
+      "mtime": 1794273280.9669542,
+      "size": 416
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/einsumfunc/00_einsumfunc.primitives.d.ps": {
+      "sha256": "8a76e12858b2b92a930df8166e1bec26553ac407c4058e0fdda4bb796ed8c75e",
+      "mtime": 1794273280.9676325,
+      "size": 523
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/einsumfunc/02_einsumfunc.csharp.d.ps": {
+      "sha256": "b5d0b144862031413e5043a9d412c970a57294294b500166dc3faddccd738504",
+      "mtime": 1794273280.9678679,
+      "size": 408
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/fromnumeric/00_fromnumeric.primitives.d.ps": {
+      "sha256": "80f9a2981b3923dc06dee797dc2124ca54a4656be1d49ba1517468036d65a51d",
+      "mtime": 1794273280.9684694,
+      "size": 529
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/fromnumeric/02_fromnumeric.csharp.d.ps": {
+      "sha256": "a5012f39298532502b3d3cd22f162e563be0f3cc396481e4785309e4f21aa311",
+      "mtime": 1794273280.9687002,
+      "size": 412
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/function_base/00_function_base.primitives.d.ps": {
+      "sha256": "737a3961832a5b132bf621a9ac9550963c2d0f5dafa44d3b682bf7ba9caf4019",
+      "mtime": 1794273280.9694297,
+      "size": 539
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/function_base/02_function_base.csharp.d.ps": {
+      "sha256": "e66a120ea0da6366d03d2907dfd67303b9bdee8f0b1496e3e3b3f385f9fc9e5b",
+      "mtime": 1794273280.9697795,
+      "size": 418
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/getlimits/00_getlimits.primitives.d.ps": {
+      "sha256": "e9be8741e46b7f46a046688085e74ce44b1a392068e596cdd74cc17be6fa5161",
+      "mtime": 1794273280.9706614,
+      "size": 517
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/getlimits/02_getlimits.csharp.d.ps": {
+      "sha256": "8d858fc9f0015a110ea6af02a0c5de022fee70cad9a5ceecfc6a5174496d5ecc",
+      "mtime": 1794273280.9710228,
+      "size": 404
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/multiarray/00_multiarray.primitives.d.ps": {
+      "sha256": "a58a80dc48cdaa36aadb470cc54694876e94c812cceb3bb1161419814d7a879a",
+      "mtime": 1794273280.9718773,
+      "size": 523
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/multiarray/02_multiarray.csharp.d.ps": {
+      "sha256": "a88b4ae64c534e93f2535343325f2c47d712efba56ecda248588cc7bd22e8ec2",
+      "mtime": 1794273280.972233,
+      "size": 408
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/numeric/00_numeric.primitives.d.ps": {
+      "sha256": "ca4593047a657a0fd58de6d2b12329d4b060e184e38bfb8311e6b55b472b99e2",
+      "mtime": 1794273280.973093,
+      "size": 505
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/numeric/02_numeric.csharp.d.ps": {
+      "sha256": "a77452d58de6eae53a77333672e6babc875bfbc594bc9d7fc5fbdbab502d89ba",
+      "mtime": 1794273280.9734497,
+      "size": 396
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/numerictypes/00_numerictypes.primitives.d.ps": {
+      "sha256": "6d5168d18317e3ba0ddf498f5f8308237996bc26b92f204f5d65d4b48f3dfeeb",
+      "mtime": 1794273280.97426,
+      "size": 535
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/numerictypes/02_numerictypes.csharp.d.ps": {
+      "sha256": "840c41bd77e72d25a708bd1ad13409997b6d5f3e05db2e456c584a81d6977b12",
+      "mtime": 1794273280.9746072,
+      "size": 416
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/overrides/00_overrides.primitives.d.ps": {
+      "sha256": "a6252cc5e5cb5a65119bb5ac807218e604eb91c12546675a8d82f856c3f89870",
+      "mtime": 1794273280.9754636,
+      "size": 517
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/overrides/02_overrides.csharp.d.ps": {
+      "sha256": "8b7a115111fae527900609f1d2c1852139c692c6fba6244bed60c0a490ff04f6",
+      "mtime": 1794273280.975805,
+      "size": 404
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/records/00_records.primitives.d.ps": {
+      "sha256": "6c1fff96adbd6001af3edd86fa6c64a90f26df444269779fbbcbd7074e5d32af",
+      "mtime": 1794273280.9766328,
+      "size": 505
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/records/02_records.csharp.d.ps": {
+      "sha256": "253e7180670aa371cc2ccffc261a96b7da14b2d6003d470fcaa4308990760b81",
+      "mtime": 1794273280.9769673,
+      "size": 396
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/shape_base/00_shape_base.primitives.d.ps": {
+      "sha256": "45d60de83eb6e6c579d1b279ae6e02512ab5051302da5c1bff0e22876e618f2a",
+      "mtime": 1794273280.9777887,
+      "size": 521
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/shape_base/02_shape_base.csharp.d.ps": {
+      "sha256": "6effddcc59c804a1f140c4a7eaff2c3bc8c01de4e11e74da8e5a7efdde9b600f",
+      "mtime": 1794273280.978114,
+      "size": 406
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/umath/00_umath.primitives.d.ps": {
+      "sha256": "3a6a368bd5031a9d3b00aa725e67c7c29a8ff27c46f5c02c0b0e6590939cc1d7",
+      "mtime": 1794273280.978897,
+      "size": 493
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/core/umath/02_umath.csharp.d.ps": {
+      "sha256": "49f15d6976bb063da5a021978ea1d7185c812a4b52894622074c4fd4127eb4d1",
+      "mtime": 1794273280.9792457,
+      "size": 388
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/ctypeslib/00_ctypeslib.primitives.d.ps": {
+      "sha256": "70821a57a67a7f735a45b77db8882e439b8a676ba174bcd1737c22d9828a2d9a",
+      "mtime": 1794273280.981728,
+      "size": 492
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/ctypeslib/02_ctypeslib.csharp.d.ps": {
+      "sha256": "c49b50adfc40f8cb0f8681bbef850e7364c9d1228e83454a46766b3bea0a7b67",
+      "mtime": 1794273280.9819503,
+      "size": 2623
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/ctypeslib/_ctypeslib/00__ctypeslib.primitives.d.ps": {
+      "sha256": "a497754fdacd2681536a033aed2014e0955909843e5ebb418d2b2a5498355405",
+      "mtime": 1794273280.9981685,
+      "size": 1426
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/ctypeslib/_ctypeslib/02__ctypeslib.csharp.d.ps": {
+      "sha256": "c07d428f05cd02af986be4f5202a371cd6f588ed45a6d95904126df498d18b87",
+      "mtime": 1794273280.9984386,
+      "size": 23750
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/doc/ufuncs/00_ufuncs.primitives.d.ps": {
+      "sha256": "4ba2804d03fa9411fb40beeded138a54eef640e513b00dcca797c24ce10d95e8",
+      "mtime": 1794273280.9996047,
+      "size": 494
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/doc/ufuncs/02_ufuncs.csharp.d.ps": {
+      "sha256": "1165b45c33bbb866cad30c65f2d0b90963300980845c91732431b9928d708cd2",
+      "mtime": 1794273280.999813,
+      "size": 388
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/dtypes/00_dtypes.primitives.d.ps": {
+      "sha256": "46012d825052e2b6c44b06ed6919629b4e74db989abe46ee567d8a9464c25fb6",
+      "mtime": 1794273281.025756,
+      "size": 13276
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/dtypes/02_dtypes.csharp.d.ps": {
+      "sha256": "bb10ccb9fee01135510a0bf5ffd6d8ee89d5d242b3671f2f834eb06d588893c4",
+      "mtime": 1794273281.0261302,
+      "size": 26014
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/exceptions/00_exceptions.primitives.d.ps": {
+      "sha256": "e8761fc7b30f0a3ae350b2c28e3dc0fe8ca813c88e863b275fa048444dbb8c76",
+      "mtime": 1794273281.0304523,
+      "size": 1655
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/exceptions/02_exceptions.csharp.d.ps": {
+      "sha256": "7f1f3d5ffbc7942cfb04fc014dd41e6f321e34a9bdd65494e0fa741e1b1e255d",
+      "mtime": 1794273281.0307946,
+      "size": 2143
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/00_f2py.primitives.d.ps": {
+      "sha256": "89eae43541dd2edaa730255b1d8e55019714bcd3298519d926b0f6ff6637d45a",
+      "mtime": 1794273281.0321033,
+      "size": 462
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/02_f2py.csharp.d.ps": {
+      "sha256": "a6ad366fb4c9b9540b0e58877a94ea4701c54ed9473c4e0c8f1a74044a1ef8c4",
+      "mtime": 1794273281.0323956,
+      "size": 1036
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/__main__/00___main__.primitives.d.ps": {
+      "sha256": "656915967c06fb10bcc32211612735075d04e5f90c8041e701cf3b6d1f2b34d7",
+      "mtime": 1794273281.0329597,
+      "size": 511
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/__main__/02___main__.csharp.d.ps": {
+      "sha256": "2fe8f433f23d1095c01fc4458d6eaf7da4cf17c12ac9a611af76a065645b9531",
+      "mtime": 1794273281.0332499,
+      "size": 400
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/__version__/00___version__.primitives.d.ps": {
+      "sha256": "53aaa955f74816dc3d8f1fa5764dc3d0c0eac947833dbc683171c308dfb947bf",
+      "mtime": 1794273281.0337863,
+      "size": 529
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/__version__/02___version__.csharp.d.ps": {
+      "sha256": "4d9b3d930810fc9753b29396219206cbdfa8e28b01d50ebf29a9e86f878557e1",
+      "mtime": 1794273281.034034,
+      "size": 412
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/_backends/00__backends.primitives.d.ps": {
+      "sha256": "7486d77eff369b61e218f7dd73d58674dc88f363e2046c7c41525a1aeaae63dc",
+      "mtime": 1794273281.0351417,
+      "size": 517
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/_backends/02__backends.csharp.d.ps": {
+      "sha256": "aa7d9b4a0cf8530e32dc61bfd530ff7233bf31b62fc6f2a08d7a58c7544e2f0e",
+      "mtime": 1794273281.0354023,
+      "size": 1192
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/_backends/_backend/00__backend.primitives.d.ps": {
+      "sha256": "0326a7561b8024e935063403373a279a23ebc03e97b4154841c0b55e7300c5e8",
+      "mtime": 1794273281.0406985,
+      "size": 2707
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/_backends/_backend/02__backend.csharp.d.ps": {
+      "sha256": "e24392e4404afb372047c23ca2d3fafb3ed35598d719d8bc59df92a91537f87c",
+      "mtime": 1794273281.0411012,
+      "size": 5305
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/_backends/_meson/00__meson.primitives.d.ps": {
+      "sha256": "f8e70c2f37476aba7fb174d54e07ec3f2ef4be4f8f6fe145a4655f95d88bb95f",
+      "mtime": 1794273281.0474136,
+      "size": 3284
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/_backends/_meson/02__meson.csharp.d.ps": {
+      "sha256": "8ecde9febebb38e7e6892cf80e133b3ee528c758df309a8ddd375bfb4744eea4",
+      "mtime": 1794273281.0485065,
+      "size": 8010
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/_isocbind/00__isocbind.primitives.d.ps": {
+      "sha256": "159f6944b9df9dcdf5830b0d0d683fc980d81183234e1a1042eef9125ca97ffc",
+      "mtime": 1794273281.0497015,
+      "size": 517
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/_isocbind/02__isocbind.csharp.d.ps": {
+      "sha256": "6993901fb5957213bb116e1cadcf259b7be4398f6e5d4f1d7d4402dec657e489",
+      "mtime": 1794273281.0499208,
+      "size": 2304
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/_src_pyf/00__src_pyf.primitives.d.ps": {
+      "sha256": "fb7942c5e5923e5d1b16f0fa6a8ff10ece4b7e186df138ef94ada56a7fcdf3d3",
+      "mtime": 1794273281.0519075,
+      "size": 509
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/_src_pyf/02__src_pyf.csharp.d.ps": {
+      "sha256": "432f1d374d744a0d261b1a665719992816b3460a8b933cf3ce54a834338e0b32",
+      "mtime": 1794273281.052129,
+      "size": 4685
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/auxfuncs/00_auxfuncs.primitives.d.ps": {
+      "sha256": "d588995b4916e3ccc018a034906d11009b892f51cf1f4443dcab010f55b19c45",
+      "mtime": 1794273281.067693,
+      "size": 799
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/auxfuncs/02_auxfuncs.csharp.d.ps": {
+      "sha256": "061426b9b0eac9895164ece6156751dc170f6e4fb093e49c8b9461bbf281d6f3",
+      "mtime": 1794273281.0679455,
+      "size": 22817
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/capi_maps/00_capi_maps.primitives.d.ps": {
+      "sha256": "883e4f24b4fe062532a7b89b97076cff99e8b8e63a24193ac4d84314eee33997",
+      "mtime": 1794273281.0712922,
+      "size": 515
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/capi_maps/02_capi_maps.csharp.d.ps": {
+      "sha256": "194b31f87f082584d86052c5e14fa4cb4c31cbff44dc169e14b4cd17f07b623d",
+      "mtime": 1794273281.071663,
+      "size": 3444
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/cb_rules/00_cb_rules.primitives.d.ps": {
+      "sha256": "6544c7c022a9bd6fe48be8344617ff4fdd35ba6baa19d44beaf1ab24f5d9b76d",
+      "mtime": 1794273281.0734124,
+      "size": 509
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/cb_rules/02_cb_rules.csharp.d.ps": {
+      "sha256": "8fda2e490e867f34711409ea574fece43408e5533eb7c1589b04d5a5e6bbcc9f",
+      "mtime": 1794273281.074602,
+      "size": 2521
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/cfuncs/00_cfuncs.primitives.d.ps": {
+      "sha256": "55871a887974b7b23e73ab7df76560927b43e822dc66700867a49a8c9e5333e4",
+      "mtime": 1794273281.0775366,
+      "size": 499
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/cfuncs/02_cfuncs.csharp.d.ps": {
+      "sha256": "3dd45ab8c3651a0378330e6425586b5b519f88d68ae5d3cacae5720d0912074e",
+      "mtime": 1794273281.077888,
+      "size": 3941
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/common_rules/00_common_rules.primitives.d.ps": {
+      "sha256": "7ff97077fe580bccf7cdbb68bfda64994d130a4068a4523445c9f3176368e71f",
+      "mtime": 1794273281.0798223,
+      "size": 533
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/common_rules/02_common_rules.csharp.d.ps": {
+      "sha256": "a6ff4353d0f1bae265e4426a626a90fcfdd0c0e50e5a32c1d12a7a2421da99cf",
+      "mtime": 1794273281.08016,
+      "size": 1851
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/crackfortran/00_crackfortran.primitives.d.ps": {
+      "sha256": "4b9549df72a8571703cf9d70d9bfab284e4090363326c6f89d95fc21ed3866e9",
+      "mtime": 1794273281.100778,
+      "size": 535
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/crackfortran/02_crackfortran.csharp.d.ps": {
+      "sha256": "ffae67daced025fe226d843232b5e1ee31e27632536f395b630d218dbaccade9",
+      "mtime": 1794273281.1010473,
+      "size": 37650
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/diagnose/00_diagnose.primitives.d.ps": {
+      "sha256": "0b45e58f1a72ac8e2b046f5b733d4f57ca89f8c22852f8d6f77a9cbc0f512da1",
+      "mtime": 1794273281.102496,
+      "size": 511
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/diagnose/02_diagnose.csharp.d.ps": {
+      "sha256": "b30b298b418c2eb0aaaf6227de125edb92596b089d75df943626be4065968690",
+      "mtime": 1794273281.1028857,
+      "size": 657
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/f2py2e/00_f2py2e.primitives.d.ps": {
+      "sha256": "72a3be974b6e9ef3aab285af4f6e6b396b1bb6965130d4d7d14d732ec7f210df",
+      "mtime": 1794273281.1099916,
+      "size": 1543
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/f2py2e/02_f2py2e.csharp.d.ps": {
+      "sha256": "fc89492daf0833f5e11c1346785d74d1cced2f9bcbddbfe1089fbb463f5abf50",
+      "mtime": 1794273281.1103714,
+      "size": 8506
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/f90mod_rules/00_f90mod_rules.primitives.d.ps": {
+      "sha256": "22b9744cd49d052d3fd2e3ee0649a36fe993f08da8e0f9abaa434c2edd737584",
+      "mtime": 1794273281.1128812,
+      "size": 533
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/f90mod_rules/02_f90mod_rules.csharp.d.ps": {
+      "sha256": "3ec67a88e4a119dca578040ab5b04e3e27275a38d145412068a12711d1353033",
+      "mtime": 1794273281.1132586,
+      "size": 2739
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/func2subr/00_func2subr.primitives.d.ps": {
+      "sha256": "825127b6397d14cb6f45ea4bed26300aaec8cb503388d4ba8e48477d6f1b7e72",
+      "mtime": 1794273281.1154687,
+      "size": 517
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/func2subr/02_func2subr.csharp.d.ps": {
+      "sha256": "34761e52cd61033308f557faf8dbefb78bcab0462355351b6770e18efc3ac4e2",
+      "mtime": 1794273281.1158297,
+      "size": 1596
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/rules/00_rules.primitives.d.ps": {
+      "sha256": "d2cc47affa6a760e85d06a0314ffff36c34913182ee0cab240cc4e9f0b4b643d",
+      "mtime": 1794273281.1183307,
+      "size": 493
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/rules/02_rules.csharp.d.ps": {
+      "sha256": "2f150c2a4a41069f09923a7d5bec4c569a0c995a7b8370c8e27463056d9d4b0f",
+      "mtime": 1794273281.1186442,
+      "size": 4879
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/symbolic/00_symbolic.primitives.d.ps": {
+      "sha256": "0f4ade7d579c19767c63c3ec663fe0a187404bc686c6bef4b2be2ea361afbb4f",
+      "mtime": 1794273281.1343398,
+      "size": 5467
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/symbolic/02_symbolic.csharp.d.ps": {
+      "sha256": "cebe545eed6261bfa17f75bccb826e2bbb2d5042df0b46e15dcb9a2bce19065a",
+      "mtime": 1794273281.1346638,
+      "size": 11723
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/use_rules/00_use_rules.primitives.d.ps": {
+      "sha256": "42114f9eac9cb4ba1103f6d4236f9d03febc845eb9f3cc325faefe4e7a5a9757",
+      "mtime": 1794273281.1375175,
+      "size": 515
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/f2py/use_rules/02_use_rules.csharp.d.ps": {
+      "sha256": "b8bd5f36aa7459fb67c959d0609dda654b17daac5e7cf382da0298dafa5e3616",
+      "mtime": 1794273281.13794,
+      "size": 2226
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/fft/00_fft.primitives.d.ps": {
+      "sha256": "196ce932fb766c6503eae8c1f25807c5e8eed0f8b27a961976a3153467ecf548",
+      "mtime": 1794273281.148888,
+      "size": 456
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/fft/02_fft.csharp.d.ps": {
+      "sha256": "41683549d8a037222992ca3445708cb45e5139f47b55a97590fe86b4564b2865",
+      "mtime": 1794273281.149157,
+      "size": 5889
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/fft/_helper/00__helper.primitives.d.ps": {
+      "sha256": "f36d4cebd59239c27022939c1af01790b6006153bb9320799c2b55b172d8d954",
+      "mtime": 1794273281.156113,
+      "size": 500
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/fft/_helper/02__helper.csharp.d.ps": {
+      "sha256": "e690b84eeb52879317a716c03e5422acdfe0640e773bb91b62a36267ca4acd32",
+      "mtime": 1794273281.156499,
+      "size": 7138
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/fft/_pocketfft/00__pocketfft.primitives.d.ps": {
+      "sha256": "76f7bb22354780be39724cb9148f83de47307b20b29a1e75ae4a280b9fd8fba9",
+      "mtime": 1794273281.2998974,
+      "size": 518
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/fft/_pocketfft/02__pocketfft.csharp.d.ps": {
+      "sha256": "818c6ce5ab47fb82a910b0d673c35c87e5afe6bc8c2d50fad61ffa1a7716e205",
+      "mtime": 1794273281.3002415,
+      "size": 32703
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/00_lib.primitives.d.ps": {
+      "sha256": "7acdc9b76db3a009a94139932a5bfac312808e6a1c4aeeafb0872a393334d6f9",
+      "mtime": 1794273281.3041003,
+      "size": 456
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/02_lib.csharp.d.ps": {
+      "sha256": "285a5ba6b216c53d5d32568de7ba8f2208aac6c4dd80bc8299d34c3c15516e31",
+      "mtime": 1794273281.3044872,
+      "size": 4175
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_array_utils_impl/00__array_utils_impl.primitives.d.ps": {
+      "sha256": "2e2b5b8c397746c1bcb85dbf1afa6d914f934e17a0cb603f2e318c9181e2b822",
+      "mtime": 1794273281.3069897,
+      "size": 556
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_array_utils_impl/02__array_utils_impl.csharp.d.ps": {
+      "sha256": "627ddb8cf27db539281aa680a7f4d02935e7a6dd7b2efae6c1ea2c13afc642bc",
+      "mtime": 1794273281.3073864,
+      "size": 2104
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_arraypad_impl/00__arraypad_impl.primitives.d.ps": {
+      "sha256": "6e18675dd880797e8d1b1805e7728bb0cdae25cacc8d4b09ddb4e2440dc0b92b",
+      "mtime": 1794273281.3120105,
+      "size": 672
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_arraypad_impl/02__arraypad_impl.csharp.d.ps": {
+      "sha256": "29c0bc4ea104954d443b8c2a4fd51ac7b0209c1e3e6914249e590c3d8363a747",
+      "mtime": 1794273281.3124092,
+      "size": 4131
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_arraysetops_impl/00__arraysetops_impl.primitives.d.ps": {
+      "sha256": "2b45262d050fb629304907e90f1c904e5b140770cc218afe6dec4ced6f1e31e4",
+      "mtime": 1794273281.3285084,
+      "size": 1429
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_arraysetops_impl/02__arraysetops_impl.csharp.d.ps": {
+      "sha256": "9f87c365e558663000fd8469096b822a564236737e52d6435d97bfc1ef8dde0e",
+      "mtime": 1794273281.3289075,
+      "size": 10405
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_arrayterator_impl/00__arrayterator_impl.primitives.d.ps": {
+      "sha256": "3063fd4fdeebb7eed32bc644c8f1e9a42be3f0fe0e5aba814bbdf902a33aa3e8",
+      "mtime": 1794273281.3338199,
+      "size": 1646
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_arrayterator_impl/02__arrayterator_impl.csharp.d.ps": {
+      "sha256": "6e13288192e1e35ae039ca546b46deac2f9ab79718e1ce286bd6494830e9b729",
+      "mtime": 1794273281.3341126,
+      "size": 4599
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_datasource/00__datasource.primitives.d.ps": {
+      "sha256": "ea2fac67bbcee6ff4b0d761d786f0634193628008bd5ceff2c1f15b45a3b9ff4",
+      "mtime": 1794273281.3382869,
+      "size": 1162
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_datasource/02__datasource.csharp.d.ps": {
+      "sha256": "baa7f9a86acf6197758b30dabd41414ba7985e7b6da4ae525f14ed7f79ced6c2",
+      "mtime": 1794273281.3387263,
+      "size": 3152
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_format_impl/00__format_impl.primitives.d.ps": {
+      "sha256": "4ecc86ecee9ff618f77610bfe00c7819b7462e2f660e7beb9ce3b951f9519a8b",
+      "mtime": 1794273281.3456583,
+      "size": 528
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_format_impl/02__format_impl.csharp.d.ps": {
+      "sha256": "b0fe948c668719c6dc9484f83a62e45c696106f16873e610f47c01ee42be2a1c",
+      "mtime": 1794273281.3460236,
+      "size": 7226
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_function_base_impl/00__function_base_impl.primitives.d.ps": {
+      "sha256": "50491994ab3a93c0081559c9d28768ba1a71169db92b27bf9fba80e14f2b02f0",
+      "mtime": 1794273281.4704216,
+      "size": 2026
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_function_base_impl/02__function_base_impl.csharp.d.ps": {
+      "sha256": "2448c004921e9c70c6c7af7f0d8a5d037a13d4c97e24804ab1bb4ce3620c6a2e",
+      "mtime": 1794273281.4708674,
+      "size": 98727
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_histograms_impl/00__histograms_impl.primitives.d.ps": {
+      "sha256": "f3a13a9737cc6c818768982f64c8cf7ac12921229bf171bd01cd93591a4ec862",
+      "mtime": 1794273281.489772,
+      "size": 552
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_histograms_impl/02__histograms_impl.csharp.d.ps": {
+      "sha256": "29f34f5273dea3dea169f6866c482b978f9b4b9c07eeb9c085631f742398bffc",
+      "mtime": 1794273281.4902344,
+      "size": 7654
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_index_tricks_impl/00__index_tricks_impl.primitives.d.ps": {
+      "sha256": "f512068c06b0b28e5de79e75cf132093216ed022a06712c79dd12e524408ffd0",
+      "mtime": 1794273281.5077207,
+      "size": 4462
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_index_tricks_impl/02__index_tricks_impl.csharp.d.ps": {
+      "sha256": "ee115cdef10c87f622fdb9c17d18a91e3f83e8ff33120addaad4047fad61a3be",
+      "mtime": 1794273281.508318,
+      "size": 15960
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_iotools/00__iotools.primitives.d.ps": {
+      "sha256": "c5119e0e3f8f98b07d11469da544daa742f69813408730a0b773a11e97be6aa3",
+      "mtime": 1794273281.5231164,
+      "size": 4254
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_iotools/02__iotools.csharp.d.ps": {
+      "sha256": "9978f8e451244098ee25720c82acb66ea612c84e89a21ec08ae87654be485a25",
+      "mtime": 1794273281.5236742,
+      "size": 11289
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_nanfunctions_impl/00__nanfunctions_impl.primitives.d.ps": {
+      "sha256": "c4cb7fc65cc01b663c8da83cae4af355080a64b449ea1fdb1e21304c458e3ec5",
+      "mtime": 1794273281.5271375,
+      "size": 564
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_nanfunctions_impl/02__nanfunctions_impl.csharp.d.ps": {
+      "sha256": "7f95914ce63b434c457e498dc4695400214725897e7f7926131bdfc2811d0cc3",
+      "mtime": 1794273281.5276897,
+      "size": 3811
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_npyio_impl/00__npyio_impl.primitives.d.ps": {
+      "sha256": "4aae46c93bbf257e08a7a6e2f13d54b55a50bd0f06a34da83170c9e4e4957d56",
+      "mtime": 1794273281.563577,
+      "size": 2525
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_npyio_impl/02__npyio_impl.csharp.d.ps": {
+      "sha256": "4226c854c33c2548c02fedc24af6841f8818cefef7731efac40fa2b8c2ca9501",
+      "mtime": 1794273281.5640588,
+      "size": 17608
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_polynomial_impl/00__polynomial_impl.primitives.d.ps": {
+      "sha256": "bf115c3b84ad74fb32f86e904e3775177f875caf56c9a66c7c72d4ff31bfeb19",
+      "mtime": 1794273281.5947895,
+      "size": 3270
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_polynomial_impl/02__polynomial_impl.csharp.d.ps": {
+      "sha256": "031ded8662f21543ad940a1f1aa36c6c47831a1b3ec05104ef7a142ac64a6cd6",
+      "mtime": 1794273281.595223,
+      "size": 22696
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_scimath_impl/00__scimath_impl.primitives.d.ps": {
+      "sha256": "2483c967b0664f61848524f9c8be0b3f65850265e98ee77a24c697fc179e3946",
+      "mtime": 1794273281.6005116,
+      "size": 534
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_scimath_impl/02__scimath_impl.csharp.d.ps": {
+      "sha256": "3cd8333dc19a73a22621e54349bf7138985a4100a62a7f61a2c8fa39935743bb",
+      "mtime": 1794273281.60094,
+      "size": 8402
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_shape_base_impl/00__shape_base_impl.primitives.d.ps": {
+      "sha256": "4596c7ef9eb7713e24c3ed4545e4399870fdfa8ae1dd4b36d01f4787dcd5843f",
+      "mtime": 1794273281.6195657,
+      "size": 1342
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_shape_base_impl/02__shape_base_impl.csharp.d.ps": {
+      "sha256": "5246b293485b06cd1905828662588fcb21e8dd3cde0d8cc33158d5629180913c",
+      "mtime": 1794273281.6201336,
+      "size": 17054
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_stride_tricks_impl/00__stride_tricks_impl.primitives.d.ps": {
+      "sha256": "946bf64143458d762900ad31448309b5411362bb412ad4519a1657795bbf441d",
+      "mtime": 1794273281.6289382,
+      "size": 796
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_stride_tricks_impl/02__stride_tricks_impl.csharp.d.ps": {
+      "sha256": "5bd17405ce0dd1a46fe85c4dc7881fe5896da87a4dacf0e80c50563bb3e800ba",
+      "mtime": 1794273281.6293778,
+      "size": 5756
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_twodim_base_impl/00__twodim_base_impl.primitives.d.ps": {
+      "sha256": "db33a1119e6c5517e9090fa2a3cb63f635478d441db9368709f028c160d21e29",
+      "mtime": 1794273281.6524518,
+      "size": 683
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_twodim_base_impl/02__twodim_base_impl.csharp.d.ps": {
+      "sha256": "95bbff073cde828b10eb80db2ca19c43f994bf06305aa7f605f22499e6f7fa27",
+      "mtime": 1794273281.6529708,
+      "size": 16463
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_type_check_impl/00__type_check_impl.primitives.d.ps": {
+      "sha256": "01ab2f3fe535b519e5a29d0aded942883add56046749bb62ab80153470b591ab",
+      "mtime": 1794273281.6789858,
+      "size": 931
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_type_check_impl/02__type_check_impl.csharp.d.ps": {
+      "sha256": "b3d05f0b4591443f2809f08264cce9ac60421409b11f9c76d8d8c88c54822299",
+      "mtime": 1794273281.6794236,
+      "size": 20083
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_ufunclike_impl/00__ufunclike_impl.primitives.d.ps": {
+      "sha256": "8b113e6d51ad482c01707c2f5c5982b1a91011c0991486f2ca75ad740c0797fd",
+      "mtime": 1794273281.682691,
+      "size": 546
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_ufunclike_impl/02__ufunclike_impl.csharp.d.ps": {
+      "sha256": "86dd0a907f224a18ecd49b1e765359dea4e8efe5ca5a2b88971e5afd6973fab7",
+      "mtime": 1794273281.6830742,
+      "size": 3713
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_user_array_impl/00__user_array_impl.primitives.d.ps": {
+      "sha256": "ac585a3b2c0ea0d3652501e013f5d48cee7f1a35798d184cd3cc528997b798ea",
+      "mtime": 1794273281.7009475,
+      "size": 6898
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_user_array_impl/02__user_array_impl.csharp.d.ps": {
+      "sha256": "86513e25b60b7f557ea65dd2aec2d2af2792696af3d9209d525451ca8e1566c3",
+      "mtime": 1794273281.7014935,
+      "size": 16040
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_utils_impl/00__utils_impl.primitives.d.ps": {
+      "sha256": "e87b1f268817d9e046f06b36c74432096e1f25710d4df035910d39933e7735fc",
+      "mtime": 1794273281.7045238,
+      "size": 522
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_utils_impl/02__utils_impl.csharp.d.ps": {
+      "sha256": "fa12b190e68ddf895323988e42ae6ba74ab346481aad5b61caf3f2b09e842ae6",
+      "mtime": 1794273281.7048419,
+      "size": 1979
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_version/00__version.primitives.d.ps": {
+      "sha256": "17211f6d72f10d320923e4d5437bc3c3ae4c192985685dc98361e6f4e0eb20d1",
+      "mtime": 1794273281.7099242,
+      "size": 1860
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/_version/02__version.csharp.d.ps": {
+      "sha256": "342d026f2b18340afb39fb550404901be42b10df6377d70fa069395005d763ea",
+      "mtime": 1794273281.7102623,
+      "size": 4010
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/array_utils/00_array_utils.primitives.d.ps": {
+      "sha256": "db698083aaa23d6cb7a76bb4ca3f2f8d0d19dbd3db3b9f66f69b2edec0e349c2",
+      "mtime": 1794273281.7110302,
+      "size": 522
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/array_utils/02_array_utils.csharp.d.ps": {
+      "sha256": "6b5c5eef419d8e6c20cf91e5bed67ff5b8ca07560e65e5fd1ba97d164860f533",
+      "mtime": 1794273281.711404,
+      "size": 406
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/format/00_format.primitives.d.ps": {
+      "sha256": "537f89de80fc9556f2eda7794ac8ad14bbf3bd7af9da6c6e07c5e1bfc089f8eb",
+      "mtime": 1794273281.7121122,
+      "size": 494
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/format/02_format.csharp.d.ps": {
+      "sha256": "b7dfa6942c630aabc8d9c5643ec1353968326cf5bb515f6f2e331871cec33b82",
+      "mtime": 1794273281.712381,
+      "size": 388
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/introspect/00_introspect.primitives.d.ps": {
+      "sha256": "a2a3019961c700b8529934abf69421eeb1add6d9e02af5ae862ff78c9b979868",
+      "mtime": 1794273281.7133667,
+      "size": 518
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/introspect/02_introspect.csharp.d.ps": {
+      "sha256": "f167451c8cf8fcd97a4530da0976d4277fe20fd512fbac5f4aad6a650fc9444a",
+      "mtime": 1794273281.7136333,
+      "size": 789
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/mixins/00_mixins.primitives.d.ps": {
+      "sha256": "cdb29ae2156a25e1b2fa9551d39b060edddcf36395def735ccedc0bf19e1380e",
+      "mtime": 1794273281.7246082,
+      "size": 4476
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/mixins/02_mixins.csharp.d.ps": {
+      "sha256": "5c69c680b177c88ac34b8c99a782bfbd86ba1a50fae84a97f6ab22ae68bac53b",
+      "mtime": 1794273281.7251441,
+      "size": 11273
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/npyio/00_npyio.primitives.d.ps": {
+      "sha256": "0868d7b1a5dbdc27d48478fbd173f3c54498619494c0dfb1218835ecad56884f",
+      "mtime": 1794273281.7267878,
+      "size": 488
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/npyio/02_npyio.csharp.d.ps": {
+      "sha256": "d998a839af34f6011972d1b8d15a59e4303eb34690c4e597b9913a27c4c36814",
+      "mtime": 1794273281.7272232,
+      "size": 384
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/recfunctions/00_recfunctions.primitives.d.ps": {
+      "sha256": "4184269c11382a93817c2c067c9d92491c9b70616be3a9450f97137487504565",
+      "mtime": 1794273281.751192,
+      "size": 530
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/recfunctions/02_recfunctions.csharp.d.ps": {
+      "sha256": "0f93adf5431d472328fc318ad375e1444199f320f42da8e06fed3f99e6fb5ca0",
+      "mtime": 1794273281.7515976,
+      "size": 14517
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/scimath/00_scimath.primitives.d.ps": {
+      "sha256": "502c129b6a76869b7d52a808b670e7fd08aff876e8f9d61f2b36bd4813d556c0",
+      "mtime": 1794273281.75351,
+      "size": 500
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/scimath/02_scimath.csharp.d.ps": {
+      "sha256": "4beae8d763d6205e7c8590eb722a928e75591bb9b3ac3c3181cefb990d78c021",
+      "mtime": 1794273281.7538722,
+      "size": 392
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/stride_tricks/00_stride_tricks.primitives.d.ps": {
+      "sha256": "28057da84f623b0143399c5364e76fb2ca8c30523dd123eb60aa53ada27dc92e",
+      "mtime": 1794273281.7547114,
+      "size": 534
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/stride_tricks/02_stride_tricks.csharp.d.ps": {
+      "sha256": "85b2fe04ced057dfbf2f414d54a4fc3f16834a522e0b2a742842bad5b15080d3",
+      "mtime": 1794273281.7550852,
+      "size": 414
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/user_array/00_user_array.primitives.d.ps": {
+      "sha256": "ee819f4801c50e820fafda3fb7d20fb3708416fe9e7860954034c923b78806e3",
+      "mtime": 1794273281.755861,
+      "size": 516
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/lib/user_array/02_user_array.csharp.d.ps": {
+      "sha256": "a3bb38e01c30a1d8365730e122b02b254444b6075af931d999be0d37b152b21c",
+      "mtime": 1794273281.7562456,
+      "size": 402
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/linalg/00_linalg.primitives.d.ps": {
+      "sha256": "c88409fbc943cd8300abf8b6e831aaf268d65c877142a47e2daaff5cec5574eb",
+      "mtime": 1794273281.7637858,
+      "size": 494
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/linalg/02_linalg.csharp.d.ps": {
+      "sha256": "4a4e84c37d4f167750695358df247a6aabf610f707b1e83ce4f92d383efa096a",
+      "mtime": 1794273281.7641938,
+      "size": 8727
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/linalg/_linalg/00__linalg.primitives.d.ps": {
+      "sha256": "13c00d0cb91b30fc90ae71326598a5b27c59f331e1b1d67ce05932cc465ee956",
+      "mtime": 1794273281.828031,
+      "size": 1998
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/linalg/_linalg/02__linalg.csharp.d.ps": {
+      "sha256": "c98f81bef2a293fddc0efe2932b3d9fe152290acd92b24686daea07ff8e00a4f",
+      "mtime": 1794273281.828503,
+      "size": 70246
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/linalg/_umath_linalg/00__umath_linalg.primitives.d.ps": {
+      "sha256": "4704ed6c33d7638faff9b1bb8d0719eda4e26c0d0fa19e53b9bb56e93cdb113a",
+      "mtime": 1794273281.8337245,
+      "size": 549
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/linalg/_umath_linalg/02__umath_linalg.csharp.d.ps": {
+      "sha256": "64a2d4bf47de133ff1447d97f354a473c5e8c4bb97073a91e04edc0f11afad43",
+      "mtime": 1794273281.834095,
+      "size": 5165
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/linalg/lapack_lite/00_lapack_lite.primitives.d.ps": {
+      "sha256": "9e44b413b784351c4ffc254d9f34cb2a66e40616e0e6394d74a97057723c9e7d",
+      "mtime": 1794273281.8390481,
+      "size": 2552
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/linalg/lapack_lite/02_lapack_lite.csharp.d.ps": {
+      "sha256": "2eec1ff30644bcd2156e4465b8b3201bd69201178c4f9a750d87ac263470f40e",
+      "mtime": 1794273281.8394792,
+      "size": 8410
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/ma/00_ma.primitives.d.ps": {
+      "sha256": "aaebe0657d93d12258deefd6d37fce0c2a42b910966f38f4d15e125516ca72b8",
+      "mtime": 1794273281.8829653,
+      "size": 450
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/ma/02_ma.csharp.d.ps": {
+      "sha256": "ace6928f02616685a545e946db09c57adef70b9d35a37c6a2b88343a286a1db8",
+      "mtime": 1794273281.8833947,
+      "size": 49996
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/ma/core/00_core.primitives.d.ps": {
+      "sha256": "2734bc9113d2b38d83cc22db782142374e87dfe061959751d2ab01a5a0a702da",
+      "mtime": 1794273282.1653888,
+      "size": 42827
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/ma/core/02_core.csharp.d.ps": {
+      "sha256": "f063341e54b4782c6fc835c63e928d071ce7aa69f107bcc3d857a5d0c1aadf0d",
+      "mtime": 1794273282.165947,
+      "size": 172346
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/ma/extras/00_extras.primitives.d.ps": {
+      "sha256": "e0d7b87f217184a8890c23d87578293a99abb5513794c0c3b1ba1067f18243b9",
+      "mtime": 1794273282.2138581,
+      "size": 1043
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/ma/extras/02_extras.csharp.d.ps": {
+      "sha256": "c3a2a2d1d945ea20b2a521cf0172826e755c91d34a79d35a46f636af574f8439",
+      "mtime": 1794273282.2144148,
+      "size": 27563
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/ma/mrecords/00_mrecords.primitives.d.ps": {
+      "sha256": "43b3f66a6201e69a48423e0fecd3193493d36713ef9159cb2d96859529317fd2",
+      "mtime": 1794273282.2363555,
+      "size": 2598
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/ma/mrecords/02_mrecords.csharp.d.ps": {
+      "sha256": "30875f80d33649d305f5761d2906b7a85881bfba73e85148e1d30507ff1092ff",
+      "mtime": 1794273282.2367766,
+      "size": 15193
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/ma/testutils/00_testutils.primitives.d.ps": {
+      "sha256": "ed10633242130b8a651a4b80383467ae2b49326366e3f7fd072cc08f0a174b39",
+      "mtime": 1794273282.2413828,
+      "size": 507
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/ma/testutils/02_testutils.csharp.d.ps": {
+      "sha256": "3c4625344d2e6ea5b16d71262fad01c1ae9db5b84a73f3cb318fe3b32561ceea",
+      "mtime": 1794273282.2417529,
+      "size": 5882
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/matlib/00_matlib.primitives.d.ps": {
+      "sha256": "356476e7f6a3cc9921d6afa153e4fe814540f86596941e751c819d4c8584f6de",
+      "mtime": 1794273282.2484841,
+      "size": 474
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/matlib/02_matlib.csharp.d.ps": {
+      "sha256": "1771dc5fb712c413ae5a1d47f9dab3481dcca794cb2378ed041f35619f76e3c7",
+      "mtime": 1794273282.2488708,
+      "size": 8822
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/matrixlib/00_matrixlib.primitives.d.ps": {
+      "sha256": "ac24661fb6deb846eb45cdd8cee163e147480ec61031c5486b69bf99238c5eff",
+      "mtime": 1794273282.2509594,
+      "size": 492
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/matrixlib/02_matrixlib.csharp.d.ps": {
+      "sha256": "be0d696236714497be66b6752dd45e563914613b672ac922dc8a7420da0a851d",
+      "mtime": 1794273282.25137,
+      "size": 2338
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/matrixlib/defmatrix/00_defmatrix.primitives.d.ps": {
+      "sha256": "fea1dcb45f7817069f01c277a091d013ad0ea6a5828ba92c2d26297adcaada10",
+      "mtime": 1794273282.2691321,
+      "size": 6238
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/matrixlib/defmatrix/02_defmatrix.csharp.d.ps": {
+      "sha256": "13d4af2c240bfd41ccd34096dbac3abb223eaad668147de8cc910c0d3999a5ba",
+      "mtime": 1794273282.269602,
+      "size": 15839
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/00_polynomial.primitives.d.ps": {
+      "sha256": "503c36d63238a1015c26722a8f7a2b50f2153eef5aa313c4b8e7d88e58574cc3",
+      "mtime": 1794273282.2713673,
+      "size": 498
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/02_polynomial.csharp.d.ps": {
+      "sha256": "757ddf6ee07db839fa89fab129e611dafe88adba07ad980f6c03d0007d0d4e1d",
+      "mtime": 1794273282.2726104,
+      "size": 2906
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/_polybase/00__polybase.primitives.d.ps": {
+      "sha256": "f3d8ca978949184b698e47f61c45813fbfa9937c231c49aa812e04000814dea6",
+      "mtime": 1794273282.2880764,
+      "size": 6710
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/_polybase/02__polybase.csharp.d.ps": {
+      "sha256": "4f8ca073ea049fc325e2fc3c15998b3d73dce00e546923c562260fb360e9a252",
+      "mtime": 1794273282.2885182,
+      "size": 16174
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/_polytypes/00__polytypes.primitives.d.ps": {
+      "sha256": "a744b3d208667b2c44c95b75d0ee960386f53c73260aea150371d9f97049b315",
+      "mtime": 1794273282.3137472,
+      "size": 13701
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/_polytypes/02__polytypes.csharp.d.ps": {
+      "sha256": "987899784aed6f0ff6c5a4a8d0ced7aa478af02e9f59abc63cd83f2a066d33c0",
+      "mtime": 1794273282.3141687,
+      "size": 25885
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/chebyshev/00_chebyshev.primitives.d.ps": {
+      "sha256": "69feeac10cf478d9fd94f0d8989d3ce0893ef48ded2a6f9ff5966189842066cf",
+      "mtime": 1794273282.3213654,
+      "size": 1143
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/chebyshev/02_chebyshev.csharp.d.ps": {
+      "sha256": "a5f2fe9721be6ec3a271b6ac8cff4e2ea7798572337ce9b74eb2a8460c50525a",
+      "mtime": 1794273282.3227289,
+      "size": 12196
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/hermite/00_hermite.primitives.d.ps": {
+      "sha256": "195b0c5d6129145ff6b82b50d3f73c8b8f56479e3d94be27ea1315ed79f120a3",
+      "mtime": 1794273282.329389,
+      "size": 744
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/hermite/02_hermite.csharp.d.ps": {
+      "sha256": "e6df5b42db20b7a0b1d3715dd0b3baae116b94255d11b015d4f7c4ecd07a01c0",
+      "mtime": 1794273282.3298335,
+      "size": 8534
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/hermite_e/00_hermite_e.primitives.d.ps": {
+      "sha256": "95e786f46dbd1a86acbc9e437e17675726a783ae21e81e2dd43755c0fc0eb639",
+      "mtime": 1794273282.334801,
+      "size": 754
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/hermite_e/02_hermite_e.csharp.d.ps": {
+      "sha256": "a20d57b0ca9c90b53febd550e979385ed4d904a5c1a092af5dcde3898a7a9389",
+      "mtime": 1794273282.335102,
+      "size": 8719
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/laguerre/00_laguerre.primitives.d.ps": {
+      "sha256": "7ed996c78653b38f1cfad76674ee753596be95f3095f17a2288a150c80249ddc",
+      "mtime": 1794273282.3411665,
+      "size": 751
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/laguerre/02_laguerre.csharp.d.ps": {
+      "sha256": "1e27e1d653323662709f0a3b331b09ee9dfa682502b362f482b88e075717fe27",
+      "mtime": 1794273282.3416414,
+      "size": 8531
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/legendre/00_legendre.primitives.d.ps": {
+      "sha256": "cefdbd58fd05d16b4b59e3950088a3149a014d099660e9d429a45d386b1ad07e",
+      "mtime": 1794273282.3460665,
+      "size": 751
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/legendre/02_legendre.csharp.d.ps": {
+      "sha256": "d263fb51c5ccdb0576e06d3dfe7357d704ae077c69735d53dc3f348fe2ea5560",
+      "mtime": 1794273282.3464894,
+      "size": 8531
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/polynomial/00_polynomial.primitives.d.ps": {
+      "sha256": "18f3a345785e1778605f4053927036e4b21f1ef07a7f72095f97739dc9db2b7d",
+      "mtime": 1794273282.3514493,
+      "size": 767
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/polynomial/02_polynomial.csharp.d.ps": {
+      "sha256": "5e184ee8dab008330094d226edcf27685c10a671d98ebbbee4b5f192c0aceab0",
+      "mtime": 1794273282.3518429,
+      "size": 9578
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/polyutils/00_polyutils.primitives.d.ps": {
+      "sha256": "4345b1c07f98a02a9447b4f4ea1e5fcbe65c5519fd3b1f5a2d11c65f11c20c07",
+      "mtime": 1794273282.3604171,
+      "size": 599
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/polynomial/polyutils/02_polyutils.csharp.d.ps": {
+      "sha256": "7e114ed22759e32c75988faea46fe3b05b7930fdc3f2928bcecb194303bf5ecd",
+      "mtime": 1794273282.3609183,
+      "size": 12682
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/00_random.primitives.d.ps": {
+      "sha256": "d62e2da7188331148e2f4e86a7dd9d18b8605aaf880c5a07c6317cfa8b2afa69",
+      "mtime": 1794273282.3659089,
+      "size": 474
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/02_random.csharp.d.ps": {
+      "sha256": "2d7837a35974ba4871dcb9a761e61b62314c4dc3b80427bb8ca8a1d1a452b15a",
+      "mtime": 1794273282.366295,
+      "size": 15259
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_bounded_integers/00__bounded_integers.primitives.d.ps": {
+      "sha256": "62351b4ea55a7bd0082ea6fa75ed9a82413f1e920e338500af1263d4b466b6b0",
+      "mtime": 1794273282.3673503,
+      "size": 573
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_bounded_integers/02__bounded_integers.csharp.d.ps": {
+      "sha256": "1bed00e0ffeca51fa5e18157eec1f9d6754bcd893dd02f21b2f327715406e97a",
+      "mtime": 1794273282.3678255,
+      "size": 769
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_common/00__common.primitives.d.ps": {
+      "sha256": "c3b22fdbdec531b422d91f354d57a1acc0bcb140a63bebb66beec7c577a70481",
+      "mtime": 1794273282.3695085,
+      "size": 945
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_common/02__common.csharp.d.ps": {
+      "sha256": "3cd5f345959aae083d79d6d46a58846e91da755a7e99b797310ad1d9e0f9c544",
+      "mtime": 1794273282.3699071,
+      "size": 2518
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_examples/cffi/extending/00_extending.primitives.d.ps": {
+      "sha256": "d0a958e4559c9cf418cc8dd4dd7007e52181cdc021b388db946718da95dab964",
+      "mtime": 1794273282.3710473,
+      "size": 602
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_examples/cffi/extending/02_extending.csharp.d.ps": {
+      "sha256": "70cf8c9e89af00b71fa3a462966bd6df5bf1ab71021fe9067281e6ed484ab11f",
+      "mtime": 1794273282.3713448,
+      "size": 472
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_examples/cffi/parse/00_parse.primitives.d.ps": {
+      "sha256": "de4bbc9b740c9d67a044adcd40cbf629e0b71ca85584350ccdeef4d8c11477f1",
+      "mtime": 1794273282.3722644,
+      "size": 578
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_examples/cffi/parse/02_parse.csharp.d.ps": {
+      "sha256": "c9fb43162763d104b3118d8a3a000ba11c3ab6ec11a87c5e7dd04f4d5f7338ef",
+      "mtime": 1794273282.3725402,
+      "size": 810
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_examples/numba/extending/00_extending.primitives.d.ps": {
+      "sha256": "fcaa446c9247cc73467164396a1ee5386673581140c085a5bf894ccdd8dd63fe",
+      "mtime": 1794273282.3741055,
+      "size": 607
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_examples/numba/extending/02_extending.csharp.d.ps": {
+      "sha256": "7f89bb2b65f3ab8d8ddefd8035efd03bd1bc0021c336ff251430cb8228cfde6f",
+      "mtime": 1794273282.3744292,
+      "size": 1865
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_examples/numba/extending_distributions/00_extending_distributions.primitives.d.ps": {
+      "sha256": "5b958ab441af651827a000dc54db17ba469525cad598f5e52d2c4b3468b71632",
+      "mtime": 1794273282.3755066,
+      "size": 689
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_examples/numba/extending_distributions/02_extending_distributions.csharp.d.ps": {
+      "sha256": "11a8f053e0e96e02a40c0061065a0c09b228b737093467ee85390ed4688f5dac",
+      "mtime": 1794273282.3759,
+      "size": 937
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_generator/00__generator.primitives.d.ps": {
+      "sha256": "51158b925c6363a95efebd0783cda6129d1eee6ed3de17e0a975a8e968875c16",
+      "mtime": 1794273282.4233615,
+      "size": 22401
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_generator/02__generator.csharp.d.ps": {
+      "sha256": "e56941102dc5f2e6c0890664319651e5a9a535d70e72d51bab9487d1cac436e8",
+      "mtime": 1794273282.4246771,
+      "size": 43046
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_mt19937/00__mt19937.primitives.d.ps": {
+      "sha256": "bbb8ea13729348ce792f708fb12dac1f1645db086453726c2822edbe7f6cd4c9",
+      "mtime": 1794273282.4286706,
+      "size": 1241
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_mt19937/02__mt19937.csharp.d.ps": {
+      "sha256": "a1d527b8eafbd9c6e7e04fefcabc31d388338eb0afc77c9c0b022f2224683023",
+      "mtime": 1794273282.4290469,
+      "size": 3371
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_pcg64/00__pcg64.primitives.d.ps": {
+      "sha256": "00b548896d6793f70f7ae8945559f68921cefa274de1178b26ddeda0256d5b38",
+      "mtime": 1794273282.4320452,
+      "size": 1783
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_pcg64/02__pcg64.csharp.d.ps": {
+      "sha256": "edfdc109ecbb04857b5836e415422cb4e8e8285e33157faea194a9e44a6fb75b",
+      "mtime": 1794273282.4324496,
+      "size": 4055
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_philox/00__philox.primitives.d.ps": {
+      "sha256": "8fce924b5677426a37d9d606737bacff6bc64a8a2e2b547912cd3300bdd42e73",
+      "mtime": 1794273282.4352818,
+      "size": 1617
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_philox/02__philox.csharp.d.ps": {
+      "sha256": "90579ddd6694efa4dc51c26b2e0e4594aaa8862fc6dc809f8ee8a7e08b6c093e",
+      "mtime": 1794273282.4357002,
+      "size": 4194
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_pickle/00__pickle.primitives.d.ps": {
+      "sha256": "f9f5b7358cf3350779f8b3a34bcc3c6e34eaaef26067aa3ae5b1875d6ee85638",
+      "mtime": 1794273282.437744,
+      "size": 850
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_pickle/02__pickle.csharp.d.ps": {
+      "sha256": "c275ce144a2885354b4a53dd2c96cbfbea0eb606842e823c85dae0a44a60ec3b",
+      "mtime": 1794273282.4381375,
+      "size": 3543
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_sfc64/00__sfc64.primitives.d.ps": {
+      "sha256": "190f22103f37030a27d160cb49e23491ac85794f23537f760b244b8683cbc523",
+      "mtime": 1794273282.4416072,
+      "size": 1204
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/_sfc64/02__sfc64.csharp.d.ps": {
+      "sha256": "14e6524e7560d01ca59d7a651bdc1036fe8a433558f94b6645847e985aa7e769",
+      "mtime": 1794273282.4419384,
+      "size": 3295
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/bit_generator/00_bit_generator.primitives.d.ps": {
+      "sha256": "4d69b6aa8e12a92c373f7160f52367abe7eff734048afda59183ca7bc194c444",
+      "mtime": 1794273282.4483607,
+      "size": 4565
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/bit_generator/02_bit_generator.csharp.d.ps": {
+      "sha256": "21c7c8e3d8538365d03b4c91b300081a50d7a337d42b1393565f3f725910d704",
+      "mtime": 1794273282.449603,
+      "size": 11926
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/mtrand/00_mtrand.primitives.d.ps": {
+      "sha256": "a92b349a3a7db4d5f86a181ba94e0d54caad35f265b4ad4408afa49702b6b85d",
+      "mtime": 1794273282.4948177,
+      "size": 13971
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/random/mtrand/02_mtrand.csharp.d.ps": {
+      "sha256": "8476e4cd5e234f5d51895ef1fed4ce1c0f6ee16e0e7ee21364906baf6220c4da",
+      "mtime": 1794273282.4953353,
+      "size": 40318
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/rec/00_rec.primitives.d.ps": {
+      "sha256": "e6e50d18c072f3f5f8215cacf08d5e07c27de3f19d072ea1cd0326c10a222f4f",
+      "mtime": 1794273282.5006282,
+      "size": 456
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/rec/02_rec.csharp.d.ps": {
+      "sha256": "6842c0ffb64c23d3e2e9de4e9b14d11aefd0133ac157b4bdf1cf5b7db029e66f",
+      "mtime": 1794273282.5008943,
+      "size": 4054
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/strings/00_strings.primitives.d.ps": {
+      "sha256": "4cef679a14593568cab6854ba1b201775b90286c2530607ef9bbc4eb5a4dc74a",
+      "mtime": 1794273282.5165005,
+      "size": 480
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/strings/02_strings.csharp.d.ps": {
+      "sha256": "cf6ca74badf58b3299ac8228cb6a0b64eb18f6d745a953280c2a39e7a846eab4",
+      "mtime": 1794273282.516863,
+      "size": 9677
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/typing/00_typing.primitives.d.ps": {
+      "sha256": "6c1f304b838eed3a8d6bf4341eca00344b9d692461bea8e600a26a3874659c43",
+      "mtime": 1794273282.518481,
+      "size": 474
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/typing/02_typing.csharp.d.ps": {
+      "sha256": "397301a0b63b60ea393e681fe5951afb82d937f0a03288f0da2ec74c1ce4bcc1",
+      "mtime": 1794273282.5189366,
+      "size": 1973
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/typing/mypy_plugin/00_mypy_plugin.primitives.d.ps": {
+      "sha256": "e897b41e2bcfd227259b0d9ccc0ab45670f74dda2f6cc69e3a1e283ef2077079",
+      "mtime": 1794273282.5210114,
+      "size": 537
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/typing/mypy_plugin/02_mypy_plugin.csharp.d.ps": {
+      "sha256": "f5b9f5cdd54908e137014b53276ec28d43427ee383163130e4788c4a2f69b82d",
+      "mtime": 1794273282.5215285,
+      "size": 1910
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/version/00_version.primitives.d.ps": {
+      "sha256": "48a32847be27cb3ec6df68f4ae3adab9662b6712505a84cb598f23287851e201",
+      "mtime": 1794273282.5236247,
+      "size": 480
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/numpy/numpy/version/02_version.csharp.d.ps": {
+      "sha256": "2a8ee8cf35f5ecc30e69a940ad6dae10cfc6e6d486f2367b4e7112be34f775a3",
+      "mtime": 1794273282.5240757,
+      "size": 1947
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/00_attributes.d.ps": {
+      "sha256": "36b64cd04420d389ed84dfdd4db65aace410ad442ec3a6d9965646a4055ad821",
+      "mtime": 1793464080.8828561,
+      "size": 2305
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/01_contracts.d.ps": {
+      "sha256": "0bcfb2e78e4384e495e6b02caffbcf28fe5e31e8fc7ee388bea3ef7eeb330acb",
+      "mtime": 1793464573.6832237,
+      "size": 4013
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/02_primitives.d.ps": {
+      "sha256": "fb193d96bb0674eaf174424a05c75e70f230d740e93398b4d3ed08aa5446add9",
+      "mtime": 1794158334.4086375,
+      "size": 23077
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/03_builtins.raw.d.ps": {
+      "sha256": "c7af5f14ddf1a59d135de55bc2b0b02ae72dc5b671052965b98962ec6f1e9bf5",
+      "mtime": 1793464080.883746,
+      "size": 4021
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/04_builtins.csharp.d.ps": {
+      "sha256": "fe57dd2b1012ea4b40fdf8cb23c0ec399490fdae5c7b042c7d46f7d03f4983bc",
+      "mtime": 1793464080.8840315,
+      "size": 3393
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/05_core.enterprise.d.ps": {
+      "sha256": "66caaacf57e04d4d4b961ea20c70dcf089f4ae6006799f41f6704dbedb02f217",
+      "mtime": 1793464080.8843095,
+      "size": 3302
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/contextlib_subprocess/00_contextlib.primitives.d.ps": {
+      "sha256": "e94102482c9e3e58a9f0efa85ca840b9951cf6fa7e9e8157d01135e3cb1a02f1",
+      "mtime": 1793464080.8971665,
+      "size": 2842
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/contextlib_subprocess/01_contextlib.raw.d.ps": {
+      "sha256": "6671a67e545b7740e598941d994c82cb1c6b25405ed214264b81b7fff689f9ab",
+      "mtime": 1793468315.1744256,
+      "size": 1314
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/contextlib_subprocess/02_contextlib.csharp.d.ps": {
+      "sha256": "b05f9bf997d07cb373ecb0795adb22d2df282ec11df8d4f35bd2b024d6bd168a",
+      "mtime": 1793468327.8042042,
+      "size": 1194
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/contextlib_subprocess/03_processes.enterprise.d.ps": {
+      "sha256": "a2b1a1a651cf4bab206437081a6afa9751a448615f898d233482723466666edd",
+      "mtime": 1793468341.286606,
+      "size": 1119
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/json/00_json.primitives.d.ps": {
+      "sha256": "7a87922da4004af89d60c9fd8b0ae1167ccac5919cdb4e2a348714021a75adbb",
+      "mtime": 1793464080.8870032,
+      "size": 1068
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/json/01_json.raw.d.ps": {
+      "sha256": "7056e82d8b2e4b5729a755ff31439078adbb7b4ae49a91fbc853e64c5c818265",
+      "mtime": 1793464080.8872252,
+      "size": 1123
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/json/02_json.csharp.d.ps": {
+      "sha256": "70fe6a4927907dc8aa5a47a55f56f3c345515690c32c77cd2c0b695c5a33402b",
+      "mtime": 1793464080.8874395,
+      "size": 1026
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/json/03_serialization.enterprise.d.ps": {
+      "sha256": "8f9b5f0dde02401bcf7b11dba99b5674dae26c0f70d8e3ad6e6558057e1655ce",
+      "mtime": 1793466419.9061885,
+      "size": 955
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/logging/00_logging.primitives.d.ps": {
+      "sha256": "12c80ec9e9fb4b4b342b4e8616cae10c672132cf6f08603a501264f493c637e8",
+      "mtime": 1793464080.892265,
+      "size": 3125
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/logging/01_logging.raw.d.ps": {
+      "sha256": "4e632115536938487d8a26f46f7b58aa4e96dea820f01b966685bef8cd820c3d",
+      "mtime": 1793464080.893275,
+      "size": 1409
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/logging/02_logging.csharp.d.ps": {
+      "sha256": "c0dbdc24d903f8f4f05b89fd1c35acdefff85232e2bc6831d91fb68e1433b9d4",
+      "mtime": 1793464080.8935652,
+      "size": 1313
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/logging/03_logging.enterprise.d.ps": {
+      "sha256": "58bcab63e2d48c610c42a82214bb72d0d55c0698c3001d2750987f6b9e0500c2",
+      "mtime": 1793464080.893919,
+      "size": 713
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/os_shutil/00_os.primitives.d.ps": {
+      "sha256": "d341b77a895b3b550d07b5489dc4a706c63fdac6725e9c59da21967295751bff",
+      "mtime": 1793464080.8850002,
+      "size": 2703
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/os_shutil/01_os.raw.d.ps": {
+      "sha256": "94a5a208bfcdd69230964303e473877f7b4d98ad6f3c53dbf6020678dddbdd90",
+      "mtime": 1793467356.9960291,
+      "size": 5270
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/os_shutil/02_os.csharp.d.ps": {
+      "sha256": "e2ad163325418ba30404277e06e26d5bb4df89c9276d1097c0a0ec58649686f7",
+      "mtime": 1793467363.782007,
+      "size": 4719
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/os_shutil/03_io.enterprise.d.ps": {
+      "sha256": "dc990dce5c994cd4c66414ae3986b3c73cc132a10403741700fd157a42c00e67",
+      "mtime": 1793467368.4799914,
+      "size": 3542
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/pathlib_hashlib_uuid/00_pathlib.primitives.d.ps": {
+      "sha256": "7c4783c5deae4a3d41deb6b4d74762970a66727087d7cd6ab1004a034c4a505f",
+      "mtime": 1793464080.898241,
+      "size": 3771
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/pathlib_hashlib_uuid/01_pathlib.raw.d.ps": {
+      "sha256": "d33d02da1ff42538fff06ece9f4f06b060557f62f010158988621365a39095c1",
+      "mtime": 1793464080.898502,
+      "size": 1148
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/pathlib_hashlib_uuid/02_pathlib.csharp.d.ps": {
+      "sha256": "7595120f431bbc97a6eee82215aadebed6fb4c3699ef6e5e4c64b852a59a232d",
+      "mtime": 1793464080.8987525,
+      "size": 1051
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/pathlib_hashlib_uuid/03_security.enterprise.d.ps": {
+      "sha256": "10d54743eb7372f612045cc1d8f9b4548efd0fb9c9c00ea8ff5c53721c836f82",
+      "mtime": 1793464080.8989737,
+      "size": 991
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/re/00_re.primitives.d.ps": {
+      "sha256": "9ebdee71dc3651f15016d555ec6c451b03486ec7d8ada0317a42333c67d08ea9",
+      "mtime": 1793464080.8879056,
+      "size": 3024
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/re/01_re.raw.d.ps": {
+      "sha256": "8f9ac6a5ead5e33c06220496abdcbd340d8da7a05e5875297ae096991a2b4f3e",
+      "mtime": 1793464080.8881066,
+      "size": 1616
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/re/02_re.csharp.d.ps": {
+      "sha256": "c17f7bc49fe7985f651949dbfb5ef328564419c2b1ae68b6cf25fe481915da96",
+      "mtime": 1793464080.8882985,
+      "size": 1455
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/re/03_regex.enterprise.d.ps": {
+      "sha256": "a247983be3f82078c13693dc8552f85c77abf2ab14eaffe167a30557fbb78817",
+      "mtime": 1793464080.888532,
+      "size": 1042
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/sys/00_sys.primitives.d.ps": {
+      "sha256": "398e9819cbc4243e6cab2e1548a06da32d11e5c2d21e7167a50c33329288ea68",
+      "mtime": 1793464080.8861191,
+      "size": 2480
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/sys/01_sys.raw.d.ps": {
+      "sha256": "7c17c4bc81a09fda735d0b8ba4eb15d3b85312f1ac0126b07724d54b3dbb3e6d",
+      "mtime": 1793464080.8863328,
+      "size": 1646
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/sys/02_sys.csharp.d.ps": {
+      "sha256": "93b756735f6146a6a84419d8231c3476d2a06ac884b4093e99e3bbe4c37e1ef6",
+      "mtime": 1793464080.8865335,
+      "size": 1448
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/sys/03_runtime.enterprise.d.ps": {
+      "sha256": "51233b6f6fc8f1dbbee388c287d140b8d3ff48c145333559553c62b537cc9e89",
+      "mtime": 1793464080.8867545,
+      "size": 990
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/time_datetime/00_time.primitives.d.ps": {
+      "sha256": "aa367000a98835556ef7f12867946c6af62f0cc3c4270e71ed703ff2b384a948",
+      "mtime": 1793464080.8888724,
+      "size": 2175
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/time_datetime/01_time.raw.d.ps": {
+      "sha256": "2ec1a2371df0dd0bb50812bbdf530855347da43f881391b0b14aab80f0bc7267",
+      "mtime": 1793464080.88956,
+      "size": 1917
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/time_datetime/02_time.csharp.d.ps": {
+      "sha256": "f1e976b183cb682e74ea098b81b1ec4c87a28c9621b653c8f66972417927c41e",
+      "mtime": 1793464080.8905241,
+      "size": 1666
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/time_datetime/03_clock.enterprise.d.ps": {
+      "sha256": "f0110024967630513e902c9665838d7c18d88eb2d4df4a7186144dd74b2f20b4",
+      "mtime": 1793464080.8912392,
+      "size": 1171
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/urllib_http/00_urllib.primitives.d.ps": {
+      "sha256": "2679effe312e788477c9777a55328beb9240b5b04230a1bbc83f4dc5d66245e7",
+      "mtime": 1793464080.8943167,
+      "size": 1478
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/urllib_http/01_urllib.raw.d.ps": {
+      "sha256": "0fe98b2c5dc5ad90330cac25cf702e25b2ed0405e24bce7128a4af91ee6b3d04",
+      "mtime": 1793464080.8946865,
+      "size": 1335
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/urllib_http/02_urllib.csharp.d.ps": {
+      "sha256": "ed80307fac087e025fcd8865690936cf63a492173dbd26b9b46d9e49764edc18",
+      "mtime": 1793464080.8953054,
+      "size": 1265
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/urllib_http/03_http.enterprise.d.ps": {
+      "sha256": "2bf3ddabbd0f49c545d1f6cbe814ff501e4291ad80de1ecda70ceff14443987f",
+      "mtime": 1793464080.8964922,
+      "size": 786
+    },
+    "ProjMain.ps": {
+      "sha256": "e66dfc95575770df53fed5cd01268c4df417cf72d16ca7e08c876d5b0a92b05b",
+      "mtime": 1794273605.350005,
+      "size": 1647
+    },
+    "TestUtil.ps": {
+      "sha256": "f8637daa7c8453f708365ffb5b2ff297fdc4e2edb0d28c79066473e0b6b91dfd",
+      "mtime": 1794271373.4955747,
+      "size": 190
+    }
+  },
+  "outputs": [
+    "numpy_demo.py",
+    "numpy_demo.pyc"
+  ]
+}

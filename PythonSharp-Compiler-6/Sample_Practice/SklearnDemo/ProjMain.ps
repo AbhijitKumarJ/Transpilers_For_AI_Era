@@ -1,0 +1,54 @@
+namespace SklearnDemo;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Sklearn.Datasets;
+using PythonSharp.Bridge.Sklearn.ModelSelection;
+using PythonSharp.Bridge.Sklearn.Ensemble;
+using PythonSharp.Bridge.Sklearn.Metrics;
+
+public class ProjMain
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("SklearnDemo - Machine Learning Classification Pipeline");
+        TestUtil.Log("Loading benchmark Iris dataset via Datasets.LoadIris()");
+
+        var iris = Datasets.LoadIris();
+        var X = iris.data;
+        var y = iris.target;
+        var featureNames = iris.feature_names;
+        var targetNames = iris.target_names;
+
+        Console.WriteLine($"Dataset Loaded Successfully!");
+        Console.WriteLine($"Target Classes: {string.Join(", ", targetNames)}");
+        Console.WriteLine($"Feature Count: {len(featureNames)}");
+
+        // 1. Partition Data into Train & Test Sets
+        TestUtil.Log("Splitting dataset into training (80%) and test (20%) sets");
+        var split = ModelSelection.TrainTestSplit(X, y, test_size: 0.20, random_state: 42);
+        var xTrain = split[0];
+        var xTest = split[1];
+        var yTrain = split[2];
+        var yTest = split[3];
+
+        Console.WriteLine($"Training Samples: {len(xTrain)}, Test Samples: {len(xTest)}");
+
+        // 2. Instantiate and Train Random Forest Classifier
+        TestUtil.Log("Instantiating RandomForestClassifier (n_estimators=50)");
+        var clf = Ensemble.RandomForestClassifier(n_estimators: 50, random_state: 42);
+
+        TestUtil.Log("Fitting model on training features and labels");
+        clf.Fit(xTrain, yTrain);
+
+        // 3. Inference and Metric Evaluation
+        TestUtil.Log("Running inference on holdout test partition");
+        var yPred = clf.Predict(xTest);
+
+        var accuracy = Metrics.AccuracyScore(yTest, yPred);
+        Console.WriteLine($"--- Evaluation Report ---");
+        Console.WriteLine($"Holdout Accuracy Score: {accuracy * 100.0:F2}%");
+
+        TestUtil.Log("Pipeline execution and model inference succeeded!");
+        Console.WriteLine("SklearnDemo - Completed Successfully!");
+    }
+}

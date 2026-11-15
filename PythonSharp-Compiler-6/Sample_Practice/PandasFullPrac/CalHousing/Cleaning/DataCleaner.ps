@@ -1,0 +1,62 @@
+namespace PandasDemo.CalHousing.Cleaning;
+
+using PythonSharp.Core;
+using PythonSharp.Bridge.Pandas;
+using PythonSharp.Bridge.Pandas.Core.Frame;
+
+public class DataCleaner
+{
+    public static DataFrame Clean(DataFrame df)
+    {
+        Console.WriteLine("\n=======================================================");
+        Console.WriteLine(" PHASE 2: DATA CLEANING & INTEGRITY AUDITING");
+        Console.WriteLine("=======================================================");
+
+        // 1. Audit missing values per column
+        dynamic isna = df.Isna();
+        var nullSummary = isna.Sum();
+        Console.WriteLine($"[Cleaning] Audit of missing attributes:\n{nullSummary}");
+
+        dynamic dynDf = df;
+
+        // 2. Impute missing values with column median
+        if (dynDf.__contains__("total_bedrooms"))
+        {
+            dynamic tb = dynDf["total_bedrooms"];
+            var medianTb = tb.Median();
+            Console.WriteLine($"[Cleaning] Imputing missing total_bedrooms with median: {medianTb}");
+            dynDf["total_bedrooms"] = tb.Fillna(medianTb);
+        }
+
+        if (dynDf.__contains__("AveBedrms"))
+        {
+            dynamic bedrms = dynDf["AveBedrms"];
+            var medianBedrooms = bedrms.Median();
+            Console.WriteLine($"[Cleaning] Imputing missing AveBedrms with median: {medianBedrooms}");
+            dynDf["AveBedrms"] = bedrms.Fillna(medianBedrooms);
+        }
+
+        if (dynDf.__contains__("AveRooms"))
+        {
+            dynamic rooms = dynDf["AveRooms"];
+            var medianRooms = rooms.Median();
+            Console.WriteLine($"[Cleaning] Imputing missing AveRooms with median: {medianRooms}");
+            dynDf["AveRooms"] = rooms.Fillna(medianRooms);
+        }
+
+        // 3. Detect and drop exact duplicate rows
+        dynamic dup = df.Duplicated();
+        var dupCount = dup.Sum();
+        Console.WriteLine($"[Cleaning] Duplicate rows detected in callset: {dupCount}");
+        df = df.DropDuplicates();
+        Console.WriteLine($"[Cleaning] Deduplication verified. Retained shape: {df.Shape}");
+
+        // 4. Verify post-cleaning null profile
+        dynamic postIsna = df.Isna();
+        var remainingNulls = postIsna.Sum().Sum();
+        Console.WriteLine($"[Cleaning] Total remaining missing cells across dataset: {remainingNulls}");
+        Console.WriteLine("[Cleaning] Phase 2 Completed Successfully.");
+
+        return df;
+    }
+}

@@ -1,0 +1,17 @@
+// Auto-generated ambient declarations by PythonSharp (psc)
+namespace NumpyFullPrac.NeuralNet.Data;
+
+using PythonSharp.Core;
+
+public record BatchPair(NDArray<double> Features, NDArray<double> Targets);
+
+public class DatasetGenerator
+{
+    public static extern BatchPair GenerateXOR();
+    public static extern BatchPair Generate3ClassClusters(int samplesPerClass = 40);
+}
+
+public class MiniBatchIterator
+{
+    public static extern List<BatchPair> CreateBatches(NDArray<double> x, NDArray<double> y, int batchSize, bool shuffle = true);
+}

@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "micro_context_lib.py",
+      "namespace": [
+        "MicroContextLib"
+      ],
+      "primary_ps": "ContextEngine.ps",
+      "py": "micro_context_lib.py",
+      "pyc": "micro_context_lib.pyc"
+    }
+  ],
+  "schema_version": 1
+}

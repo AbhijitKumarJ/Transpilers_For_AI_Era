@@ -1,0 +1,11 @@
+<Project Sdk="PythonSharp.Sdk/0.1.0">
+  <PropertyGroup>
+    <AssemblyName>PolarsDataFrame</AssemblyName>
+    <TargetFramework>py3.11</TargetFramework>
+    <EmitPyc>false</EmitPyc>
+  </PropertyGroup>
+  <ItemGroup>
+    <PyPiPackage Include="polars" Version=">=0.20.0" />
+  </ItemGroup>
+</Project>
+

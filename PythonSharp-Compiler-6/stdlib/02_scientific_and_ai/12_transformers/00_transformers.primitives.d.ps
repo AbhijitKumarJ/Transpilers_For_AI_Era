@@ -1,0 +1,78 @@
+namespace PythonSharp.ArtificialIntelligence.LanguageModels;
+
+using PythonSharp.Core;
+using PythonSharp.DeepLearning;
+extern using transformers as _hf;
+
+[MapsTo("transformers.PreTrainedTokenizerBase")]
+[RuntimeType("object")]
+public primitive class PretrainedTextTokenizer
+{
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [InlineTemplate("{self}({0}, return_tensors='pt', padding={1}, truncation={2})")]
+    public extern Dict<string, TorchTensor<int>> EncodeTextToPyTorchTensors(string inputText, bool padToMaxLength = true, bool truncateToMaxLength = true);
+
+    [InlineTemplate("{self}.decode({0}, skip_special_tokens={1})")]
+    public extern string DecodeTokenIdsToString(TorchTensor<int> tokenIds, bool skipSpecialTokens = true);
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.LanguageModels.PretrainedTextTokenizer.EncodeTextToPyTorchTensors")]
+    [InlineTemplate("{self}({0}, return_tensors='pt', padding={1}, truncation={2})")]
+    public extern Dict<string, TorchTensor<int>> TokenizeToPt(string text, bool padding = true, bool truncation = true);
+
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.LanguageModels.PretrainedTextTokenizer.DecodeTokenIdsToString")]
+    [InlineTemplate("{self}.decode({0}, skip_special_tokens={1})")]
+    public extern string Decode(TorchTensor<int> tokenIds, bool skipSpecialTokens = true);
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.LanguageModels.PretrainedTextTokenizer.EncodeTextToPyTorchTensors", "TokenizeToPt")]
+    [InlineTemplate("{self}({0}, return_tensors={1}, padding={2}, truncation={3})")]
+    public extern Dict<string, TorchTensor<int>> encode_batch(string text, string return_tensors = "pt", bool padding = true, bool truncation = true);
+
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.LanguageModels.PretrainedTextTokenizer.DecodeTokenIdsToString", "Decode")]
+    [InlineTemplate("{self}.decode({0}, skip_special_tokens={1})")]
+    public extern string decode(TorchTensor<int> token_ids, bool skip_special_tokens = true);
+}
+
+[MapsTo("transformers.PreTrainedModel")]
+[RuntimeType("object")]
+public primitive class PretrainedTransformerModel
+{
+    [MapsTo("to")]
+    public extern PretrainedTransformerModel MoveModelToDevice(string targetDeviceName);
+
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.LanguageModels.PretrainedTransformerModel.MoveModelToDevice")]
+    [MapsTo("to")]
+    public extern PretrainedTransformerModel To(string device);
+
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.LanguageModels.PretrainedTransformerModel.MoveModelToDevice", "To")]
+    [MapsTo("to")]
+    public extern PretrainedTransformerModel to(string device);
+
+    [MapsTo("eval")]
+    public extern PretrainedTransformerModel SetEvaluationInferenceMode();
+
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.LanguageModels.PretrainedTransformerModel.SetEvaluationInferenceMode")]
+    [MapsTo("eval")]
+    public extern PretrainedTransformerModel Eval();
+
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.LanguageModels.PretrainedTransformerModel.SetEvaluationInferenceMode", "Eval")]
+    [MapsTo("eval")]
+    public extern PretrainedTransformerModel eval();
+}
+
+[MapsTo("transformers.Pipeline")]
+[RuntimeType("object")]
+public primitive class InferenceTaskPipeline
+{
+    [InlineTemplate("{self}({0})")]
+    public extern List<Dict<string, object>> RunInferenceOnText(string promptOrDocument);
+
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.LanguageModels.InferenceTaskPipeline.RunInferenceOnText")]
+    [InlineTemplate("{self}({0})")]
+    public extern List<Dict<string, object>> Invoke(string text);
+
+    [CanonicalApi("PythonSharp.ArtificialIntelligence.LanguageModels.InferenceTaskPipeline.RunInferenceOnText", "Invoke")]
+    [InlineTemplate("{self}({0})")]
+    public extern List<Dict<string, object>> run(string text);
+}

@@ -1,0 +1,24 @@
+// Auto-generated ambient declarations by PythonSharp (psc)
+namespace NumpyFullPrac.NeuralNet.Attention;
+
+using PythonSharp.Core;
+
+public class MultiHeadAttention
+{
+    public int ModelDim;
+    public int NumHeads;
+    public int HeadDim;
+    public NDArray<double> Wq;
+    public NDArray<double> Wk;
+    public NDArray<double> Wv;
+    public NDArray<double> Wo;
+    public extern MultiHeadAttention(int modelDim, int numHeads);
+    public extern NDArray<double> Forward(NDArray<double> x, bool useCausalMask = false);
+}
+
+public class ScaledDotProductAttention
+{
+    public NDArray<double> AttentionWeights;
+    public extern ScaledDotProductAttention();
+    public extern NDArray<double> Forward(NDArray<double> q, NDArray<double> k, NDArray<double> v, bool useCausalMask = false);
+}

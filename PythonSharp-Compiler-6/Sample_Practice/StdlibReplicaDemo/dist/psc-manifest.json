@@ -1,0 +1,17 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "d_ps": "stdlib_replica_demo.d.ps",
+      "module": "stdlib_replica_demo.py",
+      "namespace": [
+        "StdlibReplicaDemo"
+      ],
+      "primary_ps": "ProjMain.ps",
+      "py": "stdlib_replica_demo.py",
+      "pyc": "stdlib_replica_demo.pyc"
+    }
+  ],
+  "schema_version": 1
+}

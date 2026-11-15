@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "micro_fn.py",
+      "namespace": [
+        "MicroFn"
+      ],
+      "primary_ps": "Fn.ps",
+      "py": "micro_fn.py",
+      "pyc": "micro_fn.pyc"
+    }
+  ],
+  "schema_version": 1
+}

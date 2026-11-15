@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "triple_surface_migration.py",
+      "namespace": [
+        "TripleSurfaceMigration"
+      ],
+      "primary_ps": "Program.ps",
+      "py": "triple_surface_migration.py",
+      "pyc": null
+    }
+  ],
+  "schema_version": 1
+}

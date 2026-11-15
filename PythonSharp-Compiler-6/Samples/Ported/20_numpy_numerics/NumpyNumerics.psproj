@@ -1,0 +1,8 @@
+<Project Sdk="PythonSharp.Sdk/0.1.0">
+  <PropertyGroup>
+    <AssemblyName>NumpyNumerics</AssemblyName>
+    <TargetFramework>py3.11</TargetFramework>
+    <EmitPyc>false</EmitPyc>
+  </PropertyGroup>
+</Project>
+

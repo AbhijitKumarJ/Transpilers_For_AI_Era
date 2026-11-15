@@ -1,0 +1,31 @@
+namespace qiskit;
+
+using PythonSharp.Core;
+using PythonSharp.QuantumComputing;
+extern using qiskit as _qk;
+extern using qiskit.quantum_info as _qi;
+
+[SurfaceLevel(2)]
+[MapsTo("_qi")]
+public static primitive class QuantumInfoModule
+{
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumSimulator.SimulateStatevectorFromCircuit", "PythonSharp.Qiskit.qk.QuantumInfo.FromInstruction")]
+    [InlineTemplate("_qi.Statevector.from_instruction({0})")]
+    public static extern QuantumStatevector from_instruction(QuantumRegisterCircuit circuit);
+}
+
+[SurfaceLevel(2)]
+[MapsTo("_qk")]
+public static primitive class qk
+{
+    [InlineTemplate("_qi")]
+    public static extern QuantumInfoModule quantum_info { get; }
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumCircuitFactory.CreateQuantumCircuit", "PythonSharp.Qiskit.qk.CreateCircuit")]
+    [InlineTemplate("_qk.QuantumCircuit({0})")]
+    public static extern QuantumRegisterCircuit QuantumCircuit(int num_qubits);
+
+    [CanonicalApi("PythonSharp.QuantumComputing.QuantumCircuitFactory.CreateQuantumAndClassicalCircuit", "PythonSharp.Qiskit.qk.CreateCircuit")]
+    [InlineTemplate("_qk.QuantumCircuit({0}, {1})")]
+    public static extern QuantumRegisterCircuit QuantumCircuit(int num_qubits, int num_clbits);
+}

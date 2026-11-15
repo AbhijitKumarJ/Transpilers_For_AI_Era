@@ -1,0 +1,39 @@
+namespace NumpyFullPrac.NeuralNet.Optimizers;
+
+extern using numpy as _np;
+using PythonSharp.Core;
+
+public class CosineScheduler
+{
+    public double BaseLr;
+    public double MinLr;
+    public int TotalSteps;
+    public int CurrentStep;
+
+    public CosineScheduler(double baseLr, double minLr, int totalSteps)
+    {
+        this.BaseLr = baseLr;
+        this.MinLr = minLr;
+        this.TotalSteps = totalSteps;
+        this.CurrentStep = 0;
+    }
+
+    public double GetLearningRate()
+    {
+        if (this.CurrentStep >= this.TotalSteps)
+        {
+            return this.MinLr;
+        }
+
+        double progress = (1.0 * this.CurrentStep) / (1.0 * this.TotalSteps);
+        dynamic cosVal = _np.cos(3.141592653589793 * progress);
+        dynamic computed = this.MinLr + (0.5 * (this.BaseLr - this.MinLr) * (1.0 + cosVal));
+        double lr = computed;
+        return lr;
+    }
+
+    public void Step()
+    {
+        this.CurrentStep = this.CurrentStep + 1;
+    }
+}

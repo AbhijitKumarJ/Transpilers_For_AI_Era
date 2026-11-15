@@ -1,0 +1,23 @@
+namespace NumpyFullPrac.NeuralNet.Activations;
+
+extern using numpy as _np;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+
+public class TanhActivation
+{
+    public static NDArray<double> Forward(NDArray<double> z)
+    {
+        dynamic dynZ = z;
+        dynamic result = _np.tanh(dynZ);
+        return result;
+    }
+
+    public static NDArray<double> Backward(NDArray<double> a)
+    {
+        // Derivative: 1.0 - a^2
+        dynamic dynA = a;
+        dynamic result = 1.0 - (dynA * dynA);
+        return result;
+    }
+}

@@ -1,0 +1,174 @@
+namespace PythonSharp.Samples.SympyMath;
+
+using PythonSharp.Core;
+using PythonSharp.SymbolicMath;
+using SymPySharp = PythonSharp.SymPy.sp;
+using RawSympy = sympy.sp;
+
+public record KinematicsState(double Time, double Position, double Velocity, double Acceleration);
+
+public class SymbolicPoint2D
+{
+    public double X { get; set; }
+    public double Y { get; set; }
+
+    public SymbolicPoint2D(double x, double y)
+    {
+        X = x;
+        Y = y;
+    }
+
+    public static SymbolicPoint2D operator +(SymbolicPoint2D a, SymbolicPoint2D b)
+    {
+        return new SymbolicPoint2D(a.X + b.X, a.Y + b.Y);
+    }
+
+    public static SymbolicPoint2D operator -(SymbolicPoint2D a, SymbolicPoint2D b)
+    {
+        return new SymbolicPoint2D(a.X - b.X, a.Y - b.Y);
+    }
+
+    public static SymbolicPoint2D operator -(SymbolicPoint2D a)
+    {
+        return new SymbolicPoint2D(-a.X, -a.Y);
+    }
+
+    public static SymbolicPoint2D operator *(SymbolicPoint2D a, double scalar)
+    {
+        return new SymbolicPoint2D(a.X * scalar, a.Y * scalar);
+    }
+
+    public double MagnitudeSquared()
+    {
+        return X * X + Y * Y;
+    }
+}
+
+public class PhysicsKinematicsService
+{
+    public SymbolicVariable TimeVariable { get; set; }
+    public SymbolicExpression PositionExpression { get; set; }
+    public SymbolicExpression VelocityExpression { get; set; }
+    public SymbolicExpression AccelerationExpression { get; set; }
+
+    public PhysicsKinematicsService(string positionFormula)
+    {
+        TimeVariable = SymbolFactory.DeclareSymbol("t");
+        PositionExpression = SymbolFactory.ParseSymbolicExpression(positionFormula);
+        VelocityExpression = SymbolicCalculus.DifferentiateWithRespectTo(PositionExpression, TimeVariable, 1);
+        AccelerationExpression = SymbolicCalculus.DifferentiateWithRespectTo(PositionExpression, TimeVariable, 2);
+    }
+
+    public KinematicsState SampleTrajectory(double timePoint)
+    {
+        var posSub = PositionExpression.SubstituteVariable(TimeVariable, timePoint);
+        var velSub = VelocityExpression.SubstituteVariable(TimeVariable, timePoint);
+        var accSub = AccelerationExpression.SubstituteVariable(TimeVariable, timePoint);
+
+        return new KinematicsState(
+            timePoint,
+            posSub.EvaluateNumerically(),
+            velSub.EvaluateNumerically(),
+            accSub.EvaluateNumerically()
+        );
+    }
+
+    public double ComputeDisplacement(double startTime, double endTime)
+    {
+        var definiteIntegral = SymbolicCalculus.IntegrateDefinite(VelocityExpression, TimeVariable, startTime, endTime);
+        return definiteIntegral.EvaluateNumerically();
+    }
+}
+
+public class PotentialWellOptimizer
+{
+    public SymbolicVariable SpatialVariable { get; set; }
+    public SymbolicExpression PotentialFunction { get; set; }
+
+    public PotentialWellOptimizer(string formula)
+    {
+        SpatialVariable = SymbolFactory.DeclareSymbol("x");
+        PotentialFunction = SymbolFactory.ParseSymbolicExpression(formula);
+    }
+
+    public SymbolicExpression ComputeForce()
+    {
+        var derivative = SymbolicCalculus.DifferentiateWithRespectTo(PotentialFunction, SpatialVariable, 1);
+        return derivative;
+    }
+
+    public List<double> FindEquilibriumCoordinates()
+    {
+        var forceExpr = ComputeForce();
+        var criticalPoints = SymbolicAlgebra.SolveAlgebraicEquation(forceExpr, SpatialVariable);
+
+        var coords = new List<double>();
+        foreach (var cp in criticalPoints)
+        {
+            coords.Add(cp.EvaluateNumerically());
+        }
+        return coords;
+    }
+
+    public double EvaluateCurvatureAt(double coord)
+    {
+        var secondDeriv = SymbolicCalculus.DifferentiateWithRespectTo(PotentialFunction, SpatialVariable, 2);
+        var evaluated = secondDeriv.SubstituteVariable(SpatialVariable, coord);
+        return evaluated.EvaluateNumerically();
+    }
+}
+
+public class HarmonicOscillatorEngine
+{
+    public SymbolicVariable Theta { get; set; }
+
+    public HarmonicOscillatorEngine()
+    {
+        Theta = SymbolFactory.DeclareSymbol("theta");
+    }
+
+    public SymbolicExpression CreateTrigIdentityExpression()
+    {
+        var s = SymbolicTrigonometry.Sine(Theta);
+        var c = SymbolicTrigonometry.Cosine(Theta);
+        var sumSquares = SymbolFactory.ParseSymbolicExpression("sin(theta)**2 + cos(theta)**2");
+        return SymbolicAlgebra.SimplifyExpression(sumSquares);
+    }
+
+    public double EvaluateSineAt(double angle)
+    {
+        var s = SymbolicTrigonometry.Sine(Theta);
+        var sub = s.SubstituteVariable(Theta, angle);
+        return sub.EvaluateNumerically();
+    }
+}
+
+public class TriModalVerificationService
+{
+    public double TestSurface1Enterprise()
+    {
+        var x = SymbolFactory.DeclareSymbol("x");
+        var expr = SymbolFactory.ParseSymbolicExpression("3*x**2 + 4*x + 5");
+        var deriv = SymbolicCalculus.DifferentiateWithRespectTo(expr, x, 1);
+        var evaluated = deriv.SubstituteVariable(x, 2.0);
+        return evaluated.EvaluateNumerically();
+    }
+
+    public double TestSurface3CSharpBridge()
+    {
+        var u = SymPySharp.Symbols("u");
+        var expr = SymPySharp.Sympify("2*u**3 - 5*u + 7");
+        var deriv = SymPySharp.Diff(expr, u, 1);
+        var evaluated = deriv.Subs(u, 3.0);
+        return evaluated.EvalF();
+    }
+
+    public double TestSurface2RawPythonAbi()
+    {
+        var v = RawSympy.symbols("v");
+        var expr = RawSympy.sympify("4*v**2 + 10");
+        var deriv = RawSympy.diff(expr, v, 1);
+        var evaluated = deriv.subs(v, 1.5);
+        return evaluated.evalf();
+    }
+}

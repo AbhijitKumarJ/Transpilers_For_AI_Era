@@ -1,0 +1,16 @@
+{
+  "compiler_version": "0.1.0",
+  "language_version": "0.1",
+  "modules": [
+    {
+      "module": "data_frame_analytics.py",
+      "namespace": [
+        "DataFrameAnalytics"
+      ],
+      "primary_ps": "DataFrameEngine.ps",
+      "py": "data_frame_analytics.py",
+      "pyc": null
+    }
+  ],
+  "schema_version": 1
+}

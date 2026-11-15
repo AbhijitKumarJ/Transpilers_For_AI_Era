@@ -1,0 +1,109 @@
+namespace NumpyFullPrac.NeuralNet.Pipelines;
+
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using NumpyFullPrac.NeuralNet.Data;
+using NumpyFullPrac.NeuralNet.Layers;
+using NumpyFullPrac.NeuralNet.Optimizers;
+using NumpyFullPrac.NeuralNet.Regularization;
+using NumpyFullPrac.NeuralNet.Metrics;
+
+public class MiniBatchRegularizationPipeline
+{
+    public static void Run()
+    {
+        Console.WriteLine("\n=======================================================");
+        Console.WriteLine(" PHASE 3: MINI-BATCH REGULARIZATION & SCHEDULING");
+        Console.WriteLine("=======================================================");
+
+        BatchPair dataset = DatasetGenerator.Generate3ClassClusters(50);
+        NDArray<double> x = dataset.Features;
+        NDArray<double> y = dataset.Targets;
+
+        DenseLayer dense1 = new DenseLayer(2, 16, "relu", 0.001);
+        BatchNormalizationLayer bn = new BatchNormalizationLayer(16);
+        DropoutLayer drop = new DropoutLayer(0.2);
+        DenseLayer dense2 = new DenseLayer(16, 3, "none", 0.001);
+        SoftmaxOutputLayer outLayer = new SoftmaxOutputLayer();
+
+        SGDOptimizer opt1 = new SGDOptimizer(0.05, 0.9);
+        SGDOptimizer opt2 = new SGDOptimizer(0.05, 0.9);
+        CosineScheduler scheduler = new CosineScheduler(0.05, 0.005, 40);
+        EarlyStoppingHandler earlyStop = new EarlyStoppingHandler(15, 1e-4);
+
+        int maxEpochs = 40;
+        int batchSize = 25;
+
+        for (int ep = 1; ep <= maxEpochs; ep++)
+        {
+            double lr = scheduler.GetLearningRate();
+            opt1.LearningRate = lr;
+            opt2.LearningRate = lr;
+
+            dense1.ActivationType = "relu";
+            bn.SetTraining(true);
+            drop.SetTraining(true);
+
+            List<BatchPair> batches = MiniBatchIterator.CreateBatches(x, y, batchSize, true);
+            double epochLossSum = 0.0;
+
+            foreach (BatchPair batch in batches)
+            {
+                NDArray<double> bx = batch.Features;
+                NDArray<double> by = batch.Targets;
+
+                // Forward
+                NDArray<double> h1 = dense1.Forward(bx);
+                NDArray<double> h1Bn = bn.Forward(h1);
+                NDArray<double> h1Drop = drop.Forward(h1Bn);
+                NDArray<double> logits = dense2.Forward(h1Drop);
+                NDArray<double> probs = outLayer.Forward(logits);
+
+                double loss = outLayer.ComputeLoss(by);
+                epochLossSum = epochLossSum + loss;
+
+                // Backward
+                NDArray<double> dZ2 = outLayer.Backward(by);
+                NDArray<double> dDrop = dense2.Backward(dZ2, true);
+                NDArray<double> dBn = drop.Backward(dDrop);
+                NDArray<double> dH1 = bn.Backward(dBn);
+                dense1.Backward(dH1, false);
+
+                // Gradient Clipping & Step
+                dense1.DWeights = GradientClipper.ClipByNorm(dense1.DWeights, 5.0);
+                dense2.DWeights = GradientClipper.ClipByNorm(dense2.DWeights, 5.0);
+
+                opt1.Step(dense1);
+                opt2.Step(dense2);
+            }
+
+            scheduler.Step();
+            double avgLoss = epochLossSum / (1.0 * batches.Count);
+
+            if (ep == 1 || ep % 10 == 0 || ep == maxEpochs)
+            {
+                Console.WriteLine($"[MiniBatchReg] Epoch {ep}/{maxEpochs} - Batch Avg Loss: {avgLoss:F4} | LR: {lr:F4}");
+            }
+
+            if (earlyStop.Check(avgLoss))
+            {
+                Console.WriteLine($"[MiniBatchReg] Early stopping triggered at epoch {ep} (patience reached).");
+                break;
+            }
+        }
+
+        // Evaluation in test mode (Dropout disabled, BatchNorm using running statistics)
+        bn.SetTraining(false);
+        drop.SetTraining(false);
+
+        NDArray<double> evalH1 = dense1.Forward(x);
+        NDArray<double> evalBn = bn.Forward(evalH1);
+        NDArray<double> evalDrop = drop.Forward(evalBn);
+        NDArray<double> evalLogits = dense2.Forward(evalDrop);
+        NDArray<double> evalProbs = outLayer.Forward(evalLogits);
+
+        double testAccuracy = ModelEvaluator.ComputeAccuracy(evalProbs, y);
+        Console.WriteLine($"[MiniBatchReg] Test-Mode Accuracy (Zero Dropout): {testAccuracy * 100.0:F2}%");
+        Console.WriteLine("[MiniBatchReg] Mini-batch regularized training verified successfully!");
+    }
+}

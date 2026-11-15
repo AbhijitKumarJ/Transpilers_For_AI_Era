@@ -1,0 +1,2291 @@
+{
+  "version": "0.2.0",
+  "emit_pyc": true,
+  "target_python": "3.11",
+  "inputs": {
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/00_polars.primitives.d.ps": {
+      "sha256": "43aad8cff92b6cd70cd1b11a6f8957f325b9c78ce0cf8a8893bd4beec4f74d4b",
+      "mtime": 1794263093.8306208,
+      "size": 444
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/02_polars.csharp.d.ps": {
+      "sha256": "941ea57e5602dfcd5f600d3a9e9f8c4c8a9ce2aafec747640a26f6ea244b3cd6",
+      "mtime": 1794263093.8313534,
+      "size": 58341
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_cpu_check/00__cpu_check.primitives.d.ps": {
+      "sha256": "533137fa16560abdfa1f8eb49dcb65d03a0bf52609d1e4a5bacb232d3bbbe3d9",
+      "mtime": 1794263093.837617,
+      "size": 866
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_cpu_check/02__cpu_check.csharp.d.ps": {
+      "sha256": "346b214dd6f71e60b7b5347728d21276074dfcdfe51bc39e6b483fe61c9c13a9",
+      "mtime": 1794263093.8381767,
+      "size": 1895
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_dependencies/00__dependencies.primitives.d.ps": {
+      "sha256": "acde1596e103980f580114a362ac2c439f96659470969222512859864dbc0159",
+      "mtime": 1794263093.843394,
+      "size": 739
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_dependencies/02__dependencies.csharp.d.ps": {
+      "sha256": "306cf1d45ed914e8f240f342ed886405ff88d457cc1ebc1bd2eb9f32b3058f9e",
+      "mtime": 1794263093.844054,
+      "size": 6440
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_plr/00__plr.primitives.d.ps": {
+      "sha256": "6992b5870f39700249e44a34c68e297998718e2d6c95e2a940aaffc129008dff",
+      "mtime": 1794263094.6824038,
+      "size": 107685
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_plr/02__plr.csharp.d.ps": {
+      "sha256": "311369f582701248e2e2e343fb47b9b9a8b1d540d1c1e79781885d29f8ec80fa",
+      "mtime": 1794263094.6841161,
+      "size": 238620
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_reexport/00__reexport.primitives.d.ps": {
+      "sha256": "b7a7d2b6092f58f651719c6817a36838e6a7946a959a687970b1f743a820d272",
+      "mtime": 1794263094.7001607,
+      "size": 497
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_reexport/02__reexport.csharp.d.ps": {
+      "sha256": "90eb1b58d63b46d02a4a1c11c5391d40e6666899cee6aa6868c2bd8f5b6d8f36",
+      "mtime": 1794263094.7006757,
+      "size": 3062
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_typing/00__typing.primitives.d.ps": {
+      "sha256": "74470c48a6bcefd991512fde919a8974e501d7671ecbc59e03cb4f406b9720e5",
+      "mtime": 1794263094.728193,
+      "size": 5995
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_typing/02__typing.csharp.d.ps": {
+      "sha256": "f0bcee6fbd4265871dbfe1e0b98e868489232f8b5b4a99e47e1e661d51627123",
+      "mtime": 1794263094.7287762,
+      "size": 37906
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/00__utils.primitives.d.ps": {
+      "sha256": "73510db1db716f03a92e138a1bb2eee5d29078d751766d1830cdc99665626896",
+      "mtime": 1794263094.7345076,
+      "size": 479
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/02__utils.csharp.d.ps": {
+      "sha256": "cb5dc9a3e65c0003c11051078a223b64a1688fc6c9a5b2285b6c3eb596e3450b",
+      "mtime": 1794263094.7349458,
+      "size": 3224
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/async_/00_async_.primitives.d.ps": {
+      "sha256": "de2ac34a1fc7ed9c6e12dd5357092b2cb4185ae89305977d4e33a5cc91364396",
+      "mtime": 1794263094.7383487,
+      "size": 1036
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/async_/02_async_.csharp.d.ps": {
+      "sha256": "4b137a94a7dc54ca7ceb491d76ad0b59814ac9641f18762e06973f1744eea3f6",
+      "mtime": 1794263094.7388363,
+      "size": 2741
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/cache/00_cache.primitives.d.ps": {
+      "sha256": "3fad4607adc5099a8fd86e026b3b923c5557227f230bfde2628960411597e67a",
+      "mtime": 1794263094.746404,
+      "size": 1619
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/cache/02_cache.csharp.d.ps": {
+      "sha256": "b1453556635a4c0fd1686ace70e519532c66863f00c11c1045b4ea20ec5e06bb",
+      "mtime": 1794263094.7477322,
+      "size": 5687
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/cloud/00_cloud.primitives.d.ps": {
+      "sha256": "182dd027075a5356d424f6ec04d339ac05406bf64b0edc90082e9cc03d1bec4b",
+      "mtime": 1794263094.750051,
+      "size": 508
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/cloud/02_cloud.csharp.d.ps": {
+      "sha256": "8cfa1da843972fb6bc214f3ed81f38d44b9af76341230fe26a3f9be231ca9661",
+      "mtime": 1794263094.7506392,
+      "size": 1477
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/constants/00_constants.primitives.d.ps": {
+      "sha256": "a271e38c9e6b9f1a0cc0f00a865823c33045d7348538431fbfb941cdcb98509f",
+      "mtime": 1794263094.7529223,
+      "size": 532
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/constants/02_constants.csharp.d.ps": {
+      "sha256": "6abcad5a62cad07f0fcf62cf543be44cdbee586844aa43862da548a922445b20",
+      "mtime": 1794263094.7533717,
+      "size": 4713
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/construction/00_construction.primitives.d.ps": {
+      "sha256": "33bc89e6396f23b69b5e8f43df1ccc22d38f17dbbb5f3877568ce8b92c381df4",
+      "mtime": 1794263094.76315,
+      "size": 550
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/construction/02_construction.csharp.d.ps": {
+      "sha256": "a8bc910abe62d58ad29999c5637320c3e8742159358a4104a37405494d5d47ec",
+      "mtime": 1794263094.7636573,
+      "size": 5949
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/construction/dataframe/00_dataframe.primitives.d.ps": {
+      "sha256": "ab346ef4a0fbd922ec505e425399ffead0ab8e1ac4b441b820db0c07d7bafb64",
+      "mtime": 1794263094.7705257,
+      "size": 597
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/construction/dataframe/02_dataframe.csharp.d.ps": {
+      "sha256": "4d6098ba535547ded7cd8f94cb14bc371ed4f16270c0eddf1b89c331f8cc3760",
+      "mtime": 1794263094.7716749,
+      "size": 6983
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/construction/other/00_other.primitives.d.ps": {
+      "sha256": "fa516d81c597bbd3b945efe66cf6d60dddc4b0e967228d8baf23d4bab7f39641",
+      "mtime": 1794263094.774687,
+      "size": 573
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/construction/other/02_other.csharp.d.ps": {
+      "sha256": "773d1bf7a58247cb6b5ad9583984a066e103b82a6a6acd349c7c58307194fc06",
+      "mtime": 1794263094.7755165,
+      "size": 2078
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/construction/series/00_series.primitives.d.ps": {
+      "sha256": "63d13c8f8dab82711212d20d2c5d5e88ae95e3f0427589125e3cd8d012301478",
+      "mtime": 1794263094.7807448,
+      "size": 579
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/construction/series/02_series.csharp.d.ps": {
+      "sha256": "5f8cc55434a3aea7ffc7b8ffdaf16705c77bf323eee855964de44445476e4ea4",
+      "mtime": 1794263094.7813544,
+      "size": 5487
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/construction/utils/00_utils.primitives.d.ps": {
+      "sha256": "3901b5ebd3613c4861a6e0c89a1ff0c768968118370f638664bb3b584e461278",
+      "mtime": 1794263094.7856772,
+      "size": 573
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/construction/utils/02_utils.csharp.d.ps": {
+      "sha256": "255155ea368dbc83036cb15e6b53ddec5bc7b0c4e438279588b34d73feb2baca",
+      "mtime": 1794263094.78665,
+      "size": 5248
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/convert/00_convert.primitives.d.ps": {
+      "sha256": "20ffbd99b2fb1712588245ca790f69d40281b1eb497fb5e2d51366051a150364",
+      "mtime": 1794263094.7951186,
+      "size": 520
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/convert/02_convert.csharp.d.ps": {
+      "sha256": "c760bcecd014cab85e9a79f59db95b32d0cab4048da34fac56c9ed3f2a60a486",
+      "mtime": 1794263094.7956667,
+      "size": 5840
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/deprecation/00_deprecation.primitives.d.ps": {
+      "sha256": "e2ad2efc09ac05aa3fc48d8c151289551ca1c5199dd984aeaf4f74e7e8222f50",
+      "mtime": 1794263094.7995052,
+      "size": 544
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/deprecation/02_deprecation.csharp.d.ps": {
+      "sha256": "622a7440e2bafbd1a405724361b953781a8d3e4f4d31d21dfe0af036b003bc98",
+      "mtime": 1794263094.7999814,
+      "size": 3973
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/expired/00_expired.primitives.d.ps": {
+      "sha256": "462216156fbf1a82b12d236a64bd82f4dedd583f46994543c99de3f6906eb46d",
+      "mtime": 1794263094.8044841,
+      "size": 1197
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/expired/02_expired.csharp.d.ps": {
+      "sha256": "2d93e6c022b64dcc82cfd4911a401c478c5caeec0b9de029ffc4b0228d58eb1b",
+      "mtime": 1794263094.804938,
+      "size": 4268
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/getitem/00_getitem.primitives.d.ps": {
+      "sha256": "6513082251d5860715652f1325620e49b209e8d7fde97cea18ab8a9a769f37c3",
+      "mtime": 1794263094.8145564,
+      "size": 520
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/getitem/02_getitem.csharp.d.ps": {
+      "sha256": "f132ce8063ef77513feef7745c657e8d031a746b6c7575db6e6d204d03bd5fb9",
+      "mtime": 1794263094.8154728,
+      "size": 5206
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/logging/00_logging.primitives.d.ps": {
+      "sha256": "5c51329b5b6584ff96743f51c47c06f43f13036eac736ed83ad101843d3d6afa",
+      "mtime": 1794263094.8181698,
+      "size": 520
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/logging/02_logging.csharp.d.ps": {
+      "sha256": "048c1ee11d2739a11dc9186509e5416a8dab8d720e6a31cfa1230ac463d60fe4",
+      "mtime": 1794263094.819072,
+      "size": 1527
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/monitoring/00_monitoring.primitives.d.ps": {
+      "sha256": "06ed73de438436eea30fac0748c82932df8f534d93e0c18f00e90bbb8ff94c67",
+      "mtime": 1794263094.8214254,
+      "size": 538
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/monitoring/02_monitoring.csharp.d.ps": {
+      "sha256": "f64c6a09d3ece6cb6c3d012d261dab97c6cf30aa0c6f66a383374ae3ee144f85",
+      "mtime": 1794263094.821866,
+      "size": 2283
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/nest_asyncio/00_nest_asyncio.primitives.d.ps": {
+      "sha256": "284a9c73df4625663360f5b75035e31cf4e6900e5b182b2a92d2a34fc901726c",
+      "mtime": 1794263094.8242958,
+      "size": 877
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/nest_asyncio/02_nest_asyncio.csharp.d.ps": {
+      "sha256": "1096002dab64db1482cd994c82369d51b1775f72d938e9721245103fa8e47cdb",
+      "mtime": 1794263094.8247304,
+      "size": 1488
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/parquet/00_parquet.primitives.d.ps": {
+      "sha256": "0def951a807c8ad6560babd9b222c7cb89428fefab01790256639b17879e5035",
+      "mtime": 1794263094.826725,
+      "size": 520
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/parquet/02_parquet.csharp.d.ps": {
+      "sha256": "afcc2bac4bfc2fd4cf6e262961132cc0650d3d98e9c0db71d189049242f1ae73",
+      "mtime": 1794263094.827214,
+      "size": 1450
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/parse/00_parse.primitives.d.ps": {
+      "sha256": "32f2a0959a005a7f11b91573fd0c00e3166e9362ead2fd2caae318984a756914",
+      "mtime": 1794263094.8354042,
+      "size": 508
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/parse/02_parse.csharp.d.ps": {
+      "sha256": "3c07f559ad57ccf6f90cf2fbd70ef7302eaa77ebea45fdea2c90ac08636c6ef2",
+      "mtime": 1794263094.841552,
+      "size": 1703
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/parse/expr/00_expr.primitives.d.ps": {
+      "sha256": "2acd9830bd254aaa8158898ba9dd65c7f7420d6d5bca55d397b14d15342a3a8b",
+      "mtime": 1794263094.854445,
+      "size": 532
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/parse/expr/02_expr.csharp.d.ps": {
+      "sha256": "d3b4224bba5ebf8f9bffd3d741c8e76169243f2a0308d0dc7c5803ffb86ac3d4",
+      "mtime": 1794263094.855147,
+      "size": 4825
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/polars_version/00_polars_version.primitives.d.ps": {
+      "sha256": "7d56236e368483f6a9086c9642758486d501466b8d76f4a5abf413bc5f378666",
+      "mtime": 1794263094.860128,
+      "size": 560
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/polars_version/02_polars_version.csharp.d.ps": {
+      "sha256": "ca35419ea279b074069aefced47e161b6d4a43a7f4504fc91bdad7672bb99eb4",
+      "mtime": 1794263094.8606334,
+      "size": 980
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/pycapsule/00_pycapsule.primitives.d.ps": {
+      "sha256": "a2adfb94e0a77e0d6a2316337f0edf796a779278f6f16c71a2dd9adfd6631040",
+      "mtime": 1794263094.8663046,
+      "size": 532
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/pycapsule/02_pycapsule.csharp.d.ps": {
+      "sha256": "c45cd22628f1e4116883fc4089b53e52df8b35051601044d8f132551efadb102",
+      "mtime": 1794263094.8668687,
+      "size": 2104
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/reduce_balanced/00_reduce_balanced.primitives.d.ps": {
+      "sha256": "79e5027b760a29b52604110a14d5a438432a63973d8907a74fea332ecefcd08b",
+      "mtime": 1794263094.8697898,
+      "size": 566
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/reduce_balanced/02_reduce_balanced.csharp.d.ps": {
+      "sha256": "01aed59c1f6029d61c1f10bb8ea0a4f6f2b3b970095891e4789b6c70f5cc5722",
+      "mtime": 1794263094.870374,
+      "size": 1493
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/serde/00_serde.primitives.d.ps": {
+      "sha256": "9f127cd2c9826696c65bb8a2d7f6e6b96eb18e511d8dcf9bdd25c8a40a885306",
+      "mtime": 1794263094.8750386,
+      "size": 508
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/serde/02_serde.csharp.d.ps": {
+      "sha256": "2b1708fbce2c32b5deca43a076d3c24e34446dc0cc30c2e549418fdb75e0187e",
+      "mtime": 1794263094.8765712,
+      "size": 3054
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/slice/00_slice.primitives.d.ps": {
+      "sha256": "31f470c8d7448e76bc231f75fd76b6e7381d2f5964793b77656631aa7ebfef03",
+      "mtime": 1794263094.8814087,
+      "size": 1262
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/slice/02_slice.csharp.d.ps": {
+      "sha256": "c86c71bd180cd7856862356151b158f534817f0b22d981c9d4a5c0e48916889f",
+      "mtime": 1794263094.8823805,
+      "size": 3673
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/threading/00_threading.primitives.d.ps": {
+      "sha256": "806404db437de92f8a6554360d8ac2441e560a732b91cfed0bdf9dedc8ab966a",
+      "mtime": 1794263094.9024837,
+      "size": 871
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/threading/02_threading.csharp.d.ps": {
+      "sha256": "831b3b62b189f217f1a1bacfce8f73f20db1f5d2346dd4b10217986b6177200e",
+      "mtime": 1794263094.9029899,
+      "size": 2239
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/udfs/00_udfs.primitives.d.ps": {
+      "sha256": "afa1d1bab0e33298fc642829c8d55570e01f0ceb292f47a1fbf2d631ea271bdb",
+      "mtime": 1794263094.9247925,
+      "size": 4689
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/udfs/02_udfs.csharp.d.ps": {
+      "sha256": "b5b2c9f1e903198cbd3dd3955ff56aa018fffa0ff26b117d8f36a2f53fa07388",
+      "mtime": 1794263094.9253414,
+      "size": 16412
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/unstable/00_unstable.primitives.d.ps": {
+      "sha256": "64416f5ce536c29d96f5719153b9c13a775244ac319df2a7aecfaa55a6514080",
+      "mtime": 1794263094.933149,
+      "size": 526
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/unstable/02_unstable.csharp.d.ps": {
+      "sha256": "3ed1967634e54b65242012f4f67380ba5afe23b122ee1d22b6489353a56363e7",
+      "mtime": 1794263094.9336572,
+      "size": 1831
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/various/00_various.primitives.d.ps": {
+      "sha256": "82eb06bf44b95c80fbce5e4bf36890e02c52b7a0f45ecade8f3327cf2b942c71",
+      "mtime": 1794263094.9524536,
+      "size": 1248
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/various/02_various.csharp.d.ps": {
+      "sha256": "a8787ae9b6842ee173565ac794f2286a4c2a068819f3f750bd85b28adb8b7cf6",
+      "mtime": 1794263094.9529438,
+      "size": 11788
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/wrap/00_wrap.primitives.d.ps": {
+      "sha256": "01edf04294fec42033de6181df64de7df45f04b3614d0446c1a81da3e75d03a5",
+      "mtime": 1794263094.957551,
+      "size": 502
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_utils/wrap/02_wrap.csharp.d.ps": {
+      "sha256": "d309b4c43e379898b958b4060aa06e3c30d079a334a649a4e2d005dab0e370d1",
+      "mtime": 1794263094.9590976,
+      "size": 3308
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_warnings/00__warnings.primitives.d.ps": {
+      "sha256": "bbefb8474654578e7aa33f355e6caf944df4cfa2d108e038de95f035bc8a7da7",
+      "mtime": 1794263094.962837,
+      "size": 497
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/_warnings/02__warnings.csharp.d.ps": {
+      "sha256": "fa6e3f33a4f4036c285203b29fbebc88cf9efacc9e6444517d4ba5d31299174c",
+      "mtime": 1794263094.9635088,
+      "size": 1113
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/api/00_api.primitives.d.ps": {
+      "sha256": "d227a68449f94cd4ef023aad8bff465e700d25ba294c46ca54572d6fa499d02f",
+      "mtime": 1794263094.9708302,
+      "size": 630
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/api/02_api.csharp.d.ps": {
+      "sha256": "bad79df382e9307c2f5d926f52af677a6b3d5d0b4dc7088a63e3ec90c67594ba",
+      "mtime": 1794263094.9712827,
+      "size": 2740
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/catalog/00_catalog.primitives.d.ps": {
+      "sha256": "6756d25203157aed26ae1b915869f2d1a5daad8cec5f501e9c64e186f0aa1031",
+      "mtime": 1794263094.9728296,
+      "size": 485
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/catalog/02_catalog.csharp.d.ps": {
+      "sha256": "6d417c53f580706c11a70792d8ce4c538847636576f58b953ffa64d13cc64df1",
+      "mtime": 1794263094.9731953,
+      "size": 380
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/catalog/unity/00_unity.primitives.d.ps": {
+      "sha256": "58b7c127bd5bbfa127d0f85ba0dff7ddc8bd3fd877ebb3b91083e690d5d8e0a6",
+      "mtime": 1794263094.9750986,
+      "size": 513
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/catalog/unity/02_unity.csharp.d.ps": {
+      "sha256": "9b9ad905a7f35db98f0a37043bf609bf63f37ec6d9d50e00f1f651416272b027",
+      "mtime": 1794263094.975552,
+      "size": 2179
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/catalog/unity/client/00_client.primitives.d.ps": {
+      "sha256": "3eb2fc331c5e7add08132f6951a7fdeebe2d42867c4855581803c8dc3a07da6e",
+      "mtime": 1794263094.9935648,
+      "size": 2457
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/catalog/unity/client/02_client.csharp.d.ps": {
+      "sha256": "bd6dec5e441b4cd2375696591d9c1bce9189a1e3b495f3017904b8b2501ca673",
+      "mtime": 1794263094.9956083,
+      "size": 8716
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/catalog/unity/models/00_models.primitives.d.ps": {
+      "sha256": "f5a8dfc27b913eb9f73feef2eb3ff58581c042656cf10e45ce138e34817d64de",
+      "mtime": 1794263095.0224044,
+      "size": 3411
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/catalog/unity/models/02_models.csharp.d.ps": {
+      "sha256": "d5f260a3b052282b9e01093915ba321b4b34abc2ece6db5080185d94294a4bfb",
+      "mtime": 1794263095.024929,
+      "size": 9113
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/config/00_config.primitives.d.ps": {
+      "sha256": "53ef237447398d3926ede0340e3cd442fa0f368936922b02ec4b99734db69d32",
+      "mtime": 1794263095.0975811,
+      "size": 9953
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/config/02_config.csharp.d.ps": {
+      "sha256": "0070bd1ea6694409bf2e38eeb658210862e988683fddde9c10935d177e3b97e6",
+      "mtime": 1794263095.0981183,
+      "size": 23585
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/convert/00_convert.primitives.d.ps": {
+      "sha256": "c45f7bce13e426e31ede7a9a646e6bbf67085e5b7d1a497ec9bafebe26d372e8",
+      "mtime": 1794263095.109393,
+      "size": 485
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/convert/02_convert.csharp.d.ps": {
+      "sha256": "a91fbd17176092fdbcd5759b826ec5ba6aa4246b9e406d4a8de1203191855261",
+      "mtime": 1794263095.1098378,
+      "size": 4368
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/convert/general/00_general.primitives.d.ps": {
+      "sha256": "72fa2f37d228d350837a76207b820611c61dae197624c455163da9788f1bea89",
+      "mtime": 1794263095.1396322,
+      "size": 1070
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/convert/general/02_general.csharp.d.ps": {
+      "sha256": "e570b8fad46546d173c95eeb8f55b3971bdc471c9b011375e2a771d18f208682",
+      "mtime": 1794263095.145056,
+      "size": 11440
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/convert/normalize/00_normalize.primitives.d.ps": {
+      "sha256": "390d5a00e9caf7f12b9d17ac19d222de510f18eb325d274fa2be6832983c7568",
+      "mtime": 1794263095.1544049,
+      "size": 537
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/convert/normalize/02_normalize.csharp.d.ps": {
+      "sha256": "5e82db1fd2ff79dbb2c193c6938f9d43eca3a5c91d2d8a6f37edba034d374723",
+      "mtime": 1794263095.1558104,
+      "size": 2621
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/dataframe/00_dataframe.primitives.d.ps": {
+      "sha256": "078227ea31a1be8a6c5a0d380f795354a9433cb1a3823e5369f893ee5c443666",
+      "mtime": 1794263095.1594048,
+      "size": 497
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/dataframe/02_dataframe.csharp.d.ps": {
+      "sha256": "8ba71e2c9faa49b234b26869f54c1f3fc14537e855ef5464a86545a64f1f7587",
+      "mtime": 1794263095.1607933,
+      "size": 765
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/dataframe/_html/00__html.primitives.d.ps": {
+      "sha256": "1f5932c88c5d0c830df777275395b30c92fa8fb7101e49bf942b6979a5be3e3b",
+      "mtime": 1794263095.1805093,
+      "size": 1502
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/dataframe/_html/02__html.csharp.d.ps": {
+      "sha256": "9d130f21269bf6575c44fe9e8f25b490df4c800b99932c6e0a9048f321e8ce1c",
+      "mtime": 1794263095.1810122,
+      "size": 3402
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/dataframe/frame/00_frame.primitives.d.ps": {
+      "sha256": "15ea5d8622783dce211fe1c7bca9be776f9360dc30a668765862102656f69327",
+      "mtime": 1794263095.3484561,
+      "size": 22045
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/dataframe/frame/02_frame.csharp.d.ps": {
+      "sha256": "e786e78cc2f6fdbac6de776a98c330e3b81b41e3fab3181a5728b023b1758f5e",
+      "mtime": 1794263095.349014,
+      "size": 68620
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/dataframe/group_by/00_group_by.primitives.d.ps": {
+      "sha256": "238792d1b96996ea52ad504c8310c639f9ef4e71fa2357d41795f379ccdf13d6",
+      "mtime": 1794263095.4098399,
+      "size": 5703
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/dataframe/group_by/02_group_by.csharp.d.ps": {
+      "sha256": "473cb9f2925c0df22ebcfdd891f8122c09ed3fc4ee0f8b9ad1f5b5c4aa82afd3",
+      "mtime": 1794263095.413828,
+      "size": 14632
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/dataframe/plotting/00_plotting.primitives.d.ps": {
+      "sha256": "27dc06e665168c8637cc5413781933cc55cdb7a6c7aa47a89b41c398d497be44",
+      "mtime": 1794263095.4227355,
+      "size": 1097
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/dataframe/plotting/02_plotting.csharp.d.ps": {
+      "sha256": "8b9b20755aab2394425f7d622e4a3f062204cbcdcba62085e777d2dc8d419e17",
+      "mtime": 1794263095.423252,
+      "size": 4852
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatype_expr/00_datatype_expr.primitives.d.ps": {
+      "sha256": "96826a86288bc8ab73c276e068c2c2adfc34d143e1f80c4aedcfb4798f1e6a80",
+      "mtime": 1794263095.4249456,
+      "size": 519
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatype_expr/02_datatype_expr.csharp.d.ps": {
+      "sha256": "75c641d32337cc5c4fe6fe84a2811bc68cb10b6a261a5106715349cd7237eb7c",
+      "mtime": 1794263095.425385,
+      "size": 816
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatype_expr/array/00_array.primitives.d.ps": {
+      "sha256": "1e48715f71f05aaef189a6629765200a189febf95fa46ac8d4158c6afa4d49eb",
+      "mtime": 1794263095.427916,
+      "size": 819
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatype_expr/array/02_array.csharp.d.ps": {
+      "sha256": "282b15c2e287612964f6da547d019c16a22b1b3c39366f09a471efbc44f01b28",
+      "mtime": 1794263095.4304054,
+      "size": 1488
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatype_expr/datatype_expr/00_datatype_expr.primitives.d.ps": {
+      "sha256": "9bb7d397bd219df8e411b76111daf8a3a5c779d55f253238c1b69deb8fc820a3",
+      "mtime": 1794263095.457518,
+      "size": 2243
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatype_expr/datatype_expr/02_datatype_expr.csharp.d.ps": {
+      "sha256": "71f38a937527a44fb8675f471c3a4c50b2f131154b5ce0b20d0ff14e5275f483",
+      "mtime": 1794263095.4580348,
+      "size": 7269
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatype_expr/list/00_list.primitives.d.ps": {
+      "sha256": "91cf75138ecf4f41f09ef70001a936b6bdcc491b2654d566dbb3a1a9f5d70ee6",
+      "mtime": 1794263095.4603014,
+      "size": 711
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatype_expr/list/02_list.csharp.d.ps": {
+      "sha256": "938906b1f91e6fbee2b8f3a2b5a6422e9d71dca7d010b3c0f008d97fe61c101d",
+      "mtime": 1794263095.4749565,
+      "size": 1147
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatype_expr/struct/00_struct.primitives.d.ps": {
+      "sha256": "7f88e235a44e91cc9d3ea7a691aee3da93dc7d402b05eda57ff02363d471038d",
+      "mtime": 1794263095.4867177,
+      "size": 924
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatype_expr/struct/02_struct.csharp.d.ps": {
+      "sha256": "fd51d82f3d29f3a6fc8347d899c16d0d71223fb8a867a0e41261bc012a38396d",
+      "mtime": 1794263095.487244,
+      "size": 1496
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/00_datatypes.primitives.d.ps": {
+      "sha256": "04dca563844913b17cb349019cebe869784063b839be3eb49245837336beb8c8",
+      "mtime": 1794263095.5189657,
+      "size": 497
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/02_datatypes.csharp.d.ps": {
+      "sha256": "eae73f840a7bb16da60e846af1c22a4e030bdb88ea3b428fefda7c2550e9d003",
+      "mtime": 1794263095.519549,
+      "size": 12882
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/_parse/00__parse.primitives.d.ps": {
+      "sha256": "2906972bd1bacc13dbc432db74c59c93fd4ec6fc0415e62692cf435f37ee5282",
+      "mtime": 1794263095.5288246,
+      "size": 529
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/_parse/02__parse.csharp.d.ps": {
+      "sha256": "8ebe82cf24f05cd23c1f1cde7d58214475b23761eaead42189e145e0746c8edb",
+      "mtime": 1794263095.529754,
+      "size": 3364
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/_utils/00__utils.primitives.d.ps": {
+      "sha256": "a8b60a9cac52b9ca353fdf0f78c8eeb5af993e9bfc22b845d2a4cace556a01a2",
+      "mtime": 1794263095.5325968,
+      "size": 529
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/_utils/02__utils.csharp.d.ps": {
+      "sha256": "c927141b1a07bfc54ee06f2e73089dd86fb8a947b167a51e5ca01f39b75fa47b",
+      "mtime": 1794263095.5344057,
+      "size": 992
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/classes/00_classes.primitives.d.ps": {
+      "sha256": "45337e0495435de79f64b9b10e04013ca7969ab53f75051e7e73d4dc0d13532a",
+      "mtime": 1794263095.6261303,
+      "size": 15840
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/classes/02_classes.csharp.d.ps": {
+      "sha256": "3e4e26bd6623e7afb0dab7606ae5db5e7617ed2c1c58496f74701d17af958908",
+      "mtime": 1794263095.6267347,
+      "size": 32520
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/constants/00_constants.primitives.d.ps": {
+      "sha256": "7638f18b22fb5ee1ff772ab0cc7d518f1d5a31a0fc5e209290adbfc7cc96e7ef",
+      "mtime": 1794263095.638143,
+      "size": 547
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/constants/02_constants.csharp.d.ps": {
+      "sha256": "46f7c1dce1b30e71c882293f4c4ecebbe16595ce326897bf30f2abeae487bb88",
+      "mtime": 1794263095.6386273,
+      "size": 1638
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/constructor/00_constructor.primitives.d.ps": {
+      "sha256": "a3200458f7f5afc751976636ba9ac620b14fa834dbcb663e5d09726c4cf523d9",
+      "mtime": 1794263095.6421356,
+      "size": 559
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/constructor/02_constructor.csharp.d.ps": {
+      "sha256": "3976b70364a4f2074c20647d361fa00bb2c7b4eee2b52defe15a983b91a2575f",
+      "mtime": 1794263095.6468723,
+      "size": 3250
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/convert/00_convert.primitives.d.ps": {
+      "sha256": "486a9cf7c8279a8a89d28d342a741083688c25915bfdef2274d8d7052f2c9c67",
+      "mtime": 1794263095.6936784,
+      "size": 1114
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/convert/02_convert.csharp.d.ps": {
+      "sha256": "e34701c2b3be8722c38e7275ffe19a964aa5cfa6b66738887dbb068dce243dec",
+      "mtime": 1794263095.6941712,
+      "size": 5815
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/extension/00_extension.primitives.d.ps": {
+      "sha256": "fb9fc17d57be531b1625a30a8deb7028851bf7e7cfa22b3a8c2baa1b487fc3b9",
+      "mtime": 1794263095.7271428,
+      "size": 547
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/extension/02_extension.csharp.d.ps": {
+      "sha256": "b24e791b467cc81f59e947ec533e4ec90bad7bfbe5fc6b2c222f7e3bbe9e46ae",
+      "mtime": 1794263095.7276645,
+      "size": 1884
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/group/00_group.primitives.d.ps": {
+      "sha256": "a3b0c5e7a0786eca633ef0502c94b1566f096f3c7ebb1f65c29e2f2026f58644",
+      "mtime": 1794263095.74483,
+      "size": 790
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/datatypes/group/02_group.csharp.d.ps": {
+      "sha256": "3ddd442a41610060f06c1d8f276fe809d462fb918e32a218032fc9a8218d4e72",
+      "mtime": 1794263095.748417,
+      "size": 5420
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/exceptions/00_exceptions.primitives.d.ps": {
+      "sha256": "15cdae3a02078fe1c09dfb6657bc12e033109097dfe837531b26b1297593cbe7",
+      "mtime": 1794263095.761063,
+      "size": 2389
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/exceptions/02_exceptions.csharp.d.ps": {
+      "sha256": "6a1223ccc8bbb82a30b9502c12d1e6056119062d76ac9da19fdc072c0de35503",
+      "mtime": 1794263095.7658875,
+      "size": 7420
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/00_expr.primitives.d.ps": {
+      "sha256": "1b798084023316cdcf9ca492a909d83697fb182b7496772da8244b60b00a1574",
+      "mtime": 1794263095.767718,
+      "size": 467
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/02_expr.csharp.d.ps": {
+      "sha256": "9d3d3832eacd31ab00ed137fb1f9a48dc4fe500f8729f8adf381738d71713e86",
+      "mtime": 1794263095.7681856,
+      "size": 929
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/array/00_array.primitives.d.ps": {
+      "sha256": "9b703f445bcfcf2d9742d0968cd3561418874ddd81cd5a57c0f1a387a6e5dacf",
+      "mtime": 1794263095.8245523,
+      "size": 2836
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/array/02_array.csharp.d.ps": {
+      "sha256": "a4b1987402b1eccdec6c601ea36c45bae5698f1a1a86c9abd04b1941d3208280",
+      "mtime": 1794263095.8254597,
+      "size": 7807
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/binary/00_binary.primitives.d.ps": {
+      "sha256": "c6d1238b66fc0f59bb5a2379d45c770d4b41ab8bebba56cf9d53a8ea2f20a8df",
+      "mtime": 1794263095.8329546,
+      "size": 1535
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/binary/02_binary.csharp.d.ps": {
+      "sha256": "9a5801b909ec022651c565579817ebef60510268a97bedecf0f9f193005afd81",
+      "mtime": 1794263095.8336732,
+      "size": 4835
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/categorical/00_categorical.primitives.d.ps": {
+      "sha256": "426befc68563dff0470837473c9221a759214edd635232d2dcc53ed3a67ee808",
+      "mtime": 1794263095.8386674,
+      "size": 1139
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/categorical/02_categorical.csharp.d.ps": {
+      "sha256": "9652aeebee9d29ab45c8cabba327a733275bae6a6d3ce2dbaa1f895e0a077507",
+      "mtime": 1794263095.8391669,
+      "size": 3272
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/datetime/00_datetime.primitives.d.ps": {
+      "sha256": "a0766cf375710ca8c28069d57333a4721c13a71a4b502d2175e751516a2b799f",
+      "mtime": 1794263095.8564687,
+      "size": 4277
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/datetime/02_datetime.csharp.d.ps": {
+      "sha256": "ffe495e8c325ed69c6cd943d7ae52545a7fe3657bd244a08ac531a280a969ecd",
+      "mtime": 1794263095.8570619,
+      "size": 13221
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/expr/00_expr.primitives.d.ps": {
+      "sha256": "b3032ab732e02307517a823b4c2844743988b4ff81d56d91d869d491b8d0ef6c",
+      "mtime": 1794263096.136092,
+      "size": 25576
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/expr/02_expr.csharp.d.ps": {
+      "sha256": "372f1cad10bb01c234fd24ffed5ec578f8173f3a5fc27dfb4b053c540543107f",
+      "mtime": 1794263096.137181,
+      "size": 68016
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/ext/00_ext.primitives.d.ps": {
+      "sha256": "f335c4fee883e65735b65af102ebcf6225886e611cece199cb7c5f20b7e5c7c1",
+      "mtime": 1794263096.1465094,
+      "size": 771
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/ext/02_ext.csharp.d.ps": {
+      "sha256": "908b5f346279662dbfb40a6d893c207f20712be1455bec3c2e76ef04973251d2",
+      "mtime": 1794263096.1469853,
+      "size": 2250
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/list/00_list.primitives.d.ps": {
+      "sha256": "155504e0f24e3eb137a280181641d8c069141aecf58245e454a1d6fa6ef65790",
+      "mtime": 1794263096.1831765,
+      "size": 4653
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/list/02_list.csharp.d.ps": {
+      "sha256": "b6421ca39cb411784e4d7edecb3fc07a86b288291d7cf04ee09bb5008739f68c",
+      "mtime": 1794263096.1836848,
+      "size": 13174
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/map/00_map.primitives.d.ps": {
+      "sha256": "1a9edc83cfd876e131913c0b2659d98ba308d0a578ca124b49a14adaf50dd2d5",
+      "mtime": 1794263096.1879683,
+      "size": 912
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/map/02_map.csharp.d.ps": {
+      "sha256": "f46fc67d45e8a04fee5dce0531cbf1eb6d092dd6d399cbc912a5b9cf9a0d983b",
+      "mtime": 1794263096.188442,
+      "size": 2254
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/meta/00_meta.primitives.d.ps": {
+      "sha256": "505344723601fb35817239dff1031dfe0ffc5a7e338536c05a08474835818b74",
+      "mtime": 1794263096.211603,
+      "size": 2776
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/meta/02_meta.csharp.d.ps": {
+      "sha256": "da1762294faef7015d2a3d442e4b27d2bdab9318adb9994bf78328e55c70c528",
+      "mtime": 1794263096.2121167,
+      "size": 8241
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/name/00_name.primitives.d.ps": {
+      "sha256": "9ae94199560f70adf19cf3fce922f7b33ee0b9b29a86e39e709e566deeccd00e",
+      "mtime": 1794263096.219849,
+      "size": 1468
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/name/02_name.csharp.d.ps": {
+      "sha256": "156f2351b7a865d19c38c92e78fe5da3bfb1638062f9620c6afeaa10933af8e8",
+      "mtime": 1794263096.2204313,
+      "size": 3452
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/string/00_string.primitives.d.ps": {
+      "sha256": "73483f99e5eaada1656044e59243f6e19b81591328736bde47e8dc33615777f5",
+      "mtime": 1794263096.2451963,
+      "size": 6027
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/string/02_string.csharp.d.ps": {
+      "sha256": "f7099f35da7a2d142c269fb9766c63f782394e97d8215b5a279019a5fafc21b0",
+      "mtime": 1794263096.2457128,
+      "size": 16981
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/struct/00_struct.primitives.d.ps": {
+      "sha256": "6734d40e04c26b43432cfc03f918ebb04289d43a1212331daa02eb687b398ddf",
+      "mtime": 1794263096.2533832,
+      "size": 1418
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/struct/02_struct.csharp.d.ps": {
+      "sha256": "4fabeba255415ad997f78b171bd7959600251e45766ecf2f6dc43fa2c62993a6",
+      "mtime": 1794263096.2538774,
+      "size": 3459
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/whenthen/00_whenthen.primitives.d.ps": {
+      "sha256": "80ee3ddd8bf846571cfdac5d1b7d56903e73f21e6cad383e2eb4a9835dfe5b69",
+      "mtime": 1794263096.2594073,
+      "size": 1850
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/expr/whenthen/02_whenthen.csharp.d.ps": {
+      "sha256": "27c356a3b05781521beb0cc29c80c74995c28a25a794eaf6c5b51655f1b74501",
+      "mtime": 1794263096.2608073,
+      "size": 4106
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/00_functions.primitives.d.ps": {
+      "sha256": "8b9e88d0b664f17eec27809f815402aa1a1ed7e89522d3ffd80eaf4713931052",
+      "mtime": 1794263096.308937,
+      "size": 497
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/02_functions.csharp.d.ps": {
+      "sha256": "1143fcb301d91bb49d661b70bf91725f3427cad5c157bf8ed4ad086112a31e7c",
+      "mtime": 1794263096.309531,
+      "size": 21245
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/aggregation/00_aggregation.primitives.d.ps": {
+      "sha256": "9e2efa229396623f48b53bc9765d0ba6b454b68daaad1e154e1d81b38719df34",
+      "mtime": 1794263096.3231938,
+      "size": 559
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/aggregation/02_aggregation.csharp.d.ps": {
+      "sha256": "516dd6b8531875ee7576a81ec7b279cdc54c4096509c20d0ffb0f3ba5d826260",
+      "mtime": 1794263096.3237069,
+      "size": 3374
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/aggregation/horizontal/00_horizontal.primitives.d.ps": {
+      "sha256": "a24495f568429c08f59794cb6dab8e44c30dbfdf09ae4dc21c30fabe0e64ecce",
+      "mtime": 1794263096.3333626,
+      "size": 613
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/aggregation/horizontal/02_horizontal.csharp.d.ps": {
+      "sha256": "bc5e7d3ddd8f7b8e6fdc8f7c46fc314d52cdf25790c9ce2f1b317698dc22dd2e",
+      "mtime": 1794263096.3341064,
+      "size": 3154
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/aggregation/vertical/00_vertical.primitives.d.ps": {
+      "sha256": "5ad5300e11aa119ef3fd2487dce8e6c5c267d54624d5157e7332246ca6cd808a",
+      "mtime": 1794263096.343285,
+      "size": 601
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/aggregation/vertical/02_vertical.csharp.d.ps": {
+      "sha256": "eeed5efd892054e033c48e36719ca9159b5462bf5488eabdbccd25002a602f70",
+      "mtime": 1794263096.3438249,
+      "size": 2230
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/as_datatype/00_as_datatype.primitives.d.ps": {
+      "sha256": "60a83b764700f5a9deac5827425146114cb0770b2fc505c22c0be0b562afeb6d",
+      "mtime": 1794263096.4143713,
+      "size": 557
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/as_datatype/02_as_datatype.csharp.d.ps": {
+      "sha256": "3de981ee7e240b368b0509ab44a26cf455891dbcb1ef23be751a3e674ff3e476",
+      "mtime": 1794263096.41493,
+      "size": 13014
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/business/00_business.primitives.d.ps": {
+      "sha256": "30e3cfba963b62e35200bdff07265d138db14147e3ceb2974a04605e7020d351",
+      "mtime": 1794263096.435523,
+      "size": 541
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/business/02_business.csharp.d.ps": {
+      "sha256": "cfd20e7030cba46880eefc8a5588883649d0ae010e7cf024d945b3dd2d6a0b84",
+      "mtime": 1794263096.4361541,
+      "size": 3698
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/col/00_col.primitives.d.ps": {
+      "sha256": "d2af463a26b5fefb0c861dd8a714abf3474e1fdc9e79c8bb83d424d2d52d9b3d",
+      "mtime": 1794263096.447177,
+      "size": 991
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/col/02_col.csharp.d.ps": {
+      "sha256": "05877379c84441d2053fe5faaef17ffaca5917bd912b5784d166ca9001c0acf4",
+      "mtime": 1794263096.4476876,
+      "size": 2879
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/datatype/00_datatype.primitives.d.ps": {
+      "sha256": "2d87856e2ae61c48d3327c3609212861d66ab0c7cda3299a6108957ff483fe94",
+      "mtime": 1794263096.454542,
+      "size": 541
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/datatype/02_datatype.csharp.d.ps": {
+      "sha256": "b1ab752290d2fb93d869c712223b0dc93d6ab0e8751e39348d072faa8638b249",
+      "mtime": 1794263096.4551392,
+      "size": 2704
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/eager/00_eager.primitives.d.ps": {
+      "sha256": "5fa56bfb21c689e814ae89b2be52d48c3432f215d689af92e319673ef87b4c7d",
+      "mtime": 1794263096.4686506,
+      "size": 523
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/eager/02_eager.csharp.d.ps": {
+      "sha256": "3474bf61ef6b3c7d889551e7f464813de08c69e414157e529578bf8290ec6c4e",
+      "mtime": 1794263096.4690845,
+      "size": 3559
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/escape_regex/00_escape_regex.primitives.d.ps": {
+      "sha256": "49dc0fe3500a1f6bf19d7943152c2c4cc19ca60c2731e745165779687c55e5d0",
+      "mtime": 1794263096.4804077,
+      "size": 563
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/escape_regex/02_escape_regex.csharp.d.ps": {
+      "sha256": "99d0483a2e41015555803e263359d39bb03f1ba2a5ae25e405d95b1538c14a35",
+      "mtime": 1794263096.4864519,
+      "size": 757
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/lazy/00_lazy.primitives.d.ps": {
+      "sha256": "4acb02adf4c482de9a9d98a5fb116d5d58a477d38a9a935da6a67c748364c8de",
+      "mtime": 1794263096.5700343,
+      "size": 758
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/lazy/02_lazy.csharp.d.ps": {
+      "sha256": "b66c5093f139b17c763c23d09c519c2cd912df87796e27ded6b45368298733b9",
+      "mtime": 1794263096.5705643,
+      "size": 19778
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/len/00_len.primitives.d.ps": {
+      "sha256": "2ad702d3e07464a912d483ee3ef094564a0920276e973b5d8d276b319df63c05",
+      "mtime": 1794263096.573676,
+      "size": 511
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/len/02_len.csharp.d.ps": {
+      "sha256": "920c924110668dcfca828b596b06f8bb8e6735a859b3b31917e000c502ba5cb4",
+      "mtime": 1794263096.5741146,
+      "size": 1110
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/lit/00_lit.primitives.d.ps": {
+      "sha256": "b714eb5e32bfc2f97bcbe6f3abd43f448821e08b741b6ed5976c7f460326aaf3",
+      "mtime": 1794263096.579449,
+      "size": 511
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/lit/02_lit.csharp.d.ps": {
+      "sha256": "75bb88515a7cddb6204d81e8307fc5a54b33573f7fa5710f7dc8da7735a7ace9",
+      "mtime": 1794263096.579966,
+      "size": 1862
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/random/00_random.primitives.d.ps": {
+      "sha256": "09523285efd04fe39daef9d90a4e473e2b960048ad1663febc95a6782b91b155",
+      "mtime": 1794263096.5828567,
+      "size": 529
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/random/02_random.csharp.d.ps": {
+      "sha256": "99458b88eb4c8f546003d14f98952a8fc0ad9b0fdcf5da751acc3acdd1aa27bb",
+      "mtime": 1794263096.5833902,
+      "size": 715
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/range/00_range.primitives.d.ps": {
+      "sha256": "0eaa0a4f33894704010c5fd4e93575704230def61c9c6d5629fb01e09895855f",
+      "mtime": 1794263096.5883753,
+      "size": 523
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/range/02_range.csharp.d.ps": {
+      "sha256": "2433e542dc39efeee83df46268139c4eaa93754bb24087ca1196bdd6b5346c40",
+      "mtime": 1794263096.58909,
+      "size": 3244
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/range/_utils/00__utils.primitives.d.ps": {
+      "sha256": "5549ffdb4fbf0eb1f2ea54454faa851bc0251c84899c4c6ea7754d71e4c8e9c3",
+      "mtime": 1794263096.591376,
+      "size": 559
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/range/_utils/02__utils.csharp.d.ps": {
+      "sha256": "50b34d0fcc303997c7edd55ed28fc6adb4f1adf224240d79240333343720f027",
+      "mtime": 1794263096.5919356,
+      "size": 1239
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/range/date_range/00_date_range.primitives.d.ps": {
+      "sha256": "fc80e474a5e98679dc207060c51266320ce977b8ff999ca8712133002b57deb0",
+      "mtime": 1794263096.6366603,
+      "size": 581
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/range/date_range/02_date_range.csharp.d.ps": {
+      "sha256": "2a4a2197e5b4d68d318301ae8d6bc93bb36b5d2c7bf9f501bf8f3df4a0dc1cc9",
+      "mtime": 1794263096.637407,
+      "size": 7320
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/range/datetime_range/00_datetime_range.primitives.d.ps": {
+      "sha256": "b286e2ca8b1d7b01b248da4d9f6e168b9da62ad27441a209915d8e5e7f4e50a5",
+      "mtime": 1794263096.6588783,
+      "size": 605
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/range/datetime_range/02_datetime_range.csharp.d.ps": {
+      "sha256": "3e106e112a7f69d5ba3dea61f4af60b024afe23c35c37402c0b4d6757be2f5a2",
+      "mtime": 1794263096.662628,
+      "size": 8024
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/range/int_range/00_int_range.primitives.d.ps": {
+      "sha256": "79ed341960ea248fa7e3eb8cf3292a97f9f4db17619e4ecbf78c5b24edf10291",
+      "mtime": 1794263096.6799624,
+      "size": 575
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/range/int_range/02_int_range.csharp.d.ps": {
+      "sha256": "246bcc90b550330fe5761c1aaee637568ea25223e1c25522638e8821860ed410",
+      "mtime": 1794263096.680448,
+      "size": 3251
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/range/linear_space/00_linear_space.primitives.d.ps": {
+      "sha256": "d1215501a023b30568a46eb88348b74634b7793838040edbe9184bb41b97cdda",
+      "mtime": 1794263096.6919231,
+      "size": 593
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/range/linear_space/02_linear_space.csharp.d.ps": {
+      "sha256": "98bb26eca56972e0214ee82a089c0d720de565468e3eac8a28ff2e301553f6bc",
+      "mtime": 1794263096.6968656,
+      "size": 12315
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/range/time_range/00_time_range.primitives.d.ps": {
+      "sha256": "9b691150f2c41a04ee245ce9cd54fe521df856230e67fa891413960421eb3f1c",
+      "mtime": 1794263096.7057908,
+      "size": 581
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/range/time_range/02_time_range.csharp.d.ps": {
+      "sha256": "01b60d9064ae5171db622751103c632546210b2bfbeea667b5bd8aa76cf48eda",
+      "mtime": 1794263096.7062893,
+      "size": 3214
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/repeat/00_repeat.primitives.d.ps": {
+      "sha256": "fef865feb32b9a6cf491d9ec818afeae12fccabdcf5ba95031dbc51d43538347",
+      "mtime": 1794263096.7176607,
+      "size": 529
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/repeat/02_repeat.csharp.d.ps": {
+      "sha256": "971de76c61450db3a3c1762347a123b07ee800be9b7f126645e69d1a3bcf0dce",
+      "mtime": 1794263096.718751,
+      "size": 3244
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/whenthen/00_whenthen.primitives.d.ps": {
+      "sha256": "3ec13017f512a086be9bd07fb77c725d9ee434fc7bcad24540ad259d5e03547c",
+      "mtime": 1794263096.7218287,
+      "size": 541
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/functions/whenthen/02_whenthen.csharp.d.ps": {
+      "sha256": "2e1ea44b5b2ac34c7ce7143f0dcf2b944b2d1f3589d14564675b74a96054007a",
+      "mtime": 1794263096.7223718,
+      "size": 1856
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/interchange/00_interchange.primitives.d.ps": {
+      "sha256": "6e03cf6b989fd35acfd2c990dcae338f5a73828bc5bcb1ed8fa1d0352417b808",
+      "mtime": 1794263096.7238014,
+      "size": 509
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/interchange/02_interchange.csharp.d.ps": {
+      "sha256": "9e7d012f0a605d5608fa28b5f73d476711c96de7c41cd2ed37790543b681522b",
+      "mtime": 1794263096.7242258,
+      "size": 796
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/interchange/protocol/00_protocol.primitives.d.ps": {
+      "sha256": "a605cf3c3605af3d2886e667e12253fdedb1cdad03063e634e1667de6d9468b3",
+      "mtime": 1794263096.7306206,
+      "size": 833
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/interchange/protocol/02_protocol.csharp.d.ps": {
+      "sha256": "8ad7600b0edce0c1b7699b84627ee9f0f3ebcdd03d5dfee8d2f997c9f938eed8",
+      "mtime": 1794263096.7311,
+      "size": 1280
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/00_io.primitives.d.ps": {
+      "sha256": "45b87d50b858dde354398637384d881d94a32162dbb77bbc81ff5bcfc1677986",
+      "mtime": 1794263096.762498,
+      "size": 455
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/02_io.csharp.d.ps": {
+      "sha256": "01fdec85b2dc808772bc9a6e077da151614af12bf8299fd70c503664c0ee359a",
+      "mtime": 1794263096.7631147,
+      "size": 19041
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/_expand_paths/00__expand_paths.primitives.d.ps": {
+      "sha256": "300080f8821e765a9c95fffa5a4db857efd61e4ae9262a0336f4c0f4de5b9bc3",
+      "mtime": 1794263096.7708428,
+      "size": 534
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/_expand_paths/02__expand_paths.csharp.d.ps": {
+      "sha256": "93ba53dd6920ca3ef5fd975510694631969155c709ba5c0bc2291ecc6c36e10b",
+      "mtime": 1794263096.771377,
+      "size": 770
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/_utils/00__utils.primitives.d.ps": {
+      "sha256": "ee3b1476467fe7ba608e10b4c6fdba2188051b72d891bd671dc093684125821b",
+      "mtime": 1794263096.8384755,
+      "size": 494
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/_utils/02__utils.csharp.d.ps": {
+      "sha256": "745d09769941b4b6af40661d5791a24d12fa0c8ff4824bdc5003294bf55285e0",
+      "mtime": 1794263096.8390245,
+      "size": 6808
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/arrow_c_stream/00_arrow_c_stream.primitives.d.ps": {
+      "sha256": "fa6fe78211c64e6a816e71fa749309618466eabd52e5a73b0d76d67f7425ca64",
+      "mtime": 1794263096.8471446,
+      "size": 538
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/arrow_c_stream/02_arrow_c_stream.csharp.d.ps": {
+      "sha256": "e76b3aaba10cad539d212a1c44d9fa1295f7f914435a62094623a1c8903eb82b",
+      "mtime": 1794263096.8571055,
+      "size": 1696
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/avro/00_avro.primitives.d.ps": {
+      "sha256": "11a738fbd2cf3321ccb7d8f409aa04a321ed49b5e6bcfcd5b6f2a9faf0631600",
+      "mtime": 1794263096.8729494,
+      "size": 482
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/avro/02_avro.csharp.d.ps": {
+      "sha256": "2a6a33c1716919b87491249de7fe4a05d4506ebd636d726cf8819f5f856a8480",
+      "mtime": 1794263096.8974087,
+      "size": 2233
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/clipboard/00_clipboard.primitives.d.ps": {
+      "sha256": "2c22e8a864070f6d1ff728f6b1c49397515ff5a47aef89ee5c5fc414f8b13361",
+      "mtime": 1794263096.9064088,
+      "size": 512
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/clipboard/02_clipboard.csharp.d.ps": {
+      "sha256": "8fb81dbda23c8e1c415a16295fc0a63e563c6418bca2db05d44b927dfe3e1de0",
+      "mtime": 1794263096.9078245,
+      "size": 1448
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/cloud/00_cloud.primitives.d.ps": {
+      "sha256": "afb7d4dcf1182e2ee003343ad4729046fa5b233dee25df6cdfd82b34f263f490",
+      "mtime": 1794263096.923483,
+      "size": 488
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/cloud/02_cloud.csharp.d.ps": {
+      "sha256": "88c0a89968b25bb8f6d275693e69170d418abf9dcdc2cea02b58ce1b9aea3871",
+      "mtime": 1794263096.9239352,
+      "size": 2137
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/cloud/_utils/00__utils.primitives.d.ps": {
+      "sha256": "aee2064fe8a1ee26f9bbbcfb8335b389c3b0013cbb66337f2c54be4dedd53fc2",
+      "mtime": 1794263096.9367273,
+      "size": 855
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/cloud/_utils/02__utils.csharp.d.ps": {
+      "sha256": "e6f8dd165d0d4796dc3ce4378eb978d596df7aac9ebf0dc2195b6a255fdf0648",
+      "mtime": 1794263096.9373634,
+      "size": 2262
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/cloud/credential_provider/00_credential_provider.primitives.d.ps": {
+      "sha256": "fc4b156f5f58c59f1cd11739a5776cdb28561e9c191b93cf83ff9388ccc81adb",
+      "mtime": 1794263096.9426212,
+      "size": 600
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/cloud/credential_provider/02_credential_provider.csharp.d.ps": {
+      "sha256": "fc0f2c029256ab45141ade4d33bf18cf052d601fad304925cdf05d2b39057bf3",
+      "mtime": 1794263096.943489,
+      "size": 2452
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/cloud/credential_provider/_builder/00__builder.primitives.d.ps": {
+      "sha256": "5d20f5d0bf2cfdc7ae69d4e342a7e045e0034635ccf325ed32cbbe215035bc21",
+      "mtime": 1794263096.955337,
+      "size": 3050
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/cloud/credential_provider/_builder/02__builder.csharp.d.ps": {
+      "sha256": "6581b169ce14c20839b0616db297a80424b1bacdc3a64e92f06809ec162cb3ef",
+      "mtime": 1794263096.9561214,
+      "size": 9093
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/cloud/credential_provider/_providers/00__providers.primitives.d.ps": {
+      "sha256": "4a898a78fe6fdcc1396e5298f22e1d28ff824431d455aa488c2ae4cf12158afa",
+      "mtime": 1794263096.9688854,
+      "size": 4817
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/cloud/credential_provider/_providers/02__providers.csharp.d.ps": {
+      "sha256": "e23394db3f1bb8692194f6a47ca5766e95fe4ba842b5f9cc17ebfea8a3ac51c1",
+      "mtime": 1794263096.9694536,
+      "size": 11132
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/csv/00_csv.primitives.d.ps": {
+      "sha256": "4ce4f9c7c860e7f17ade04a9d3a22579438a92fce50f9047a748b9a4259b2587",
+      "mtime": 1794263096.973409,
+      "size": 476
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/csv/02_csv.csharp.d.ps": {
+      "sha256": "1c8bc0152cbc7986bd1b87fc162cb8c20b85656409a6519727fc772127d4cc16",
+      "mtime": 1794263096.97515,
+      "size": 2533
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/csv/_utils/00__utils.primitives.d.ps": {
+      "sha256": "452c4811274cca64e61218db2f142e97b31cfae275a0ac16cd9f54fe30b16f22",
+      "mtime": 1794263096.9767225,
+      "size": 514
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/csv/_utils/02__utils.csharp.d.ps": {
+      "sha256": "b79b107182a0f1ee3809d4eaffe108756c18e4a5e16c8fd939a9da6edad6b9ee",
+      "mtime": 1794263096.9775343,
+      "size": 738
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/csv/functions/00_functions.primitives.d.ps": {
+      "sha256": "044723a603e2b7d8ac2d238350cdd09c7a2705d6c756d6bc3b2406221178e7b4",
+      "mtime": 1794263096.985774,
+      "size": 532
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/csv/functions/02_functions.csharp.d.ps": {
+      "sha256": "57c47be18210ca070de68bba1a9ac0ba8e088fdd06716d8377fdc41f80db536e",
+      "mtime": 1794263096.986291,
+      "size": 6574
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/database/00_database.primitives.d.ps": {
+      "sha256": "93cd5f3cd4faecb9b712af1c85f7b0c6c9da93b7d46763d00cbc74f2f9955ed5",
+      "mtime": 1794263096.9895515,
+      "size": 506
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/database/02_database.csharp.d.ps": {
+      "sha256": "32efd8e2a4ed35d5e22657bbd19dfdd4df2b5b9493fe072c36e26497d83245bb",
+      "mtime": 1794263096.99004,
+      "size": 2079
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/database/_arrow_registry/00__arrow_registry.primitives.d.ps": {
+      "sha256": "3996d91ec00d79f8db0be1b448d7cbd8ef7fe5dc09046b56bc7116b883d6530a",
+      "mtime": 1794263096.9923878,
+      "size": 964
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/database/_arrow_registry/02__arrow_registry.csharp.d.ps": {
+      "sha256": "ae62fd23ce706b35e0b9b14107a90a1258725029be5deea40ae8a5842b2acbc0",
+      "mtime": 1794263096.9928532,
+      "size": 2462
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/database/_cursor_proxies/00__cursor_proxies.primitives.d.ps": {
+      "sha256": "caaae1e70800e45e5632ccda7cd38b5103a0ee1346e6b49f3e36bfdb9462ebeb",
+      "mtime": 1794263097.0001469,
+      "size": 2416
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/database/_cursor_proxies/02__cursor_proxies.csharp.d.ps": {
+      "sha256": "c055a90269d5c9ce3362a54c87ac34098345518c2fae0e08b297d543dc547644",
+      "mtime": 1794263097.0006533,
+      "size": 6004
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/database/_executor/00__executor.primitives.d.ps": {
+      "sha256": "3cdda98d4bdec52ac016f5a9c3843a6e6003b250f366916aa5e7336584d8b431",
+      "mtime": 1794263097.006409,
+      "size": 1582
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/database/_executor/02__executor.csharp.d.ps": {
+      "sha256": "395faa97a1cd81f83de8e483324d0b990ae85f42ad75b73fc2a80f71ab63b46a",
+      "mtime": 1794263097.0082843,
+      "size": 5807
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/database/_inference/00__inference.primitives.d.ps": {
+      "sha256": "4b1a7edb7910eacfc2eb2b927ce1b2a0fc94bd900498423f2ed70662a23bbf7d",
+      "mtime": 1794263097.011652,
+      "size": 563
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/database/_inference/02__inference.csharp.d.ps": {
+      "sha256": "7b11cdbef6f073eefbdf0c0c84906d060225284449524c364f0ce4d97ea3a6e7",
+      "mtime": 1794263097.01268,
+      "size": 2480
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/database/_utils/00__utils.primitives.d.ps": {
+      "sha256": "dc05860e60eda19a452a514173c1a2f7d2f99e388479b1250186320708a7b4a0",
+      "mtime": 1794263097.0159206,
+      "size": 539
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/database/_utils/02__utils.csharp.d.ps": {
+      "sha256": "cd64b1f3492a040602eb800355ca6acd3dece8df404a7c44bb70e80e0e08aafe",
+      "mtime": 1794263097.0164104,
+      "size": 768
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/database/functions/00_functions.primitives.d.ps": {
+      "sha256": "d179b199f99d0e0908457c63c9787d4e5b0c3b95922efb3f8a27642012d0863c",
+      "mtime": 1794263097.0255141,
+      "size": 557
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/database/functions/02_functions.csharp.d.ps": {
+      "sha256": "43900cc40181a56895896365e5039ef37c4d197d1be75d9d6d5aae3db67012d3",
+      "mtime": 1794263097.026718,
+      "size": 4956
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/delta/00_delta.primitives.d.ps": {
+      "sha256": "54d80d614af1c7872bacc5fe5f7e520e9a418b026fe3163484196b4e4e6c2ac7",
+      "mtime": 1794263097.03077,
+      "size": 488
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/delta/02_delta.csharp.d.ps": {
+      "sha256": "b9a5c975fed8887a2658a4862d3662b7eed303e6e14e45a7af10aa4c623738a8",
+      "mtime": 1794263097.0316522,
+      "size": 1597
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/delta/_dataset/00__dataset.primitives.d.ps": {
+      "sha256": "7a891fed1faa50bdc5c32ba5c294a13ebd1de03bdd0c0063aafa701bf917ed2e",
+      "mtime": 1794263097.0391562,
+      "size": 1621
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/delta/_dataset/02__dataset.csharp.d.ps": {
+      "sha256": "939d307c03a70bcd22d635017b416a090568932563541539a43fb02cd7c48aa8",
+      "mtime": 1794263097.0397189,
+      "size": 5909
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/delta/_utils/00__utils.primitives.d.ps": {
+      "sha256": "6d7a713cded19d7bebdf092cf6734c839313902b5ebe8167cfde7a3b24f521be",
+      "mtime": 1794263097.0422878,
+      "size": 524
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/delta/_utils/02__utils.csharp.d.ps": {
+      "sha256": "9d42298a517e76499ff73b4a86cd7332bd5339416812c59c6f27b9592eece219",
+      "mtime": 1794263097.0427694,
+      "size": 750
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/delta/functions/00_functions.primitives.d.ps": {
+      "sha256": "bc47ada589802adba3b2bc279c3f01df798416100248e93d1e0d3595c38e4600",
+      "mtime": 1794263097.0474904,
+      "size": 542
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/delta/functions/02_functions.csharp.d.ps": {
+      "sha256": "2e8935197e26cb7599ddd0ba1680e0b35be006096bd6bd9d8fc296d7595c0793",
+      "mtime": 1794263097.0480013,
+      "size": 4764
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/external_reader/00_external_reader.primitives.d.ps": {
+      "sha256": "b81e8f89a27cd427678e2f0d46adb80c93bad5155dda4d5a793dad221eef39ec",
+      "mtime": 1794263097.050367,
+      "size": 546
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/external_reader/02_external_reader.csharp.d.ps": {
+      "sha256": "56ed5d489918cb2b9bb1e20bfdbc0164d0196ec1e6da4a2e6813d3a192f38a9e",
+      "mtime": 1794263097.050861,
+      "size": 1975
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/external_reader/_external_reader/00__external_reader.primitives.d.ps": {
+      "sha256": "b0037efe561d593979771f411980974d710929d9b09364ce8570104f46edd49c",
+      "mtime": 1794263097.0562875,
+      "size": 2100
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/external_reader/_external_reader/02__external_reader.csharp.d.ps": {
+      "sha256": "a4cb4e39634ca5ec06ca906fa2197f03c70c5ca28823e88e4e71036d21431bb5",
+      "mtime": 1794263097.0568202,
+      "size": 7006
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/external_reader/api/00_api.primitives.d.ps": {
+      "sha256": "475f97d6ecd722f07d648fe1b1d877e8a6b0b661a1f626610b5ecc42bda897f1",
+      "mtime": 1794263097.0591574,
+      "size": 555
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/external_reader/api/02_api.csharp.d.ps": {
+      "sha256": "09ffdc5e942d4f0196642a1aeb9642af279ea0a151783f840a7d2460a7f90a53",
+      "mtime": 1794263097.0598352,
+      "size": 1826
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/iceberg/00_iceberg.primitives.d.ps": {
+      "sha256": "2e6d71c1bfb5a7fa8489a07dcd0b75d9ebd77b6719829b8b4878e82ccc49725e",
+      "mtime": 1794263097.0620139,
+      "size": 500
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/iceberg/02_iceberg.csharp.d.ps": {
+      "sha256": "8a57f11e284668521a3467762c8e5ad0abe237463db9991196d39453a43baaa9",
+      "mtime": 1794263097.0625994,
+      "size": 1643
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/iceberg/_cache/00__cache.primitives.d.ps": {
+      "sha256": "ac7fb600ea596e0caa321f69ec5773ccd5627c8e1f98ddb586976fa0aa5d0dbf",
+      "mtime": 1794263097.0749025,
+      "size": 2697
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/iceberg/_cache/02__cache.csharp.d.ps": {
+      "sha256": "c74b65a2166706017176a56842a5e4bda66a4fd82f66ef75d7e7e2777228e279",
+      "mtime": 1794263097.0754611,
+      "size": 8914
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/iceberg/_dataset/00__dataset.primitives.d.ps": {
+      "sha256": "15cfe338e85da6286a19595cc5afe0933bb5a7b25903f77477ffca5f2cef8d92",
+      "mtime": 1794263097.093707,
+      "size": 5975
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/iceberg/_dataset/02__dataset.csharp.d.ps": {
+      "sha256": "b91bea576b091abf9563b98c160ec7a3bfd5f467a5246fbee801690a0d1feb4f",
+      "mtime": 1794263097.0948596,
+      "size": 15899
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/iceberg/_plugin/00__plugin.primitives.d.ps": {
+      "sha256": "c4ef714522ca039127ec8abe809c397059ba3d074e31b3737186586172e43bea",
+      "mtime": 1794263097.0987732,
+      "size": 540
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/iceberg/_plugin/02__plugin.csharp.d.ps": {
+      "sha256": "cdffdeb75a23a8589e1a48dd75dc88560c5d8c40854c4906f3596cc6c8458555",
+      "mtime": 1794263097.0994656,
+      "size": 2361
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/iceberg/_sink/00__sink.primitives.d.ps": {
+      "sha256": "fea937b54814d2928b150cf9a81b584de52c8372558ea59bcafd69d5a85d1f01",
+      "mtime": 1794263097.1084843,
+      "size": 3915
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/iceberg/_sink/02__sink.csharp.d.ps": {
+      "sha256": "15bc1648ebc571b0b7b25c56b779471659ce590975c70f0b33024c1625af4bb1",
+      "mtime": 1794263097.1089902,
+      "size": 11613
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/iceberg/_utils/00__utils.primitives.d.ps": {
+      "sha256": "9b2021437ef0bab9e65570d7face488330c41a9f498d57eab33459c640c21f47",
+      "mtime": 1794263097.1349277,
+      "size": 6085
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/iceberg/_utils/02__utils.csharp.d.ps": {
+      "sha256": "a8b2b30c4f5e3d602af7110d1678b6fb8ef8c75880a6b5d53ae2a71268fff81f",
+      "mtime": 1794263097.1354358,
+      "size": 19448
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/iceberg/functions/00_functions.primitives.d.ps": {
+      "sha256": "ed577dfd487ebc74ce21a045e66e595ca1ba0dda021520a97ec00a5690bb080e",
+      "mtime": 1794263097.1400173,
+      "size": 552
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/iceberg/functions/02_functions.csharp.d.ps": {
+      "sha256": "a6749ec9ba4483ba94928a1acbd7b6c178ecdd781d4a07bd45d85c3551b28541",
+      "mtime": 1794263097.1410062,
+      "size": 2942
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/ipc/00_ipc.primitives.d.ps": {
+      "sha256": "f8f4784df40bc497ecbc04b844f1e5c78dcbe5c54af9ef9f6a88b1cb59824351",
+      "mtime": 1794263097.1458433,
+      "size": 476
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/ipc/02_ipc.csharp.d.ps": {
+      "sha256": "8d390cfa4adff0c686f0050bccf4eca85518d75fbc30a3f52dcabff3b4f5f345",
+      "mtime": 1794263097.14633,
+      "size": 2993
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/ipc/functions/00_functions.primitives.d.ps": {
+      "sha256": "89dd1c2da9d7728a43e4b955d260e77a4beeb98f5f7e5336bf7e9500aa7a7403",
+      "mtime": 1794263097.15263,
+      "size": 532
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/ipc/functions/02_functions.csharp.d.ps": {
+      "sha256": "45c25d75a4aece411161364fa1d52a96495ed983284c38c04bb716bdbdeb36bb",
+      "mtime": 1794263097.1530912,
+      "size": 7043
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/json/00_json.primitives.d.ps": {
+      "sha256": "9b945baa6a2cd0530706448a3449a56b9c996e83609e2b53f33b3bd360d92639",
+      "mtime": 1794263097.1556575,
+      "size": 482
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/json/02_json.csharp.d.ps": {
+      "sha256": "2d20454bb87ef6083f2c970ea7bce943159aad8ded869e3d63046dede03be144",
+      "mtime": 1794263097.1561484,
+      "size": 1205
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/json/read/00_read.primitives.d.ps": {
+      "sha256": "2d91d764f0b5ec5f345d1475515ef6861b9a478c140587fdd6ec1c62a2f5367a",
+      "mtime": 1794263097.158672,
+      "size": 507
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/json/read/02_read.csharp.d.ps": {
+      "sha256": "8b5f58a4117aac5afa886beca48303261aa66f43e254260aba00da07d348cfc4",
+      "mtime": 1794263097.1591475,
+      "size": 2328
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/lance/00_lance.primitives.d.ps": {
+      "sha256": "6a4d35945dce27967108778497b2244fb896ae257b0bb8dee9ccd5328d0b3292",
+      "mtime": 1794263097.1611252,
+      "size": 488
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/lance/02_lance.csharp.d.ps": {
+      "sha256": "cbb8504fcd713d397c0079752624431aa45b944284f8b3becc2b31120f0f7ed3",
+      "mtime": 1794263097.1616244,
+      "size": 1064
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/lance/_reader/00__reader.primitives.d.ps": {
+      "sha256": "ccb298de22a8945642229dfeae90f80fd22142adfbf6a3e9062604f9f8a9b702",
+      "mtime": 1794263097.170081,
+      "size": 1966
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/lance/_reader/02__reader.csharp.d.ps": {
+      "sha256": "4bccfa28dbe910c6ff91ec398442502b5f2d7f42b49e686c7f216447a6470f59",
+      "mtime": 1794263097.1706014,
+      "size": 8598
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/lance/_scan_resolver/00__scan_resolver.primitives.d.ps": {
+      "sha256": "65e52354cae95e4be0458aaacf698ea0d1955e9ea6007b49b077603ec51e748c",
+      "mtime": 1794263097.1773932,
+      "size": 1511
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/lance/_scan_resolver/02__scan_resolver.csharp.d.ps": {
+      "sha256": "d55eb1efd443ed8320072478e521f339ad7b28ae3cb15a8a60a80fd371856da1",
+      "mtime": 1794263097.1778686,
+      "size": 6464
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/lance/api/00_api.primitives.d.ps": {
+      "sha256": "5367ac8a0756b23b7c29e7f2c0882bfd1537acd6db2cb6870e147024fddd99f1",
+      "mtime": 1794263097.1805408,
+      "size": 506
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/lance/api/02_api.csharp.d.ps": {
+      "sha256": "3a139ecbba6b7d8fe221b98f9ede32700876f499ae0cb9f5ed84f3d6cfcd918c",
+      "mtime": 1794263097.1810267,
+      "size": 2382
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/lines/00_lines.primitives.d.ps": {
+      "sha256": "dc3d4bbb2c9c4e5af181acba4a856f7d5404ada6af18288124d698f6f3a5be8f",
+      "mtime": 1794263097.1851091,
+      "size": 488
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/lines/02_lines.csharp.d.ps": {
+      "sha256": "72944edb26598d33fca74bd3dd66679b58572064c50dee4e5951245cb995539b",
+      "mtime": 1794263097.185653,
+      "size": 4662
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/ndjson/00_ndjson.primitives.d.ps": {
+      "sha256": "987ac0d950a7886e25253a011270a9fdd28ebbaa9dadac239a3d6015620a3f7b",
+      "mtime": 1794263097.1917598,
+      "size": 494
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/ndjson/02_ndjson.csharp.d.ps": {
+      "sha256": "7bec2d943b83e0e5a30fea3412441af1b4804c2eb1417dfbc440f8e74c03fcd6",
+      "mtime": 1794263097.1930318,
+      "size": 5516
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/parquet/00_parquet.primitives.d.ps": {
+      "sha256": "cda9efca87952fcdc59cc33667fd70b6f9c049d1261b69fd328533f09dcb52f3",
+      "mtime": 1794263097.196553,
+      "size": 500
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/parquet/02_parquet.csharp.d.ps": {
+      "sha256": "52e55932bb0a3b54efe1835be730006d14bf205bc4753263e6956e5add5dc814",
+      "mtime": 1794263097.196992,
+      "size": 2803
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/parquet/decryption/00_decryption.primitives.d.ps": {
+      "sha256": "593b54c8c53b0d08dc5c533244260cf2e0caa552e03fc95ffd1a90c0a97f44ce",
+      "mtime": 1794263097.1988878,
+      "size": 642
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/parquet/decryption/02_decryption.csharp.d.ps": {
+      "sha256": "543456822ab7025f23864540f4531fe2f8f58b4a8fe9a512827b589bb2c87ffa",
+      "mtime": 1794263097.1993437,
+      "size": 1242
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/parquet/encryption/00_encryption.primitives.d.ps": {
+      "sha256": "24b5b7e12463887e767f123c15cb9a398c7db253b0acb6b3e89e63e009087e72",
+      "mtime": 1794263097.2011638,
+      "size": 642
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/parquet/encryption/02_encryption.csharp.d.ps": {
+      "sha256": "a6dcc2cfef2a1953b2864f191b8a8eef33a998cf4f2c652876ec0059cc199c27",
+      "mtime": 1794263097.2016263,
+      "size": 1242
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/parquet/functions/00_functions.primitives.d.ps": {
+      "sha256": "1bd4ab83d4ebd64e430dacecb8f4f70f4f2fc7d092b4086ad4d2a879c982e294",
+      "mtime": 1794263097.2088096,
+      "size": 552
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/parquet/functions/02_functions.csharp.d.ps": {
+      "sha256": "3a1142cc95a4a4573ef2913a249724c89f507e843e89cceccafb4ba968d752a2",
+      "mtime": 1794263097.2093165,
+      "size": 8776
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/partition/00_partition.primitives.d.ps": {
+      "sha256": "ce8d79b11b809191d93d8df56da4fc85057b1a34a10f139180a9fcc8cef702f6",
+      "mtime": 1794263097.2166493,
+      "size": 2808
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/partition/02_partition.csharp.d.ps": {
+      "sha256": "ef5c75e6b1a229107e850db9226680c8c426ad7e1616348e30bb2a52d7bb702d",
+      "mtime": 1794263097.2176063,
+      "size": 8595
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/plugins/00_plugins.primitives.d.ps": {
+      "sha256": "1e9b6eb3529ee2d13b18a654a189fe5733e6dd66b05171db214aef5d7ce2316e",
+      "mtime": 1794263097.222575,
+      "size": 816
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/plugins/02_plugins.csharp.d.ps": {
+      "sha256": "8ff98fabdc29735bd47fa9e19749bf41ddff1aa73995beb9c75ecb780cce0f32",
+      "mtime": 1794263097.2231677,
+      "size": 3683
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/pyarrow_dataset/00_pyarrow_dataset.primitives.d.ps": {
+      "sha256": "f5c29fefec699f7357ecd6bcce8c1e61af74d8f3038718bb7b9b8b65e8a3b4f5",
+      "mtime": 1794263097.225675,
+      "size": 546
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/pyarrow_dataset/02_pyarrow_dataset.csharp.d.ps": {
+      "sha256": "b182f4883f37eb0043f47301116274d5c19037f8808004d9f2b401eedb3bd18d",
+      "mtime": 1794263097.2268932,
+      "size": 834
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/pyarrow_dataset/anonymous_scan/00_anonymous_scan.primitives.d.ps": {
+      "sha256": "8f606c706fc9ad2534306b9efe24d2d2b3048678f34bf7183e175ab74f84ae95",
+      "mtime": 1794263097.2295926,
+      "size": 619
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/pyarrow_dataset/anonymous_scan/02_anonymous_scan.csharp.d.ps": {
+      "sha256": "0700b481070cc6c54777a34282357210abffbd4a215c46108c325b536cfcc89f",
+      "mtime": 1794263097.2305613,
+      "size": 871
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/pyarrow_dataset/functions/00_functions.primitives.d.ps": {
+      "sha256": "49d57c6d7578a6f006b4c9c0372baf0cb48e890a4f53e3e80b0905a493762fc2",
+      "mtime": 1794263097.2329242,
+      "size": 591
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/pyarrow_dataset/functions/02_functions.csharp.d.ps": {
+      "sha256": "0cf79957b2d8d275cbf1283de3416e7cdaec0e66b1e4b96d72e92c83748ad22e",
+      "mtime": 1794263097.2337286,
+      "size": 1796
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/scan_options/00_scan_options.primitives.d.ps": {
+      "sha256": "226ca1c3446c1d5c6b05dbc223bd668b11bf15d89bfd5fdafc12f011ac6b1009",
+      "mtime": 1794263097.2356803,
+      "size": 528
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/scan_options/02_scan_options.csharp.d.ps": {
+      "sha256": "401b44f9883058fbce523eacfb3fa9b76214305e33e085d67729eae45da0402c",
+      "mtime": 1794263097.2364607,
+      "size": 838
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/scan_options/_options/00__options.primitives.d.ps": {
+      "sha256": "1059a59e0c826be3e1eff977879d72c25392cab275fd2868f10b9ae08f5cbf0b",
+      "mtime": 1794263097.241447,
+      "size": 2263
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/scan_options/_options/02__options.csharp.d.ps": {
+      "sha256": "cfc7b97735f724478b15c9ab602266da5f3c9ac65c8980bc052af6ccb0a8f3f5",
+      "mtime": 1794263097.2424378,
+      "size": 8069
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/scan_options/cast_options/00_cast_options.primitives.d.ps": {
+      "sha256": "7241486109ad3898b54b9664f906faed5008a16b21b05aafbe713881af2e0756",
+      "mtime": 1794263097.2490473,
+      "size": 1138
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/scan_options/cast_options/02_cast_options.csharp.d.ps": {
+      "sha256": "1f1b9c20c7b436417273bdd3217c5cc0d889d4ed6d95f6a13e410df4013abc26",
+      "mtime": 1794263097.2501345,
+      "size": 4296
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/spreadsheet/00_spreadsheet.primitives.d.ps": {
+      "sha256": "45f86a42b02c6823687950c29ee8f3ae4e4039083669790c6fc7dea2191b11b3",
+      "mtime": 1794263097.2526534,
+      "size": 524
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/spreadsheet/02_spreadsheet.csharp.d.ps": {
+      "sha256": "d4c3c42fef479018a51590dba2b16fbd2b86c2a3b5397c80c68af0d7df6e5695",
+      "mtime": 1794263097.2535157,
+      "size": 1160
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/spreadsheet/_utils/00__utils.primitives.d.ps": {
+      "sha256": "d8aeaa4a6e25cf62843c3ff83ec260781764e032301544d6c7380f04efab2986",
+      "mtime": 1794263097.256118,
+      "size": 554
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/spreadsheet/_utils/02__utils.csharp.d.ps": {
+      "sha256": "443a704d4f425390bfa598089365ba4c7774764a0a3a0096623cbe2eb31058b7",
+      "mtime": 1794263097.257227,
+      "size": 1901
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/spreadsheet/_write_utils/00__write_utils.primitives.d.ps": {
+      "sha256": "2543d9f14a8895336cfab2d38039cbd8abfd81e761895a2cf3a08b10600b6e0e",
+      "mtime": 1794263097.2617695,
+      "size": 762
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/spreadsheet/_write_utils/02__write_utils.csharp.d.ps": {
+      "sha256": "5f83bd9774abd8a0b1a93f5098acefc760ee92b7544e780af619b08b6854e9cf",
+      "mtime": 1794263097.262771,
+      "size": 2563
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/spreadsheet/functions/00_functions.primitives.d.ps": {
+      "sha256": "4f585ed810d18ff5a0a4428879f9d8d1150a6d50769eeb9df930e0fa069e96d1",
+      "mtime": 1794263097.2878,
+      "size": 572
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/io/spreadsheet/functions/02_functions.csharp.d.ps": {
+      "sha256": "44e961855eed1cfd5d5eefda5680514e071ee1500ac39f4fcd690a0da7f3c5a6",
+      "mtime": 1794263097.2919075,
+      "size": 4019
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/00_lazyframe.primitives.d.ps": {
+      "sha256": "8de06379f42fb538da2bca141bbbfc7eff43e14e692db1556b67b90d5d269b9b",
+      "mtime": 1794263097.3127367,
+      "size": 497
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/02_lazyframe.csharp.d.ps": {
+      "sha256": "ffb0753aa573cf7f334763f73535ef171d98b39920177085901272d539128838",
+      "mtime": 1794263097.3133218,
+      "size": 2838
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/engine/00_engine.primitives.d.ps": {
+      "sha256": "68efde90620858cf2bf1579af9f39139e80332672ba0bace83401ca87cb84c30",
+      "mtime": 1794263097.4057343,
+      "size": 7027
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/engine/02_engine.csharp.d.ps": {
+      "sha256": "1f9d4f190078edeff0295d47c96293b6231a763d6083ad6c42eb9fd7d33268f5",
+      "mtime": 1794263097.4067435,
+      "size": 21974
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/engine_config/00_engine_config.primitives.d.ps": {
+      "sha256": "04bf7086f5e8e50945f3c5b328c6eafc2f33d4a8bbb1ab0a15cfefbfd8d8cf9d",
+      "mtime": 1794263097.4108853,
+      "size": 569
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/engine_config/02_engine_config.csharp.d.ps": {
+      "sha256": "40b83421c9228794d0c2726c10da994a525425c373fc19fbadcef7e4fac3d3f9",
+      "mtime": 1794263097.4145439,
+      "size": 3309
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/engine_remote/00_engine_remote.primitives.d.ps": {
+      "sha256": "c5bcdc806c056c23be54c9cdc5327e450fa8ccad9b60df44937f2479f6e3ac3b",
+      "mtime": 1794263097.4399948,
+      "size": 2651
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/engine_remote/02_engine_remote.csharp.d.ps": {
+      "sha256": "98e4465ca047d35ec3080e668bf2dd3085fa7d0b8b8bb1f8be271e4745b443c5",
+      "mtime": 1794263097.4405546,
+      "size": 12799
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/frame/00_frame.primitives.d.ps": {
+      "sha256": "4b3d802b542573e6a9a0c6272014c96777ac9217dc7770ef3e9539d3a0f86bb0",
+      "mtime": 1794263097.771724,
+      "size": 13264
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/frame/02_frame.csharp.d.ps": {
+      "sha256": "c8bc70e8ce4434a3e99eddd162a254606d1bae32bba69887631c23e724f70aab",
+      "mtime": 1794263097.77234,
+      "size": 46090
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/group_by/00_group_by.primitives.d.ps": {
+      "sha256": "35237b6ebe047671b8047f06a6165d75a7ca84d249c05fd85c62f262572840dd",
+      "mtime": 1794263097.8086095,
+      "size": 1807
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/group_by/02_group_by.csharp.d.ps": {
+      "sha256": "6280612bd59ff9d616b04044fcd4f6aece4bae4241e6cc7d3a87026b805ab2ac",
+      "mtime": 1794263097.812811,
+      "size": 5793
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/in_process/00_in_process.primitives.d.ps": {
+      "sha256": "f687234059c7d2e285b3d5b54cc1304869541d842500df3b641ed7954cc031f2",
+      "mtime": 1794263097.8200738,
+      "size": 797
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/in_process/02_in_process.csharp.d.ps": {
+      "sha256": "ea9a70b4e25fd27639e8581fe0726d2a1bd6c100b60e4dc341da333b6ae44395",
+      "mtime": 1794263097.8205924,
+      "size": 2070
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/opt_flags/00_opt_flags.primitives.d.ps": {
+      "sha256": "5f9bdcfb23d9ce84f5280572b140e9814127e00f8d039fea1182df2fe106a0bb",
+      "mtime": 1794263097.840509,
+      "size": 2110
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/opt_flags/02_opt_flags.csharp.d.ps": {
+      "sha256": "31994dff244fa0d58956809da73efc684cf5fe46146c0e2f246a50ef13758ac1",
+      "mtime": 1794263097.8410175,
+      "size": 5094
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/query_result/00_query_result.primitives.d.ps": {
+      "sha256": "3957abaff39926306341768529f91b010518c7c48a62db4cd8c5478f4f660d50",
+      "mtime": 1794263097.8584337,
+      "size": 1215
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/query_result/02_query_result.csharp.d.ps": {
+      "sha256": "6a9da895c06e353723e72920099872c00b7889d864b7b2a73ba488d03f4420a4",
+      "mtime": 1794263097.858957,
+      "size": 3448
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/resolver/00_resolver.primitives.d.ps": {
+      "sha256": "07ad02a67a97a77bf54d8ada2d73a6357988fbf6275eaa3ce2f27c2f839a2c51",
+      "mtime": 1794263097.868411,
+      "size": 541
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/resolver/02_resolver.csharp.d.ps": {
+      "sha256": "67de34f4fa267bc257af3c8e5b1b86b8011d1e07bcd7a203d5a99058457bb3fb",
+      "mtime": 1794263097.8707392,
+      "size": 1369
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/resolver/_resolver/00__resolver.primitives.d.ps": {
+      "sha256": "c8e6eab770dded63317da23ff29c13ea12bbcd1b67c758fe50e4094a51816a54",
+      "mtime": 1794263097.894411,
+      "size": 1569
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/resolver/_resolver/02__resolver.csharp.d.ps": {
+      "sha256": "7364d88e7682f662c726c937023885f9bb46cc4caa33f301ec4433dd2d65bc93",
+      "mtime": 1794263097.8957396,
+      "size": 4042
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/sink_plan/00_sink_plan.primitives.d.ps": {
+      "sha256": "96de5cfdfa84ddabf21680c6f0104fd99ba9b947bf4be531b97bb2378622c2c0",
+      "mtime": 1794263097.9064112,
+      "size": 545
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/lazyframe/sink_plan/02_sink_plan.csharp.d.ps": {
+      "sha256": "eb0ece04f894fec415245f09b780398401295a201b321d9f1544e6aaf1b70198",
+      "mtime": 1794263097.9077833,
+      "size": 776
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/meta/00_meta.primitives.d.ps": {
+      "sha256": "f6349bc33b8bb59317c82162298f2964230a31b003edde255244c2b7554f1e47",
+      "mtime": 1794263097.9225683,
+      "size": 467
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/meta/02_meta.csharp.d.ps": {
+      "sha256": "bd9a71ddeeabd0a31c588d859d4297fca2f82608c17bfe09e68ca8ed23463826",
+      "mtime": 1794263097.9291134,
+      "size": 1256
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/meta/build/00_build.primitives.d.ps": {
+      "sha256": "3d5f633588077c63ceefa59148fb3dd4264e03d75c503d41b459b729b699f50f",
+      "mtime": 1794263097.93692,
+      "size": 498
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/meta/build/02_build.csharp.d.ps": {
+      "sha256": "2726b373e69af96ac00ff4aa3aa8c225e3b66924ba2f6cbaea91dc2990aef2c2",
+      "mtime": 1794263097.9445446,
+      "size": 1046
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/meta/index_type/00_index_type.primitives.d.ps": {
+      "sha256": "7e53d571cb311ffd1c2067b419df8152e78e2d0bd5d3f9177c68658a251d113a",
+      "mtime": 1794263097.9454112,
+      "size": 526
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/meta/index_type/02_index_type.csharp.d.ps": {
+      "sha256": "912ffd1382220dbade937df040a258907fe97ac0d3adee6b1202808c462e2c7b",
+      "mtime": 1794263097.9577284,
+      "size": 1190
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/meta/thread_pool/00_thread_pool.primitives.d.ps": {
+      "sha256": "7e257825ce0d03e83a11c1ad0f033f2de7a5cc778df0ece8236436f830a82ba3",
+      "mtime": 1794263097.9591482,
+      "size": 532
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/meta/thread_pool/02_thread_pool.csharp.d.ps": {
+      "sha256": "9b1e403eebc00ebf00462ddbfd66e82568400363de7aca48da3efcc72ec96236",
+      "mtime": 1794263097.966611,
+      "size": 717
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/meta/versions/00_versions.primitives.d.ps": {
+      "sha256": "cd5b3cf31eb455dfee3861ad430f53a7ad1ce9a3c6e609411a11100c00724f86",
+      "mtime": 1794263097.9745014,
+      "size": 516
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/meta/versions/02_versions.csharp.d.ps": {
+      "sha256": "7b12a04be9502c3c41155c7c62588785584970b51ad5792f378c7ae13eaf14dd",
+      "mtime": 1794263097.9750485,
+      "size": 691
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/ml/00_ml.primitives.d.ps": {
+      "sha256": "d189107e6aaaffbae7151a0dd5a30789ab6d9a75631a0fa963dee88cd7b3d4a8",
+      "mtime": 1794263097.9798074,
+      "size": 455
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/ml/02_ml.csharp.d.ps": {
+      "sha256": "2a4a7372b16c53899a20ade6466aa0e0ec65dd536da5d3f2b972e86443e97813",
+      "mtime": 1794263097.9874113,
+      "size": 360
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/ml/torch/00_torch.primitives.d.ps": {
+      "sha256": "fa4edbe1b615be488c2aa8ca15a9e74004054dc481852c615e43d8bb7e5970ed",
+      "mtime": 1794263098.0084448,
+      "size": 1023
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/ml/torch/02_torch.csharp.d.ps": {
+      "sha256": "c5be6a4b2cc5e07d5b4269192d7f6ba32e6c96130ff9b9377a6d3fc6e4600434",
+      "mtime": 1794263098.008914,
+      "size": 3560
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/ml/utilities/00_utilities.primitives.d.ps": {
+      "sha256": "2fa80bf688fac2f5fb47e09df4965f2c7e1a6ef0ee07e38b409f8ff7ecb6dfbb",
+      "mtime": 1794263098.017434,
+      "size": 512
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/ml/utilities/02_utilities.csharp.d.ps": {
+      "sha256": "fe2288ccba9946df6b6c05f999c4fbda0b7e492d56f81fa25f75cb9ae14564c9",
+      "mtime": 1794263098.0179307,
+      "size": 1608
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/plugins/00_plugins.primitives.d.ps": {
+      "sha256": "d541d6fa40b99530c46a605844ffae00298750a969a49139014e5dbf8f5528c2",
+      "mtime": 1794263098.0303984,
+      "size": 485
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/plugins/02_plugins.csharp.d.ps": {
+      "sha256": "96a0bcb5647846a6e169fed474bd924afdfdf0423a426c236dbf9b66df6eb0af",
+      "mtime": 1794263098.0308309,
+      "size": 1946
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/schema/00_schema.primitives.d.ps": {
+      "sha256": "9e7e7326157a2236fa7315bf2d6d6fd9cb77296a9058a74b3d94e737355e26b8",
+      "mtime": 1794263098.0707464,
+      "size": 1298
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/schema/02_schema.csharp.d.ps": {
+      "sha256": "7fe53f5d70a6c40c7af6f14922e6e21c69cd4f02509f3ba637577225e5487ece",
+      "mtime": 1794263098.0744114,
+      "size": 6259
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/selectors/00_selectors.primitives.d.ps": {
+      "sha256": "136ecda4a46d5c302eff9dd2e7a449b3a14752a64c7e4225ba693ffbdb49459a",
+      "mtime": 1794263098.1035476,
+      "size": 2310
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/selectors/02_selectors.csharp.d.ps": {
+      "sha256": "bbd7e34cb0054285ea3dc34ff39871c5e271bbd5120d6d178b8a647100441c66",
+      "mtime": 1794263098.1043997,
+      "size": 16880
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/00_series.primitives.d.ps": {
+      "sha256": "9cc4d657596615a13e95881ec064424b5d5354a4b7285c0feb843514b70fb263",
+      "mtime": 1794263098.107434,
+      "size": 479
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/02_series.csharp.d.ps": {
+      "sha256": "1416629b077975549953ca826392db16383a0abc13aa71105e436c20a238fca3",
+      "mtime": 1794263098.108589,
+      "size": 724
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/array/00_array.primitives.d.ps": {
+      "sha256": "ad452df5fe86cc54257fa90462f0c07e0384cd2af64884157a398c176e6edf25",
+      "mtime": 1794263098.1217933,
+      "size": 2815
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/array/02_array.csharp.d.ps": {
+      "sha256": "3c13981a28d84df1c742870755aa5c4decee4a42a138af04a71471f259e0457c",
+      "mtime": 1794263098.1230936,
+      "size": 8120
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/binary/00_binary.primitives.d.ps": {
+      "sha256": "d6670a62ee9c713ae28d76a57eccfb8d656e10b1f48831c643dc18a9338f3c45",
+      "mtime": 1794263098.1295607,
+      "size": 1466
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/binary/02_binary.csharp.d.ps": {
+      "sha256": "143816d4f85e8b11437116d7ba5cca9904b4e52cb7bb39aac94a6a7dacb3f717",
+      "mtime": 1794263098.1306715,
+      "size": 4620
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/categorical/00_categorical.primitives.d.ps": {
+      "sha256": "7146f5256d35fbb22bbda458f9cf50cfae47ed7503dcc37a26fb3690356b6df1",
+      "mtime": 1794263098.1367502,
+      "size": 1083
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/categorical/02_categorical.csharp.d.ps": {
+      "sha256": "27f00f2bdc2a153ca7ba566e485d2e41a6e0d76df3af302cdf55a140c40d197d",
+      "mtime": 1794263098.137289,
+      "size": 3170
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/datetime/00_datetime.primitives.d.ps": {
+      "sha256": "a419e42e7dc40bbbd9f63d8303a8279f920014d7c98851f8f9a93e0965ba98a8",
+      "mtime": 1794263098.1856163,
+      "size": 4476
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/datetime/02_datetime.csharp.d.ps": {
+      "sha256": "6421608e83e19dc936cc0b43b51084a466a237231db7cc4ed7ba062021536035",
+      "mtime": 1794263098.1860888,
+      "size": 13537
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/ext/00_ext.primitives.d.ps": {
+      "sha256": "d798c3d58d17b12131a5adcfc0cf7f3091e553bcc189bb5aca9a0557103bbd18",
+      "mtime": 1794263098.2097542,
+      "size": 705
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/ext/02_ext.csharp.d.ps": {
+      "sha256": "e42bd90d7841436bc0aff93033b8dbf9a2fb96a3b723a69496cb6e5350694734",
+      "mtime": 1794263098.2103574,
+      "size": 2150
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/list/00_list.primitives.d.ps": {
+      "sha256": "88fdee4f7844a1786de243a9593476d2026fd3b5fd0bb40d972ad1a631a1644c",
+      "mtime": 1794263098.2760115,
+      "size": 4469
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/list/02_list.csharp.d.ps": {
+      "sha256": "575e2923449fdbc265adc1e973337901a587138121f5bf5d5587334fc3afc566",
+      "mtime": 1794263098.2765334,
+      "size": 12242
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/map/00_map.primitives.d.ps": {
+      "sha256": "3c8881b37e27e874cd77cf2d5e7dadd11b359800943b3b8bd0fedff7fa87679f",
+      "mtime": 1794263098.2980876,
+      "size": 920
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/map/02_map.csharp.d.ps": {
+      "sha256": "80948fc4528aa550e9d4958e2073160d3faacb92a01a91b37f7af79853f18dc9",
+      "mtime": 1794263098.3220162,
+      "size": 2503
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/plotting/00_plotting.primitives.d.ps": {
+      "sha256": "b7d377708a5726d695e86466cff3f4219a8ed23327860a00507abcf63c2f05ae",
+      "mtime": 1794263098.3341935,
+      "size": 886
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/plotting/02_plotting.csharp.d.ps": {
+      "sha256": "c1b18111a83c67e1854feb8feacae9a7503a3b580ea90f9336d7e7abd137a939",
+      "mtime": 1794263098.3347218,
+      "size": 2754
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/series/00_series.primitives.d.ps": {
+      "sha256": "afe1828a8053af6c986b6cea9e3985390dea16d93cfa245ae4410ed5a233814b",
+      "mtime": 1794263098.7516475,
+      "size": 28964
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/series/02_series.csharp.d.ps": {
+      "sha256": "2d920a4c59522223d532b685a16df22e90cdad89b9f343e16f050e003199ba30",
+      "mtime": 1794263098.7521896,
+      "size": 78740
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/string/00_string.primitives.d.ps": {
+      "sha256": "1211df9e886f53ba20627f63f58076132f1ebe927f8e54f2a3f8d0e78317ea1f",
+      "mtime": 1794263098.7959569,
+      "size": 5841
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/string/02_string.csharp.d.ps": {
+      "sha256": "3cde09cb0a4aeff07af6d42599e4ae04833974fd01c0aacc3ec8a4fe8f159487",
+      "mtime": 1794263098.7965314,
+      "size": 16268
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/struct/00_struct.primitives.d.ps": {
+      "sha256": "b3072cb1bc01b860d7f927b9f70324bb7b2a49436d1000bfa090372c5f730e6a",
+      "mtime": 1794263098.802463,
+      "size": 1318
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/struct/02_struct.csharp.d.ps": {
+      "sha256": "64ca28f44cad8ca5e0db6ffc1e3ee2aab447c8fb5fb7cd27acba24709dfb8610",
+      "mtime": 1794263098.8038018,
+      "size": 4118
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/utils/00_utils.primitives.d.ps": {
+      "sha256": "e0877c24720ad488077650c484453df74dee29688ca318b0ff9d1e4926d33fce",
+      "mtime": 1794263098.8098404,
+      "size": 656
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/series/utils/02_utils.csharp.d.ps": {
+      "sha256": "a748e0c494f1dfb33d0fa9379c5650fbfed79a0ee31a7e5bcf581f61a956f1ab",
+      "mtime": 1794263098.81035,
+      "size": 3261
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/sql/00_sql.primitives.d.ps": {
+      "sha256": "db8a4ad067517b80c4ca5d997664d5629df4b3dd82692f48c236794ed310b4e9",
+      "mtime": 1794263098.8114133,
+      "size": 461
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/sql/02_sql.csharp.d.ps": {
+      "sha256": "b147ce799cd15c15a789f21e586efb0bf238b557c143a24a5c1ed3bf4e64380a",
+      "mtime": 1794263098.812762,
+      "size": 907
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/sql/context/00_context.primitives.d.ps": {
+      "sha256": "62e737e54aca72d5ea4b08c7f1e3de60ba731ba7af26ac43d1d83bb4c7a625d1",
+      "mtime": 1794263098.8314567,
+      "size": 2496
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/sql/context/02_context.csharp.d.ps": {
+      "sha256": "c3c79cb5291953aae618cdf8b1b9a5cf321cc5eab3fdb42f95867fbeff9b2b42",
+      "mtime": 1794263098.8319955,
+      "size": 9700
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/sql/functions/00_functions.primitives.d.ps": {
+      "sha256": "a7eec3b8c05ec71a05b23ebc2e8e2043fd40ba91d665cd2021d8c830aa1e43df",
+      "mtime": 1794263098.8371558,
+      "size": 517
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/sql/functions/02_functions.csharp.d.ps": {
+      "sha256": "2fdd245900e24508ebf84e6107b007912fde0f8a09b2b7b9a354ea6f8db27224",
+      "mtime": 1794263098.845889,
+      "size": 1883
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/string_cache/00_string_cache.primitives.d.ps": {
+      "sha256": "5fdc4f642bc8ad4a8d6587a35dd032d757fe3ef476ee297f09dfda0cfe87ef44",
+      "mtime": 1794263098.8550465,
+      "size": 732
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/.ps-stubs/polars/polars/string_cache/02_string_cache.csharp.d.ps": {
+      "sha256": "c1c397808eec35b4cb5d4654e960593d6df74bc6cfbc7507f5b82417fa1fd10f",
+      "mtime": 1794263098.855572,
+      "size": 2556
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/00_attributes.d.ps": {
+      "sha256": "36b64cd04420d389ed84dfdd4db65aace410ad442ec3a6d9965646a4055ad821",
+      "mtime": 1793464080.8828561,
+      "size": 2305
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/01_contracts.d.ps": {
+      "sha256": "0bcfb2e78e4384e495e6b02caffbcf28fe5e31e8fc7ee388bea3ef7eeb330acb",
+      "mtime": 1793464573.6832237,
+      "size": 4013
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/02_primitives.d.ps": {
+      "sha256": "fb193d96bb0674eaf174424a05c75e70f230d740e93398b4d3ed08aa5446add9",
+      "mtime": 1794158334.4086375,
+      "size": 23077
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/03_builtins.raw.d.ps": {
+      "sha256": "c7af5f14ddf1a59d135de55bc2b0b02ae72dc5b671052965b98962ec6f1e9bf5",
+      "mtime": 1793464080.883746,
+      "size": 4021
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/04_builtins.csharp.d.ps": {
+      "sha256": "fe57dd2b1012ea4b40fdf8cb23c0ec399490fdae5c7b042c7d46f7d03f4983bc",
+      "mtime": 1793464080.8840315,
+      "size": 3393
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/00_core/05_core.enterprise.d.ps": {
+      "sha256": "66caaacf57e04d4d4b961ea20c70dcf089f4ae6006799f41f6704dbedb02f217",
+      "mtime": 1793464080.8843095,
+      "size": 3302
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/contextlib_subprocess/00_contextlib.primitives.d.ps": {
+      "sha256": "e94102482c9e3e58a9f0efa85ca840b9951cf6fa7e9e8157d01135e3cb1a02f1",
+      "mtime": 1793464080.8971665,
+      "size": 2842
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/contextlib_subprocess/01_contextlib.raw.d.ps": {
+      "sha256": "6671a67e545b7740e598941d994c82cb1c6b25405ed214264b81b7fff689f9ab",
+      "mtime": 1793468315.1744256,
+      "size": 1314
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/contextlib_subprocess/02_contextlib.csharp.d.ps": {
+      "sha256": "b05f9bf997d07cb373ecb0795adb22d2df282ec11df8d4f35bd2b024d6bd168a",
+      "mtime": 1793468327.8042042,
+      "size": 1194
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/contextlib_subprocess/03_processes.enterprise.d.ps": {
+      "sha256": "a2b1a1a651cf4bab206437081a6afa9751a448615f898d233482723466666edd",
+      "mtime": 1793468341.286606,
+      "size": 1119
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/json/00_json.primitives.d.ps": {
+      "sha256": "7a87922da4004af89d60c9fd8b0ae1167ccac5919cdb4e2a348714021a75adbb",
+      "mtime": 1793464080.8870032,
+      "size": 1068
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/json/01_json.raw.d.ps": {
+      "sha256": "7056e82d8b2e4b5729a755ff31439078adbb7b4ae49a91fbc853e64c5c818265",
+      "mtime": 1793464080.8872252,
+      "size": 1123
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/json/02_json.csharp.d.ps": {
+      "sha256": "70fe6a4927907dc8aa5a47a55f56f3c345515690c32c77cd2c0b695c5a33402b",
+      "mtime": 1793464080.8874395,
+      "size": 1026
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/json/03_serialization.enterprise.d.ps": {
+      "sha256": "8f9b5f0dde02401bcf7b11dba99b5674dae26c0f70d8e3ad6e6558057e1655ce",
+      "mtime": 1793466419.9061885,
+      "size": 955
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/logging/00_logging.primitives.d.ps": {
+      "sha256": "12c80ec9e9fb4b4b342b4e8616cae10c672132cf6f08603a501264f493c637e8",
+      "mtime": 1793464080.892265,
+      "size": 3125
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/logging/01_logging.raw.d.ps": {
+      "sha256": "4e632115536938487d8a26f46f7b58aa4e96dea820f01b966685bef8cd820c3d",
+      "mtime": 1793464080.893275,
+      "size": 1409
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/logging/02_logging.csharp.d.ps": {
+      "sha256": "c0dbdc24d903f8f4f05b89fd1c35acdefff85232e2bc6831d91fb68e1433b9d4",
+      "mtime": 1793464080.8935652,
+      "size": 1313
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/logging/03_logging.enterprise.d.ps": {
+      "sha256": "58bcab63e2d48c610c42a82214bb72d0d55c0698c3001d2750987f6b9e0500c2",
+      "mtime": 1793464080.893919,
+      "size": 713
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/os_shutil/00_os.primitives.d.ps": {
+      "sha256": "d341b77a895b3b550d07b5489dc4a706c63fdac6725e9c59da21967295751bff",
+      "mtime": 1793464080.8850002,
+      "size": 2703
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/os_shutil/01_os.raw.d.ps": {
+      "sha256": "94a5a208bfcdd69230964303e473877f7b4d98ad6f3c53dbf6020678dddbdd90",
+      "mtime": 1793467356.9960291,
+      "size": 5270
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/os_shutil/02_os.csharp.d.ps": {
+      "sha256": "e2ad163325418ba30404277e06e26d5bb4df89c9276d1097c0a0ec58649686f7",
+      "mtime": 1793467363.782007,
+      "size": 4719
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/os_shutil/03_io.enterprise.d.ps": {
+      "sha256": "dc990dce5c994cd4c66414ae3986b3c73cc132a10403741700fd157a42c00e67",
+      "mtime": 1793467368.4799914,
+      "size": 3542
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/pathlib_hashlib_uuid/00_pathlib.primitives.d.ps": {
+      "sha256": "7c4783c5deae4a3d41deb6b4d74762970a66727087d7cd6ab1004a034c4a505f",
+      "mtime": 1793464080.898241,
+      "size": 3771
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/pathlib_hashlib_uuid/01_pathlib.raw.d.ps": {
+      "sha256": "d33d02da1ff42538fff06ece9f4f06b060557f62f010158988621365a39095c1",
+      "mtime": 1793464080.898502,
+      "size": 1148
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/pathlib_hashlib_uuid/02_pathlib.csharp.d.ps": {
+      "sha256": "7595120f431bbc97a6eee82215aadebed6fb4c3699ef6e5e4c64b852a59a232d",
+      "mtime": 1793464080.8987525,
+      "size": 1051
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/pathlib_hashlib_uuid/03_security.enterprise.d.ps": {
+      "sha256": "10d54743eb7372f612045cc1d8f9b4548efd0fb9c9c00ea8ff5c53721c836f82",
+      "mtime": 1793464080.8989737,
+      "size": 991
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/re/00_re.primitives.d.ps": {
+      "sha256": "9ebdee71dc3651f15016d555ec6c451b03486ec7d8ada0317a42333c67d08ea9",
+      "mtime": 1793464080.8879056,
+      "size": 3024
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/re/01_re.raw.d.ps": {
+      "sha256": "8f9ac6a5ead5e33c06220496abdcbd340d8da7a05e5875297ae096991a2b4f3e",
+      "mtime": 1793464080.8881066,
+      "size": 1616
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/re/02_re.csharp.d.ps": {
+      "sha256": "c17f7bc49fe7985f651949dbfb5ef328564419c2b1ae68b6cf25fe481915da96",
+      "mtime": 1793464080.8882985,
+      "size": 1455
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/re/03_regex.enterprise.d.ps": {
+      "sha256": "a247983be3f82078c13693dc8552f85c77abf2ab14eaffe167a30557fbb78817",
+      "mtime": 1793464080.888532,
+      "size": 1042
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/sys/00_sys.primitives.d.ps": {
+      "sha256": "398e9819cbc4243e6cab2e1548a06da32d11e5c2d21e7167a50c33329288ea68",
+      "mtime": 1793464080.8861191,
+      "size": 2480
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/sys/01_sys.raw.d.ps": {
+      "sha256": "7c17c4bc81a09fda735d0b8ba4eb15d3b85312f1ac0126b07724d54b3dbb3e6d",
+      "mtime": 1793464080.8863328,
+      "size": 1646
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/sys/02_sys.csharp.d.ps": {
+      "sha256": "93b756735f6146a6a84419d8231c3476d2a06ac884b4093e99e3bbe4c37e1ef6",
+      "mtime": 1793464080.8865335,
+      "size": 1448
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/sys/03_runtime.enterprise.d.ps": {
+      "sha256": "51233b6f6fc8f1dbbee388c287d140b8d3ff48c145333559553c62b537cc9e89",
+      "mtime": 1793464080.8867545,
+      "size": 990
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/time_datetime/00_time.primitives.d.ps": {
+      "sha256": "aa367000a98835556ef7f12867946c6af62f0cc3c4270e71ed703ff2b384a948",
+      "mtime": 1793464080.8888724,
+      "size": 2175
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/time_datetime/01_time.raw.d.ps": {
+      "sha256": "2ec1a2371df0dd0bb50812bbdf530855347da43f881391b0b14aab80f0bc7267",
+      "mtime": 1793464080.88956,
+      "size": 1917
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/time_datetime/02_time.csharp.d.ps": {
+      "sha256": "f1e976b183cb682e74ea098b81b1ec4c87a28c9621b653c8f66972417927c41e",
+      "mtime": 1793464080.8905241,
+      "size": 1666
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/time_datetime/03_clock.enterprise.d.ps": {
+      "sha256": "f0110024967630513e902c9665838d7c18d88eb2d4df4a7186144dd74b2f20b4",
+      "mtime": 1793464080.8912392,
+      "size": 1171
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/urllib_http/00_urllib.primitives.d.ps": {
+      "sha256": "2679effe312e788477c9777a55328beb9240b5b04230a1bbc83f4dc5d66245e7",
+      "mtime": 1793464080.8943167,
+      "size": 1478
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/urllib_http/01_urllib.raw.d.ps": {
+      "sha256": "0fe98b2c5dc5ad90330cac25cf702e25b2ed0405e24bce7128a4af91ee6b3d04",
+      "mtime": 1793464080.8946865,
+      "size": 1335
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/urllib_http/02_urllib.csharp.d.ps": {
+      "sha256": "ed80307fac087e025fcd8865690936cf63a492173dbd26b9b46d9e49764edc18",
+      "mtime": 1793464080.8953054,
+      "size": 1265
+    },
+    "/home/abhijit/Videos/transpilers/PythonSharp/src/psc/stdlib/01_python_stdlib/urllib_http/03_http.enterprise.d.ps": {
+      "sha256": "2bf3ddabbd0f49c545d1f6cbe814ff501e4291ad80de1ecda70ceff14443987f",
+      "mtime": 1793464080.8964922,
+      "size": 786
+    },
+    "ProjMain.ps": {
+      "sha256": "6a6064657d12c4e9e182a46dea17193d26534de46c06f470bf51978740c2da73",
+      "mtime": 1794264412.3621635,
+      "size": 1402
+    },
+    "TestUtil.ps": {
+      "sha256": "d05d28d8e5fa051c0c2e5dfa52caaba382cffa5f12dff448eac628bec7447224",
+      "mtime": 1794263596.6172128,
+      "size": 192
+    }
+  },
+  "outputs": [
+    "polars_demo.py",
+    "polars_demo.pyc"
+  ]
+}

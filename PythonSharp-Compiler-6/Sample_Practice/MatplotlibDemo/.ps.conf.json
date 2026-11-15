@@ -1,0 +1,11 @@
+{
+  "stub_layers": {
+    "00_core": true,
+    "01_python_stdlib": true,
+    "02_scientific_and_ai": false,
+    "03_typeshed_replica": false,
+    "dedicated_stubs": true
+  },
+  "disabled_packages": ["matplotlib"],
+  "preferred_surface": 2
+}

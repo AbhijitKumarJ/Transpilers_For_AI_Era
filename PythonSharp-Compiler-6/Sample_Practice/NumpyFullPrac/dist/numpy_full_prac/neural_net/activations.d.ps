@@ -1,0 +1,35 @@
+// Auto-generated ambient declarations by PythonSharp (psc)
+namespace NumpyFullPrac.NeuralNet.Activations;
+
+using PythonSharp.Core;
+
+public class LeakyReluActivation
+{
+    public double Alpha;
+    public extern LeakyReluActivation(double alpha = 0.01);
+    public extern NDArray<double> Forward(NDArray<double> z);
+    public extern NDArray<double> Backward(NDArray<double> a);
+}
+
+public class ReluActivation
+{
+    public static extern NDArray<double> Forward(NDArray<double> z);
+    public static extern NDArray<double> Backward(NDArray<double> a);
+}
+
+public class SigmoidActivation
+{
+    public static extern NDArray<double> Forward(NDArray<double> z);
+    public static extern NDArray<double> Backward(NDArray<double> a);
+}
+
+public class SoftmaxActivation
+{
+    public static extern NDArray<double> Forward(NDArray<double> z);
+}
+
+public class TanhActivation
+{
+    public static extern NDArray<double> Forward(NDArray<double> z);
+    public static extern NDArray<double> Backward(NDArray<double> a);
+}

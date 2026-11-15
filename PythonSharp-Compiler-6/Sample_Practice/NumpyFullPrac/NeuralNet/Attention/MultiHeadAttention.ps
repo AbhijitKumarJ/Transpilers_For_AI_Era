@@ -1,0 +1,63 @@
+namespace NumpyFullPrac.NeuralNet.Attention;
+
+extern using numpy as _np;
+extern using numpy.random as _nprand;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+
+public class MultiHeadAttention
+{
+    public int ModelDim;
+    public int NumHeads;
+    public int HeadDim;
+    public NDArray<double> Wq;
+    public NDArray<double> Wk;
+    public NDArray<double> Wv;
+    public NDArray<double> Wo;
+
+    public MultiHeadAttention(int modelDim, int numHeads)
+    {
+        this.ModelDim = modelDim;
+        this.NumHeads = numHeads;
+        this.HeadDim = modelDim / numHeads;
+
+        double scale = 1.0 / _np.sqrt(1.0 * modelDim);
+        this.Wq = _nprand.randn(modelDim, modelDim) * scale;
+        this.Wk = _nprand.randn(modelDim, modelDim) * scale;
+        this.Wv = _nprand.randn(modelDim, modelDim) * scale;
+        this.Wo = _nprand.randn(modelDim, modelDim) * scale;
+    }
+
+    public NDArray<double> Forward(NDArray<double> x, bool useCausalMask = false)
+    {
+        dynamic dynX = x;
+        dynamic wq = this.Wq;
+        dynamic wk = this.Wk;
+        dynamic wv = this.Wv;
+        dynamic wo = this.Wo;
+
+        dynamic q = _np.dot(dynX, wq);
+        dynamic k = _np.dot(dynX, wk);
+        dynamic v = _np.dot(dynX, wv);
+
+        List<object> headOutputs = new List<object>();
+
+        for (int h = 0; h < this.NumHeads; h++)
+        {
+            int startIdx = h * this.HeadDim;
+            int endIdx = startIdx + this.HeadDim;
+
+            dynamic qHead = q[.., startIdx..endIdx];
+            dynamic kHead = k[.., startIdx..endIdx];
+            dynamic vHead = v[.., startIdx..endIdx];
+
+            ScaledDotProductAttention attn = new ScaledDotProductAttention();
+            dynamic headOut = attn.Forward(qHead, kHead, vHead, useCausalMask);
+            headOutputs.Add(headOut);
+        }
+
+        dynamic concatenated = _np.hstack(headOutputs);
+        dynamic projected = _np.dot(concatenated, wo);
+        return projected;
+    }
+}

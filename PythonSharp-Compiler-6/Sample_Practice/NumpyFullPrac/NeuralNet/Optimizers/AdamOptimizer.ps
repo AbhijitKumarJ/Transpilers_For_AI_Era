@@ -1,0 +1,84 @@
+namespace NumpyFullPrac.NeuralNet.Optimizers;
+
+extern using numpy as _np;
+using PythonSharp.Core;
+using PythonSharp.Numerics.Tensors;
+using NumpyFullPrac.NeuralNet.Layers;
+
+public class AdamOptimizer
+{
+    public double LearningRate;
+    public double Beta1;
+    public double Beta2;
+    public double Epsilon;
+    public int T;
+    public bool Initialized;
+    public NDArray<double> Mw;
+    public NDArray<double> Vw;
+    public NDArray<double> Mb;
+    public NDArray<double> Vb;
+
+    public AdamOptimizer(double lr = 0.001, double beta1 = 0.9, double beta2 = 0.999, double epsilon = 1e-8)
+    {
+        this.LearningRate = lr;
+        this.Beta1 = beta1;
+        this.Beta2 = beta2;
+        this.Epsilon = epsilon;
+        this.T = 0;
+        this.Initialized = false;
+        this.Mw = null;
+        this.Vw = null;
+        this.Mb = null;
+        this.Vb = null;
+    }
+
+    public void Step(DenseLayer layer)
+    {
+        this.T = this.T + 1;
+        dynamic dynW = layer.Weights;
+        dynamic dynB = layer.Biases;
+        dynamic dynDW = layer.DWeights;
+        dynamic dynDB = layer.DBiases;
+
+        if (!this.Initialized)
+        {
+            this.Mw = _np.zeros_like(dynW);
+            this.Vw = _np.zeros_like(dynW);
+            this.Mb = _np.zeros_like(dynB);
+            this.Vb = _np.zeros_like(dynB);
+            this.Initialized = true;
+        }
+
+        dynamic curMw = this.Mw;
+        dynamic curVw = this.Vw;
+        dynamic curMb = this.Mb;
+        dynamic curVb = this.Vb;
+
+        // Moment updates
+        dynamic newMw = (this.Beta1 * curMw) + ((1.0 - this.Beta1) * dynDW);
+        dynamic newVw = (this.Beta2 * curVw) + ((1.0 - this.Beta2) * (dynDW * dynDW));
+        dynamic newMb = (this.Beta1 * curMb) + ((1.0 - this.Beta1) * dynDB);
+        dynamic newVb = (this.Beta2 * curVb) + ((1.0 - this.Beta2) * (dynDB * dynDB));
+
+        this.Mw = newMw;
+        this.Vw = newVw;
+        this.Mb = newMb;
+        this.Vb = newVb;
+
+        // Bias correction
+        double corr1 = 1.0 - _np.power(this.Beta1, 1.0 * this.T);
+        double corr2 = 1.0 - _np.power(this.Beta2, 1.0 * this.T);
+
+        dynamic mHatW = newMw / corr1;
+        dynamic vHatW = newVw / corr2;
+        dynamic mHatB = newMb / corr1;
+        dynamic vHatB = newVb / corr2;
+
+        // Weight updates
+        dynamic stepW = this.LearningRate * mHatW / (_np.sqrt(vHatW) + this.Epsilon);
+        dynamic stepB = this.LearningRate * mHatB / (_np.sqrt(vHatB) + this.Epsilon);
+
+        layer.Weights = dynW - stepW;
+        layer.Biases = dynB - stepB;
+    }
+}

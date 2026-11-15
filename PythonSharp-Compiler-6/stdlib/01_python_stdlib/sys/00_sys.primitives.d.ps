@@ -1,0 +1,75 @@
+namespace PythonSharp.System.Runtime;
+
+using PythonSharp.Core;
+extern using sys as _py_sys;
+
+[MapsTo("typing.TextIO")]
+[RuntimeType("object")]
+public primitive class TextOutputStream : IDisposable
+{
+    // --- Surface 1: Self-Documenting Enterprise Methods ---
+    [MapsTo("write")]
+    public extern int WriteRawText(string textContent);
+
+    [MapsTo("flush")]
+    public extern void FlushBuffer();
+
+    [MapsTo("close")]
+    public extern void Dispose();
+
+    // --- Surface 3: C#-Standardized Methods ---
+    [CanonicalApi("PythonSharp.System.Runtime.TextOutputStream.WriteRawText")]
+    [MapsTo("write")]
+    public extern int Write(string text);
+
+    [CanonicalApi("PythonSharp.System.Runtime.TextOutputStream.FlushBuffer")]
+    [MapsTo("flush")]
+    public extern void Flush();
+
+    // --- Surface 2: Raw Python snake_case Methods ---
+    [CanonicalApi("PythonSharp.System.Runtime.TextOutputStream.WriteRawText", "Write")]
+    [MapsTo("write")]
+    public extern int write(string s);
+
+    [CanonicalApi("PythonSharp.System.Runtime.TextOutputStream.FlushBuffer", "Flush")]
+    [MapsTo("flush")]
+    public extern void flush();
+}
+
+[MapsTo("sys.version_info")]
+[RuntimeType("tuple")]
+public primitive struct PythonVersionInfo
+{
+    [InlineTemplate("int({self}.major)")]
+    public extern int MajorVersion { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.PythonVersionInfo.MajorVersion")]
+    [InlineTemplate("int({self}.major)")]
+    public extern int Major { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.PythonVersionInfo.MajorVersion", "Major")]
+    [InlineTemplate("int({self}.major)")]
+    public extern int major { get; }
+
+    [InlineTemplate("int({self}.minor)")]
+    public extern int MinorVersion { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.PythonVersionInfo.MinorVersion")]
+    [InlineTemplate("int({self}.minor)")]
+    public extern int Minor { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.PythonVersionInfo.MinorVersion", "Minor")]
+    [InlineTemplate("int({self}.minor)")]
+    public extern int minor { get; }
+
+    [InlineTemplate("int({self}.micro)")]
+    public extern int PatchVersion { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.PythonVersionInfo.PatchVersion")]
+    [InlineTemplate("int({self}.micro)")]
+    public extern int Micro { get; }
+
+    [CanonicalApi("PythonSharp.System.Runtime.PythonVersionInfo.PatchVersion", "Micro")]
+    [InlineTemplate("int({self}.micro)")]
+    public extern int micro { get; }
+}

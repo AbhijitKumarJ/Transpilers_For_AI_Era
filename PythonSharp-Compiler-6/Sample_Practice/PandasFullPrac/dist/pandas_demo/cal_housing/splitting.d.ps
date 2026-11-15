@@ -1,0 +1,17 @@
+// Auto-generated ambient declarations by PythonSharp (psc)
+namespace PandasDemo.CalHousing.Splitting;
+
+using PythonSharp.Core;
+
+public class DatasetSplitResult
+{
+    public DataFrame XTrain;
+    public DataFrame XTest;
+    public Series YTrain;
+    public Series YTest;
+}
+
+public class DatasetSplitter
+{
+    public static extern DatasetSplitResult Split(DataFrame df, float testRatio);
+}
